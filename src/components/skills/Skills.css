@@ -1,0 +1,91 @@
+/********* Skill Circle **************/
+  .circular-chart {
+    display: block;
+    margin: 10px auto;
+    max-width: 80%;
+    max-height: 250px;
+  }
+  
+  .circle-bg {
+    fill: none;
+    stroke: #eee;
+    stroke-width: 3.8;
+  }
+  
+  .circle {
+    fill: none;
+    stroke-width: 2.8;
+    stroke-linecap: round;
+    animation: progress 1s ease-out forwards;
+  }
+  
+  @keyframes progress {
+    0% {
+      stroke-dasharray: 0 100;
+    }
+  }
+  
+  .circular-chart.orange .circle {
+    stroke: #ff9f00;
+  }
+  
+  .circular-chart.green .circle {
+    stroke: #4CC790;
+  }
+  
+  .circular-chart.blue .circle {
+    stroke: #3c9ee5;
+  }
+
+  .circular-chart.purple .circle {
+    stroke: #ae00ff;
+  }
+  
+  .percentage {
+    fill: #fff;
+    font-family: sans-serif;
+    font-size: 0.6em;
+    text-anchor: middle;
+  }
+
+  /************ Skills ************/
+
+  .skills {
+    padding: 0 0 50px 0;
+    position: relative;
+  }
+  .skills-bx {
+    background: #151515;
+    border-radius: 64px;
+    text-align: center;
+    padding: 60px 50px;
+    margin-top: -60px;
+  }
+  .skills h2 {
+      font-size: 45px;
+      font-weight: 700;
+  }
+  .skills p {
+      color: #B8B8B8;
+      font-size: 18px;
+      letter-spacing: 0.8px;
+      line-height: 1.5em;
+      margin: 14px 0 75px 0;
+  }
+  .skills-slider {
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+  }
+  .skills-slider .item {
+    width: 50%;
+    margin: 0 auto 15px auto;
+  }
+  .background-image-left {
+    top: 28%;
+    position: absolute;
+    bottom: 0;
+    width: 40%;
+    z-index: -4;
+  }
+  
