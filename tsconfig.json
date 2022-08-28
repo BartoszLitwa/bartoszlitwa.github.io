@@ -24,8 +24,8 @@
     "./custom.d.ts",
     "src",
     "src/components",
-    "src/components/NavBar",
+    "src/components/*",
     "src/assets",
-    "src/assets/img"
+    "src/assets/*"
   ]
 }
