@@ -1,6 +1,8 @@
+import React from "react"
 import { useEffect, useState } from "react"
 import { Button, Col, Container, Row } from "react-bootstrap"
 import { ArrowRightCircle } from "react-bootstrap-icons"
+import TrackVisibility from "react-on-screen"
 import headerImg from '../../assets/img/header-img.svg'
 import './Banner.css'
 
@@ -47,17 +49,23 @@ const Banner = () => {
             <Container>
                 <Row className="align-items-center">
                     <Col xs={12} md={6} xl={7}>
-                        <span className="tagline">
-                            Welcome to my Portfolio Website
-                        </span>
-                        <h1>{`Hi! My name is Bartosz. I'm `}<span className="wrap">{text}</span></h1>
-                        <p>My name is Bartosz Litwa and I am a student at the Polish-Japanese Academy of Information Technology,
-                             majoring in Computer Science (extramural studies). I'm Self-taught hard-working student seeking
-                              to excel his career as a Software Engineer. I would love to continue my education in the field
-                               of computer science - programming and gain the experience and new skills as a Full-Stack React and .Net Developer. </p>
-                        <Button onClick={() => console.log('connect')}>
-                            Let's Connect <ArrowRightCircle size={25}></ArrowRightCircle>
-                        </Button>
+                        <TrackVisibility >
+                            { ({ isVisible }) => 
+                            <div className={isVisible ? "animate" : ""}>
+                                <span className="tagline">
+                                    Welcome to my Portfolio Website
+                                </span>
+                                <h1>{`Hi! My name is Bartosz. I'm `}<span className="wrap">{text}</span></h1>
+                                <p>My name is Bartosz Litwa and I am a student at the Polish-Japanese Academy of Information Technology,
+                                    majoring in Computer Science (extramural studies). I'm Self-taught hard-working student seeking
+                                    to excel his career as a Software Engineer. I would love to continue my education in the field
+                                    of computer science - programming and gain the experience and new skills as a Full-Stack React and .Net Developer. </p>
+                                <Button onClick={() => console.log('connect')}>
+                                    Let's Connect <ArrowRightCircle size={25}></ArrowRightCircle>
+                                </Button>
+                            </div> 
+                            }
+                        </TrackVisibility>
                     </Col>
                     <Col xs={12} md={6} xl={5}>
                         <img src={headerImg} alt="Header"/>
