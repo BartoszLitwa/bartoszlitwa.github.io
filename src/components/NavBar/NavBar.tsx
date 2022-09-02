@@ -40,7 +40,7 @@ const NavBar = () => {
                     <span className="navbar-toggler-icon"></span>
                 </Navbar.Toggle>
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="me-auto">
+                    <Nav className="me-auto mx-5">
                         <Nav.Link href="#home" className={`navbar-link ${activeLink === '#home' ? 'active' : ''}`}
                         onClick={() => onUpdateActiveLink('#home')}>Home</Nav.Link>
                         <Nav.Link href="#skills" className={`navbar-link ${activeLink === '#skills' ? 'active' : ''}`}
@@ -51,10 +51,10 @@ const NavBar = () => {
                     <span className="navbar-text">
                         <div className="social-icon">
                             <a href="https://www.linkedin.com/in/bartoszlitwa/"><img src={navIcon1} alt="LinkedIn page"></img></a>
-                            <a href="https://github.com/BartoszLitwa"><img src={navIcon2} alt="Github Page"></img></a>
-                            <a href="https://bartoszlitwa.github.io"><img src={navIcon3} alt="Portfolio Page"></img></a>
+                            <a href="https://github.com/BartoszLitwa"><img src="https://github.com/devicons/devicon/raw/master/icons/github/github-original.svg" alt="Github Page"></img></a>
+                            <a href="https://litwa.dev"><img src={logo} alt="Portfolio Page"></img></a>
                         </div>
-                        <Button className="vvd" onClick={() => console.log('connect')}>
+                        <Button className="vvd" onClick={() => onUpdateActiveLink('#contact')}>
                             <span>Let's Connect</span>
                         </Button>
                     </span>
