@@ -19,7 +19,7 @@ const Projects = () => {
             description: "Minecraft Clone built in Unity using C#",
             imgUrl: require('../../assets/mineandcry/terrain.png'),
             type: ".Net",
-            url: "https://github.com/BartoszLitwa/Minecraft-Unity",
+            url: "https://github.com/BartoszLitwa/MineAndCry",
         },
         {
             title: "Portfolio",
@@ -65,10 +65,17 @@ const Projects = () => {
         },
         {
             title: "Discord Bot",
-            description: "Discord Bot made to play music on channels, display memes, show memes and user's reputation",
-            imgUrl: require('../../assets/img/project-img3.png'),
+            description: "Discord Bot made to play music on channels, display memes, show League of Legends data and user's reputation",
+            imgUrl: require('../../assets/discord bot/logo.png'),
             type: ".Net",
             url: "https://github.com/BartoszLitwa/DiscordNetBot",
+        },
+        {
+            title: "C# CSGO Cheat",
+            description: "C# winforms external CSGO cheat with features such as aimbot, esp, skinchanger and more",
+            imgUrl: require('../../assets/C# csgo cheat/colors.jpg'),
+            type: ".Net",
+            url: "https://github.com/BartoszLitwa/C-Cheat",
         },
     ]
 

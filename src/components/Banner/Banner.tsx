@@ -51,11 +51,11 @@ const Banner = () => {
                     <Col xs={12} md={6} xl={7}>
                         <TrackVisibility >
                             { ({ isVisible }) => 
-                            <div className={isVisible ? "animate" : ""}>
+                            <div className={isVisible ? "" : ""}>
                                 <span className="tagline">
                                     Welcome to my Portfolio Website
                                 </span>
-                                <h1>{`Hi! My name is Bartosz. I'm `}<span className="wrap">{text}</span></h1>
+                                <h1>{`Hi! I'm `}<span className="wrap">{text}</span></h1>
                                 <p>My name is Bartosz Litwa and I am a student at the Polish-Japanese Academy of Information Technology,
                                     majoring in Computer Science (extramural studies). I'm Self-taught hard-working student seeking
                                     to excel his career as a Software Engineer. I would love to continue my education in the field
@@ -68,7 +68,7 @@ const Banner = () => {
                         </TrackVisibility>
                     </Col>
                     <Col xs={12} md={6} xl={5}>
-                        <img src={headerImg} alt="Header"/>
+                        <img width={window.screen.width - 50} src={headerImg} alt="Header"/>
                     </Col>
                 </Row>
             </Container>
