@@ -1,37 +1,7 @@
 import { Row, Col, Container } from "react-bootstrap"
-import Carousel from "react-multi-carousel"
 import SkillCircle from "./SkillCircle"
-import colorSharp from '../../assets/img/color-sharp.png'
-import meter from '../../assets/img/meter1.svg'
-
-{/* <SkillCircle percentage={25} text="Beginner"/>
-                                <SkillCircle percentage={55} text="Intermiediate" />
-                                <SkillCircle percentage={75} text="Advanced" /> */}
 
 const Skills = () => {
-    const responsive = {
-        superLargerDesktop: {
-            breakpoint: {max: 4000, min: 3000},
-            items: 5,
-            partialVisibilityGutter: 30
-        },
-        desktop: {
-            breakpoint: {max: 2999, min: 1024},
-            items: 3,
-            partialVisibilityGutter: 30
-        },
-        tablet: {
-            breakpoint: {max: 1023, min: 464},
-            items: 2,
-            partialVisibilityGutter: 30
-        },
-        mobile: {
-            breakpoint: {max: 463, min: 0},
-            items: 1,
-            partialVisibilityGutter: 30
-        },
-    }
-
     return (
         <section className="skills" id="skills">
             <Container>
@@ -42,12 +12,26 @@ const Skills = () => {
                                 Skills
                             </h2>
                             <p>All technologies that I've been using: </p>
-                            <div className="d-flex flex-row">
-                                <SkillCircle percentage={70} text=".NET" />
-                                <SkillCircle percentage={50} text="React" />
-                                <SkillCircle percentage={100} text="Java" />
-                                <SkillCircle percentage={20} text="C++" />
-                            </div>
+                            <Row>
+                                <SkillCircle percentage={90} text=".NET" />
+                                <SkillCircle percentage={70} text="React" />
+                                <SkillCircle percentage={70} text="Flutter" />
+                                <SkillCircle percentage={50} text="Java, Python" />
+                                <SkillCircle percentage={50} text="HTML, CSS" />
+                                <SkillCircle percentage={50} text="C++" />
+                            </Row>
+                            <h2>
+                                Programs
+                            </h2>
+                            <p>All Programs that I've been using: </p>
+                            <Row>
+                                <SkillCircle percentage={80} text="Visual Studio" />
+                                <SkillCircle percentage={80} text="Visual Studio Code" />
+                                <SkillCircle percentage={70} text="Postman, Insomnia" />
+                                <SkillCircle percentage={70} text="Github, TFS" />
+                                <SkillCircle percentage={50} text="Docker, Github Actions" />
+                                <SkillCircle percentage={50} text="Fusion 360" />
+                            </Row>
                         </div>
                     </Col>
                 </Row>

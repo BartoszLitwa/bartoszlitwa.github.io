@@ -1,6 +1,6 @@
 import React from "react"
 import { useEffect, useState } from "react"
-import { Button, Col, Container, Row } from "react-bootstrap"
+import { Button, Col, Container, Nav, Row } from "react-bootstrap"
 import { ArrowRightCircle } from "react-bootstrap-icons"
 import TrackVisibility from "react-on-screen"
 import headerImg from '../../assets/img/header-img.svg'
@@ -60,9 +60,11 @@ const Banner = () => {
                                     majoring in Computer Science (extramural studies). I'm Self-taught hard-working student seeking
                                     to excel his career as a Software Engineer. I would love to continue my education in the field
                                     of computer science - programming and gain the experience and new skills as a Full-Stack React and .Net Developer. </p>
-                                <Button onClick={() => console.log('connect')}>
-                                    Let's Connect <ArrowRightCircle size={25}></ArrowRightCircle>
-                                </Button>
+                                <Nav.Link href="#contact">
+                                    <Button >
+                                        Let's Connect <ArrowRightCircle size={25}></ArrowRightCircle>
+                                    </Button>
+                                </Nav.Link>
                             </div> 
                             }
                         </TrackVisibility>

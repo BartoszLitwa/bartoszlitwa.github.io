@@ -4,13 +4,15 @@ import './Experience.css'
 
 const Experience = () => {
     return (
-        <section id="experience">
+        <section className="experience" id="experience">
             <Container>
                 <Row>
                     <Col>
-                        <h2>
-                            Experience
-                        </h2>
+                        <div className="experience-bx">
+                            <h2>
+                                Experience
+                            </h2>
+                        </div>
                     </Col>
                 </Row>
             </Container>

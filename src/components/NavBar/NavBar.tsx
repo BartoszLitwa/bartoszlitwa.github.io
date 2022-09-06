@@ -53,7 +53,7 @@ const NavBar = () => {
                             <a href="https://litwa.dev"><img src={logo} height={40} alt="Portfolio Page"></img></a>
                         </div>
                         <Nav.Link href="#contact" onClick={() => onUpdateActiveLink('#contact')}>
-                            <Button className="vvd" onClick={() => onUpdateActiveLink('#contact')}>
+                            <Button className="" onClick={() => onUpdateActiveLink('#contact')}>
                                 <span>Let's Connect</span>
                             </Button>
                         </Nav.Link>
