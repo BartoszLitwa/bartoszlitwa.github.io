@@ -93,9 +93,7 @@ const Projects = () => {
             <Container>
                 <Row>
                     <Col>
-                        <h2>Projects</h2>
-                        <p>Projects aobut</p>
-
+                        <h2 className="mb-5">Projects</h2>
                         <Tab.Container id="projects-tabs" defaultActiveKey="All">
                             <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center"
                                 id="pills-nav">

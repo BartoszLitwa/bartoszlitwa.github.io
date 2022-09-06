@@ -68,7 +68,7 @@ const Banner = () => {
                         </TrackVisibility>
                     </Col>
                     <Col xs={12} md={6} xl={5}>
-                        <img width={window.screen.width - 50} src={headerImg} alt="Header"/>
+                        <img width={window.screen.width - 50 > 600 ? 600 : window.screen.width - 50} src={headerImg} alt="Header"/>
                     </Col>
                 </Row>
             </Container>

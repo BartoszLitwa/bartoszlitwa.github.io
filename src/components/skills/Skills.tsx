@@ -41,18 +41,18 @@ const Skills = () => {
                             <h2>
                                 Skills
                             </h2>
-                            <p>Skills about</p>
-                            <Carousel responsive={responsive} infinite={true} className="skills-slider">
-                                <div className="item">
-                                    <img src={meter} alt="im"></img>
-                                    <h5>Web Developement</h5>
-                                </div>
-                            </Carousel>
+                            <p>All technologies that I've been using: </p>
+                            <div className="d-flex flex-row">
+                                <SkillCircle percentage={70} text=".NET" />
+                                <SkillCircle percentage={50} text="React" />
+                                <SkillCircle percentage={100} text="Java" />
+                                <SkillCircle percentage={20} text="C++" />
+                            </div>
                         </div>
                     </Col>
                 </Row>
             </Container>
-            <img src={colorSharp} className="background-image-left" alt="Color Sharp"></img>
+            {/* <img src={colorSharp} className="background-image" alt="Color Sharp"></img> */}
         </section>
     )
 }

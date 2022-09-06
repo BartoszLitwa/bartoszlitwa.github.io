@@ -18,7 +18,7 @@ const SkillCircle = ({percentage, text}: {percentage: number, text: string}) => 
             />
             <text x="18" y="20.35" className="percentage">{percentage + "%"}</text>
             </svg>
-            <p>{text}</p>
+            <p><b>{text}</b></p>
         </div>
     )
 }

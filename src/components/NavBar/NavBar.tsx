@@ -4,9 +4,6 @@ import { Button, Container, Nav, Navbar } from "react-bootstrap"
 import './NavBar.css'
 import '../../App.css'
 import logo from '../../assets/img/logo.png'
-import navIcon1 from '../../assets/img/nav-icon1.svg'
-import navIcon2 from '../../assets/img/nav-icon2.svg'
-import navIcon3 from '../../assets/img/nav-icon3.svg'
 
 const NavBar = () => {
     const [activeLink, setActiveLink] = useState('#home');
@@ -40,7 +37,7 @@ const NavBar = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" style={{marginTop: -30}}>
                     <span className="navbar-toggler-icon"></span>
                 </Navbar.Toggle>
-                <Navbar.Collapse id="basic-navbar-nav">
+                <Navbar.Collapse id="basic-navbar-nav" style={{marginTop: -30}}>
                     <Nav className="me-auto mx-5">
                         <Nav.Link href="#home" className={`navbar-link ${activeLink === '#home' ? 'active' : ''}`}
                         onClick={() => onUpdateActiveLink('#home')}>Home</Nav.Link>
@@ -55,9 +52,11 @@ const NavBar = () => {
                             <a href="https://github.com/BartoszLitwa"><img height={40} src="https://github.com/devicons/devicon/raw/master/icons/github/github-original.svg" alt="Github Page"></img></a>
                             <a href="https://litwa.dev"><img src={logo} height={40} alt="Portfolio Page"></img></a>
                         </div>
-                        <Button className="vvd" onClick={() => onUpdateActiveLink('#contact')}>
-                            <span>Let's Connect</span>
-                        </Button>
+                        <Nav.Link href="#contact" onClick={() => onUpdateActiveLink('#contact')}>
+                            <Button className="vvd" onClick={() => onUpdateActiveLink('#contact')}>
+                                <span>Let's Connect</span>
+                            </Button>
+                        </Nav.Link>
                     </span>
                 </Navbar.Collapse>
             </Container>
