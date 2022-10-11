@@ -43,6 +43,8 @@ const NavBar = () => {
                         onClick={() => onUpdateActiveLink('#home')}>Home</Nav.Link>
                         <Nav.Link href="#skills" className={`navbar-link ${activeLink === '#skills' ? 'active' : ''}`}
                         onClick={() => onUpdateActiveLink('#skills')}>Skills</Nav.Link>
+                        <Nav.Link href="#experience" className={`navbar-link ${activeLink === '#experience' ? 'active' : ''}`}
+                        onClick={() => onUpdateActiveLink('#experience')}>Experience</Nav.Link>
                         <Nav.Link href="#projects" className={`navbar-link ${activeLink === '#projects' ? 'active' : ''}`}
                         onClick={() => onUpdateActiveLink('#projects')}>Projects</Nav.Link>
                     </Nav>
