@@ -1,3 +1,4 @@
+import React from "react"
 import { Row, Col, Container } from "react-bootstrap"
 import TrackVisibility from "react-on-screen"
 import SkillCircle from "./SkillCircle"

@@ -1,13 +1,38 @@
-  /************ Skills ************/
+/************ Experience ************/
 
-  .experience {
-    padding: 0 0 50px 0;
-    position: relative;
-  }
-  .experience-bx {
-    background: #151515;
-    border-radius: 64px;
-    text-align: center;
-    padding: 60px 50px;
-    margin-top: 30px;
-  }
+.experience {
+  padding: 0 0 50px 0;
+  position: relative;
+}
+.experience-bx {
+  background: #151515;
+  border-radius: 64px;
+  text-align: center;
+  padding: 60px 50px;
+  margin-top: 30px;
+}
+.experienceCard-bx {
+  /* background: #1f1f1f; */
+  border-radius: 24px;
+  text-align: center;
+  padding: 20px 40px;
+  margin-top: 30px;
+}
+.experienceCard-date{
+  flex: 0 0 30px;
+  font-size: 13px;
+  color: #fff;
+  font-weight: bold;
+}
+.achievement-bx {
+  background: #151515;
+  color: white;
+  text-align: start;
+  border-color: #4d4d4d;
+}
+.verticalLine {
+  flex: 1 1 auto;
+  margin: 16px 0px;
+  width: 3px;
+  background-color: #4d4d4d;
+}

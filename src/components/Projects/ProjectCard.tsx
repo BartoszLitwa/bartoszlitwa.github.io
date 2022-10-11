@@ -1,5 +1,6 @@
 import React from "react";
 import { Col } from "react-bootstrap";
+import './Projects.css';
 
 const ProjectCard = ({ card }: {card: any}) => {
     return (
