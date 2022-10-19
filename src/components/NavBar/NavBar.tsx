@@ -51,11 +51,11 @@ const NavBar = () => {
                     <span className="navbar-text">
                         <div className="social-icon">
                             <a href="https://www.linkedin.com/in/bartoszlitwa/"><img height={40} src="https://github.com/devicons/devicon/raw/master/icons/linkedin/linkedin-plain.svg" alt="LinkedIn page"></img></a>
-                            <a href="https://github.com/BartoszLitwa"><img height={40} src="https://github.com/devicons/devicon/raw/master/icons/github/github-original.svg" alt="Github Page"></img></a>
+                            <a href="https://github.com/BartoszLitwa"><img height={40} src={require("../../assets/img/github.png")} alt="Github Page"></img></a>
                             <a href="https://litwa.dev"><img src={logo} height={40} alt="Portfolio Page"></img></a>
                         </div>
                         <Nav.Link href="#contact" onClick={() => onUpdateActiveLink('#contact')}>
-                            <Button className="" onClick={() => onUpdateActiveLink('#contact')}>
+                            <Button>
                                 <span>Let's Connect</span>
                             </Button>
                         </Nav.Link>

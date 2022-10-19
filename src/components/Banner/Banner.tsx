@@ -3,7 +3,6 @@ import { useEffect, useState } from "react"
 import { Button, Col, Container, Nav, Row } from "react-bootstrap"
 import { ArrowRightCircle } from "react-bootstrap-icons"
 import TrackVisibility from "react-on-screen"
-import headerImg from '../../assets/img/header-img.svg'
 import './Banner.css'
 
 const Banner = () => {
@@ -55,12 +54,12 @@ const Banner = () => {
                                 <span className="tagline">
                                     Welcome to my Portfolio Website
                                 </span>
-                                <h1>{`Hi! I'm `}<span className="wrap">{text}</span></h1>
+                                <h1>{`Hi! I'm `}<span className="no-wrap">{text}</span></h1>
                                 <p>My name is Bartosz Litwa and I am a student at the Polish-Japanese Academy of Information Technology,
                                     majoring in Computer Science (extramural studies). I'm Self-taught hard-working student seeking
                                     to excel his career as a Software Engineer. I would love to continue my education in the field
                                     of computer science - programming and gain the experience and new skills as a Full-Stack React and .Net Developer. </p>
-                                <Nav.Link href="#contact">
+                                <Nav.Link href="#contact" className="navbar-text">
                                     <Button >
                                         Let's Connect <ArrowRightCircle size={25}></ArrowRightCircle>
                                     </Button>
@@ -70,7 +69,6 @@ const Banner = () => {
                         </TrackVisibility>
                     </Col>
                     <Col xs={12} md={6} xl={5}>
-                        <img width={window.screen.width - 50 > 600 ? 600 : window.screen.width - 50} src={headerImg} alt="Header"/>
                     </Col>
                 </Row>
             </Container>

@@ -4,6 +4,10 @@
   padding: 0 0 50px 0;
   position: relative;
 }
+.experience h2 {
+  font-size: 45px;
+  font-weight: 700;
+}
 .experience-bx {
   background: #151515;
   border-radius: 64px;
@@ -32,7 +36,7 @@
 }
 .verticalLine {
   flex: 1 1 auto;
-  margin: 16px 0px;
+  margin: 15px 0px;
   width: 3px;
   background-color: #4d4d4d;
 }
