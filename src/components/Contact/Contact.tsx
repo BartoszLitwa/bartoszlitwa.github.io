@@ -3,6 +3,7 @@ import { Row, Col, Container, Form, Button } from "react-bootstrap";
 import contactImg from '../../assets/img/contact-img.svg'
 import './Contact.css'
 import emailjs from '@emailjs/browser';
+import LaptopModel from "./LaptopModel";
 
 const Contact = () => {
     const formInitialDetails = {
@@ -60,7 +61,10 @@ const Contact = () => {
             <Container>
                 <Row className="align-items-center">
                     <Col md={6}>
-                        <img src={contactImg} alt="Contact Us" />
+                        {/* <img src={contactImg} alt="Contact Us" /> */}
+                        <div className="canvas-container">
+                            <LaptopModel></LaptopModel>
+                        </div>
                     </Col>
                     <Col md={6}>
                         <h2>Get In Touch</h2>
@@ -89,9 +93,9 @@ const Contact = () => {
                                 <Col sm={12} className="px-1">
                                     <textarea value={formDetails.message} placeholder="Message"
                                         onChange={onChangeForm} name="message" />
-                                    <Button type="submit">
+                                    <button type="submit">
                                         <span>{buttonText}</span>
-                                    </Button>
+                                    </button>
                                 </Col>
                                 <Col>
                                     {

@@ -39,7 +39,7 @@ const ExperienceCard = ({experience}: {experience: any}) => {
                             {
                                 experience.achievements.map((ach: string) => {
                                     return (
-                                        <ListGroup.Item className="achievement-bx d-flex justify-content-start" as="li">
+                                        <ListGroup.Item key={`expIt-${ach.slice(0, 15)}`} className="achievement-bx d-flex justify-content-start" as="li">
                                             {ach}
                                         </ListGroup.Item>
                                     )

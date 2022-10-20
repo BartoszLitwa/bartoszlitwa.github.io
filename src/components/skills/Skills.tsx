@@ -98,15 +98,16 @@ const Skills = () => {
 
     const [screenSize, setScreenSize] = useState(1024);
     const [isMobile, setIsMobile] = useState(false);
+    const mobileSize = 768;
 
     useLayoutEffect(() => {
         setScreenSize(window.innerWidth);
-        setIsMobile(window.innerWidth < 1000);
+        setIsMobile(window.innerWidth < mobileSize);
 
         window.addEventListener('resize', () => {
             setScreenSize(window.innerWidth)
 
-            setIsMobile(window.innerWidth < 1000);
+            setIsMobile(window.innerWidth < mobileSize);
         });
 
         return () => window.removeEventListener('resize', () => setScreenSize(window.innerWidth));
@@ -124,12 +125,12 @@ const Skills = () => {
                                             Skills
                                         </h2>
                                         <p>All technologies that I've been using: </p>
-                                        <Row className={!isMobile ? "f-flex flex-nowrap" : ""}>
+                                        <Row className={!isMobile ? "f-flex justify-content-center" : ""}>
                                             {isMobile && <hr />}
                                             {
                                                 technologies.map((tech, index) => {
                                                     return (
-                                                        <SkillCircle percentage={tech.percentage} text={tech.text} images={tech.images} isMobile={isMobile}/>
+                                                        <SkillCircle key={`sc-${tech.text}`} percentage={tech.percentage} text={tech.text} images={tech.images} isMobile={isMobile}/>
                                                     )
                                                 })
                                             }
@@ -138,12 +139,12 @@ const Skills = () => {
                                             Programs
                                         </h2>
                                         <p>All Programs that I've been using: </p>
-                                        <Row className={!isMobile ? "f-flex flex-nowrap" : ""}>
+                                        <Row className={!isMobile ? "f-flex justify-content-center" : ""}>
                                             {isMobile && <hr />}
                                             {
                                                 programs.map((prog,index) => {
                                                     return (
-                                                        <SkillCircle percentage={prog.percentage} text={prog.text} images={prog.images} isMobile={isMobile}/>
+                                                        <SkillCircle key={`sc-${prog.text}`} percentage={prog.percentage} text={prog.text} images={prog.images} isMobile={isMobile}/>
                                                     )
                                                 })
                                             }

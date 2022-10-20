@@ -1,7 +1,7 @@
 /********* Skill Circle **************/
   .circular-chart {
     display: block;
-    margin: 10px auto;
+    margin: 10px 10px;
     max-width: 80%;
     max-height: 150px;
   }
@@ -58,7 +58,7 @@
     background: #151515;
     border-radius: 64px;
     text-align: center;
-    padding: 60px 50px;
+    padding: 60px 10px;
     margin-top: -60px;
   }
   .skills h2 {

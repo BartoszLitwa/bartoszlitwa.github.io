@@ -9,20 +9,20 @@ const Footer = () => {
         <footer className="footer">
             <Container>
                 <Row className="align-item-center">
-                        <Col sm={6}>
+                        <Col sm={6} style={{marginTop: "-20px"}}>
                             <img src={logo} alt="logo" />
                         </Col>
-                        <Col sm={6}>
+                        <Col sm={6} style={{marginTop: "10px"}}>
                             <span className="navbar-text">
                                 <div className="social-icon">
-                                    <a href="https://www.linkedin.com/in/bartoszlitwa/"><img height={40} src="https://github.com/devicons/devicon/raw/master/icons/linkedin/linkedin-plain.svg" alt="LinkedIn page"></img></a>
-                                    <a href="https://github.com/BartoszLitwa"><img height={40} src="https://github.com/devicons/devicon/raw/master/icons/github/github-original.svg" alt="Github Page"></img></a>
-                                    <a href="https://litwa.dev"><img src={logo} height={40} alt="Portfolio Page"></img></a>
+                                    <a href="https://www.linkedin.com/in/bartoszlitwa/"><img src="https://github.com/devicons/devicon/raw/master/icons/linkedin/linkedin-plain.svg" alt="LinkedIn page"></img></a>
+                                    <a href="https://github.com/BartoszLitwa"><img src={require("../../assets/img/github.png")} alt="Github Page"></img></a>
+                                    <a href="https://litwa.dev"><img src={logo} alt="Portfolio Page"></img></a>
                                 </div>
                                 <Nav.Link href="#contact" >
-                                    <Button className="">
+                                    <button className="">
                                         <span>Let's Connect</span>
-                                    </Button>
+                                    </button>
                                 </Nav.Link>
                             </span>
                         </Col>

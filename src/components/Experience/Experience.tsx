@@ -58,7 +58,7 @@ const Experience = () => {
     const generateCards = () => {
         return experiences.map(exp => {
             return (
-                <ExperienceCard experience={exp}/>
+                <ExperienceCard key={`exp-${exp.title}`} experience={exp}/>
             )
         })
     }

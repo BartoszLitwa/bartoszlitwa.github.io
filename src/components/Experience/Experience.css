@@ -12,14 +12,14 @@
   background: #151515;
   border-radius: 64px;
   text-align: center;
-  padding: 60px 50px;
+  padding: 60px 10px;
   margin-top: 30px;
 }
 .experienceCard-bx {
   /* background: #1f1f1f; */
   border-radius: 24px;
   text-align: center;
-  padding: 20px 40px;
+  padding: 20px 20px;
   margin-top: 30px;
 }
 .experienceCard-date{
