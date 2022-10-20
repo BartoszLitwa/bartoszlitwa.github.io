@@ -30,6 +30,10 @@ const Footer = () => {
                 <Row style={{marginTop: "-10px"}}>
                     <Col>
                         <p>Copyright 2022. All rights Reserved</p>
+                        <div className="d-none">
+                            <img src="https://hitwebcounter.com/counter/counter.php?page=8054486&style=0038&nbdigits=5&type=ip&initCount=0" />   
+                            <img src="https://hitwebcounter.com/counter/counter.php?page=8054486&style=0038&nbdigits=5&type=page&initCount=0" />      
+                        </div> 
                     </Col>
                 </Row>
             </Container>
