@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Row, Col, Container, Form, Button } from "react-bootstrap";
-import contactImg from '../../assets/img/contact-img.svg'
 import './Contact.css'
 import emailjs from '@emailjs/browser';
 import LaptopModel from "./LaptopModel";
