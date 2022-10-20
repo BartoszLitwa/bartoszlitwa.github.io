@@ -9,25 +9,25 @@ const Footer = () => {
         <footer className="footer">
             <Container>
                 <Row className="align-item-center">
-                        <Col sm={6} style={{marginTop: "-20px"}}>
+                        <Col sm={6} style={{marginTop: "-10px"}}>
                             <img src={logo} alt="logo" />
                         </Col>
                         <Col sm={6} style={{marginTop: "10px"}}>
                             <span className="navbar-text">
                                 <div className="social-icon">
-                                    <a href="https://www.linkedin.com/in/bartoszlitwa/"><img src="https://github.com/devicons/devicon/raw/master/icons/linkedin/linkedin-plain.svg" alt="LinkedIn page"></img></a>
-                                    <a href="https://github.com/BartoszLitwa"><img src={require("../../assets/img/github.png")} alt="Github Page"></img></a>
-                                    <a href="https://litwa.dev"><img src={logo} alt="Portfolio Page"></img></a>
+                                    <a href="https://www.linkedin.com/in/bartoszlitwa/"><img height={40} src="https://github.com/devicons/devicon/raw/master/icons/linkedin/linkedin-plain.svg" alt="LinkedIn page"></img></a>
+                                    <a href="https://github.com/BartoszLitwa"><img height={40} src={require("../../assets/img/github.png")} alt="Github Page"></img></a>
+                                    <a href="https://litwa.dev"><img src={logo} height={40} alt="Portfolio Page"></img></a>
                                 </div>
-                                <Nav.Link href="#contact" >
-                                    <button className="">
+                                <Nav.Link href="#contact">
+                                    <button>
                                         <span>Let's Connect</span>
                                     </button>
                                 </Nav.Link>
                             </span>
                         </Col>
                 </Row>
-                <Row>
+                <Row style={{marginTop: "-10px"}}>
                     <Col>
                         <p>Copyright 2022. All rights Reserved</p>
                     </Col>

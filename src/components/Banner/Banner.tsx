@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useLayoutEffect } from "react"
 import { useEffect, useState } from "react"
 import { Button, Col, Container, Nav, Row } from "react-bootstrap"
 import { ArrowRightCircle } from "react-bootstrap-icons"
@@ -45,21 +45,38 @@ const Banner = () => {
         }
     }
 
+    const [screenSize, setScreenSize] = useState(1024);
+    const [isMobile, setIsMobile] = useState(false);
+    const mobileSize = 768;
+
+    useLayoutEffect(() => {
+        setScreenSize(window.innerWidth);
+        setIsMobile(window.innerWidth < mobileSize);
+
+        window.addEventListener('resize', () => {
+            setScreenSize(window.innerWidth)
+
+            setIsMobile(window.innerWidth < mobileSize);
+        });
+
+        return () => window.removeEventListener('resize', () => setScreenSize(window.innerWidth));
+    }, []);
+
     return (
         <section className="banner" id="home">
             <Container>
-                <div className="canvas-container">
+                <div className="canvas-container" style={{"top": `${isMobile ? 500 : 1}px `}}>
                     <RocketModel>
 
                     </RocketModel>
                 </div>
-                <Row className="align-items-center" style={{"zIndex": "10", "marginTop": "10%"}}>
+                <Row className="align-items-center" style={{"zIndex": "99999", "marginTop": "10%"}}>
                     <Col xs={12} md={6} xl={7}>
                         <span className="tagline">
                             Welcome to my Portfolio Website
                         </span>
                         <h1 className="text-nowrap">{`Hi! I'm ` + text.substring(0, text.indexOf(' ') > 0 ? text.indexOf(' ') : text.length)}</h1>
-                        <h1 className="text-nowrap">{text.indexOf(' ') > 0 ? text.substring(text.indexOf(' ') , text.length) : "     "}</h1>
+                        <h1 className="text-nowrap" style={{"height": "60px"}}>{text.indexOf(' ') > 0 ? text.substring(text.indexOf(' ') , text.length) : "     "}</h1>
                         <p className="mt-3">My name is Bartosz Litwa and I am a student at the Polish-Japanese Academy of Information Technology,
                             majoring in Computer Science (extramural studies). I'm Self-taught hard-working student seeking
                             to excel his career as a Software Engineer. I would love to continue my education in the field

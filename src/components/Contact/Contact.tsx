@@ -62,7 +62,7 @@ const Contact = () => {
                 <Row className="align-items-center">
                     <Col md={6}>
                         {/* <img src={contactImg} alt="Contact Us" /> */}
-                        <div className="canvas-container">
+                        <div className="canvas-container-laptop">
                             <LaptopModel></LaptopModel>
                         </div>
                     </Col>
@@ -93,9 +93,11 @@ const Contact = () => {
                                 <Col sm={12} className="px-1">
                                     <textarea value={formDetails.message} placeholder="Message"
                                         onChange={onChangeForm} name="message" />
-                                    <button type="submit">
-                                        <span>{buttonText}</span>
-                                    </button>
+                                    <div className="navbar-text">
+                                        <button type="submit" >
+                                            <span>{buttonText}</span>
+                                        </button>
+                                    </div>
                                 </Col>
                                 <Col>
                                     {

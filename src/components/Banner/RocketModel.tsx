@@ -26,7 +26,7 @@ const RocketModel = (props: { children: any}) => {
   return (
       <div>
         {props.children}
-        <Canvas dpr={[1.5, 2]} linear shadows>
+        <Canvas id={"rocketCanvas"} dpr={[1.5, 2]} linear shadows>
           <fog attach="fog" args={['#272730', 16, 30]} />
           <ambientLight intensity={0.75} />
           <PerspectiveCamera makeDefault position={[20, 0, 16]} fov={75}>
