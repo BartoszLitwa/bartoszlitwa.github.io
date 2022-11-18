@@ -7,6 +7,19 @@ const Experience = () => {
     const experiences = [
         {
             title: "Junior Full Stack Developer, Full Time",
+            company: "KPMG",
+            companyLogo: require('../../assets/companyLogos/kpmg.png'),
+            city: "Warsaw, Poland",
+            description: "",
+            achievements: [
+                "",
+                ""
+            ],
+            startDate: "2022-11",
+            endDate: "Present",
+        },
+        {
+            title: "Junior Full Stack Developer, Full Time",
             company: "Coded Projects",
             companyLogo: require('../../assets/companyLogos/codedProjects.png'),
             city: "Warsaw, Poland",
