@@ -12,8 +12,11 @@ const Experience = () => {
             city: "Warsaw, Poland",
             description: "",
             achievements: [
-                "",
-                ""
+                "Currently working with Angular, Typescript on Front-end and C# .Net API on Back-end.",
+                "Working with Microsoft Azure environment such as Azure DevOps, Azure SQL Database, Azure App Service.",
+                "Reviewed code, debugged problems and resolved issues and bugs.",
+                "Implementing new features and enhancements to existing applications.",
+                "Implementing unit tests and integration tests to ensure the quality of the code.",
             ],
             startDate: "2022-11",
             endDate: "Present",
@@ -49,7 +52,7 @@ const Experience = () => {
                 "Resolved hardware and software compatibility and interface design issues."
             ],
             startDate: "2021-09",
-            endDate: "Present",
+            endDate: "2022-11",
         },
         {
             title: "Junior Software Engineer",
