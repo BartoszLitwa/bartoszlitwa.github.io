@@ -1,19 +1,19 @@
 self.__precacheManifest = [
   {
-    "revision": "4ded4da8e71bed605951",
+    "revision": "7b6126cf2c003c839897",
     "url": "/static/css/main.e10fb793.chunk.css"
   },
   {
-    "revision": "4ded4da8e71bed605951",
-    "url": "/static/js/main.4ded4da8.chunk.js"
+    "revision": "7b6126cf2c003c839897",
+    "url": "/static/js/main.7b6126cf.chunk.js"
   },
   {
-    "revision": "748e049c956d46e8faec",
+    "revision": "a89be57bbab3ed72e562",
     "url": "/static/css/1.d0c3d021.chunk.css"
   },
   {
-    "revision": "748e049c956d46e8faec",
-    "url": "/static/js/1.748e049c.chunk.js"
+    "revision": "a89be57bbab3ed72e562",
+    "url": "/static/js/1.a89be57b.chunk.js"
   },
   {
     "revision": "229c360febb4351a89df",
@@ -24,16 +24,16 @@ self.__precacheManifest = [
     "url": "/static/media/logo.a41a4508.png"
   },
   {
-    "revision": "4ea3794d631bedab7999678f46b0a162",
-    "url": "/static/media/CentraNo2-Bold.4ea3794d.ttf"
-  },
-  {
     "revision": "386f05946a76935fcabf319affff517a",
     "url": "/static/media/CentraNo2-Book.386f0594.ttf"
   },
   {
     "revision": "63911e8535278ced52b8a37e819f6f5d",
     "url": "/static/media/CentraNo2-Medium.63911e85.ttf"
+  },
+  {
+    "revision": "4ea3794d631bedab7999678f46b0a162",
+    "url": "/static/media/CentraNo2-Bold.4ea3794d.ttf"
   },
   {
     "revision": "5f3ca49706055342e92708c7dd31849f",
@@ -92,7 +92,7 @@ self.__precacheManifest = [
     "url": "/static/media/pzpl.e8c0cca9.png"
   },
   {
-    "revision": "594ca0b48fb24a7b6afabfc87587ef60",
+    "revision": "b93b7749cf8735aa249ccd53af258c4d",
     "url": "/index.html"
   }
 ];
