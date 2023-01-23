@@ -1,19 +1,19 @@
 self.__precacheManifest = [
   {
-    "revision": "7b6126cf2c003c839897",
-    "url": "/static/css/main.e10fb793.chunk.css"
+    "revision": "a3647bff177dc264f06e",
+    "url": "/static/css/main.d2da707d.chunk.css"
   },
   {
-    "revision": "7b6126cf2c003c839897",
-    "url": "/static/js/main.7b6126cf.chunk.js"
+    "revision": "a3647bff177dc264f06e",
+    "url": "/static/js/main.a3647bff.chunk.js"
   },
   {
-    "revision": "a89be57bbab3ed72e562",
+    "revision": "17d618119472d19b3a40",
     "url": "/static/css/1.d0c3d021.chunk.css"
   },
   {
-    "revision": "a89be57bbab3ed72e562",
-    "url": "/static/js/1.a89be57b.chunk.js"
+    "revision": "17d618119472d19b3a40",
+    "url": "/static/js/1.17d61811.chunk.js"
   },
   {
     "revision": "229c360febb4351a89df",
@@ -24,16 +24,16 @@ self.__precacheManifest = [
     "url": "/static/media/logo.a41a4508.png"
   },
   {
+    "revision": "4ea3794d631bedab7999678f46b0a162",
+    "url": "/static/media/CentraNo2-Bold.4ea3794d.ttf"
+  },
+  {
     "revision": "386f05946a76935fcabf319affff517a",
     "url": "/static/media/CentraNo2-Book.386f0594.ttf"
   },
   {
     "revision": "63911e8535278ced52b8a37e819f6f5d",
     "url": "/static/media/CentraNo2-Medium.63911e85.ttf"
-  },
-  {
-    "revision": "4ea3794d631bedab7999678f46b0a162",
-    "url": "/static/media/CentraNo2-Bold.4ea3794d.ttf"
   },
   {
     "revision": "5f3ca49706055342e92708c7dd31849f",
@@ -84,6 +84,14 @@ self.__precacheManifest = [
     "url": "/static/media/colors.36560abc.jpg"
   },
   {
+    "revision": "023f88d55700823cd464d12e958d145e",
+    "url": "/static/media/thumbnail.023f88d5.jpeg"
+  },
+  {
+    "revision": "673d99cf59e41f46e60aa56bccb711cc",
+    "url": "/static/media/distributed_database.673d99cf.png"
+  },
+  {
     "revision": "e9228c17c13a87653f1b8ed01a3ff306",
     "url": "/static/media/footer-bg.e9228c17.png"
   },
@@ -92,7 +100,7 @@ self.__precacheManifest = [
     "url": "/static/media/pzpl.e8c0cca9.png"
   },
   {
-    "revision": "b93b7749cf8735aa249ccd53af258c4d",
+    "revision": "a68c542bcb85fee9571a5a0503777e12",
     "url": "/index.html"
   }
 ];
