@@ -77,6 +77,20 @@ const Projects = () => {
             type: ".Net",
             url: "https://github.com/BartoszLitwa/C-Cheat",
         },
+        {
+            title: "Imageg Steganography",
+            description: "C++ console app for hiding text in images using LSB to encode and decode the message",
+            imgUrl: require('../../assets/image_steganography/thumbnail.jpeg'),
+            type: "C++",
+            url: "https://github.com/BartoszLitwa/image-steganography",
+        },
+        {
+            title: "Distributed Database",
+            description: "Java app for creating distributed database using multiple nodes that communicate with each other",
+            imgUrl: require('../../assets/distributed_database/distributed_database.png'),
+            type: "Java",
+            url: "https://github.com/BartoszLitwa/distributed-database-java",
+        },
     ]
 
     const [eventKey, setEventKey] = useState("All")
