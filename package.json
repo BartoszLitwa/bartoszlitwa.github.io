@@ -1,7 +1,7 @@
 {
   "name": "portfolio",
-  "version": "0.1.0",
-  "homepage": "https://bartoszlitwa.github.io",
+  "version": "0.1.1",
+  "homepage": "https://litwa.dev",
   "private": true,
   "dependencies": {
     "@emailjs/browser": "^3.6.2",
