@@ -37,9 +37,9 @@ const ExperienceCard = ({experience}: {experience: any}) => {
                         <Row>
                             <ListGroup variant="flush" as="ul">
                             {
-                                experience.achievements.map((ach: string) => {
+                                experience.achievements.map((ach: string, index: number) => {
                                     return (
-                                        <ListGroup.Item key={`expIt-${ach.slice(0, 15)}`} className="achievement-bx d-flex justify-content-start" as="li">
+                                        <ListGroup.Item key={`expIt-${index}-${ach.slice(0, 15)}`} className="achievement-bx d-flex justify-content-start" as="li">
                                             {ach}
                                         </ListGroup.Item>
                                     )

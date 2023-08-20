@@ -9,7 +9,7 @@ import { Col, Row } from 'react-bootstrap'
 const Model = ({props} : any) => {
   const group = useRef<THREE.Group>()
   // Load model
-  const { nodes, materials } = useGLTF('/mac-draco.glb')
+  const { nodes, materials } = useGLTF('/mac-draco.glb') as any;
   // Make it float
   useFrame((state) => {
     const t = state.clock.getElapsedTime()

@@ -72,9 +72,9 @@ const Experience = () => {
     ]
 
     const generateCards = () => {
-        return experiences.map(exp => {
+        return experiences.map((exp, index) => {
             return (
-                <ExperienceCard key={`exp-${exp.title}`} experience={exp}/>
+                <ExperienceCard key={`exp-${index}-${exp.title}`} experience={exp}/>
             )
         })
     }
