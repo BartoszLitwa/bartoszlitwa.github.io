@@ -1,9 +1,9 @@
-import React, { useLayoutEffect, useState } from "react"
-import { Row, Col, Container } from "react-bootstrap"
-import TrackVisibility from "react-on-screen"
-import SkillCircle from "./SkillCircle"
-import { Skill } from '../../types';
+import React, { useLayoutEffect, useState } from "react";
+import { Col, Container, Row } from "react-bootstrap";
+import SkillCircle from "./SkillCircle";
+import './Skills.css'
 import skillsData from '../../data/skills.json';
+import { Skill } from '../../types';
 
 const Skills = () => {
     const technologies: Skill[] = skillsData.technologies.map(tech => ({
@@ -20,66 +20,58 @@ const Skills = () => {
         )
     }));
 
-    const [screenSize, setScreenSize] = useState(1024);
     const [isMobile, setIsMobile] = useState(false);
     const mobileSize = 768;
 
     useLayoutEffect(() => {
-        setScreenSize(window.innerWidth);
         setIsMobile(window.innerWidth < mobileSize);
 
-        window.addEventListener('resize', () => {
-            setScreenSize(window.innerWidth)
-
+        const handleResize = () => {
             setIsMobile(window.innerWidth < mobileSize);
-        });
+        };
 
-        return () => window.removeEventListener('resize', () => setScreenSize(window.innerWidth));
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
     }, []);
 
     return (
-        <section className="skills" id="skills">
+        <section className="skill" id="skills">
             <Container>
                 <Row>
                     <Col>
-                        <TrackVisibility>
-                            { ({ isVisible }) => 
-                                <div className="skills-bx">
-                                        <h2>
-                                            Skills
-                                        </h2>
-                                        <p>All technologies that I've been using: </p>
-                                        <Row className={!isMobile ? "f-flex justify-content-center" : ""}>
-                                            {isMobile && <hr />}
-                                            {
-                                                technologies.map((tech, index) => {
-                                                    return (
-                                                        <SkillCircle key={`sc-${tech.text}`} percentage={tech.percentage} text={tech.text} images={tech.images} isMobile={isMobile}/>
-                                                    )
-                                                })
-                                            }
-                                        </Row>
-                                        <h2>
-                                            Programs
-                                        </h2>
-                                        <p>All Programs that I've been using: </p>
-                                        <Row className={!isMobile ? "f-flex justify-content-center" : ""}>
-                                            {isMobile && <hr />}
-                                            {
-                                                programs.map((prog,index) => {
-                                                    return (
-                                                        <SkillCircle key={`sc-${prog.text}`} percentage={prog.percentage} text={prog.text} images={prog.images} isMobile={isMobile}/>
-                                                    )
-                                                })
-                                            }
-                                        </Row>
-                                </div>
-                            } 
-                            </TrackVisibility>
+                        <div className="skill-bx">
+                            <h2>Skills</h2>
+                            <p>Here are the technologies and tools I work with to create amazing digital experiences.</p>
+                            
+                            <h3>Technologies</h3>
+                            <div className="skills-grid">
+                                {technologies.map((tech, index) => (
+                                    <SkillCircle 
+                                        key={`tech-${tech.text.join('-')}`} 
+                                        percentage={tech.percentage} 
+                                        text={tech.text} 
+                                        images={tech.images} 
+                                        isMobile={isMobile}
+                                    />
+                                ))}
+                            </div>
+                            
+                            <h3>Programs & Tools</h3>
+                            <div className="skills-grid">
+                                {programs.map((prog, index) => (
+                                    <SkillCircle 
+                                        key={`prog-${prog.text.join('-')}`} 
+                                        percentage={prog.percentage} 
+                                        text={prog.text} 
+                                        images={prog.images} 
+                                        isMobile={isMobile}
+                                    />
+                                ))}
+                            </div>
+                        </div>
                     </Col>
                 </Row>
             </Container>
-            {/* <img src={colorSharp} className="background-image" alt="Color Sharp"></img> */}
         </section>
     )
 }

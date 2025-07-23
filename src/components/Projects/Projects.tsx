@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import './Projects.css'
-
 import { Col, Container, Nav, Row, Tab } from "react-bootstrap";
 import ProjectCard from "./ProjectCard";
 import colorSharp2 from '../../assets/img/color-sharp2.png'
 import { Project } from '../../types';
 import projectsData from '../../data/projects.json';
+import { useScrollAnimation, useStaggeredScrollAnimation } from '../../hooks/useScrollAnimation';
 
 const Projects = () => {
     const projects: Project[] = projectsData.map(project => ({
@@ -14,55 +14,78 @@ const Projects = () => {
     }));
 
     const [eventKey, setEventKey] = useState("All")
+    const filteredProjects = projects.filter((proj) => eventKey === "All" || proj.type.includes(eventKey));
+    
+    const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation({ threshold: 0.3 });
+    const { ref: projectsRef, visibleItems } = useStaggeredScrollAnimation(filteredProjects.length, { threshold: 0.1 });
+
     const generateCards = (type: string) => {
-        return projects.filter((proj) => type === "All" || proj.type.includes(type)).map((proj) => {
+        return filteredProjects.map((proj, index) => {
             return (
-                <ProjectCard card={proj} key={`proj-${proj.title}-${proj.type}`} />
+                <div 
+                    key={`proj-${proj.title}-${proj.type}`}
+                    className={`project-item scroll-animate ${visibleItems[index] ? 'animate-in' : ''}`}
+                    style={{ transitionDelay: `${index * 0.1}s` }}
+                >
+                    <ProjectCard card={proj} />
+                </div>
             )
         })
     }
+
+    const projectTypes = ["All", ".Net", "React", "Flutter", "C++", "Java"];
 
     return (
         <section className="project" id="projects">
             <Container>
                 <Row>
                     <Col>
-                        <h2 className="mb-5">Projects</h2>
+                        <div 
+                            ref={headerRef as React.RefObject<HTMLDivElement>}
+                            className={`projects-header scroll-animate ${headerVisible ? 'animate-in' : ''}`}
+                        >
+                            <h2 className="section-title">Projects</h2>
+                            <p className="section-description">
+                                Explore my portfolio of applications and solutions that demonstrate my expertise in full-stack development, 
+                                cloud architecture, and modern web technologies.
+                            </p>
+                        </div>
+                        
                         <Tab.Container id="projects-tabs" defaultActiveKey="All">
-                            <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center"
-                                id="pills-nav">
-                                <Nav.Item>
-                                    <Nav.Link eventKey="All" onClick={() => setEventKey("All")}>All</Nav.Link>
-                                </Nav.Item>
-                                <Nav.Item>
-                                    <Nav.Link eventKey=".Net" onClick={() => setEventKey(".Net")}>.Net</Nav.Link>
-                                </Nav.Item>
-                                <Nav.Item>
-                                    <Nav.Link eventKey="React" onClick={() => setEventKey("React")}>React</Nav.Link>
-                                </Nav.Item>
-                                <Nav.Item>
-                                    <Nav.Link eventKey="Flutter" onClick={() => setEventKey("Flutter")}>Flutter</Nav.Link>
-                                </Nav.Item>
-                                <Nav.Item>
-                                    <Nav.Link eventKey="C++" onClick={() => setEventKey("C++")}>C++</Nav.Link>
-                                </Nav.Item>
-                                <Nav.Item>
-                                    <Nav.Link eventKey="Java" onClick={() => setEventKey("Java")}>Java</Nav.Link>
-                                </Nav.Item>
+                            <Nav 
+                                variant="pills" 
+                                className={`nav-pills mb-5 justify-content-center align-items-center scroll-animate ${headerVisible ? 'animate-in' : ''}`}
+                                id="pills-nav"
+                                style={{ transitionDelay: '0.2s' }}
+                            >
+                                {projectTypes.map((type) => (
+                                    <Nav.Item key={type}>
+                                        <Nav.Link 
+                                            eventKey={type} 
+                                            onClick={() => setEventKey(type)}
+                                            className={eventKey === type ? 'active' : ''}
+                                        >
+                                            {type}
+                                        </Nav.Link>
+                                    </Nav.Item>
+                                ))}
                             </Nav>
 
                             <Tab.Content>
-                                <Row>
-                                    {
-                                        generateCards(eventKey)
-                                    }
-                                </Row>
+                                <div 
+                                    ref={projectsRef as React.RefObject<HTMLDivElement>}
+                                    className="projects-grid"
+                                >
+                                    <Row className="g-4">
+                                        {generateCards(eventKey)}
+                                    </Row>
+                                </div>
                             </Tab.Content>
                         </Tab.Container>
                     </Col>
                 </Row>
             </Container>
-            <img src={colorSharp2} alt="colorSharp 2" className="background-image-right"/>
+            <img src={colorSharp2} alt="" className="background-image-right" aria-hidden="true"/>
         </section>
     )
 }
