@@ -5,6 +5,7 @@ export interface Project {
   imgUrl: string;
   type: string;
   url: string;
+  metrics?: string;
 }
 
 // Experience related types

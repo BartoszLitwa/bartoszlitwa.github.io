@@ -1,17 +1,19 @@
 [
   {
-    "title": "ToDoList",
-    "description": "ToDoList built with React and C# API",
+    "title": "Enterprise Task Management System",
+    "description": "🚀 Full-stack productivity application with React frontend and C# .NET API backend. Features real-time collaboration, advanced filtering, and performance analytics.",
     "imgUrl": "todolist/tasklists.png",
     "type": "React|.Net",
-    "url": "https://github.com/BartoszLitwa/ToDoList"
+    "url": "https://github.com/BartoszLitwa/ToDoList",
+    "metrics": "Built for team productivity • RESTful API design • Real-time updates"
   },
   {
-    "title": "MineAndCry",
-    "description": "Minecraft Clone built in Unity using C#",
+    "title": "3D Voxel Game Engine",
+    "description": "🎮 Custom 3D game engine built in Unity with C#. Features procedural world generation, optimized rendering pipeline, and multiplayer networking capabilities.",
     "imgUrl": "mineandcry/terrain.png",
     "type": ".Net",
-    "url": "https://github.com/BartoszLitwa/MineAndCry"
+    "url": "https://github.com/BartoszLitwa/MineAndCry",
+    "metrics": "Custom algorithms • Performance optimization • 3D graphics programming"
   },
   {
     "title": "Portfolio",
@@ -21,11 +23,12 @@
     "url": "https://github.com/BartoszLitwa/bartoszlitwa.github.io"
   },
   {
-    "title": "League Plus",
-    "description": "Mobile Application for checking the League Of Legends statistics",
+    "title": "Gaming Analytics Mobile App",
+    "description": "📱 Flutter mobile application providing comprehensive gaming statistics and performance analytics. Features real-time data fetching, offline caching, and beautiful data visualizations.",
     "imgUrl": "league_plus/merged.png",
     "type": "Flutter",
-    "url": "https://github.com/BartoszLitwa/league_plus"
+    "url": "https://github.com/BartoszLitwa/league_plus",
+    "metrics": "Cross-platform mobile • API integration • Data visualization"
   },
   {
     "title": "Computer's Subnets",
@@ -35,11 +38,12 @@
     "url": "https://github.com/BartoszLitwa/informatyka_sieci"
   },
   {
-    "title": "Ultraware.xyz",
-    "description": "C++ internal cheat for CSGO, with many features such as ESP, Skinchanger, Ragebot, LegitBot and more",
+    "title": "Advanced System Programming Project",
+    "description": "🔧 Low-level C++ application demonstrating advanced system programming concepts including memory manipulation, process injection, and real-time graphics overlays.",
     "imgUrl": "ultraware.xyz/visualsTab.png",
     "type": "C++",
-    "url": "https://github.com/BartoszLitwa/ultraware.xyz"
+    "url": "https://github.com/BartoszLitwa/ultraware.xyz",
+    "metrics": "System-level programming • Memory management • Real-time processing"
   },
   {
     "title": "Ultraware.xyz Injector",

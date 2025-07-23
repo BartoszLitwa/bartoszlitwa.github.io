@@ -1,8 +1,7 @@
 import React, { useLayoutEffect } from "react"
 import { useEffect, useState } from "react"
-import { Button, Col, Container, Nav, Row } from "react-bootstrap"
+import { Col, Container, Nav, Row } from "react-bootstrap"
 import { ArrowRightCircle } from "react-bootstrap-icons"
-import TrackVisibility from "react-on-screen"
 import './Banner.css'
 import '../NavBar/NavBar.css'
 import RocketModel from "./RocketModel"
@@ -66,9 +65,7 @@ const Banner = () => {
         <section className="banner" id="home">
             <Container>
                 <div className="canvas-container" style={{"top": `${isMobile ? 500 : 1}px `}}>
-                    <RocketModel>
-
-                    </RocketModel>
+                    <RocketModel />
                 </div>
                 <Row className="align-items-center" style={{"zIndex": "99999", "marginTop": "10%"}}>
                     <Col xs={12} md={6} xl={7}>

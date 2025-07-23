@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
 import { useState } from "react"
-import { Button, Container, Nav, Navbar } from "react-bootstrap"
+import { Container, Nav, Navbar } from "react-bootstrap"
 import './NavBar.css'
 import '../../App.css'
 import logo from '../../assets/img/logo.png'

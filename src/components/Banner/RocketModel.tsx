@@ -15,7 +15,8 @@ source: https://sketchfab.com/models/91964c1ce1a34c3985b6257441efa500
 title: Space exploration [WLP series #8]
 */
 const Model = ({ url }: { url: string }) => {
-  const { nodes, materials } = useGLTF(url);
+  const gltf = useGLTF(url);
+  const { nodes, materials } = gltf as any; // Type assertion for GLTF nodes and materials
   return (
     <group rotation={[-Math.PI / 2, 0, 0]} position={[0, -7, 0]} scale={7}>
       <group rotation={[Math.PI / 13.5, -Math.PI / 5.8, Math.PI / 5.6]}>
@@ -26,10 +27,9 @@ const Model = ({ url }: { url: string }) => {
   )
 }
 
-const RocketModel = (props: { children: any}) => {
+const RocketModel = () => {
   return (
       <div>
-        {props.children}
         <Canvas id={"rocketCanvas"} dpr={[1.5, 2]} linear shadows>
           <fog attach="fog" args={['#272730', 16, 30]} />
           <ambientLight intensity={0.75} />

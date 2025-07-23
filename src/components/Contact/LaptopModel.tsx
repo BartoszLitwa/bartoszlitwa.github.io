@@ -9,11 +9,12 @@ import { Col, Row } from 'react-bootstrap'
 const Model = ({props} : any) => {
   const group = useRef<THREE.Group>()
   // Load model
-  const { nodes, materials } = useGLTF('/mac-draco.glb') as any;
+  const gltf = useGLTF('/mac-draco.glb');
+  const { nodes, materials } = gltf as any;
   // Make it float
   useFrame((state) => {
     const t = state.clock.getElapsedTime()
-    if(group == undefined || group.current == undefined)
+    if(group === undefined || group.current === undefined)
         return;
 
     group.current.rotation.x = THREE.MathUtils.lerp(group.current.rotation.x, Math.cos(t / 2) / 20 + 0.25, 0.1)

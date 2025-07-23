@@ -3,9 +3,10 @@ import React, { Suspense } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from './components/NavBar/NavBar';
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
+import ThemeToggle from './components/ThemeToggle/ThemeToggle';
 
 // Lazy load components for better performance
-const Banner = React.lazy(() => import('./components/Banner/Banner'));
+const Banner = React.lazy(() => import('./components/Banner/SimpleBanner'));
 const Skills = React.lazy(() => import('./components/skills/Skills'));
 const Experience = React.lazy(() => import('./components/Experience/Experience'));
 const Projects = React.lazy(() => import('./components/Projects/Projects'));
@@ -29,6 +30,7 @@ function App() {
 
   return (
     <div className="App">
+      <ThemeToggle />
       <ErrorBoundary>
         <NavBar />
       </ErrorBoundary>
