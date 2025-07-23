@@ -13,52 +13,65 @@ const Projects = React.lazy(() => import('./components/Projects/Projects'));
 const Contact = React.lazy(() => import('./components/Contact/Contact'));
 const Footer = React.lazy(() => import('./components/Footer/Footer'));
 
-// Loading component
+// Enhanced loading component
 const LoadingSpinner = () => (
-  <div style={{ 
+  <div className="loading-spinner" style={{ 
     display: 'flex', 
     justifyContent: 'center', 
     alignItems: 'center', 
-    padding: '2rem',
-    color: '#fff' 
+    padding: '4rem',
+    color: 'var(--text-primary)',
+    minHeight: '200px'
   }}>
-    <div>Loading...</div>
+    <div className="spinner-content">
+      <div className="spinner" style={{
+        width: '40px',
+        height: '40px',
+        border: '3px solid var(--border-color)',
+        borderTop: '3px solid var(--accent-primary)',
+        borderRadius: '50%',
+        animation: 'spin 1s linear infinite',
+        marginBottom: '1rem'
+      }}></div>
+      <div>Loading...</div>
+    </div>
   </div>
 );
 
 function App() {
-
   return (
     <div className="App">
       <ThemeToggle />
       <ErrorBoundary>
         <NavBar />
       </ErrorBoundary>
-      <ErrorBoundary>
-        <Suspense fallback={<LoadingSpinner />}>
-          <Banner />
-        </Suspense>
-      </ErrorBoundary>
-      <ErrorBoundary>
-        <Suspense fallback={<LoadingSpinner />}>
-          <Skills />
-        </Suspense>
-      </ErrorBoundary>
-      <ErrorBoundary>
-        <Suspense fallback={<LoadingSpinner />}>
-          <Experience />
-        </Suspense>
-      </ErrorBoundary>
-      <ErrorBoundary>
-        <Suspense fallback={<LoadingSpinner />}>
-          <Projects />
-        </Suspense>
-      </ErrorBoundary>
-      <ErrorBoundary>
-        <Suspense fallback={<LoadingSpinner />}>
-          <Contact />
-        </Suspense>
-      </ErrorBoundary>
+      <main id="main-content" role="main">
+        <ErrorBoundary>
+          <Suspense fallback={<LoadingSpinner />}>
+            <Banner />
+          </Suspense>
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <Suspense fallback={<LoadingSpinner />}>
+            <Skills />
+          </Suspense>
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <Suspense fallback={<LoadingSpinner />}>
+            <Experience />
+          </Suspense>
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <Suspense fallback={<LoadingSpinner />}>
+            <Projects />
+          </Suspense>
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <Suspense fallback={<LoadingSpinner />}>
+            <Contact />
+          </Suspense>
+        </ErrorBoundary>
+      </main>
       <ErrorBoundary>
         <Suspense fallback={<LoadingSpinner />}>
           <Footer />

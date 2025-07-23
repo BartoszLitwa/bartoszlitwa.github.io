@@ -1,18 +1,17 @@
-import React, { useLayoutEffect } from "react"
-import { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import { Col, Container, Nav, Row } from "react-bootstrap"
 import { ArrowRightCircle } from "react-bootstrap-icons"
+import TrackVisibility from 'react-on-screen'
 import './Banner.css'
 import '../NavBar/NavBar.css'
-import RocketModel from "./RocketModel"
 
 const Banner = () => {
     const [index, setIndex] = useState(0)
     const [isDeleting, setIsDeleting] = useState(false)
-    const toRotate = ['Web Developer', '.Net Developer', 'React Developer']
+    const toRotate = ['Full-Stack Developer', 'Azure Cloud Expert', '.NET Specialist', 'React Developer']
     const [text, setText] = useState('')
-    const [delta, setDelta] = useState(200 - Math.random() * 100)
-    const period = 500;
+    const [delta, setDelta] = useState(200)
+    const period = 2000;
 
     useEffect(() => {
         let ticker = setInterval(() => {
@@ -20,7 +19,7 @@ const Banner = () => {
         }, delta)
 
         return () => { clearInterval(ticker)}
-    }, [text])
+    }, [text, delta])
 
     const tick = () => {
         let fullText = toRotate[index];
@@ -29,60 +28,48 @@ const Banner = () => {
         setText(updatedText)
 
         if(isDeleting){
-            setDelta(prevDelta => prevDelta / 1.5)
+            setDelta(prevDelta => prevDelta / 2)
         } 
 
-        // Whole text was written
         if(!isDeleting && updatedText === fullText){
             setIsDeleting(true);
             setDelta(period)
-        } // Whole text was deleted
-        else if (isDeleting && updatedText === ''){
+        } else if (isDeleting && updatedText === ''){
             setIsDeleting(false)
-            setIndex(prevIndex => ++prevIndex % toRotate.length)
-            setDelta(period)
+            setIndex(prevIndex => (prevIndex + 1) % toRotate.length)
+            setDelta(200)
         }
     }
-
-    const [screenSize, setScreenSize] = useState(1024);
-    const [isMobile, setIsMobile] = useState(false);
-    const mobileSize = 768;
-
-    useLayoutEffect(() => {
-        setScreenSize(window.innerWidth);
-        setIsMobile(window.innerWidth < mobileSize);
-
-        window.addEventListener('resize', () => {
-            setScreenSize(window.innerWidth)
-
-            setIsMobile(window.innerWidth < mobileSize);
-        });
-
-        return () => window.removeEventListener('resize', () => setScreenSize(window.innerWidth));
-    }, []);
 
     return (
         <section className="banner" id="home">
             <Container>
-                <div className="canvas-container" style={{"top": `${isMobile ? 500 : 1}px `}}>
-                    <RocketModel />
-                </div>
-                <Row className="align-items-center" style={{"zIndex": "99999", "marginTop": "10%"}}>
+                <Row className="align-items-center">
                     <Col xs={12} md={6} xl={7}>
-                        <span className="tagline">
-                            Welcome to my Portfolio Website
-                        </span>
-                        <h1 className="text-nowrap">{`Hi! I'm ` + text.substring(0, text.indexOf(' ') > 0 ? text.indexOf(' ') : text.length)}</h1>
-                        <h1 className="text-nowrap" style={{"height": "60px"}}>{text.indexOf(' ') > 0 ? text.substring(text.indexOf(' ') , text.length) : "     "}</h1>
-                        <p className="mt-3">My name is Bartosz Litwa and I am a student at the Polish-Japanese Academy of Information Technology,
-                            majoring in Computer Science (extramural studies). I'm Self-taught hard-working student seeking
-                            to excel his career as a Software Engineer. I would love to continue my education in the field
-                            of computer science - programming and gain the experience and new skills as a Full-Stack React and .Net Developer. </p>
-                        <Nav.Link href="#contact" className="navbar-text">
-                            <button>
-                                Let's Connect <ArrowRightCircle size={25}></ArrowRightCircle>
-                            </button>
-                        </Nav.Link>
+                        <TrackVisibility>
+                            {({ isVisible }) =>
+                                <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
+                                    <span className="tagline">Welcome to my Portfolio</span>
+                                    <h1>{`Hi! I'm Bartosz`} <span className="txt-rotate" data-period="1000" data-rotate='[ "Full-Stack Developer", "Azure Cloud Expert", ".NET Specialist", "React Developer" ]'><span className="wrap">{text}</span></span></h1>
+                                    <p>Experienced Full-Stack Developer specializing in C# .NET, React, and Azure Cloud. Proven track record of reducing costs by 90%, improving performance by 40%, and delivering scalable solutions for enterprise applications.</p>
+                                    <Nav.Link href="#contact">
+                                        <button onClick={() => console.log('connect')}>Let's Connect <ArrowRightCircle size={25} /></button>
+                                    </Nav.Link>
+                                </div>}
+                        </TrackVisibility>
+                    </Col>
+                    <Col xs={12} md={6} xl={5}>
+                        <TrackVisibility>
+                            {({ isVisible }) =>
+                                <div className={isVisible ? "animate__animated animate__zoomIn" : ""}>
+                                    <div className="hero-visual">
+                                        <div className="hero-placeholder">
+                                            <h3>3D Model Coming Soon</h3>
+                                            <p>Interactive 3D visualization will be added here</p>
+                                        </div>
+                                    </div>
+                                </div>}
+                        </TrackVisibility>
                     </Col>
                 </Row>
             </Container>
