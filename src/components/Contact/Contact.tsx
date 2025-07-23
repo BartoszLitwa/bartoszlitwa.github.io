@@ -4,6 +4,12 @@ import './Contact.css'
 import emailjs from '@emailjs/browser';
 import LaptopModel from "./LaptopModel";
 
+// Initialize EmailJS with environment variable
+const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
+if (publicKey) {
+    emailjs.init(publicKey);
+}
+
 const Contact = () => {
     const formInitialDetails = {
         firstName: '',
@@ -38,10 +44,23 @@ const Contact = () => {
         form.preventDefault()
         setButtonText('Sending...')
 
-        await emailjs.send('service_j49lkum', 'template_uajf2in', formDetails, 'Xnx7-7wFdP57_J61-')
+        const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+        const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+        const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
+
+        if (!serviceId || !templateId || !publicKey) {
+            setStatus({
+                message: 'Email configuration is missing. Please contact the administrator.',
+                success: false
+            });
+            setButtonText('Send');
+            return;
+        }
+
+        await emailjs.send(serviceId, templateId, formDetails, publicKey)
             .then((result) => {
                 setStatus({
-                    message: 'Message Sent Successfuly',
+                    message: 'Message Sent Successfully',
                     success: true
                 })
             }, (error) => {
