@@ -3,6 +3,7 @@ import { Row, Col, Container, Form, Button } from "react-bootstrap";
 import './Contact.css'
 import emailjs from '@emailjs/browser';
 import LaptopModel from "./LaptopModel";
+import { ContactFormDetails, ContactStatus } from '../../types';
 
 // Initialize EmailJS with environment variable
 const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
@@ -11,7 +12,7 @@ if (publicKey) {
 }
 
 const Contact = () => {
-    const formInitialDetails = {
+    const formInitialDetails: ContactFormDetails = {
         firstName: '',
         lastName: '',
         email: '',
@@ -20,16 +21,16 @@ const Contact = () => {
         message: ''
     }
 
-    const [formDetails, setFormDetails] = useState(formInitialDetails)
+    const [formDetails, setFormDetails] = useState<ContactFormDetails>(formInitialDetails)
     const [buttonText, setButtonText] = useState('Send')
 
-    const initialStatus = {
+    const initialStatus: ContactStatus = {
         message: '',
         success: true
     }
-    const [status, setStatus] = useState(initialStatus)
+    const [status, setStatus] = useState<ContactStatus>(initialStatus)
 
-    const onChangeForm = (e: any) => {
+    const onChangeForm = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const {name, value} = e.target
 
         setFormDetails((prev) => {

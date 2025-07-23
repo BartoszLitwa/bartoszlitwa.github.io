@@ -1,8 +1,9 @@
 import React from "react"
 import { Col, Row } from "react-bootstrap"
 import "./Skills.css"
+import { SkillCircleProps } from '../../types';
 
-const SkillCircle = ({percentage, text, images, isMobile}: {percentage: number, text: string[], images: string[], isMobile: boolean}) => {
+const SkillCircle = React.memo(({percentage, text, images, isMobile}: SkillCircleProps) => {
     if(isMobile){
         return (
             <Row style={{"marginTop": "10px"}}>
@@ -79,6 +80,8 @@ const SkillCircle = ({percentage, text, images, isMobile}: {percentage: number, 
             </Col>
         )
     }
-}
+});
+
+SkillCircle.displayName = 'SkillCircle';
 
 export default SkillCircle

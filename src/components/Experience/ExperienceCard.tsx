@@ -1,8 +1,9 @@
 import React from "react";
 import { Container, Row, Col, ListGroup } from "react-bootstrap";
 import './Experience.css';
+import { ExperienceCardProps } from '../../types';
 
-const ExperienceCard = ({experience}: {experience: any}) => {
+const ExperienceCard = ({experience}: ExperienceCardProps) => {
     return (
         <Container>
             <div className="experienceCard-bx">

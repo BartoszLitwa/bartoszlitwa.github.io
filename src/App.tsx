@@ -1,25 +1,67 @@
 import './App.css';
-import React from 'react';
+import React, { Suspense } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from './components/NavBar/NavBar';
-import Banner from './components/Banner/Banner';
-import Skills from './components/skills/Skills';
-import Projects from './components/Projects/Projects';
-import Contact from './components/Contact/Contact';
-import Footer from './components/Footer/Footer';
-import Experience from './components/Experience/Experience';
+import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
+
+// Lazy load components for better performance
+const Banner = React.lazy(() => import('./components/Banner/Banner'));
+const Skills = React.lazy(() => import('./components/skills/Skills'));
+const Experience = React.lazy(() => import('./components/Experience/Experience'));
+const Projects = React.lazy(() => import('./components/Projects/Projects'));
+const Contact = React.lazy(() => import('./components/Contact/Contact'));
+const Footer = React.lazy(() => import('./components/Footer/Footer'));
+
+// Loading component
+const LoadingSpinner = () => (
+  <div style={{ 
+    display: 'flex', 
+    justifyContent: 'center', 
+    alignItems: 'center', 
+    padding: '2rem',
+    color: '#fff' 
+  }}>
+    <div>Loading...</div>
+  </div>
+);
 
 function App() {
 
   return (
     <div className="App">
-      <NavBar></NavBar>
-      <Banner></Banner>
-      <Skills></Skills>
-      <Experience></Experience>
-      <Projects></Projects>
-      <Contact></Contact>
-      <Footer></Footer>
+      <ErrorBoundary>
+        <NavBar />
+      </ErrorBoundary>
+      <ErrorBoundary>
+        <Suspense fallback={<LoadingSpinner />}>
+          <Banner />
+        </Suspense>
+      </ErrorBoundary>
+      <ErrorBoundary>
+        <Suspense fallback={<LoadingSpinner />}>
+          <Skills />
+        </Suspense>
+      </ErrorBoundary>
+      <ErrorBoundary>
+        <Suspense fallback={<LoadingSpinner />}>
+          <Experience />
+        </Suspense>
+      </ErrorBoundary>
+      <ErrorBoundary>
+        <Suspense fallback={<LoadingSpinner />}>
+          <Projects />
+        </Suspense>
+      </ErrorBoundary>
+      <ErrorBoundary>
+        <Suspense fallback={<LoadingSpinner />}>
+          <Contact />
+        </Suspense>
+      </ErrorBoundary>
+      <ErrorBoundary>
+        <Suspense fallback={<LoadingSpinner />}>
+          <Footer />
+        </Suspense>
+      </ErrorBoundary>
     </div>
   );
 }
