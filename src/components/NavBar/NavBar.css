@@ -91,6 +91,13 @@ nav.navbar.scrolled {
   border-radius: 2px;
 }
 
+/* Navbar Text Container */
+.navbar-text {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
 /* Social Icons */
 .social-icon {
   display: flex;
@@ -250,7 +257,9 @@ nav.navbar.scrolled {
   
   .navbar-text {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
     margin-top: 1rem;
   }
   

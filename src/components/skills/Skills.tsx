@@ -1,11 +1,14 @@
 import React, { useLayoutEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import SkillCircle from "./SkillCircle";
+import { useLanguage } from '../../hooks/useLanguage';
 import './Skills.css'
 import skillsData from '../../data/skills.json';
 import { Skill } from '../../types';
 
 const Skills = () => {
+    const { t } = useLanguage();
+    
     const technologies: Skill[] = skillsData.technologies.map(tech => ({
         ...tech,
         images: tech.images.map(img => 
@@ -40,10 +43,10 @@ const Skills = () => {
                 <Row>
                     <Col>
                         <div className="skill-bx">
-                            <h2>Skills</h2>
-                            <p>Here are the technologies and tools I work with to create amazing digital experiences.</p>
+                            <h2>{t('skills.title')}</h2>
+                            <p>{t('skills.description')}</p>
                             
-                            <h3>Technologies</h3>
+                            <h3>{t('skills.technologies')}</h3>
                             <div className="skills-grid">
                                 {technologies.map((tech, index) => (
                                     <SkillCircle 
@@ -56,7 +59,7 @@ const Skills = () => {
                                 ))}
                             </div>
                             
-                            <h3>Programs & Tools</h3>
+                            <h3>{t('skills.programs')}</h3>
                             <div className="skills-grid">
                                 {programs.map((prog, index) => (
                                     <SkillCircle 

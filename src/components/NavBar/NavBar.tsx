@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react"
 import { Container, Nav, Navbar } from "react-bootstrap"
+import { useLanguage } from '../../hooks/useLanguage'
+import LanguageToggle from '../LanguageToggle/LanguageToggle'
 import './NavBar.css'
 import '../../App.css'
 import logo from '../../assets/img/logo.png'
 
 const NavBar = () => {
+    const { t } = useLanguage();
     const [activeLink, setActiveLink] = useState('#home');
     const [scrolled, setScrolled] = useState(false);
     const [toggled, setToggled] = useState(false);
@@ -34,7 +37,7 @@ const NavBar = () => {
     return (
         <>
             <a href="#main-content" className="skip-link">
-                Skip to main content
+                {t('navigation.skipToMain')}
             </a>
             <Navbar 
                 expand="lg" 
@@ -65,7 +68,7 @@ const NavBar = () => {
                                 role="menuitem"
                                 aria-current={activeLink === '#home' ? 'page' : undefined}
                             >
-                                Home
+                                {t('navigation.home')}
                             </Nav.Link>
                             <Nav.Link 
                                 href="#skills" 
@@ -74,7 +77,7 @@ const NavBar = () => {
                                 role="menuitem"
                                 aria-current={activeLink === '#skills' ? 'page' : undefined}
                             >
-                                Skills
+                                {t('navigation.skills')}
                             </Nav.Link>
                             <Nav.Link 
                                 href="#experience" 
@@ -83,7 +86,7 @@ const NavBar = () => {
                                 role="menuitem"
                                 aria-current={activeLink === '#experience' ? 'page' : undefined}
                             >
-                                Experience
+                                {t('navigation.experience')}
                             </Nav.Link>
                             <Nav.Link 
                                 href="#projects" 
@@ -92,11 +95,21 @@ const NavBar = () => {
                                 role="menuitem"
                                 aria-current={activeLink === '#projects' ? 'page' : undefined}
                             >
-                                Projects
+                                {t('navigation.projects')}
+                            </Nav.Link>
+                            <Nav.Link 
+                                href="#certifications" 
+                                className={`navbar-link ${activeLink === '#certifications' ? 'active' : ''}`}
+                                onClick={() => onUpdateActiveLink('#certifications')}
+                                role="menuitem"
+                                aria-current={activeLink === '#certifications' ? 'page' : undefined}
+                            >
+                                {t('navigation.certifications')}
                             </Nav.Link>
                         </Nav>
                         
                         <span className="navbar-text">
+                            <LanguageToggle />
                             <div className="social-icon" role="group" aria-label="Social media links">
                                 <a 
                                     href="https://www.linkedin.com/in/bartoszlitwa/"
@@ -147,7 +160,7 @@ const NavBar = () => {
                                     type="button"
                                     aria-label="Contact Bartosz Litwa"
                                 >
-                                    <span>Let's Connect</span>
+                                    <span>{t('navigation.letsConnect')}</span>
                                 </button>
                             </Nav.Link>
                         </span>
