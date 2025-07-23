@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Row, Col, Container, Form } from "react-bootstrap";
 import './Contact.css'
 import emailjs from '@emailjs/browser';
-import LaptopModel from "./LaptopModel";
+import ContactInfo from "./ContactInfo";
 import { ContactFormDetails, ContactStatus } from '../../types';
 
 // Initialize EmailJS with environment variable
@@ -78,14 +78,11 @@ const Contact = () => {
     return (
         <section className="contact" id="contact">
             <Container>
-                <Row className="align-items-center">
-                    <Col md={6}>
-                        {/* <img src={contactImg} alt="Contact Us" /> */}
-                        <div className="canvas-container-laptop">
-                            <LaptopModel></LaptopModel>
-                        </div>
-                    </Col>
-                    <Col md={6}>
+                        <Row className="align-items-start">
+            <Col lg={6} md={12} className="mb-4">
+                <ContactInfo />
+            </Col>
+            <Col lg={6} md={12}>
                         <h2>Get In Touch</h2>
                         <Form onSubmit={handleSubmit}>
                             <Row>

@@ -80,6 +80,89 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center;
 }
 
+/* Print Styles for Portfolio */
+@media print {
+  /* Reset for print */
+  * {
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  /* Hide unnecessary elements */
+  .theme-toggle,
+  .canvas-container,
+  .canvas-container-laptop,
+  nav,
+  footer,
+  button,
+  .cta-button,
+  .hero-cta,
+  .background-image-right {
+    display: none !important;
+  }
+
+  /* Page setup */
+  @page {
+    margin: 0.5in;
+    size: A4;
+  }
+
+  body {
+    font-size: 12pt;
+    line-height: 1.4;
+    font-family: 'Times New Roman', serif;
+  }
+
+  /* Header for print */
+  .simple-banner::before {
+    content: "BARTOSZ LITWA - FULL-STACK DEVELOPER\AEmail: bartosz.litwa@proton.me | LinkedIn: linkedin.com/in/bartoszlitwa | GitHub: github.com/BartoszLitwa";
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    font-size: 14pt;
+    margin-bottom: 20pt;
+    padding-bottom: 10pt;
+    border-bottom: 2px solid black;
+    white-space: pre-line;
+  }
+
+  /* Hide original hero content */
+  .hero-content {
+    display: none;
+  }
+
+  /* Section headers */
+  h1, h2 {
+    font-size: 16pt;
+    font-weight: bold;
+    margin: 15pt 0 10pt 0;
+    border-bottom: 1px solid black;
+    padding-bottom: 5pt;
+  }
+
+  .project-card {
+    margin-bottom: 15pt;
+    page-break-inside: avoid;
+    border: 1px solid black;
+    padding: 10pt;
+  }
+
+  .project-image {
+    display: none;
+  }
+
+  .tech-badge {
+    background: none !important;
+    color: black !important;
+    border: 1px solid black;
+    padding: 2pt 5pt;
+    margin: 2pt;
+    display: inline-block;
+  }
+}
+
 
 .App-logo {
   height: 40vmin;
