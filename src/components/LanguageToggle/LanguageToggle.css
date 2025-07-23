@@ -1,0 +1,145 @@
+/* Language Toggle Styles */
+.language-toggle {
+  display: flex;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 25px;
+  padding: 0.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.language-toggle:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.language-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  font-weight: 600;
+  min-width: 60px;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.language-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-primary);
+  transition: left 0.3s ease;
+  z-index: -1;
+  border-radius: 20px;
+}
+
+.language-btn:hover {
+  color: white;
+  transform: translateY(-1px);
+}
+
+.language-btn:hover::before {
+  left: 0;
+}
+
+.language-btn.active {
+  background: var(--gradient-primary);
+  color: white;
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
+}
+
+.language-btn.active::before {
+  left: 0;
+}
+
+.flag-icon {
+  font-size: 1.1rem;
+  filter: grayscale(0.3);
+  transition: filter 0.3s ease;
+}
+
+.language-btn:hover .flag-icon,
+.language-btn.active .flag-icon {
+  filter: grayscale(0);
+}
+
+.language-text {
+  font-family: 'Centra', sans-serif;
+  letter-spacing: 0.5px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .language-toggle {
+    border-radius: 20px;
+    padding: 0.2rem;
+  }
+  
+  .language-btn {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.8rem;
+    min-width: 50px;
+  }
+  
+  .flag-icon {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .language-btn .language-text {
+    display: none;
+  }
+  
+  .language-btn {
+    min-width: 40px;
+    padding: 0.4rem;
+  }
+}
+
+/* Accessibility Improvements */
+.language-btn:focus {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .language-toggle,
+  .language-btn,
+  .language-btn::before,
+  .flag-icon {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .language-toggle {
+    border-width: 2px;
+    border-color: var(--text-primary);
+  }
+  
+  .language-btn {
+    border: 1px solid var(--text-primary);
+  }
+  
+  .language-btn.active {
+    background: var(--text-primary);
+    color: var(--bg-primary);
+  }
+} 

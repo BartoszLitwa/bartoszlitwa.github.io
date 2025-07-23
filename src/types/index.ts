@@ -27,6 +27,37 @@ export interface Skill {
   images: string[];
 }
 
+// Certification related types
+export interface Certification {
+  id: string;
+  name: string;
+  code: string;
+  provider: string;
+  status: 'completed' | 'in-progress' | 'planned';
+  completedDate?: string;
+  expectedDate?: string;
+  progress?: number;
+  description: string;
+  skills: string[];
+  credentialUrl: string;
+  badgeUrl: string;
+  level: 'Fundamentals' | 'Associate' | 'Expert';
+  category: string;
+}
+
+// Language related types
+export type Language = 'en' | 'pl';
+
+export interface LanguageContextType {
+  language: Language;
+  setLanguage: (lang: Language) => void;
+  t: (key: string) => string;
+}
+
+export interface Translations {
+  [key: string]: any;
+}
+
 // Contact form types
 export interface ContactFormDetails {
   firstName: string;
@@ -63,4 +94,8 @@ export interface ProjectCardProps {
 
 export interface ExperienceCardProps {
   experience: Experience;
+}
+
+export interface CertificationCardProps {
+  certification: Certification;
 } 
