@@ -4,7 +4,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { LanguageProvider } from './components/LanguageProvider/LanguageProvider';
 import NavBar from './components/NavBar/NavBar';
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
-import ThemeToggle from './components/ThemeToggle/ThemeToggle';
 
 // Lazy load components for better performance
 const Banner = React.lazy(() => import('./components/Banner/SimpleBanner'));
@@ -44,7 +43,6 @@ function App() {
   return (
     <LanguageProvider>
       <div className="App">
-        <ThemeToggle />
         <ErrorBoundary>
           <NavBar />
         </ErrorBoundary>

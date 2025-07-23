@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { Container, Nav, Navbar } from "react-bootstrap"
 import { useLanguage } from '../../hooks/useLanguage'
-import LanguageToggle from '../LanguageToggle/LanguageToggle'
+import NavBarControls from './NavBarControls'
 import './NavBar.css'
 import '../../App.css'
 import logo from '../../assets/img/logo.png'
@@ -109,7 +109,7 @@ const NavBar = () => {
                         </Nav>
                         
                         <span className="navbar-text">
-                            <LanguageToggle />
+                            <NavBarControls />
                             <div className="social-icon" role="group" aria-label="Social media links">
                                 <a 
                                     href="https://www.linkedin.com/in/bartoszlitwa/"

@@ -24,6 +24,13 @@ const NavBarControls: React.FC = () => {
 
   const toggleLanguageDropdown = () => {
     setIsLanguageDropdownOpen(!isLanguageDropdownOpen);
+    // Focus first option when opening dropdown
+    if (!isLanguageDropdownOpen) {
+      setTimeout(() => {
+        const firstOption = document.querySelector('.language-option') as HTMLElement;
+        firstOption?.focus();
+      }, 100);
+    }
   };
 
   // Close dropdown when clicking outside
@@ -38,17 +45,33 @@ const NavBarControls: React.FC = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  // Close dropdown on escape key
+  // Close dropdown on escape key and handle arrow navigation
   useEffect(() => {
-    const handleEscape = (event: KeyboardEvent) => {
+    const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         setIsLanguageDropdownOpen(false);
+      }
+      // Add arrow key navigation for accessibility
+      if (isLanguageDropdownOpen && (event.key === 'ArrowDown' || event.key === 'ArrowUp')) {
+        event.preventDefault();
+        const options = document.querySelectorAll('.language-option');
+        const currentFocus = document.activeElement;
+        const currentIndex = Array.from(options).indexOf(currentFocus as Element);
+        
+        let nextIndex = 0;
+        if (event.key === 'ArrowDown') {
+          nextIndex = currentIndex < options.length - 1 ? currentIndex + 1 : 0;
+        } else {
+          nextIndex = currentIndex > 0 ? currentIndex - 1 : options.length - 1;
+        }
+        
+        (options[nextIndex] as HTMLElement)?.focus();
       }
     };
 
     if (isLanguageDropdownOpen) {
-      document.addEventListener('keydown', handleEscape);
-      return () => document.removeEventListener('keydown', handleEscape);
+      document.addEventListener('keydown', handleKeyDown);
+      return () => document.removeEventListener('keydown', handleKeyDown);
     }
   }, [isLanguageDropdownOpen]);
 
@@ -71,9 +94,10 @@ const NavBarControls: React.FC = () => {
         <button
           className="control-btn language-toggle-btn"
           onClick={toggleLanguageDropdown}
-          aria-label="Select language"
+          aria-label={`Select language, currently ${currentLanguage.label}`}
           aria-expanded={isLanguageDropdownOpen}
           aria-haspopup="listbox"
+          aria-owns={isLanguageDropdownOpen ? "language-dropdown-menu" : undefined}
         >
           <span className="control-icon">{currentLanguage.flag}</span>
           <span className="language-code">{currentLanguage.code.toUpperCase()}</span>
@@ -83,19 +107,32 @@ const NavBarControls: React.FC = () => {
         </button>
 
         {isLanguageDropdownOpen && (
-          <div className="language-dropdown-menu" role="listbox">
-            {languages.map((lang) => (
+          <div 
+            className="language-dropdown-menu" 
+            role="listbox"
+            aria-label="Language selection options"
+            id="language-dropdown-menu"
+          >
+            {languages.map((lang, index) => (
               <button
                 key={lang.code}
                 className={`language-option ${language === lang.code ? 'active' : ''}`}
                 onClick={() => handleLanguageSelect(lang.code)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    handleLanguageSelect(lang.code);
+                  }
+                }}
                 role="option"
                 aria-selected={language === lang.code}
+                tabIndex={isLanguageDropdownOpen ? 0 : -1}
+                id={`language-option-${lang.code}`}
               >
-                <span className="option-flag">{lang.flag}</span>
+                <span className="option-flag" aria-hidden="true">{lang.flag}</span>
                 <span className="option-label">{lang.label}</span>
                 {language === lang.code && (
-                  <span className="option-check">✓</span>
+                  <span className="option-check" aria-label="Selected">✓</span>
                 )}
               </button>
             ))}
