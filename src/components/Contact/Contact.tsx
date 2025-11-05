@@ -1,11 +1,18 @@
 import React, { useState } from "react";
-import { Row, Col, Container, Form, Button } from "react-bootstrap";
+import { Row, Col, Container, Form } from "react-bootstrap";
 import './Contact.css'
 import emailjs from '@emailjs/browser';
-import LaptopModel from "./LaptopModel";
+import ContactInfo from "./ContactInfo";
+import { ContactFormDetails, ContactStatus } from '../../types';
+
+// Initialize EmailJS with environment variable
+const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
+if (publicKey) {
+    emailjs.init(publicKey);
+}
 
 const Contact = () => {
-    const formInitialDetails = {
+    const formInitialDetails: ContactFormDetails = {
         firstName: '',
         lastName: '',
         email: '',
@@ -14,16 +21,16 @@ const Contact = () => {
         message: ''
     }
 
-    const [formDetails, setFormDetails] = useState(formInitialDetails)
+    const [formDetails, setFormDetails] = useState<ContactFormDetails>(formInitialDetails)
     const [buttonText, setButtonText] = useState('Send')
 
-    const initialStatus = {
+    const initialStatus: ContactStatus = {
         message: '',
         success: true
     }
-    const [status, setStatus] = useState(initialStatus)
+    const [status, setStatus] = useState<ContactStatus>(initialStatus)
 
-    const onChangeForm = (e: any) => {
+    const onChangeForm = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const {name, value} = e.target
 
         setFormDetails((prev) => {
@@ -38,10 +45,23 @@ const Contact = () => {
         form.preventDefault()
         setButtonText('Sending...')
 
-        await emailjs.send('service_j49lkum', 'template_uajf2in', formDetails, 'Xnx7-7wFdP57_J61-')
+        const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+        const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+        const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
+
+        if (!serviceId || !templateId || !publicKey) {
+            setStatus({
+                message: 'Email configuration is missing. Please contact the administrator.',
+                success: false
+            });
+            setButtonText('Send');
+            return;
+        }
+
+        await emailjs.send(serviceId, templateId, formDetails, publicKey)
             .then((result) => {
                 setStatus({
-                    message: 'Message Sent Successfuly',
+                    message: 'Message Sent Successfully',
                     success: true
                 })
             }, (error) => {
@@ -58,14 +78,11 @@ const Contact = () => {
     return (
         <section className="contact" id="contact">
             <Container>
-                <Row className="align-items-center">
-                    <Col md={6}>
-                        {/* <img src={contactImg} alt="Contact Us" /> */}
-                        <div className="canvas-container-laptop">
-                            <LaptopModel></LaptopModel>
-                        </div>
-                    </Col>
-                    <Col md={6}>
+                        <Row className="align-items-start">
+            <Col lg={6} md={12} className="mb-4">
+                <ContactInfo />
+            </Col>
+            <Col lg={6} md={12}>
                         <h2>Get In Touch</h2>
                         <Form onSubmit={handleSubmit}>
                             <Row>

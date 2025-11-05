@@ -3,11 +3,89 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Bartosz Litwa's portfolio website"
-    />
+    <meta name="theme-color" content="#007bff" />
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Bartosz Litwa - Senior Full-Stack Developer at KPMG specializing in .NET, Angular, and Azure DevOps. Expert in CI/CD pipelines, cloud infrastructure, and enterprise application development. 3+ years of experience delivering scalable solutions." />
+    <meta name="keywords" content=".NET Developer, Angular Developer, Azure DevOps Expert, CI/CD Pipeline Engineer, GitHub Actions, Full Stack Developer, Cloud Infrastructure, Enterprise Software Engineer, KPMG, Warsaw Poland, Azure Cloud, Microservices Architecture" />
+    <meta name="author" content="Bartosz Litwa" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href="https://litwa.dev" />
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Bartosz Litwa - .NET Developer 3 @ KPMG | Azure DevOps & CI/CD Expert" />
+    <meta property="og:description" content="Senior Full-Stack Developer specializing in .NET, Angular, and Azure DevOps. Expert in building enterprise-grade applications with advanced CI/CD pipelines and cloud infrastructure." />
+    <meta property="og:image" content="%PUBLIC_URL%/portfolio-preview.jpg" />
+    <meta property="og:url" content="https://litwa.dev" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Bartosz Litwa - Professional Portfolio" />
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Bartosz Litwa - .NET & Azure DevOps Expert" />
+    <meta name="twitter:description" content=".NET Developer 3 @ KPMG | Specializing in Angular, Azure DevOps, CI/CD & Cloud Infrastructure" />
+    <meta name="twitter:image" content="%PUBLIC_URL%/portfolio-preview.jpg" />
+    <meta name="twitter:creator" content="@bartoszlitwa" />
+    
+    <!-- LinkedIn Meta Tags -->
+    <meta property="article:author" content="https://www.linkedin.com/in/bartoszlitwa/" />
+    
+    <!-- Structured Data for Rich Snippets -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Bartosz Litwa",
+      "jobTitle": ".NET Developer 3",
+      "description": "Senior Full-Stack Developer specializing in .NET, Angular, Azure DevOps, CI/CD pipelines, and cloud infrastructure. Expert in building enterprise-grade applications.",
+      "url": "https://litwa.dev",
+      "image": "https://litwa.dev/portfolio-preview.jpg",
+      "sameAs": [
+        "https://www.linkedin.com/in/bartoszlitwa/",
+        "https://github.com/BartoszLitwa"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Warsaw",
+        "addressCountry": "PL"
+      },
+      "knowsAbout": [
+        ".NET Core",
+        "C# Programming",
+        "Angular Framework",
+        "Azure DevOps",
+        "CI/CD Pipelines",
+        "GitHub Actions",
+        "Azure Cloud Services",
+        "Microservices Architecture",
+        "Cloud Infrastructure",
+        "Enterprise Application Development",
+        "TypeScript",
+        "Docker",
+        "Kubernetes"
+      ],
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Polish-Japanese Academy of Information Technology",
+        "sameAs": "https://www.pja.edu.pl/en/"
+      },
+      "worksFor": {
+        "@type": "Organization",
+        "name": "KPMG",
+        "sameAs": "https://home.kpmg/pl/en/home.html"
+      },
+      "hasOccupation": {
+        "@type": "Occupation",
+        "name": ".NET Developer",
+        "occupationLocation": {
+          "@type": "City",
+          "name": "Warsaw"
+        },
+        "skills": ".NET, Angular, Azure DevOps, CI/CD, GitHub Actions, Cloud Infrastructure"
+      }
+    }
+    </script>
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -22,8 +100,9 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>Litwa's Portfolio</title>
+    <title>Bartosz Litwa - .NET Developer 3 @ KPMG | Azure DevOps & CI/CD Expert</title>
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -41,10 +120,5 @@
   </body>
   <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
-  </script>
-  <script type="text/javascript">
-    (function(){
-        emailjs.init("Xnx7-7wFdP57_J61-");
-    })();
   </script>
 </html>

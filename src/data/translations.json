@@ -1,0 +1,250 @@
+{
+  "en": {
+    "navigation": {
+      "home": "Home",
+      "skills": "Skills",
+      "experience": "Experience",
+      "projects": "Projects",
+      "certifications": "Certifications",
+      "contact": "Contact",
+      "letsConnect": "Let's Connect",
+      "skipToMain": "Skip to main content"
+    },
+    "hero": {
+      "name": "Bartosz Litwa",
+      "roles": [".NET Developer 3 @ KPMG", "Full-Stack Developer", "Azure Cloud Expert", "BSc Computer Science Graduate"],
+      "description": "Senior Full-Stack Developer at KPMG with a BSc in Computer Science. Specializing in .NET Core, React, and Azure Cloud. Building enterprise-grade applications that drive business value and reduce operational costs.",
+      "stats": {
+        "experience": "Years Experience",
+        "services": "Services Built",
+        "costSavings": "Cost Savings"
+      },
+      "cta": {
+        "connect": "Let's Connect",
+        "viewExperience": "View Experience"
+      }
+    },
+    "featured": {
+      "badge": "Featured Project",
+      "title": "Rentify",
+      "subtitle": "Property Management Platform",
+      "description": "A full-stack SaaS platform revolutionizing property rental management. Built with modern cloud architecture and enterprise-grade patterns, Rentify showcases my ability to architect and deliver scalable, production-ready applications from concept to deployment.",
+      "status": "Almost Live at",
+      "technicalStack": "Technical Stack",
+      "keyFeatures": "Key Features",
+      "buttons": {
+        "visit": "Visit Platform",
+        "moreProjects": "View More Projects"
+      },
+      "metrics": {
+        "multiTenant": "Multi-Tenant",
+        "realTime": "Real-Time",
+        "azure": "Azure",
+        "enterprise": "Enterprise",
+        "architecture": "SaaS Architecture",
+        "updates": "Updates & Notifications",
+        "cloud": "Cloud Infrastructure",
+        "security": "Grade Security"
+      }
+    },
+    "skills": {
+      "title": "Technical Skills",
+      "description": "A comprehensive overview of my professional tech stack and expertise in building enterprise-grade applications.",
+      "technologies": "Technologies",
+      "programs": "Programs & Tools"
+    },
+    "projects": {
+      "title": "Projects",
+      "description": "Explore my portfolio of applications and solutions that demonstrate my expertise in full-stack development, cloud architecture, and modern web technologies.",
+      "filters": {
+        "all": "All",
+        "dotnet": ".Net",
+        "react": "React",
+        "flutter": "Flutter",
+        "cpp": "C++",
+        "java": "Java"
+      },
+      "impact": "Impact:"
+    },
+    "certifications": {
+      "title": "Certifications",
+      "description": "Professional certifications that validate my expertise in cloud technologies and software development.",
+      "status": {
+        "completed": "Completed",
+        "inProgress": "In Progress",
+        "expected": "Expected"
+      },
+      "levels": {
+        "fundamentals": "Fundamentals",
+        "associate": "Associate",
+        "expert": "Expert"
+      },
+      "categories": {
+        "cloudFundamentals": "Cloud Fundamentals",
+        "artificialIntelligence": "Artificial Intelligence",
+        "dataAnalytics": "Data & Analytics",
+        "development": "Development",
+        "devops": "DevOps"
+      },
+      "viewCredential": "View Credential",
+      "progress": "Progress"
+    },
+    "contact": {
+      "title": "Contact",
+      "subtitle": "Let's Connect!",
+      "description": "Ready to discuss your next project or opportunity? I'm always open to new challenges and collaborations.",
+      "form": {
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "email": "Email",
+        "phone": "Phone",
+        "subject": "Subject",
+        "message": "Message",
+        "send": "Send",
+        "sending": "Sending...",
+        "success": "Message sent successfully!",
+        "error": "Failed to send message. Please try again."
+      },
+      "info": {
+        "availability": "Availability",
+        "availableFor": "Available for:",
+        "opportunities": [
+          "Full-time opportunities",
+          "Consulting projects",
+          "Technical discussions",
+          "Mentoring sessions"
+        ],
+        "responseTime": "Response Time:",
+        "responseTimeValue": "Usually within 24 hours"
+      }
+    },
+    "footer": {
+      "copyright": "Copyright 2024. All rights Reserved",
+      "connect": "Let's Connect"
+    }
+  },
+  "pl": {
+    "navigation": {
+      "home": "Strona główna",
+      "skills": "Umiejętności",
+      "experience": "Doświadczenie",
+      "projects": "Projekty",
+      "certifications": "Certyfikaty",
+      "contact": "Kontakt",
+      "letsConnect": "Skontaktuj się",
+      "skipToMain": "Przejdź do głównej treści"
+    },
+    "hero": {
+      "name": "Bartosz Litwa",
+      "roles": [".NET Developer 3 @ KPMG", "Full-Stack Developer", "Ekspert Azure Cloud", "Absolwent Informatyki"],
+      "description": "Senior Full-Stack Developer w KPMG z tytułem licencjata informatyki. Specjalizuję się w .NET Core, React i Azure Cloud. Tworzę aplikacje klasy enterprise, które zapewniają wartość biznesową i redukują koszty operacyjne.",
+      "stats": {
+        "experience": "Lat Doświadczenia",
+        "services": "Zbudowanych Serwisów",
+        "costSavings": "Oszczędności Kosztów"
+      },
+      "cta": {
+        "connect": "Skontaktuj się",
+        "viewExperience": "Zobacz Doświadczenie"
+      }
+    },
+    "featured": {
+      "badge": "Projekt Flagowy",
+      "title": "Rentify",
+      "subtitle": "Platforma Zarządzania Nieruchomościami",
+      "description": "Platforma SaaS full-stack rewolucjonizująca zarządzanie wynajmem nieruchomości. Zbudowana z nowoczesną architekturą chmurową i wzorcami klasy enterprise, Rentify pokazuje moją zdolność do projektowania i dostarczania skalowalnych, gotowych do produkcji aplikacji od koncepcji do wdrożenia.",
+      "status": "Prawie Live na",
+      "technicalStack": "Stack Techniczny",
+      "keyFeatures": "Kluczowe Funkcje",
+      "buttons": {
+        "visit": "Odwiedź Platformę",
+        "moreProjects": "Zobacz Więcej Projektów"
+      },
+      "metrics": {
+        "multiTenant": "Multi-Tenant",
+        "realTime": "Real-Time",
+        "azure": "Azure",
+        "enterprise": "Enterprise",
+        "architecture": "Architektura SaaS",
+        "updates": "Aktualizacje i Powiadomienia",
+        "cloud": "Infrastruktura Chmurowa",
+        "security": "Bezpieczeństwo Klasy"
+      }
+    },
+    "skills": {
+      "title": "Umiejętności Techniczne",
+      "description": "Kompleksowy przegląd mojego profesjonalnego stosu technologicznego i doświadczenia w tworzeniu aplikacji klasy enterprise.",
+      "technologies": "Technologie",
+      "programs": "Programy i Narzędzia"
+    },
+    "projects": {
+      "title": "Projekty",
+      "description": "Poznaj moje portfolio aplikacji i rozwiązań, które demonstrują moją ekspertyzę w full-stack development, architekturze chmury i nowoczesnych technologiach webowych.",
+      "filters": {
+        "all": "Wszystkie",
+        "dotnet": ".Net",
+        "react": "React",
+        "flutter": "Flutter",
+        "cpp": "C++",
+        "java": "Java"
+      },
+      "impact": "Wpływ:"
+    },
+    "certifications": {
+      "title": "Certyfikaty",
+      "description": "Profesjonalne certyfikaty potwierdzające moją ekspertyzę w technologiach chmurowych i rozwoju oprogramowania.",
+      "status": {
+        "completed": "Ukończone",
+        "inProgress": "W trakcie",
+        "expected": "Oczekiwane"
+      },
+      "levels": {
+        "fundamentals": "Podstawy",
+        "associate": "Associate",
+        "expert": "Ekspert"
+      },
+      "categories": {
+        "cloudFundamentals": "Podstawy Chmury",
+        "artificialIntelligence": "Sztuczna Inteligencja",
+        "dataAnalytics": "Dane i Analityka",
+        "development": "Rozwój",
+        "devops": "DevOps"
+      },
+      "viewCredential": "Zobacz Certyfikat",
+      "progress": "Postęp"
+    },
+    "contact": {
+      "title": "Kontakt",
+      "subtitle": "Skontaktujmy się!",
+      "description": "Gotowy do omówienia Twojego następnego projektu lub możliwości? Jestem zawsze otwarty na nowe wyzwania i współpracę.",
+      "form": {
+        "firstName": "Imię",
+        "lastName": "Nazwisko",
+        "email": "Email",
+        "phone": "Telefon",
+        "subject": "Temat",
+        "message": "Wiadomość",
+        "send": "Wyślij",
+        "sending": "Wysyłanie...",
+        "success": "Wiadomość wysłana pomyślnie!",
+        "error": "Nie udało się wysłać wiadomości. Spróbuj ponownie."
+      },
+      "info": {
+        "availability": "Dostępność",
+        "availableFor": "Dostępny na:",
+        "opportunities": [
+          "Możliwości pełnoetatowe",
+          "Projekty konsultingowe",
+          "Dyskusje techniczne",
+          "Sesje mentorskie"
+        ],
+        "responseTime": "Czas odpowiedzi:",
+        "responseTimeValue": "Zwykle w ciągu 24 godzin"
+      }
+    },
+    "footer": {
+      "copyright": "Copyright 2024. Wszelkie prawa zastrzeżone",
+      "connect": "Skontaktuj się"
+    }
+  }
+} 

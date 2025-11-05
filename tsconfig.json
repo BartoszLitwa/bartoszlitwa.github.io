@@ -18,14 +18,10 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "preserve"
+    "jsx": "react-jsx"
   },
   "include": [
     "./custom.d.ts",
-    "src",
-    "src/components",
-    "src/components/*",
-    "src/assets",
-    "src/assets/*"
+    "src"
   ]
 }

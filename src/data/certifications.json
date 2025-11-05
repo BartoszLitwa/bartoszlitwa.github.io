@@ -1,0 +1,73 @@
+[
+  {
+    "id": "az-900",
+    "name": "Microsoft Azure Fundamentals",
+    "code": "AZ-900",
+    "provider": "Microsoft",
+    "status": "completed",
+    "completedDate": "2023-06-15",
+    "description": "Foundational knowledge of cloud services and how those services are provided with Microsoft Azure",
+    "skills": ["Cloud Concepts", "Azure Services", "Security", "Compliance", "Pricing"],
+    "credentialUrl": "#",
+    "badgeUrl": "https://images.credly.com/size/340x340/images/be8fcaeb-c769-4858-b567-ffaaa73ce8cf/image.png",
+    "level": "Fundamentals",
+    "category": "Cloud Fundamentals"
+  },
+  {
+    "id": "ai-900",
+    "name": "Microsoft Azure AI Fundamentals",
+    "code": "AI-900",
+    "provider": "Microsoft",
+    "status": "completed",
+    "completedDate": "2023-08-20",
+    "description": "Foundational knowledge of machine learning and artificial intelligence concepts on Azure",
+    "skills": ["AI Workloads", "Machine Learning", "Computer Vision", "Natural Language Processing", "Conversational AI"],
+    "credentialUrl": "#",
+    "badgeUrl": "https://images.credly.com/size/340x340/images/4136ced8-75d5-4afb-8677-40b6236e2672/azure-ai-fundamentals-600x600.png",
+    "level": "Fundamentals",
+    "category": "Artificial Intelligence"
+  },
+  {
+    "id": "dp-900",
+    "name": "Microsoft Azure Data Fundamentals",
+    "code": "DP-900",
+    "provider": "Microsoft",
+    "status": "completed",
+    "completedDate": "2023-09-10",
+    "description": "Core data concepts and how they are implemented using Microsoft Azure data services",
+    "skills": ["Core Data Concepts", "Relational Data", "Non-relational Data", "Analytics Workloads"],
+    "credentialUrl": "#",
+    "badgeUrl": "https://images.credly.com/size/340x340/images/70eb1e3f-d4de-4377-a062-b20fb29594ea/azure-data-fundamentals-600x600.png",
+    "level": "Fundamentals",
+    "category": "Data & Analytics"
+  },
+  {
+    "id": "az-204",
+    "name": "Microsoft Azure Developer Associate",
+    "code": "AZ-204",
+    "provider": "Microsoft",
+    "status": "completed",
+    "completedDate": "2024-02-28",
+    "description": "Developing solutions for Microsoft Azure including compute, storage, security, and monitoring",
+    "skills": ["Azure Compute Solutions", "Azure Storage", "Azure Security", "Monitoring & Optimization", "API Management"],
+    "credentialUrl": "#",
+    "badgeUrl": "https://images.credly.com/size/340x340/images/63316b60-f62d-4e51-aacc-c23cb850089c/azure-developer-associate-600x600.png",
+    "level": "Associate",
+    "category": "Development"
+  },
+  {
+    "id": "az-400",
+    "name": "Microsoft Azure DevOps Engineer Expert",
+    "code": "AZ-400",
+    "provider": "Microsoft",
+    "status": "in-progress",
+    "progress": 75,
+    "expectedDate": "2025-03-15",
+    "description": "DevOps practices that combine people, processes, and technologies to continuously deliver valuable products",
+    "skills": ["DevOps Strategy", "Source Control", "CI/CD", "Dependency Management", "Application Infrastructure", "Continuous Feedback"],
+    "credentialUrl": "#",
+    "badgeUrl": "https://images.credly.com/size/340x340/images/c3ab66f8-5d59-4afa-a6c2-0ba30a1989ca/CERT-Expert-DevOps-Engineer-600x600.png",
+    "level": "Expert",
+    "category": "DevOps"
+  }
+] 

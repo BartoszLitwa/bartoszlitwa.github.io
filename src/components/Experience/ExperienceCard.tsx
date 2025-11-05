@@ -1,8 +1,9 @@
 import React from "react";
 import { Container, Row, Col, ListGroup } from "react-bootstrap";
 import './Experience.css';
+import { ExperienceCardProps } from '../../types';
 
-const ExperienceCard = ({experience}: {experience: any}) => {
+const ExperienceCard = ({experience}: ExperienceCardProps) => {
     return (
         <Container>
             <div className="experienceCard-bx">
@@ -34,6 +35,13 @@ const ExperienceCard = ({experience}: {experience: any}) => {
                                 {experience.company} - {experience.city}
                             </h6>
                         </Row>
+                        {experience.education && (
+                            <Row>
+                                <p className="d-flex justify-content-start pl-5 education-badge">
+                                    🎓 {experience.education}
+                                </p>
+                            </Row>
+                        )}
                         <Row>
                             <ListGroup variant="flush" as="ul">
                             {
