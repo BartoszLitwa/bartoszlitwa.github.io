@@ -8,7 +8,7 @@ import projectsData from '../../data/projects.json';
 import { useScrollAnimation, useStaggeredScrollAnimation } from '../../hooks/useScrollAnimation';
 
 const Projects = () => {
-    const projects: Project[] = projectsData.map(project => ({
+    const projects: Project[] = (projectsData as Project[]).map(project => ({
         ...project,
         imgUrl: require(`../../assets/${project.imgUrl}`)
     }));
@@ -36,7 +36,7 @@ const Projects = () => {
     const projectTypes = ["All", ".Net", "React", "Flutter", "C++", "Java"];
 
     return (
-        <section className="project" id="projects">
+        <section className="project" id="projects" aria-labelledby="projects-heading">
             <Container>
                 <Row>
                     <Col>
@@ -44,7 +44,7 @@ const Projects = () => {
                             ref={headerRef as React.RefObject<HTMLDivElement>}
                             className={`projects-header scroll-animate ${headerVisible ? 'animate-in' : ''}`}
                         >
-                            <h2 className="section-title">Projects</h2>
+                            <h2 className="section-title" id="projects-heading">Projects</h2>
                             <p className="section-description">
                                 Explore my portfolio of applications and solutions that demonstrate my expertise in full-stack development, 
                                 cloud architecture, and modern web technologies.
@@ -57,6 +57,8 @@ const Projects = () => {
                                 className={`nav-pills mb-5 justify-content-center align-items-center scroll-animate ${headerVisible ? 'animate-in' : ''}`}
                                 id="pills-nav"
                                 style={{ transitionDelay: '0.2s' }}
+                                role="tablist"
+                                aria-label="Filter projects by technology"
                             >
                                 {projectTypes.map((type) => (
                                     <Nav.Item key={type}>
@@ -64,6 +66,9 @@ const Projects = () => {
                                             eventKey={type} 
                                             onClick={() => setEventKey(type)}
                                             className={eventKey === type ? 'active' : ''}
+                                            role="tab"
+                                            aria-selected={eventKey === type}
+                                            aria-controls={`projects-tab-panel-${type}`}
                                         >
                                             {type}
                                         </Nav.Link>
@@ -75,6 +80,9 @@ const Projects = () => {
                                 <div 
                                     ref={projectsRef as React.RefObject<HTMLDivElement>}
                                     className="projects-grid"
+                                    role="tabpanel"
+                                    id={`projects-tab-panel-${eventKey}`}
+                                    aria-labelledby={`projects-tab-${eventKey}`}
                                 >
                                     <Row className="g-4">
                                         {generateCards(eventKey)}
@@ -85,7 +93,7 @@ const Projects = () => {
                     </Col>
                 </Row>
             </Container>
-            <img src={colorSharp2} alt="" className="background-image-right" aria-hidden="true"/>
+            <img src={colorSharp2} alt="" className="background-image-right" aria-hidden="true" loading="lazy"/>
         </section>
     )
 }

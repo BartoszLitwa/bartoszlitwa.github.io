@@ -11,15 +11,15 @@ const Skills = () => {
     const categories: SkillCategory[] = skillsData.categories;
 
     return (
-        <section className="skill" id="skills">
+        <section className="skill" id="skills" aria-labelledby="skills-heading">
             <Container>
                 <Row>
                     <Col>
                         <div className="skill-bx">
-                            <h2>{t('skills.title')}</h2>
+                            <h2 id="skills-heading">{t('skills.title')}</h2>
                             <p className="skill-description">{t('skills.description')}</p>
                             
-                            <div className="skills-grid-modern">
+                            <div className="skills-grid-modern" role="list" aria-label="Technical skills categories">
                                 {categories.map((category) => (
                                     <SkillCard 
                                         key={category.id} 

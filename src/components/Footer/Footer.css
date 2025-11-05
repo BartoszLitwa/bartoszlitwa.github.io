@@ -1,23 +1,163 @@
-/************ Footer Css ************/
+/* Modern Minimalist Footer Styles */
 .footer {
-    padding: 0 0 50px 0;
-    background-image: url('../../assets/img/footer-bg.png');
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-.footer img {
-    width: 26%;
-}
-.footer p {
-    font-weight: 400;
-    font-size: 14px;
-    color: #B8B8B8;
-    letter-spacing: 0.5px;
-    margin-top: 20px;
+    padding: 4rem 0 2rem;
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
+    position: relative;
 }
 
-.social-icon a img {
-    width: 40px;
-    height: 40px;
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
+    opacity: 0.3;
+}
+
+.footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.footer img {
+    width: auto;
+    height: 48px;
+    transition: transform 0.3s ease;
+}
+
+.footer img:hover {
+    transform: scale(1.05);
+}
+
+.footer p {
+    font-weight: 400;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.footer .row {
+    align-items: center;
+}
+
+.footer .social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.footer .social-icon a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.footer .social-icon a:hover {
+    background-color: var(--accent-primary);
+    border-color: var(--accent-primary);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(91, 48, 247, 0.3);
+}
+
+.footer .social-icon a img {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1);
+    transition: filter 0.3s ease;
+}
+
+.footer .social-icon a:hover img {
+    filter: brightness(1) invert(0);
+}
+
+.footer .navbar-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer .navbar-text button {
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(91, 48, 247, 0.3);
+}
+
+.footer .navbar-text button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(91, 48, 247, 0.4);
+}
+
+.footer .navbar-text button:focus {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+}
+
+.footer .d-none {
+    display: none !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer {
+        padding: 3rem 0 1.5rem;
+    }
+    
+    .footer .social-icon {
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+    
+    .footer .social-icon a {
+        width: 44px;
+        height: 44px;
+    }
+    
+    .footer p {
+        font-size: 0.85rem;
+        margin-top: 1.5rem;
+    }
+}
+
+/* Light Theme Adjustments */
+[data-theme="light"] .footer {
+    background: var(--bg-secondary);
+    border-top-color: var(--border-color);
+}
+
+[data-theme="light"] .footer::before {
+    background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
+    opacity: 0.2;
+}
+
+[data-theme="light"] .footer .social-icon a {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-color: var(--border-color);
+}
+
+[data-theme="light"] .footer .social-icon a:hover {
+    background-color: var(--accent-primary);
+    border-color: var(--accent-primary);
 }

@@ -76,41 +76,82 @@ const Contact = () => {
     }
 
     return (
-        <section className="contact" id="contact">
+        <section className="contact" id="contact" aria-labelledby="contact-heading">
             <Container>
                         <Row className="align-items-start">
             <Col lg={6} md={12} className="mb-4">
                 <ContactInfo />
             </Col>
             <Col lg={6} md={12}>
-                        <h2>Get In Touch</h2>
-                        <Form onSubmit={handleSubmit}>
+                        <h2 id="contact-heading">Get In Touch</h2>
+                        <Form onSubmit={handleSubmit} aria-label="Contact form">
                             <Row>
                                 <Col sm={6} className="px-1">
-                                    <input type="text" value={formDetails.firstName} placeholder="First Name"
-                                        onChange={onChangeForm} name="firstName" />
+                                    <input 
+                                        type="text" 
+                                        value={formDetails.firstName} 
+                                        placeholder="First Name"
+                                        onChange={onChangeForm} 
+                                        name="firstName"
+                                        aria-label="First name"
+                                        required
+                                    />
                                 </Col>
                                 <Col sm={6} className="px-1">
-                                    <input type="text" value={formDetails.lastName} placeholder="Last Name"
-                                        onChange={onChangeForm} name="lastName" />
+                                    <input 
+                                        type="text" 
+                                        value={formDetails.lastName} 
+                                        placeholder="Last Name"
+                                        onChange={onChangeForm} 
+                                        name="lastName"
+                                        aria-label="Last name"
+                                        required
+                                    />
                                 </Col>
                                 <Col sm={6} className="px-1">
-                                    <input type="phone" value={formDetails.phone} placeholder="Phone Number"
-                                        onChange={onChangeForm} name="phone" />
+                                    <input 
+                                        type="tel" 
+                                        value={formDetails.phone} 
+                                        placeholder="Phone Number"
+                                        onChange={onChangeForm} 
+                                        name="phone"
+                                        aria-label="Phone number"
+                                    />
                                 </Col>
                                 <Col sm={6} className="px-1">
-                                    <input type="text" value={formDetails.email} placeholder="Email"
-                                        onChange={onChangeForm} name="email" />
+                                    <input 
+                                        type="email" 
+                                        value={formDetails.email} 
+                                        placeholder="Email"
+                                        onChange={onChangeForm} 
+                                        name="email"
+                                        aria-label="Email address"
+                                        required
+                                    />
                                 </Col>
                                 <Col sm={12} className="px-1">
-                                    <input type="text" value={formDetails.subject} placeholder="Subject"
-                                        onChange={onChangeForm} name="subject" />
+                                    <input 
+                                        type="text" 
+                                        value={formDetails.subject} 
+                                        placeholder="Subject"
+                                        onChange={onChangeForm} 
+                                        name="subject"
+                                        aria-label="Message subject"
+                                        required
+                                    />
                                 </Col>
                                 <Col sm={12} className="px-1">
-                                    <textarea value={formDetails.message} placeholder="Message"
-                                        onChange={onChangeForm} name="message" />
+                                    <textarea 
+                                        value={formDetails.message} 
+                                        placeholder="Message"
+                                        onChange={onChangeForm} 
+                                        name="message"
+                                        aria-label="Message content"
+                                        required
+                                    />
                                     <div className="navbar-text">
-                                        <button type="submit" >
+                                        <button type="submit" disabled={buttonText === 'Sending...' || buttonText === 'Sent'} aria-label="Send message">
+                                            {buttonText === 'Sending...' && <span className="spinner" aria-hidden="true"></span>}
                                             <span>{buttonText}</span>
                                         </button>
                                     </div>
@@ -119,7 +160,7 @@ const Contact = () => {
                                     {
                                         status.message &&
                                         <Col>
-                                            <p className={status.success === false ? "danger" : "success"}>
+                                            <p className={status.success === false ? "danger" : "success"} role="alert" aria-live="polite">
                                                 {status.message}
                                             </p>
                                         </Col>

@@ -48,7 +48,7 @@ const NavBar = () => {
             >
                 <Container>
                     <Navbar.Brand href="#home" aria-label="Bartosz Litwa - Home">
-                        <img src={logo} alt="Bartosz Litwa Logo" />
+                        <img src={logo} alt="Bartosz Litwa Logo" loading="eager" />
                     </Navbar.Brand>
                     
                     <Navbar.Toggle 
@@ -122,6 +122,7 @@ const NavBar = () => {
                                         alt="LinkedIn"
                                         width="24"
                                         height="24"
+                                        loading="lazy"
                                     />
                                 </a>
                                 <a 
@@ -135,6 +136,7 @@ const NavBar = () => {
                                         alt="GitHub"
                                         width="24"
                                         height="24"
+                                        loading="lazy"
                                     />
                                 </a>
                                 <a 
@@ -148,6 +150,7 @@ const NavBar = () => {
                                         alt="Portfolio"
                                         width="24"
                                         height="24"
+                                        loading="lazy"
                                     />
                                 </a>
                             </div>

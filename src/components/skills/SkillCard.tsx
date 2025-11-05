@@ -8,14 +8,14 @@ interface SkillCardProps {
 
 const SkillCard: React.FC<SkillCardProps> = ({ category }) => {
   return (
-    <div className="skill-card">
-      <h3 className="skill-card-title">{category.name}</h3>
-      <div className="skill-card-content">
+    <article className="skill-card" aria-labelledby={`skill-category-${category.id}`}>
+      <h3 className="skill-card-title" id={`skill-category-${category.id}`}>{category.name}</h3>
+      <div className="skill-card-content" role="list" aria-label={`Skills in ${category.name}`}>
         {category.skills.map((skill) => (
-          <div key={skill.name} className="skill-badge">
+          <div key={skill.name} className="skill-badge" role="listitem">
             <img 
               src={skill.icon} 
-              alt={skill.name}
+              alt={`${skill.name} icon`}
               className="skill-icon"
               loading="lazy"
             />
@@ -23,7 +23,7 @@ const SkillCard: React.FC<SkillCardProps> = ({ category }) => {
           </div>
         ))}
       </div>
-    </div>
+    </article>
   );
 };
 

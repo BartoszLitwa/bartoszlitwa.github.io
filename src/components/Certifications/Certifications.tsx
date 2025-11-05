@@ -20,7 +20,7 @@ const Certifications: React.FC = () => {
   const inProgressCerts = certifications.filter(cert => cert.status === 'in-progress');
 
   return (
-    <section className="certifications" id="certifications">
+    <section className="certifications" id="certifications" aria-labelledby="certifications-heading">
       <Container>
         <Row>
           <Col>
@@ -28,7 +28,7 @@ const Certifications: React.FC = () => {
               ref={headerRef as React.RefObject<HTMLDivElement>}
               className={`certifications-header scroll-animate ${headerVisible ? 'animate-in' : ''}`}
             >
-              <h2 className="section-title">{t('certifications.title')}</h2>
+              <h2 className="section-title" id="certifications-heading">{t('certifications.title')}</h2>
               <p className="section-description">
                 {t('certifications.description')}
               </p>

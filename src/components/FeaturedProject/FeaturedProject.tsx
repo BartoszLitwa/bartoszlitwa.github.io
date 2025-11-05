@@ -23,7 +23,7 @@ const FeaturedProject = () => {
     ];
 
     return (
-        <section className="featured-project" id="featured-project">
+        <section className="featured-project" id="featured-project" aria-labelledby="featured-project-heading">
             <Container>
                 <Row>
                     <Col>
@@ -32,13 +32,15 @@ const FeaturedProject = () => {
                             className={`featured-header scroll-animate ${headerVisible ? 'animate-in' : ''}`}
                         >
                             <span className="featured-badge">Featured Project</span>
-                            <h2 className="featured-title">Rentify</h2>
+                            <h2 className="featured-title" id="featured-project-heading">Rentify</h2>
                             <p className="featured-subtitle">Property Management Platform</p>
                             <p className="featured-description">
                                 A full-stack SaaS platform revolutionizing property rental management. 
                                 Built with modern cloud architecture and enterprise-grade patterns, 
-                                Rentify showcases my ability to architect and deliver scalable, 
-                                production-ready applications from concept to deployment.
+                                Rentify demonstrates my expertise in architecting and delivering scalable, 
+                                production-ready applications from concept to deployment. Showcasing advanced 
+                                technical capabilities including multi-tenant architecture, real-time communication, 
+                                and automated CI/CD pipelines.
                             </p>
                             <div className="featured-status">
                                 <span className="status-indicator live"></span>
@@ -123,5 +125,6 @@ const FeaturedProject = () => {
 };
 
 export default FeaturedProject;
+
 
 

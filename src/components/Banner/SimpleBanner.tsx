@@ -70,8 +70,8 @@ const SimpleBanner = () => {
                             </h2>
                             <p className="hero-description animate-fade-up" style={{ animationDelay: '0.4s' }}>
                                 Senior Full-Stack Developer at KPMG with a BSc in Computer Science. 
-                                Specializing in <strong>.NET Core</strong>, <strong>React</strong>, and <strong>Azure Cloud</strong>. 
-                                Building enterprise-grade applications that drive business value and reduce operational costs.
+                                <strong>Architecting enterprise-grade solutions</strong> using <strong>.NET Core</strong>, <strong>Angular</strong>, and <strong>Azure Cloud</strong>. 
+                                Delivering scalable applications that drive measurable business value—reducing operational costs by 90% and serving 10K+ daily users across 15+ microservices.
                             </p>
                             <div className="hero-stats animate-fade-up" style={{ animationDelay: '0.6s' }}>
                                 <div className="stat">

@@ -20,12 +20,12 @@ const Experience = () => {
     }
 
     return (
-        <section className="experience" id="experience">
+        <section className="experience" id="experience" aria-labelledby="experience-heading">
             <Container>
                 <Row>
                     <Col>
                         <div className="experience-bx">
-                            <h2>
+                            <h2 id="experience-heading">
                                 Experience
                             </h2>
                             {
