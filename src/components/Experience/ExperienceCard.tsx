@@ -35,6 +35,13 @@ const ExperienceCard = ({experience}: ExperienceCardProps) => {
                                 {experience.company} - {experience.city}
                             </h6>
                         </Row>
+                        {experience.education && (
+                            <Row>
+                                <p className="d-flex justify-content-start pl-5 education-badge">
+                                    🎓 {experience.education}
+                                </p>
+                            </Row>
+                        )}
                         <Row>
                             <ListGroup variant="flush" as="ul">
                             {

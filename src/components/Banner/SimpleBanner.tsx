@@ -6,7 +6,7 @@ import './SimpleBanner.css'
 const SimpleBanner = () => {
     const [index, setIndex] = useState(0)
     const [isDeleting, setIsDeleting] = useState(false)
-    const toRotate = useMemo(() => ['Full-Stack Developer', 'Azure Cloud Expert', '.NET Specialist', 'React Developer'], [])
+    const toRotate = useMemo(() => ['.NET Developer 3 @ KPMG', 'Full-Stack Developer', 'Azure Cloud Expert', 'BSc Computer Science Graduate'], [])
     const [text, setText] = useState('')
     const [delta, setDelta] = useState(200)
     const period = 2000;
@@ -69,21 +69,22 @@ const SimpleBanner = () => {
                                 <span className="cursor" aria-hidden="true">|</span>
                             </h2>
                             <p className="hero-description animate-fade-up" style={{ animationDelay: '0.4s' }}>
-                                Experienced Full-Stack Developer specializing in <strong>C# .NET</strong>, <strong>React</strong>, and <strong>Azure Cloud</strong>. 
-                                Proven track record of <strong>reducing costs by 90%</strong>, <strong>improving performance by 40%</strong>, and delivering scalable solutions for enterprise applications.
+                                Senior Full-Stack Developer at KPMG with a BSc in Computer Science. 
+                                Specializing in <strong>.NET Core</strong>, <strong>React</strong>, and <strong>Azure Cloud</strong>. 
+                                Building enterprise-grade applications that drive business value and reduce operational costs.
                             </p>
                             <div className="hero-stats animate-fade-up" style={{ animationDelay: '0.6s' }}>
                                 <div className="stat">
-                                    <span className="stat-number" aria-label="3 plus years of experience">3+</span>
+                                    <span className="stat-number" aria-label="4 years of experience">4</span>
                                     <span className="stat-label">Years Experience</span>
                                 </div>
                                 <div className="stat">
                                     <span className="stat-number" aria-label="15 plus microservices built">15+</span>
-                                    <span className="stat-label">Microservices Built</span>
+                                    <span className="stat-label">Services Built</span>
                                 </div>
                                 <div className="stat">
-                                    <span className="stat-number" aria-label="90 percent cost reduction achieved">90%</span>
-                                    <span className="stat-label">Cost Reduction</span>
+                                    <span className="stat-number" aria-label="90 percent cost savings achieved">90%</span>
+                                    <span className="stat-label">Cost Savings</span>
                                 </div>
                             </div>
                             <div className="hero-actions animate-fade-up" style={{ animationDelay: '0.8s' }}>

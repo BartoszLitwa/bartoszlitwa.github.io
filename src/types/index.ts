@@ -6,6 +6,9 @@ export interface Project {
   type: string;
   url: string;
   metrics?: string;
+  featured?: boolean;
+  technologies?: string[];
+  highlights?: string[];
 }
 
 // Experience related types
@@ -18,9 +21,21 @@ export interface Experience {
   achievements: string[];
   startDate: string;
   endDate: string;
+  education?: string;
 }
 
 // Skills related types
+export interface SkillItem {
+  name: string;
+  icon: string;
+}
+
+export interface SkillCategory {
+  id: string;
+  name: string;
+  skills: SkillItem[];
+}
+
 export interface Skill {
   percentage: number;
   text: string[];

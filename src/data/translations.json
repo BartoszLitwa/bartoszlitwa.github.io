@@ -12,21 +12,44 @@
     },
     "hero": {
       "name": "Bartosz Litwa",
-      "roles": ["Full-Stack Developer", "Azure Cloud Expert", ".NET Specialist", "React Developer"],
-      "description": "Experienced Full-Stack Developer specializing in C# .NET, React, and Azure Cloud. Proven track record of reducing costs by 90%, improving performance by 40%, and delivering scalable solutions for enterprise applications.",
+      "roles": [".NET Developer 3 @ KPMG", "Full-Stack Developer", "Azure Cloud Expert", "BSc Computer Science Graduate"],
+      "description": "Senior Full-Stack Developer at KPMG with a BSc in Computer Science. Specializing in .NET Core, React, and Azure Cloud. Building enterprise-grade applications that drive business value and reduce operational costs.",
       "stats": {
         "experience": "Years Experience",
-        "microservices": "Microservices Built",
-        "costReduction": "Cost Reduction"
+        "services": "Services Built",
+        "costSavings": "Cost Savings"
       },
       "cta": {
         "connect": "Let's Connect",
         "viewExperience": "View Experience"
       }
     },
+    "featured": {
+      "badge": "Featured Project",
+      "title": "Rentify",
+      "subtitle": "Property Management Platform",
+      "description": "A full-stack SaaS platform revolutionizing property rental management. Built with modern cloud architecture and enterprise-grade patterns, Rentify showcases my ability to architect and deliver scalable, production-ready applications from concept to deployment.",
+      "status": "Almost Live at",
+      "technicalStack": "Technical Stack",
+      "keyFeatures": "Key Features",
+      "buttons": {
+        "visit": "Visit Platform",
+        "moreProjects": "View More Projects"
+      },
+      "metrics": {
+        "multiTenant": "Multi-Tenant",
+        "realTime": "Real-Time",
+        "azure": "Azure",
+        "enterprise": "Enterprise",
+        "architecture": "SaaS Architecture",
+        "updates": "Updates & Notifications",
+        "cloud": "Cloud Infrastructure",
+        "security": "Grade Security"
+      }
+    },
     "skills": {
-      "title": "Skills",
-      "description": "Here are the technologies and tools I work with to create amazing digital experiences.",
+      "title": "Technical Skills",
+      "description": "A comprehensive overview of my professional tech stack and expertise in building enterprise-grade applications.",
       "technologies": "Technologies",
       "programs": "Programs & Tools"
     },
@@ -113,21 +136,44 @@
     },
     "hero": {
       "name": "Bartosz Litwa",
-      "roles": ["Full-Stack Developer", "Ekspert Azure Cloud", "Specjalista .NET", "React Developer"],
-      "description": "Doświadczony Full-Stack Developer specjalizujący się w C# .NET, React i Azure Cloud. Udowodniony track record w redukcji kosztów o 90%, poprawie wydajności o 40% i dostarczaniu skalowalnych rozwiązań dla aplikacji enterprise.",
+      "roles": [".NET Developer 3 @ KPMG", "Full-Stack Developer", "Ekspert Azure Cloud", "Absolwent Informatyki"],
+      "description": "Senior Full-Stack Developer w KPMG z tytułem licencjata informatyki. Specjalizuję się w .NET Core, React i Azure Cloud. Tworzę aplikacje klasy enterprise, które zapewniają wartość biznesową i redukują koszty operacyjne.",
       "stats": {
         "experience": "Lat Doświadczenia",
-        "microservices": "Zbudowanych Mikroserwisów",
-        "costReduction": "Redukcja Kosztów"
+        "services": "Zbudowanych Serwisów",
+        "costSavings": "Oszczędności Kosztów"
       },
       "cta": {
         "connect": "Skontaktuj się",
         "viewExperience": "Zobacz Doświadczenie"
       }
     },
+    "featured": {
+      "badge": "Projekt Flagowy",
+      "title": "Rentify",
+      "subtitle": "Platforma Zarządzania Nieruchomościami",
+      "description": "Platforma SaaS full-stack rewolucjonizująca zarządzanie wynajmem nieruchomości. Zbudowana z nowoczesną architekturą chmurową i wzorcami klasy enterprise, Rentify pokazuje moją zdolność do projektowania i dostarczania skalowalnych, gotowych do produkcji aplikacji od koncepcji do wdrożenia.",
+      "status": "Prawie Live na",
+      "technicalStack": "Stack Techniczny",
+      "keyFeatures": "Kluczowe Funkcje",
+      "buttons": {
+        "visit": "Odwiedź Platformę",
+        "moreProjects": "Zobacz Więcej Projektów"
+      },
+      "metrics": {
+        "multiTenant": "Multi-Tenant",
+        "realTime": "Real-Time",
+        "azure": "Azure",
+        "enterprise": "Enterprise",
+        "architecture": "Architektura SaaS",
+        "updates": "Aktualizacje i Powiadomienia",
+        "cloud": "Infrastruktura Chmurowa",
+        "security": "Bezpieczeństwo Klasy"
+      }
+    },
     "skills": {
-      "title": "Umiejętności",
-      "description": "Oto technologie i narzędzia, z których korzystam do tworzenia niesamowitych doświadczeń cyfrowych.",
+      "title": "Umiejętności Techniczne",
+      "description": "Kompleksowy przegląd mojego profesjonalnego stosu technologicznego i doświadczenia w tworzeniu aplikacji klasy enterprise.",
       "technologies": "Technologie",
       "programs": "Programy i Narzędzia"
     },

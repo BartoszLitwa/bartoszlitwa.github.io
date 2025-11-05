@@ -22,26 +22,26 @@
 
 /* CSS Variables for Theme Support */
 :root {
-  /* Dark theme (default) */
-  --bg-primary: #0a0a0a;
-  --bg-secondary: #1a1a1a;
-  --bg-tertiary: #2a2a2a;
-  --bg-card: #1e1e1e;
+  /* Dark theme (default) - Minimalist */
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #14141e;
+  --bg-tertiary: #1e1e2a;
+  --bg-card: #16161f;
   --text-primary: #ffffff;
-  --text-secondary: #b3b3b3;
-  --text-muted: #888888;
-  --accent-primary: #007bff;
-  --accent-secondary: #6c757d;
-  --accent-hover: #0056b3;
-  --border-color: #333333;
+  --text-secondary: #b4b4c4;
+  --text-muted: #7a7a8a;
+  --accent-primary: #5b30f7;
+  --accent-secondary: #22c55e;
+  --accent-hover: #4620d4;
+  --border-color: #2a2a3a;
   --shadow-color: rgba(0, 0, 0, 0.3);
-  --shadow-hover: rgba(0, 0, 0, 0.5);
+  --shadow-hover: rgba(91, 48, 247, 0.4);
   --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-  --success-color: #28a745;
-  --warning-color: #ffc107;
-  --error-color: #dc3545;
-  --info-color: #17a2b8;
+  --gradient-secondary: linear-gradient(135deg, #5b30f7 0%, #22c55e 100%);
+  --success-color: #22c55e;
+  --warning-color: #f59e0b;
+  --error-color: #ef4444;
+  --info-color: #3b82f6;
 }
 
 [data-theme="light"] {

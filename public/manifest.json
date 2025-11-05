@@ -1,16 +1,20 @@
 {
-  "short_name": "Portfolio",
-  "name": "Bartosz Litwa's Portfolio",
+  "short_name": "B. Litwa",
+  "name": "Bartosz Litwa - .NET Developer 3 @ KPMG",
+  "description": "Professional portfolio showcasing expertise in .NET, Angular, Azure DevOps, and enterprise application development",
   "icons": [
     {
       "src": "../src/assets/img/logo.png",
       "sizes": "64x64 32x32 24x24 16x16",
       "types": "image/x-icon"
     }
-
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#121212"
+  "theme_color": "#007bff",
+  "background_color": "#121212",
+  "categories": ["business", "productivity", "portfolio"],
+  "lang": "en-US",
+  "dir": "ltr",
+  "orientation": "portrait-primary"
 }

@@ -1,17 +1,20 @@
 [
   {
-    "title": "Full Stack Developer",
+    "title": ".NET Developer 3",
     "company": "KPMG",
     "companyLogo": "companyLogos/kpmg.png",
     "city": "Warsaw, Poland",
-    "description": "Leading microservices development and Azure cloud optimization for enterprise-scale applications.",
+    "education": "Bachelor of Science in Computer Science - Warsaw University",
+    "description": "Leading full-stack development and Azure cloud optimization for enterprise-scale applications. Recently promoted to .NET 3 position. Graduated with BSc in Computer Science.",
     "achievements": [
+      "🎓 Promoted to .NET Developer 3 position, recognizing technical leadership and consistent delivery of high-quality solutions",
       "🚀 Architected and maintained 15+ microservices using C# .NET Core and Angular TypeScript, serving 10K+ daily users",
       "💰 Reduced Azure Cosmos DB costs by 90% through implementation of data bundling strategies and query optimization",
       "🔄 Successfully executed 8+ database migrations with zero downtime, including complete microservice migration from Cosmos DB to SQL Server with EF Core",
       "⚡ Improved application performance by 40% through Azure CI/CD pipeline optimization and implementation of templated deployment files",
       "🛠️ Enhanced development workflow by standardizing CI/CD processes across 12+ repositories, reducing deployment time by 60%",
-      "🧪 Implemented comprehensive testing strategies (unit, integration, E2E) achieving 95% code coverage across critical services"
+      "🧪 Implemented comprehensive testing strategies (unit, integration, E2E) achieving 95% code coverage across critical services",
+      "🏗️ Led architectural decisions for new microservices, mentoring junior developers on best practices and design patterns"
     ],
     "startDate": "2022-11",
     "endDate": "Present"

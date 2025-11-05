@@ -1,93 +1,136 @@
 {
-  "technologies": [
+  "categories": [
     {
-      "percentage": 90,
-      "text": [".NET Core", "C#"],
-      "images": [
-        "https://raw.githubusercontent.com/devicons/devicon/master/icons/dotnetcore/dotnetcore-original.svg",
-        "https://raw.githubusercontent.com/devicons/devicon/master/icons/csharp/csharp-original.svg"
+      "id": "backend",
+      "name": "Backend Development",
+      "skills": [
+        {
+          "name": ".NET Core",
+          "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/dotnetcore/dotnetcore-original.svg"
+        },
+        {
+          "name": "C#",
+          "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/csharp/csharp-original.svg"
+        },
+        {
+          "name": "ASP.NET",
+          "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/dotnetcore/dotnetcore-original.svg"
+        },
+        {
+          "name": "Entity Framework",
+          "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/dotnetcore/dotnetcore-original.svg"
+        }
       ]
     },
     {
-      "percentage": 70,
-      "text": ["React", "TypeScript"],
-      "images": [
-        "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg",
-        "https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg"
+      "id": "frontend",
+      "name": "Frontend Development",
+      "skills": [
+        {
+          "name": "Angular",
+          "icon": "https://angular.io/assets/images/logos/angular/angular.svg"
+        },
+        {
+          "name": "TypeScript",
+          "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg"
+        },
+        {
+          "name": "React",
+          "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg"
+        },
+        {
+          "name": "RxJS",
+          "icon": "https://rxjs.dev/generated/images/marketing/home/Rx_Logo-512-512.png"
+        }
       ]
     },
     {
-      "percentage": 70,
-      "text": ["Flutter", "Dart"],
-      "images": [
-        "https://raw.githubusercontent.com/devicons/devicon/master/icons/flutter/flutter-original.svg",
-        "https://raw.githubusercontent.com/devicons/devicon/master/icons/dart/dart-original.svg"
+      "id": "cloud",
+      "name": "Cloud & Infrastructure",
+      "skills": [
+        {
+          "name": "Azure",
+          "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/azure/azure-original.svg"
+        },
+        {
+          "name": "Azure DevOps",
+          "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/azuredevops/azuredevops-original.svg"
+        },
+        {
+          "name": "Docker",
+          "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg"
+        },
+        {
+          "name": "Kubernetes",
+          "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/kubernetes/kubernetes-plain.svg"
+        }
       ]
     },
     {
-      "percentage": 50,
-      "text": ["Angular", "C++"],
-      "images": [
-        "https://angular.io/assets/images/logos/angular/angular.svg",
-        "https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg"
+      "id": "devops",
+      "name": "CI/CD & DevOps",
+      "skills": [
+        {
+          "name": "Azure Pipelines",
+          "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/azuredevops/azuredevops-original.svg"
+        },
+        {
+          "name": "GitHub Actions",
+          "icon": "https://github.githubassets.com/images/modules/site/features/actions-icon-actions.svg"
+        },
+        {
+          "name": "Git",
+          "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg"
+        },
+        {
+          "name": "YAML",
+          "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/yaml/yaml-original.svg"
+        }
       ]
     },
     {
-      "percentage": 50,
-      "text": ["Java", "Python"],
-      "images": [
-        "https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg",
-        "https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg"
+      "id": "database",
+      "name": "Databases",
+      "skills": [
+        {
+          "name": "SQL Server",
+          "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/microsoftsqlserver/microsoftsqlserver-plain.svg"
+        },
+        {
+          "name": "PostgreSQL",
+          "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg"
+        },
+        {
+          "name": "MongoDB",
+          "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg"
+        },
+        {
+          "name": "Redis",
+          "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/redis/redis-original.svg"
+        }
       ]
     },
     {
-      "percentage": 50,
-      "text": ["HTML", "CSS"],
-      "images": [
-        "https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg",
-        "https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg"
-      ]
-    }
-  ],
-  "programs": [
-    {
-      "percentage": 90,
-      "text": ["Visual Studio", "VS Code"],
-      "images": [
-        "https://raw.githubusercontent.com/devicons/devicon/master/icons/visualstudio/visualstudio-plain.svg",
-        "https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original.svg"
-      ]
-    },
-    {
-      "percentage": 70,
-      "text": ["Postman", "Insomnia"],
-      "images": [
-        "https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg",
-        "https://seeklogo.com/images/I/insomnia-logo-A35E09EB19-seeklogo.com.png"
-      ]
-    },
-    {
-      "percentage": 70,
-      "text": ["Github", "Azure Devops"],
-      "images": [
-        "img/github.png",
-        "https://raw.githubusercontent.com/devicons/devicon/master/icons/azure/azure-original.svg"
-      ]
-    },
-    {
-      "percentage": 50,
-      "text": ["Docker", "Github Actions"],
-      "images": [
-        "https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg",
-        "https://github.githubassets.com/images/modules/site/features/actions-icon-actions.svg"
-      ]
-    },
-    {
-      "percentage": 50,
-      "text": ["Fusion 360"],
-      "images": [
-        "https://upload.wikimedia.org/wikipedia/commons/7/78/Fusion360_Logo.png"
+      "id": "tools",
+      "name": "Development Tools",
+      "skills": [
+        {
+          "name": "Visual Studio",
+          "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/visualstudio/visualstudio-plain.svg"
+        },
+        {
+          "name": "VS Code",
+          "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original.svg"
+        },
+        {
+          "name": "Postman",
+          "icon": "https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg"
+        },
+        {
+          "name": "Swagger",
+          "icon": "https://static1.smartbear.co/swagger/media/assets/images/swagger_logo.svg"
+        }
       ]
     }
   ]
-} 
+}

@@ -1,41 +1,14 @@
-import React, { useLayoutEffect, useState } from "react";
-import { Col, Container, Row } from "react-bootstrap";
-import SkillCircle from "./SkillCircle";
+import React from "react";
+import { Container, Row, Col } from "react-bootstrap";
+import SkillCard from "./SkillCard";
 import { useLanguage } from '../../hooks/useLanguage';
-import './Skills.css'
+import './Skills.css';
 import skillsData from '../../data/skills.json';
-import { Skill } from '../../types';
+import { SkillCategory } from '../../types';
 
 const Skills = () => {
     const { t } = useLanguage();
-    
-    const technologies: Skill[] = skillsData.technologies.map(tech => ({
-        ...tech,
-        images: tech.images.map(img => 
-            img.startsWith('http') ? img : require(`../../assets/${img}`)
-        )
-    }));
-
-    const programs: Skill[] = skillsData.programs.map(prog => ({
-        ...prog,
-        images: prog.images.map(img => 
-            img.startsWith('http') ? img : require(`../../assets/${img}`)
-        )
-    }));
-
-    const [isMobile, setIsMobile] = useState(false);
-    const mobileSize = 768;
-
-    useLayoutEffect(() => {
-        setIsMobile(window.innerWidth < mobileSize);
-
-        const handleResize = () => {
-            setIsMobile(window.innerWidth < mobileSize);
-        };
-
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
+    const categories: SkillCategory[] = skillsData.categories;
 
     return (
         <section className="skill" id="skills">
@@ -44,30 +17,13 @@ const Skills = () => {
                     <Col>
                         <div className="skill-bx">
                             <h2>{t('skills.title')}</h2>
-                            <p>{t('skills.description')}</p>
+                            <p className="skill-description">{t('skills.description')}</p>
                             
-                            <h3>{t('skills.technologies')}</h3>
-                            <div className="skills-grid">
-                                {technologies.map((tech, index) => (
-                                    <SkillCircle 
-                                        key={`tech-${tech.text.join('-')}`} 
-                                        percentage={tech.percentage} 
-                                        text={tech.text} 
-                                        images={tech.images} 
-                                        isMobile={isMobile}
-                                    />
-                                ))}
-                            </div>
-                            
-                            <h3>{t('skills.programs')}</h3>
-                            <div className="skills-grid">
-                                {programs.map((prog, index) => (
-                                    <SkillCircle 
-                                        key={`prog-${prog.text.join('-')}`} 
-                                        percentage={prog.percentage} 
-                                        text={prog.text} 
-                                        images={prog.images} 
-                                        isMobile={isMobile}
+                            <div className="skills-grid-modern">
+                                {categories.map((category) => (
+                                    <SkillCard 
+                                        key={category.id} 
+                                        category={category}
                                     />
                                 ))}
                             </div>
@@ -76,7 +32,7 @@ const Skills = () => {
                 </Row>
             </Container>
         </section>
-    )
-}
+    );
+};
 
-export default Skills
+export default Skills;

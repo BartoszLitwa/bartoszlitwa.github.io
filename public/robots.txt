@@ -1,3 +1,14 @@
 # https://www.robotstxt.org/robotstxt.html
+# Bartosz Litwa - Professional Portfolio
+
 User-agent: *
-Disallow:
+Allow: /
+Disallow: /build/
+Disallow: /node_modules/
+Disallow: /*.map$
+
+# Sitemap
+Sitemap: https://litwa.dev/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
