@@ -5,9 +5,11 @@ import ProjectCard from "./ProjectCard";
 import colorSharp2 from '../../assets/img/color-sharp2.png'
 import { Project } from '../../types';
 import projectsData from '../../data/projects.json';
+import { useLanguage } from '../../hooks/useLanguage';
 import { useScrollAnimation, useStaggeredScrollAnimation } from '../../hooks/useScrollAnimation';
 
 const Projects = () => {
+    const { t } = useLanguage();
     const projects: Project[] = (projectsData as Project[]).map(project => ({
         ...project,
         imgUrl: require(`../../assets/${project.imgUrl}`)
@@ -44,10 +46,9 @@ const Projects = () => {
                             ref={headerRef as React.RefObject<HTMLDivElement>}
                             className={`projects-header scroll-animate ${headerVisible ? 'animate-in' : ''}`}
                         >
-                            <h2 className="section-title" id="projects-heading">Projects</h2>
+                            <h2 className="section-title" id="projects-heading">{t('projects.title')}</h2>
                             <p className="section-description">
-                                Explore my portfolio of applications and solutions that demonstrate my expertise in full-stack development, 
-                                cloud architecture, and modern web technologies.
+                                {t('projects.description')}
                             </p>
                         </div>
                         

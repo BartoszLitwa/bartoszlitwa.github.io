@@ -1,53 +1,286 @@
-/************ Experience ************/
+/************ Experience Section - Modern Glassmorphism ************/
 
 .experience {
-  padding: 0 0 50px 0;
+  padding: 6rem 0;
   position: relative;
+  overflow: hidden;
 }
+
+/* Background glow effects */
+.experience::before {
+  content: '';
+  position: absolute;
+  top: 10%;
+  right: -15%;
+  width: 50%;
+  height: 50%;
+  background: radial-gradient(circle, rgba(109, 40, 217, 0.08) 0%, transparent 70%);
+  filter: blur(60px);
+  z-index: 0;
+  pointer-events: none;
+}
+
 .experience h2 {
-  font-size: 45px;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
   font-weight: 700;
-}
-.experience-bx {
-  background: #151515;
-  border-radius: 64px;
+  margin-bottom: 1rem;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   text-align: center;
-  padding: 60px 10px;
-  margin-top: 30px;
 }
+
+.experience-bx {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 32px;
+  text-align: center;
+  padding: 4rem 2rem;
+  margin-top: 2rem;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  z-index: 1;
+}
+
+/* Experience Card Container */
 .experienceCard-bx {
-  /* background: #1f1f1f; */
   border-radius: 24px;
   text-align: center;
-  padding: 20px 20px;
-  margin-top: 30px;
+  padding: 2rem 1.5rem;
+  margin-top: 2.5rem;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.experienceCard-date{
-  flex: 0 0 30px;
-  font-size: 13px;
-  color: #fff;
-  font-weight: bold;
+
+.experienceCard-bx:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
 }
-.achievement-bx {
-  background: #151515;
-  color: white;
-  text-align: start;
-  border-color: #4d4d4d;
+
+.experienceCard-bx:first-child {
+  margin-top: 0;
 }
+
+/* Company Logo */
+.experienceCard-bx img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: 12px;
+  background: var(--bg-primary);
+  padding: 8px;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.experienceCard-bx:hover img {
+  border-color: var(--accent-primary);
+  box-shadow: 0 4px 12px rgba(109, 40, 217, 0.2);
+}
+
+/* Timeline Elements */
+.experienceCard-date {
+  flex: 0 0 auto;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+  padding: 0.35rem 0.75rem;
+  background: var(--bg-primary);
+  border-radius: 100px;
+  border: 1px solid var(--border-color);
+  letter-spacing: 0.02em;
+}
+
 .verticalLine {
   flex: 1 1 auto;
-  margin: 15px 0px;
-  width: 3px;
-  background-color: #4d4d4d;
+  margin: 1rem 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--accent-primary), var(--accent-secondary));
+  border-radius: 2px;
+  opacity: 0.5;
 }
+
+/* Job Title */
+.experienceCard-bx h3 {
+  font-size: clamp(1.25rem, 3vw, 1.5rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+
+/* Company & Location */
+.experienceCard-bx h4 {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+/* Education Badge */
 .education-badge {
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--text-primary);
   font-size: 0.95rem;
-  font-style: italic;
-  margin-top: 8px;
-  margin-bottom: 12px;
-  padding: 8px 16px;
-  background: linear-gradient(135deg, rgba(91, 48, 247, 0.1), rgba(34, 197, 94, 0.1));
+  font-style: normal;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+  padding: 0.75rem 1.25rem;
+  background: linear-gradient(135deg, rgba(109, 40, 217, 0.1), rgba(16, 185, 129, 0.08));
   border-left: 3px solid var(--accent-primary);
-  border-radius: 4px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+}
+
+/* Achievement List */
+.achievement-bx {
+  background: var(--bg-primary);
+  color: var(--text-secondary);
+  text-align: left;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  transition: all 0.3s ease;
+}
+
+.achievement-bx:hover {
+  color: var(--text-primary);
+  border-color: var(--border-hover);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.achievement-bx:last-child {
+  margin-bottom: 0;
+}
+
+/* List Group Reset */
+.experience .list-group {
+  background: transparent;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.experience .list-group-item {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+/* Mobile Responsive */
+@media (max-width: 991px) {
+  .experience {
+    padding: 4rem 0;
+  }
+
+  .experience-bx {
+    padding: 2.5rem 1.5rem;
+    border-radius: 24px;
+  }
+
+  .experienceCard-bx {
+    padding: 1.5rem 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .experience {
+    padding: 3rem 0;
+  }
+
+  .experience-bx {
+    padding: 2rem 1rem;
+    border-radius: 20px;
+  }
+
+  .experienceCard-bx {
+    padding: 1.25rem;
+  }
+
+  .experienceCard-bx img {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 1rem;
+  }
+
+  .experienceCard-bx h3,
+  .experienceCard-bx h4 {
+    text-align: center;
+  }
+
+  .education-badge {
+    font-size: 0.85rem;
+    padding: 0.6rem 1rem;
+    justify-content: center;
+  }
+
+  .achievement-bx {
+    font-size: 0.9rem;
+    padding: 0.875rem 1rem;
+  }
+
+  .experienceCard-date {
+    font-size: 0.75rem;
+  }
+
+  .verticalLine {
+    display: none;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .experienceCard-bx,
+  .achievement-bx,
+  .experienceCard-bx img {
+    transition: none !important;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .experience-bx,
+  .experienceCard-bx,
+  .achievement-bx {
+    border-width: 2px;
+  }
+}
+
+/* Focus States */
+.experienceCard-bx:focus-within {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 4px;
+}
+
+/* Print Styles */
+@media print {
+  .experience {
+    padding: 2rem 0;
+  }
+
+  .experience-bx {
+    background: white;
+    box-shadow: none;
+    border: 1px solid #000;
+  }
+
+  .experienceCard-bx {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .achievement-bx {
+    background: white;
+    border: 1px solid #ccc;
+  }
 }

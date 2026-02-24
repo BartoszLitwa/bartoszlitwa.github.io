@@ -36,12 +36,6 @@ export interface SkillCategory {
   skills: SkillItem[];
 }
 
-export interface Skill {
-  percentage: number;
-  text: string[];
-  images: string[];
-}
-
 // Certification related types
 export interface Certification {
   id: string;
@@ -93,13 +87,6 @@ export interface ContactStatus {
 export interface ModelProps {
   url?: string;
   children?: React.ReactNode;
-}
-
-export interface SkillCircleProps {
-  percentage: number;
-  text: string[];
-  images: string[];
-  isMobile: boolean;
 }
 
 // Component props types

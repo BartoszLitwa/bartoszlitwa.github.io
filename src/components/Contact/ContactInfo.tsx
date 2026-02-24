@@ -25,22 +25,44 @@ const ContactInfo: React.FC = () => {
       primary: false
     },
     {
-      icon: '🌐',
-      label: 'Website',
-      value: 'litwa.dev',
-      href: 'https://litwa.dev',
+      icon: '🚀',
+      label: 'RentifyNow',
+      value: 'rentifynow.com',
+      href: 'https://www.rentifynow.com',
       primary: false
     }
   ];
 
+  const services = [
+    { name: 'Full-Stack Development', description: '.NET, React, Angular' },
+    { name: 'SaaS Product Development', description: 'From concept to launch' },
+    { name: 'Cloud Architecture', description: 'Azure infrastructure & DevOps' },
+    { name: 'Technical Consulting', description: 'Architecture reviews & optimization' }
+  ];
+
   return (
     <div className="contact-info">
-      <h3>Let's Connect!</h3>
-      <p className="contact-subtitle">
-        Ready to discuss your next project or opportunity? 
-        I'm always open to new challenges and collaborations.
-      </p>
+      <div className="contact-header">
+        <span className="contact-badge">Open to Work</span>
+        <h3>Let's Build Something Great</h3>
+        <p className="contact-subtitle">
+          Whether you need a full SaaS product, enterprise application, or technical guidance — 
+          I bring 4+ years of experience shipping production-ready software.
+        </p>
+      </div>
       
+      <div className="services-section">
+        <h4>What I Can Help You With</h4>
+        <div className="services-grid">
+          {services.map((service, index) => (
+            <div key={index} className="service-item">
+              <div className="service-name">{service.name}</div>
+              <div className="service-desc">{service.description}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
       <div className="contact-methods">
         {contactMethods.map((method, index) => (
           <a 
@@ -61,18 +83,17 @@ const ContactInfo: React.FC = () => {
       </div>
 
       <div className="availability">
-        <h4>🕒 Availability</h4>
-        <p>Available for:</p>
+        <h4>Engagement Models</h4>
         <ul>
-          <li>Full-time opportunities</li>
-          <li>Consulting projects</li>
-          <li>Technical discussions</li>
-          <li>Mentoring sessions</li>
+          <li><strong>Full-time:</strong> Senior developer roles</li>
+          <li><strong>Contract:</strong> 3-6 month engagements</li>
+          <li><strong>Project:</strong> Fixed-scope deliverables</li>
+          <li><strong>Consulting:</strong> Hourly technical guidance</li>
         </ul>
       </div>
 
       <div className="response-time">
-        <strong>⚡ Response Time:</strong> Usually within 24 hours
+        <strong>Response Time:</strong> Usually within 24 hours
       </div>
     </div>
   );

@@ -7,9 +7,10 @@ interface LanguageProviderProps {
   children: ReactNode;
 }
 
+const translations: Translations = translationsData;
+
 export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) => {
   const [language, setLanguage] = useState<Language>('en');
-  const [translations, setTranslations] = useState<Translations>(translationsData);
 
   useEffect(() => {
     // Check for saved language preference

@@ -3,9 +3,11 @@ import { Col, Container, Row } from "react-bootstrap";
 import './Experience.css'
 import ExperienceCard from "./ExperienceCard";
 import { Experience as ExperienceType } from '../../types';
+import { useLanguage } from '../../hooks/useLanguage';
 import experienceData from '../../data/experience.json';
 
 const Experience = () => {
+    const { t } = useLanguage();
     const experiences: ExperienceType[] = experienceData.map(exp => ({
         ...exp,
         companyLogo: require(`../../assets/${exp.companyLogo}`)
@@ -26,7 +28,7 @@ const Experience = () => {
                     <Col>
                         <div className="experience-bx">
                             <h2 id="experience-heading">
-                                Experience
+                                {t('experience.title')}
                             </h2>
                             {
                                 generateCards()

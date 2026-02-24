@@ -7,44 +7,44 @@
       "projects": "Projects",
       "certifications": "Certifications",
       "contact": "Contact",
-      "letsConnect": "Let's Connect",
+      "letsConnect": "Hire Me",
       "skipToMain": "Skip to main content"
     },
     "hero": {
       "name": "Bartosz Litwa",
-      "roles": [".NET Developer 3 @ KPMG", "Full-Stack Developer", "Azure Cloud Expert", "BSc Computer Science Graduate"],
-      "description": "Senior Full-Stack Developer at KPMG with a BSc in Computer Science. Specializing in .NET Core, React, and Azure Cloud. Building enterprise-grade applications that drive business value and reduce operational costs.",
+      "roles": ["Senior .NET Developer @ KPMG", "Full-Stack Engineer", "SaaS Founder - RentifyNow", "Azure Cloud Architect"],
+      "description": "I build enterprise-grade SaaS products that scale. Currently developing RentifyNow — a property management platform. As a Senior Developer at KPMG, I've architected 15+ microservices using .NET Core, Angular & Azure.",
       "stats": {
-        "experience": "Years Experience",
-        "services": "Services Built",
-        "costSavings": "Cost Savings"
+        "experience": "Years Building Software",
+        "services": "Live SaaS Product",
+        "costSavings": "Revenue Generated"
       },
       "cta": {
-        "connect": "Let's Connect",
-        "viewExperience": "View Experience"
+        "connect": "See RentifyNow",
+        "viewExperience": "Hire Me"
       }
     },
     "featured": {
-      "badge": "Featured Project",
-      "title": "Rentify",
-      "subtitle": "Property Management Platform",
-      "description": "A full-stack SaaS platform revolutionizing property rental management. Built with modern cloud architecture and enterprise-grade patterns, Rentify showcases my ability to architect and deliver scalable, production-ready applications from concept to deployment.",
-      "status": "Almost Live at",
-      "technicalStack": "Technical Stack",
-      "keyFeatures": "Key Features",
+      "badge": "My SaaS Product",
+      "title": "RentifyNow",
+      "subtitle": "Property Management Platform Built for Scale",
+      "description": "From concept to production — I designed, architected, and built this entire platform solo, demonstrating my ability to deliver complex SaaS products end-to-end.",
+      "status": "Live at",
+      "technicalStack": "Production Tech Stack",
+      "keyFeatures": "Key Technical Achievements",
       "buttons": {
-        "visit": "Visit Platform",
-        "moreProjects": "View More Projects"
+        "visit": "Visit Live Platform",
+        "moreProjects": "Discuss Your Project"
       },
       "metrics": {
-        "multiTenant": "Multi-Tenant",
-        "realTime": "Real-Time",
-        "azure": "Azure",
-        "enterprise": "Enterprise",
-        "architecture": "SaaS Architecture",
-        "updates": "Updates & Notifications",
-        "cloud": "Cloud Infrastructure",
-        "security": "Grade Security"
+        "multiTenant": "Solo",
+        "realTime": "6+ Months",
+        "azure": "Production",
+        "enterprise": "Azure",
+        "architecture": "Developer",
+        "updates": "Development",
+        "cloud": "Ready",
+        "security": "Cloud Native"
       }
     },
     "skills": {
@@ -52,6 +52,10 @@
       "description": "A comprehensive overview of my professional tech stack and expertise in building enterprise-grade applications.",
       "technologies": "Technologies",
       "programs": "Programs & Tools"
+    },
+    "experience": {
+      "title": "Experience",
+      "description": "A track record of delivering impactful solutions at enterprise scale."
     },
     "projects": {
       "title": "Projects",
@@ -91,8 +95,8 @@
     },
     "contact": {
       "title": "Contact",
-      "subtitle": "Let's Connect!",
-      "description": "Ready to discuss your next project or opportunity? I'm always open to new challenges and collaborations.",
+      "subtitle": "Let's Build Something Great",
+      "description": "Whether you need a full SaaS product, enterprise application, or technical guidance — I bring 4+ years of experience shipping production-ready software.",
       "form": {
         "firstName": "First Name",
         "lastName": "Last Name",
@@ -100,19 +104,19 @@
         "phone": "Phone",
         "subject": "Subject",
         "message": "Message",
-        "send": "Send",
+        "send": "Send Message",
         "sending": "Sending...",
-        "success": "Message sent successfully!",
+        "success": "Message sent! I'll respond within 24 hours.",
         "error": "Failed to send message. Please try again."
       },
       "info": {
-        "availability": "Availability",
+        "availability": "Engagement Models",
         "availableFor": "Available for:",
         "opportunities": [
-          "Full-time opportunities",
-          "Consulting projects",
-          "Technical discussions",
-          "Mentoring sessions"
+          "Full-time: Senior developer roles",
+          "Contract: 3-6 month engagements",
+          "Project: Fixed-scope deliverables",
+          "Consulting: Hourly technical guidance"
         ],
         "responseTime": "Response Time:",
         "responseTimeValue": "Usually within 24 hours"
@@ -131,44 +135,44 @@
       "projects": "Projekty",
       "certifications": "Certyfikaty",
       "contact": "Kontakt",
-      "letsConnect": "Skontaktuj się",
+      "letsConnect": "Zatrudnij Mnie",
       "skipToMain": "Przejdź do głównej treści"
     },
     "hero": {
       "name": "Bartosz Litwa",
-      "roles": [".NET Developer 3 @ KPMG", "Full-Stack Developer", "Ekspert Azure Cloud", "Absolwent Informatyki"],
-      "description": "Senior Full-Stack Developer w KPMG z tytułem licencjata informatyki. Specjalizuję się w .NET Core, React i Azure Cloud. Tworzę aplikacje klasy enterprise, które zapewniają wartość biznesową i redukują koszty operacyjne.",
+      "roles": ["Senior .NET Developer @ KPMG", "Full-Stack Engineer", "Założyciel SaaS - RentifyNow", "Architekt Azure Cloud"],
+      "description": "Buduję skalowalne produkty SaaS klasy enterprise. Aktualnie rozwijam RentifyNow — platformę do zarządzania nieruchomościami. Jako Senior Developer w KPMG, zaprojektowałem 15+ mikroserwisów używając .NET Core, Angular i Azure.",
       "stats": {
-        "experience": "Lat Doświadczenia",
-        "services": "Zbudowanych Serwisów",
-        "costSavings": "Oszczędności Kosztów"
+        "experience": "Lat Tworzenia Oprogramowania",
+        "services": "Produkt SaaS Live",
+        "costSavings": "Wygenerowany Przychód"
       },
       "cta": {
-        "connect": "Skontaktuj się",
-        "viewExperience": "Zobacz Doświadczenie"
+        "connect": "Zobacz RentifyNow",
+        "viewExperience": "Zatrudnij Mnie"
       }
     },
     "featured": {
-      "badge": "Projekt Flagowy",
-      "title": "Rentify",
-      "subtitle": "Platforma Zarządzania Nieruchomościami",
-      "description": "Platforma SaaS full-stack rewolucjonizująca zarządzanie wynajmem nieruchomości. Zbudowana z nowoczesną architekturą chmurową i wzorcami klasy enterprise, Rentify pokazuje moją zdolność do projektowania i dostarczania skalowalnych, gotowych do produkcji aplikacji od koncepcji do wdrożenia.",
-      "status": "Prawie Live na",
-      "technicalStack": "Stack Techniczny",
-      "keyFeatures": "Kluczowe Funkcje",
+      "badge": "Mój Produkt SaaS",
+      "title": "RentifyNow",
+      "subtitle": "Platforma Zarządzania Nieruchomościami Gotowa na Skalę",
+      "description": "Od koncepcji do produkcji — zaprojektowałem, zarchitektowałem i zbudowałem całą platformę samodzielnie, demonstrując moją zdolność do dostarczania złożonych produktów SaaS od początku do końca.",
+      "status": "Live na",
+      "technicalStack": "Produkcyjny Stack Techniczny",
+      "keyFeatures": "Kluczowe Osiągnięcia Techniczne",
       "buttons": {
         "visit": "Odwiedź Platformę",
-        "moreProjects": "Zobacz Więcej Projektów"
+        "moreProjects": "Omów Swój Projekt"
       },
       "metrics": {
-        "multiTenant": "Multi-Tenant",
-        "realTime": "Real-Time",
-        "azure": "Azure",
-        "enterprise": "Enterprise",
-        "architecture": "Architektura SaaS",
-        "updates": "Aktualizacje i Powiadomienia",
-        "cloud": "Infrastruktura Chmurowa",
-        "security": "Bezpieczeństwo Klasy"
+        "multiTenant": "Solo",
+        "realTime": "6+ Miesięcy",
+        "azure": "Produkcja",
+        "enterprise": "Azure",
+        "architecture": "Developer",
+        "updates": "Rozwoju",
+        "cloud": "Gotowe",
+        "security": "Cloud Native"
       }
     },
     "skills": {
@@ -176,6 +180,10 @@
       "description": "Kompleksowy przegląd mojego profesjonalnego stosu technologicznego i doświadczenia w tworzeniu aplikacji klasy enterprise.",
       "technologies": "Technologie",
       "programs": "Programy i Narzędzia"
+    },
+    "experience": {
+      "title": "Doświadczenie",
+      "description": "Historia dostarczania skutecznych rozwiązań na skalę korporacyjną."
     },
     "projects": {
       "title": "Projekty",
@@ -215,8 +223,8 @@
     },
     "contact": {
       "title": "Kontakt",
-      "subtitle": "Skontaktujmy się!",
-      "description": "Gotowy do omówienia Twojego następnego projektu lub możliwości? Jestem zawsze otwarty na nowe wyzwania i współpracę.",
+      "subtitle": "Zbudujmy Coś Wspaniałego",
+      "description": "Niezależnie czy potrzebujesz produktu SaaS, aplikacji enterprise, czy wsparcia technicznego — wnoszę 4+ lat doświadczenia w dostarczaniu oprogramowania produkcyjnego.",
       "form": {
         "firstName": "Imię",
         "lastName": "Nazwisko",
@@ -224,19 +232,19 @@
         "phone": "Telefon",
         "subject": "Temat",
         "message": "Wiadomość",
-        "send": "Wyślij",
+        "send": "Wyślij Wiadomość",
         "sending": "Wysyłanie...",
-        "success": "Wiadomość wysłana pomyślnie!",
+        "success": "Wiadomość wysłana! Odpowiem w ciągu 24 godzin.",
         "error": "Nie udało się wysłać wiadomości. Spróbuj ponownie."
       },
       "info": {
-        "availability": "Dostępność",
+        "availability": "Modele Współpracy",
         "availableFor": "Dostępny na:",
         "opportunities": [
-          "Możliwości pełnoetatowe",
-          "Projekty konsultingowe",
-          "Dyskusje techniczne",
-          "Sesje mentorskie"
+          "Pełny etat: Role senior developera",
+          "Kontrakt: Współpraca 3-6 miesięcy",
+          "Projekt: Określony zakres prac",
+          "Konsulting: Wsparcie techniczne godzinowe"
         ],
         "responseTime": "Czas odpowiedzi:",
         "responseTimeValue": "Zwykle w ciągu 24 godzin"

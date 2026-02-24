@@ -51,7 +51,7 @@ This document summarizes the comprehensive portfolio update that transforms the 
   - Technologies array
   - Highlights array
   - Metrics string
-- **Placeholder Image:** Temporary image at `src/assets/rentify/dashboard.png` (replace with actual screenshot)
+- **Placeholder Image:** Temporary image at `src/assets/rentifynow/dashboard.png` (replace with actual screenshot)
 
 ### 4. Banner Component Updates
 **Updated:** `src/components/Banner/SimpleBanner.tsx`
@@ -134,7 +134,7 @@ This document summarizes the comprehensive portfolio update that transforms the 
 
 ### High Priority
 1. **Replace Rentifynow Image:**
-   - Current location: `src/assets/rentify/dashboard.png`
+   - Current location: `src/assets/rentifynow/dashboard.png`
    - Recommended: High-quality screenshot (1920x1080+) of Rentifynow dashboard
    - Shows: Main application interface with visible features
 
@@ -255,6 +255,11 @@ The portfolio now effectively markets you as a senior full-stack developer with 
 **Last Updated:** October 27, 2025
 **Changes Made By:** AI Assistant (Claude Sonnet 4.5)
 **Status:** ✅ All TODOs Completed
+
+
+
+
+
 
 
 

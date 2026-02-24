@@ -41,10 +41,10 @@ Right after the hero banner, you'll see a prominent **"Featured Project"** secti
 **IMPORTANT:** Replace the Rentifynow placeholder image:
 
 1. Take a high-quality screenshot of Rentifynow dashboard (1920x1080 or larger)
-2. Save it as: `src/assets/rentify/dashboard.png`
+2. Save it as: `src/assets/rentifynow/dashboard.png`
 3. Or upload your screenshot and update the path in `src/data/projects.json`:
    ```json
-   "imgUrl": "rentify/your-screenshot-name.png"
+   "imgUrl": "rentifynow/your-screenshot-name.png"
    ```
 
 ## 🎨 Customize Content
@@ -147,9 +147,9 @@ The build may show minor warnings about unused variables. These are safe to igno
 3. Clear browser cache and refresh
 
 ### Image Not Loading
-1. Ensure image is in `src/assets/rentify/` folder
+1. Ensure image is in `src/assets/rentifynow/` folder
 2. Check filename matches in `projects.json`
-3. Try absolute path: `require('../../assets/rentify/dashboard.png')`
+3. Try absolute path: `require('../../assets/rentifynow/dashboard.png')`
 
 ## 📝 Common Edits
 
@@ -229,6 +229,11 @@ Your updated, minimalist portfolio is ready to impress! 🎉
 ---
 
 **Last Updated:** October 27, 2025
+
+
+
+
+
 
 
 
