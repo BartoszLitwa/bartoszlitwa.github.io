@@ -22,6 +22,8 @@ export interface Experience {
   startDate: string;
   endDate: string;
   education?: string;
+  promotionPath?: string[];
+  promotionMonth?: string;
 }
 
 // Skills related types

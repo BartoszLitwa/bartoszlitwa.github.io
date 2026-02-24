@@ -2,7 +2,7 @@
 .navbar-controls {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.55rem;
 }
 
 /* Base Control Button Styles */
@@ -11,44 +11,22 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.5rem 0.75rem;
-  border: none;
-  background: rgba(255, 255, 255, 0.1);
+  padding: 0.42rem 0.62rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.04);
   color: var(--text-secondary);
-  border-radius: 12px;
+  border-radius: 10px;
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 0.82rem;
   font-weight: 500;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  min-height: 40px;
-  position: relative;
-  overflow: hidden;
-}
-
-.control-btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: var(--gradient-primary);
-  transition: left 0.3s ease;
-  z-index: -1;
-  border-radius: 12px;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  min-height: 34px;
 }
 
 .control-btn:hover {
-  color: white;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
-}
-
-.control-btn:hover::before {
-  left: 0;
+  color: var(--text-primary);
+  border-color: rgba(255, 255, 255, 0.26);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .control-btn:focus {
@@ -57,17 +35,17 @@
 }
 
 .control-icon {
-  font-size: 1.1rem;
+  font-size: 0.85rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 20px;
+  min-width: 16px;
 }
 
 /* Theme Toggle Specific Styles */
 .theme-toggle-btn {
-  min-width: 40px;
-  padding: 0.5rem;
+  min-width: 34px;
+  padding: 0.42rem;
 }
 
 /* Language Dropdown Styles */
@@ -76,21 +54,21 @@
 }
 
 .language-toggle-btn {
-  min-width: 80px;
-  padding: 0.5rem 0.75rem;
+  min-width: 72px;
+  padding: 0.42rem 0.62rem;
 }
 
 .language-code {
   font-family: 'Centra', sans-serif;
   font-weight: 600;
   letter-spacing: 0.5px;
-  font-size: 0.85rem;
+  font-size: 0.78rem;
 }
 
 .dropdown-arrow {
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   transition: transform 0.3s ease;
-  margin-left: 0.25rem;
+  margin-left: 0.15rem;
 }
 
 .dropdown-arrow.open {
@@ -102,14 +80,12 @@
   position: absolute;
   top: calc(100% + 0.5rem);
   right: 0;
-  background: rgba(26, 26, 26, 0.95);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(20, 20, 24, 0.98);
   border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 12px;
-  padding: 0.5rem;
+  border-radius: 10px;
+  padding: 0.4rem;
   min-width: 140px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
   z-index: 1000;
   animation: dropdownFadeIn 0.2s ease-out;
 }
@@ -146,15 +122,15 @@
 .language-option {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.55rem;
   width: 100%;
-  padding: 0.75rem;
+  padding: 0.55rem 0.6rem;
   border: none;
   background: transparent;
   color: var(--text-secondary);
   border-radius: 8px;
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 0.82rem;
   font-weight: 500;
   transition: all 0.2s ease;
   text-align: left;
@@ -166,19 +142,19 @@
 }
 
 .language-option.active {
-  background: rgba(0, 123, 255, 0.2);
+  background: rgba(109, 40, 217, 0.16);
   color: var(--accent-primary);
 }
 
-.option-flag {
-  font-size: 1.1rem;
-  filter: grayscale(0.3);
-  transition: filter 0.2s ease;
-}
-
-.language-option:hover .option-flag,
-.language-option.active .option-flag {
-  filter: grayscale(0);
+.option-code {
+  font-size: 0.72rem;
+  font-weight: 700;
+  min-width: 1.8rem;
+  text-align: center;
+  padding: 0.2rem 0.4rem;
+  border-radius: 6px;
+  color: var(--text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .option-label {
@@ -195,26 +171,26 @@
 /* Mobile Responsive */
 @media (max-width: 768px) {
   .navbar-controls {
-    gap: 0.5rem;
+    gap: 0.45rem;
   }
   
   .control-btn {
-    padding: 0.4rem 0.6rem;
-    font-size: 0.8rem;
-    min-height: 36px;
+    padding: 0.38rem 0.55rem;
+    font-size: 0.78rem;
+    min-height: 32px;
   }
   
   .theme-toggle-btn {
-    min-width: 36px;
-    padding: 0.4rem;
+    min-width: 32px;
+    padding: 0.38rem;
   }
   
   .language-toggle-btn {
-    min-width: 70px;
+    min-width: 64px;
   }
   
   .language-code {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
   }
   
   .language-dropdown-menu {

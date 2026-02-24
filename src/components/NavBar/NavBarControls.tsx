@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { ChevronDown, MoonStarsFill, SunFill, Translate } from 'react-bootstrap-icons';
 import { useTheme } from '../../hooks/useTheme';
 import { useLanguage } from '../../hooks/useLanguage';
 import { Language } from '../../types';
@@ -11,8 +12,8 @@ const NavBarControls: React.FC = () => {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const languages = [
-    { code: 'en' as Language, label: 'English', flag: '🇺🇸' },
-    { code: 'pl' as Language, label: 'Polski', flag: '🇵🇱' }
+    { code: 'en' as Language, label: 'English' },
+    { code: 'pl' as Language, label: 'Polski' }
   ];
 
   const currentLanguage = languages.find(lang => lang.code === language) || languages[0];
@@ -85,7 +86,7 @@ const NavBarControls: React.FC = () => {
         title={`Switch to ${theme === 'light' ? 'dark' : 'light'} theme`}
       >
         <span className="control-icon">
-          {theme === 'light' ? '🌙' : '☀️'}
+          {theme === 'light' ? <MoonStarsFill size={14} /> : <SunFill size={14} />}
         </span>
       </button>
 
@@ -99,10 +100,12 @@ const NavBarControls: React.FC = () => {
           aria-haspopup="listbox"
           aria-owns={isLanguageDropdownOpen ? "language-dropdown-menu" : undefined}
         >
-          <span className="control-icon">{currentLanguage.flag}</span>
+          <span className="control-icon" aria-hidden="true">
+            <Translate size={14} />
+          </span>
           <span className="language-code">{currentLanguage.code.toUpperCase()}</span>
           <span className={`dropdown-arrow ${isLanguageDropdownOpen ? 'open' : ''}`}>
-            ▼
+            <ChevronDown size={12} />
           </span>
         </button>
 
@@ -129,7 +132,7 @@ const NavBarControls: React.FC = () => {
                 tabIndex={isLanguageDropdownOpen ? 0 : -1}
                 id={`language-option-${lang.code}`}
               >
-                <span className="option-flag" aria-hidden="true">{lang.flag}</span>
+                <span className="option-code">{lang.code.toUpperCase()}</span>
                 <span className="option-label">{lang.label}</span>
                 {language === lang.code && (
                   <span className="option-check" aria-label="Selected">✓</span>

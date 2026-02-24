@@ -1,22 +1,25 @@
 import React from "react";
-import { Col, Container, Nav, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import './Footer.css'
 import '../NavBar/NavBar.css'
 import logo from '../../assets/img/logo.png'
+import rentifyNowLogo from '../../assets/rentifynow/RentifyNowLogo.jpeg'
 
 const Footer = () => {
+    const hireMeUrl = "https://www.linkedin.com/in/bartoszlitwa/";
+
     return (
         <footer className="footer" role="contentinfo">
             <Container>
-                <Row className="align-items-center">
-                    <Col sm={12} md={6} className="text-center text-md-start mb-4 mb-md-0">
+                <Row className="align-items-center footer-main-row">
+                    <Col sm={12} md={5} className="text-center text-md-start mb-3 mb-md-0">
                         <img 
                             src={logo} 
                             alt="Bartosz Litwa Logo" 
                             loading="lazy"
                         />
                     </Col>
-                    <Col sm={12} md={6}>
+                    <Col sm={12} md={7}>
                         <div className="navbar-text">
                             <div className="social-icon" role="group" aria-label="Social media links">
                                 <a 
@@ -48,25 +51,30 @@ const Footer = () => {
                                     />
                                 </a>
                                 <a 
-                                    href="https://litwa.dev"
+                                    href="https://www.rentifynow.com"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    aria-label="Portfolio Website"
+                                    aria-label="RentifyNow Website"
+                                    className="rentifynow-link"
                                 >
                                     <img 
-                                        src={logo} 
+                                        src={rentifyNowLogo}
                                         height={24}
                                         width={24}
-                                        alt="Portfolio"
+                                        alt="RentifyNow"
                                         loading="lazy"
                                     />
                                 </a>
                             </div>
-                            <Nav.Link href="#contact">
-                                <button type="button" aria-label="Contact Bartosz Litwa">
-                                    <span>Let's Connect</span>
-                                </button>
-                            </Nav.Link>
+                            <a
+                                href={hireMeUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="footer-cta"
+                                aria-label="Hire Bartosz Litwa via LinkedIn"
+                            >
+                                Hire Me
+                            </a>
                         </div>
                     </Col>
                 </Row>

@@ -102,11 +102,15 @@
 
 /* Projects Grid */
 .projects-grid {
-  margin-top: 3rem;
+  margin-top: 2.2rem;
+}
+
+.project-col {
+  display: flex;
 }
 
 .project-item {
-  margin-bottom: 2rem;
+  width: 100%;
 }
 
 /* Enhanced Project Card Styles */
@@ -118,7 +122,9 @@
   border: 1px solid var(--border-color);
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   cursor: pointer;
-  height: 420px;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  min-height: 300px;
   box-shadow: 0 8px 25px var(--shadow-color);
 }
 
@@ -178,7 +184,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 2rem;
+  padding: 1.35rem;
   background: linear-gradient(transparent 0%, rgba(0, 0, 0, 0.8) 100%);
   transition: all 0.4s ease;
 }
@@ -188,7 +194,7 @@
 }
 
 .project-card-title {
-  font-size: 1.5rem;
+  font-size: 1.35rem;
   font-weight: 700;
   color: white;
   margin-bottom: 0.75rem;
@@ -204,7 +210,7 @@
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
@@ -238,7 +244,7 @@
 .metrics-value {
   color: #4ade80;
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 0.84rem;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
@@ -260,7 +266,7 @@
 .tech-badge {
   background: rgba(255, 255, 255, 0.2);
   color: white;
-  padding: 0.4rem 0.8rem;
+  padding: 0.35rem 0.7rem;
   border-radius: 20px;
   font-size: 0.8rem;
   font-weight: 600;
@@ -298,32 +304,56 @@
   }
   
   .nav-pills {
-    flex-direction: column;
-    align-items: stretch;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    justify-content: flex-start;
     border-radius: 16px;
-    padding: 1rem;
+    padding: 0.5rem;
+    gap: 0.35rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
   }
-  
+
   .nav-pills .nav-link {
     text-align: center;
-    margin: 0.25rem 0;
-    padding: 1rem;
+    margin: 0;
+    padding: 0.6rem 0.95rem;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
   
   .project-card {
-    height: 350px;
+    aspect-ratio: 4 / 5;
+    min-height: 290px;
   }
   
   .project-card-content {
-    padding: 1.5rem;
+    padding: 1rem;
+    background: linear-gradient(transparent 10%, rgba(0, 0, 0, 0.72) 100%);
   }
   
   .project-card-title {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
   }
   
   .project-card-description {
-    font-size: 0.9rem;
+    font-size: 0.82rem;
+    line-height: 1.45;
+    margin-bottom: 0.55rem;
+  }
+
+  .project-card-description,
+  .project-card-tech,
+  .project-metrics {
+    opacity: 1;
+    transform: none;
+  }
+
+  .project-card-image {
+    transform: scale(1.02);
+    filter: blur(0.6px) brightness(0.78);
   }
   
   .background-image-right {
@@ -334,11 +364,11 @@
 
 @media (max-width: 480px) {
   .project-card {
-    height: 320px;
+    min-height: 280px;
   }
   
   .project-card-content {
-    padding: 1.25rem;
+    padding: 0.9rem;
   }
   
   .project-card-title {
@@ -347,8 +377,12 @@
   }
   
   .tech-badge {
-    font-size: 0.75rem;
-    padding: 0.3rem 0.6rem;
+    font-size: 0.7rem;
+    padding: 0.25rem 0.55rem;
+  }
+
+  .project-metrics {
+    margin-bottom: 0.6rem;
   }
 }
 

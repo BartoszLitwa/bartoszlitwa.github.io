@@ -13,14 +13,6 @@ const Experience = () => {
         companyLogo: require(`../../assets/${exp.companyLogo}`)
     }));
 
-    const generateCards = () => {
-        return experiences.map((exp, index) => {
-            return (
-                <ExperienceCard key={`exp-${index}-${exp.title}`} experience={exp}/>
-            )
-        })
-    }
-
     return (
         <section className="experience" id="experience" aria-labelledby="experience-heading">
             <Container>
@@ -30,9 +22,11 @@ const Experience = () => {
                             <h2 id="experience-heading">
                                 {t('experience.title')}
                             </h2>
-                            {
-                                generateCards()
-                            }
+                            <div className="experience-timeline" aria-label="Professional timeline">
+                                {experiences.map((exp, index) => (
+                                    <ExperienceCard key={`exp-${index}-${exp.title}`} experience={exp} />
+                                ))}
+                            </div>
                         </div>
                     </Col>
                 </Row>

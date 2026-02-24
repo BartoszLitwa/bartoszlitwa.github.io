@@ -4,6 +4,7 @@ import { ArrowRight, CodeSlash, RocketTakeoff, Layers } from "react-bootstrap-ic
 import './SimpleBanner.css'
 
 const SimpleBanner = () => {
+    const hireMeUrl = "https://www.linkedin.com/in/bartoszlitwa/";
     const [index, setIndex] = useState(0)
     const [isDeleting, setIsDeleting] = useState(false)
     const toRotate = useMemo(() => ['Senior .NET Developer', 'Angular Expert', 'Founder of RentifyNow', 'Azure Cloud Architect'], [])
@@ -39,11 +40,8 @@ const SimpleBanner = () => {
         return () => { clearInterval(ticker) }
     }, [tick, delta])
 
-    const handleContactClick = () => {
-        const contactSection = document.getElementById('contact');
-        if (contactSection) {
-            contactSection.scrollIntoView({ behavior: 'smooth' });
-        }
+    const handleHireClick = () => {
+        window.open(hireMeUrl, "_blank", "noopener,noreferrer");
     }
 
     const handleFeaturedClick = () => {
@@ -85,7 +83,7 @@ const SimpleBanner = () => {
                                     <RocketTakeoff size={20} className="me-2" />
                                     <span>Explore RentifyNow</span>
                                 </button>
-                                <button className="btn-modern btn-secondary" onClick={handleContactClick} type="button">
+                                <button className="btn-modern btn-secondary" onClick={handleHireClick} type="button">
                                     <span>Hire Me</span> <ArrowRight size={20} className="ms-2" />
                                 </button>
                             </div>
@@ -93,7 +91,7 @@ const SimpleBanner = () => {
                             <div className="hero-tech-stack animate-fade-up" style={{ animationDelay: '0.5s' }}>
                                 <span className="tech-stack-label">Specialized In:</span>
                                 <div className="tech-stack-icons">
-                                    <span className="tech-item"><CodeSlash size={16} /> .NET 8 / C#</span>
+                                    <span className="tech-item"><CodeSlash size={16} /> .NET 10 / C#</span>
                                     <span className="tech-item"><Layers size={16} /> Angular</span>
                                     <span className="tech-item"><RocketTakeoff size={16} /> Azure DevOps</span>
                                 </div>

@@ -45,9 +45,9 @@ const Certifications: React.FC = () => {
                     <span className="status-icon completed">✓</span>
                     {t('certifications.status.completed')}
                   </h3>
-                  <Row className="g-4">
+                  <Row className="g-3">
                     {completedCerts.map((cert, index) => (
-                      <Col key={cert.id} lg={6} xl={4}>
+                      <Col key={cert.id} lg={6} xl={6}>
                         <div 
                           className={`certification-item scroll-animate ${visibleItems[index] ? 'animate-in' : ''}`}
                           style={{ transitionDelay: `${index * 0.1}s` }}
@@ -67,9 +67,9 @@ const Certifications: React.FC = () => {
                     <span className="status-icon in-progress">⏳</span>
                     {t('certifications.status.inProgress')}
                   </h3>
-                  <Row className="g-4">
+                  <Row className="g-3">
                     {inProgressCerts.map((cert, index) => (
-                      <Col key={cert.id} lg={6} xl={4}>
+                      <Col key={cert.id} lg={6} xl={6}>
                         <div 
                           className={`certification-item scroll-animate ${visibleItems[completedCerts.length + index] ? 'animate-in' : ''}`}
                           style={{ transitionDelay: `${(completedCerts.length + index) * 0.1}s` }}

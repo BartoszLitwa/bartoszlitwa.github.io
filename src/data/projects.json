@@ -1,13 +1,13 @@
 [
   {
-    "title": "Rentify",
+    "title": "RentifyNow",
     "description": "Full-stack SaaS platform for property rental management with multi-tenant architecture, real-time updates, and enterprise-grade security.",
     "imgUrl": "rentifynow/dashboard.png",
-    "type": ".Net|React|Azure",
+    "type": ".Net|Angular|Azure",
     "url": "https://www.rentifynow.com",
     "metrics": "Multi-tenant SaaS platform serving property management companies",
     "featured": true,
-    "technologies": ["React", "TypeScript", ".NET Core", "Azure", "SQL Server", "SignalR", "Redis", "Docker"],
+    "technologies": ["Angular", "TypeScript", ".NET Core", "Azure", "SQL Server", "SignalR", "Redis", "Docker"],
     "highlights": [
       "Multi-tenant SaaS architecture with isolated data per organization",
       "Real-time notifications and updates using SignalR",

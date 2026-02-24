@@ -1,15 +1,16 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { ArrowRightCircle, CheckCircle, CodeSlash, Windows, CreditCard, Cloud, Display, Phone } from 'react-bootstrap-icons';
+import { ArrowRightCircle, CheckCircle, CodeSlash, CreditCard, Cloud, Display } from 'react-bootstrap-icons';
 import './FeaturedProject.css';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 
 const FeaturedProject = () => {
+    const hireMeUrl = "https://www.linkedin.com/in/bartoszlitwa/";
     const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation({ threshold: 0.2 });
     const { ref: contentRef, isVisible: contentVisible } = useScrollAnimation({ threshold: 0.2 });
 
     const technologies = [
-        ".NET Core 8", "Azure Cloud", "Tauri", "React", "TypeScript", "Microservices", "Stripe API", "SQL Server"
+        ".NET Core 8", "Azure Cloud", "Tauri", "Angular", "TypeScript", "Microservices", "Stripe API", "SQL Server"
     ];
 
     const highlights = [
@@ -132,7 +133,12 @@ const FeaturedProject = () => {
                                     </div>
 
                                     <div className="featured-actions mt-5 d-flex gap-3">
-                                        <a href="#contact" className="btn-modern btn-primary glow-btn">
+                                        <a
+                                            href={hireMeUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="btn-modern btn-primary glow-btn"
+                                        >
                                             <span>Discuss SaaS Architecture</span>
                                             <ArrowRightCircle size={20} className="ms-2" />
                                         </a>
@@ -172,7 +178,7 @@ const FeaturedProject = () => {
                             <div className="metric-label">Omnichannel UI</div>
                         </div>
                         <div className="metric-card glass-panel">
-                            <div className="metric-value">Microservice</div>
+                            <div className="metric-value">Microservices</div>
                             <div className="metric-label">Azure Backend</div>
                         </div>
                         <div className="metric-card glass-panel">
@@ -186,7 +192,12 @@ const FeaturedProject = () => {
                             <h3>Need an Enterprise-Grade Application?</h3>
                             <p className="mt-2 text-white-50">I am ready to bring this level of architectural expertise to your organization.</p>
                         </div>
-                        <a href="#contact" className="btn-modern btn-outline-glass">
+                        <a
+                            href={hireMeUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn-modern btn-outline-glass"
+                        >
                             <span>Let's Talk Leadership</span>
                             <ArrowRightCircle size={20} className="ms-2" />
                         </a>

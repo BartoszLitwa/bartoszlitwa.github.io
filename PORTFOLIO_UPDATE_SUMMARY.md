@@ -10,7 +10,7 @@ This document summarizes the comprehensive portfolio update that transforms the 
 - **Purpose:** Dedicated, prominent section showcasing Rentifynow as your flagship project
 - **Features:**
   - Eye-catching "Featured Project" badge with gradient background
-  - Large title presentation: "Rentify - Property Management Platform"
+  - Large title presentation: "RentifyNow - Property Management Platform"
   - Comprehensive project description emphasizing SaaS architecture
   - "Almost Live" status indicator with pulsing animation
   - Technical stack display with 8 key technologies (React, TypeScript, .NET Core, Azure, etc.)

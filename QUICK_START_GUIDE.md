@@ -53,7 +53,7 @@ Right after the hero banner, you'll see a prominent **"Featured Project"** secti
 Edit: `src/data/projects.json`
 ```json
 {
-  "title": "Rentify - Property Management Platform",
+  "title": "RentifyNow - Property Management Platform",
   "description": "Update this description if needed",
   "url": "https://www.rentifynow.com",
   "technologies": ["Add", "or", "remove", "technologies"],

@@ -5,9 +5,11 @@ import NavBarControls from './NavBarControls'
 import './NavBar.css'
 import '../../App.css'
 import logo from '../../assets/img/logo.png'
+import rentifyNowLogo from '../../assets/rentifynow/RentifyNowLogo.jpeg'
 
 const NavBar = () => {
     const { t } = useLanguage();
+    const hireMeUrl = "https://www.linkedin.com/in/bartoszlitwa/";
     const [activeLink, setActiveLink] = useState('#home');
     const [scrolled, setScrolled] = useState(false);
     const [toggled, setToggled] = useState(false);
@@ -25,13 +27,20 @@ const NavBar = () => {
         return () => window.removeEventListener("scroll", onScroll)
     }, [])
 
+    useEffect(() => {
+        const onResize = () => {
+            if (window.innerWidth >= 992) {
+                setToggled(false)
+            }
+        }
+
+        window.addEventListener("resize", onResize)
+        return () => window.removeEventListener("resize", onResize)
+    }, [])
+
     const onUpdateActiveLink = (value: string) => {
         setActiveLink(value)
         setToggled(false) // Close mobile menu when link is clicked
-    }
-
-    const handleToggle = () => {
-        setToggled(!toggled)
     }
 
     return (
@@ -41,8 +50,10 @@ const NavBar = () => {
             </a>
             <Navbar
                 expand="lg"
+                expanded={toggled}
+                collapseOnSelect
                 className={scrolled || toggled ? "scrolled" : ""}
-                onToggle={handleToggle}
+                onToggle={(nextExpanded) => setToggled(Boolean(nextExpanded))}
                 role="navigation"
                 aria-label="Main navigation"
             >
@@ -60,7 +71,7 @@ const NavBar = () => {
                     </Navbar.Toggle>
 
                     <Navbar.Collapse id="basic-navbar-nav">
-                        <Nav className="me-auto mx-5" role="menubar">
+                        <Nav className="me-auto navbar-nav-links" role="menubar">
                             <Nav.Link
                                 href="#home"
                                 className={`navbar-link ${activeLink === '#home' ? 'active' : ''}`}
@@ -71,15 +82,6 @@ const NavBar = () => {
                                 {t('navigation.home')}
                             </Nav.Link>
                             <Nav.Link
-                                href="#skills"
-                                className={`navbar-link ${activeLink === '#skills' ? 'active' : ''}`}
-                                onClick={() => onUpdateActiveLink('#skills')}
-                                role="menuitem"
-                                aria-current={activeLink === '#skills' ? 'page' : undefined}
-                            >
-                                {t('navigation.skills')}
-                            </Nav.Link>
-                            <Nav.Link
                                 href="#experience"
                                 className={`navbar-link ${activeLink === '#experience' ? 'active' : ''}`}
                                 onClick={() => onUpdateActiveLink('#experience')}
@@ -87,6 +89,15 @@ const NavBar = () => {
                                 aria-current={activeLink === '#experience' ? 'page' : undefined}
                             >
                                 {t('navigation.experience')}
+                            </Nav.Link>
+                            <Nav.Link
+                                href="#skills"
+                                className={`navbar-link ${activeLink === '#skills' ? 'active' : ''}`}
+                                onClick={() => onUpdateActiveLink('#skills')}
+                                role="menuitem"
+                                aria-current={activeLink === '#skills' ? 'page' : undefined}
+                            >
+                                {t('navigation.skills')}
                             </Nav.Link>
                             <Nav.Link
                                 href="#projects"
@@ -109,7 +120,9 @@ const NavBar = () => {
                         </Nav>
 
                         <span className="navbar-text">
-                            <NavBarControls />
+                            <div className="navbar-controls-wrapper">
+                                <NavBarControls />
+                            </div>
                             <div className="social-icon" role="group" aria-label="Social media links">
                                 <a
                                     href="https://www.linkedin.com/in/bartoszlitwa/"
@@ -140,33 +153,32 @@ const NavBar = () => {
                                     />
                                 </a>
                                 <a
-                                    href="https://litwa.dev"
+                                    href="https://www.rentifynow.com"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    aria-label="Portfolio Website"
+                                    aria-label="RentifyNow Website"
+                                    className="rentifynow-link"
                                 >
                                     <img
-                                        src={logo}
-                                        alt="Portfolio"
+                                        src={rentifyNowLogo}
+                                        alt="RentifyNow"
                                         width="24"
                                         height="24"
                                         loading="lazy"
                                     />
                                 </a>
                             </div>
-                            <Nav.Link
-                                href="#contact"
-                                onClick={() => onUpdateActiveLink('#contact')}
+                            <a
+                                href={hireMeUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="cta-link"
+                                aria-label="Hire Bartosz Litwa via LinkedIn"
                             >
-                                <button
-                                    className="btn-modern btn-primary"
-                                    type="button"
-                                    aria-label="Contact Bartosz Litwa"
-                                >
+                                <span className="btn-modern btn-primary">
                                     <span>{t('navigation.letsConnect')}</span>
-                                </button>
-                            </Nav.Link>
+                                </span>
+                            </a>
                         </span>
                     </Navbar.Collapse>
                 </Container>

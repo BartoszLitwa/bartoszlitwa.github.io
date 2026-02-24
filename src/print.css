@@ -112,19 +112,6 @@
     display: inline-block;
   }
 
-  /* Contact section */
-  .contact form {
-    display: none;
-  }
-
-  .contact::after {
-    content: "Contact Information:\AEmail: bartosz.litwa@proton.me\ALinkedIn: linkedin.com/in/bartoszlitwa\AGitHub: github.com/BartoszLitwa\AWebsite: litwa.dev";
-    display: block;
-    font-weight: bold;
-    white-space: pre-line;
-    margin-top: 20pt;
-  }
-
   /* Page breaks */
   .experience,
   .project,

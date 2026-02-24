@@ -11,7 +11,6 @@ const Skills = lazy(() => import('./components/skills/Skills'));
 const Experience = lazy(() => import('./components/Experience/Experience'));
 const Projects = lazy(() => import('./components/Projects/Projects'));
 const Certifications = lazy(() => import('./components/Certifications/Certifications'));
-const Contact = lazy(() => import('./components/Contact/Contact'));
 const Footer = lazy(() => import('./components/Footer/Footer'));
 
 // Loading fallback component
@@ -41,19 +40,16 @@ function App() {
               <FeaturedProject />
             </Suspense>
             <Suspense fallback={<LoadingFallback />}>
-              <Skills />
+              <Experience />
             </Suspense>
             <Suspense fallback={<LoadingFallback />}>
-              <Experience />
+              <Skills />
             </Suspense>
             <Suspense fallback={<LoadingFallback />}>
               <Projects />
             </Suspense>
             <Suspense fallback={<LoadingFallback />}>
               <Certifications />
-            </Suspense>
-            <Suspense fallback={<LoadingFallback />}>
-              <Contact />
             </Suspense>
             <Suspense fallback={<LoadingFallback />}>
               <Footer />

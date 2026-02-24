@@ -21,21 +21,29 @@ const Projects = () => {
     const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation({ threshold: 0.3 });
     const { ref: projectsRef, visibleItems } = useStaggeredScrollAnimation(filteredProjects.length, { threshold: 0.1 });
 
-    const generateCards = (type: string) => {
+    const generateCards = () => {
         return filteredProjects.map((proj, index) => {
             return (
-                <div 
+                <Col
                     key={`proj-${proj.title}-${proj.type}`}
-                    className={`project-item scroll-animate ${visibleItems[index] ? 'animate-in' : ''}`}
-                    style={{ transitionDelay: `${index * 0.1}s` }}
+                    xs={12}
+                    sm={6}
+                    lg={6}
+                    xxl={4}
+                    className="project-col"
                 >
-                    <ProjectCard card={proj} />
-                </div>
+                    <div
+                        className={`project-item scroll-animate ${visibleItems[index] ? 'animate-in' : ''}`}
+                        style={{ transitionDelay: `${index * 0.1}s` }}
+                    >
+                        <ProjectCard card={proj} />
+                    </div>
+                </Col>
             )
         })
     }
 
-    const projectTypes = ["All", ".Net", "React", "Flutter", "C++", "Java"];
+    const projectTypes = ["All", ".Net", "Angular", "React", "Flutter", "C++", "Java"];
 
     return (
         <section className="project" id="projects" aria-labelledby="projects-heading">
@@ -86,7 +94,7 @@ const Projects = () => {
                                     aria-labelledby={`projects-tab-${eventKey}`}
                                 >
                                     <Row className="g-4">
-                                        {generateCards(eventKey)}
+                                        {generateCards()}
                                     </Row>
                                 </div>
                             </Tab.Content>
