@@ -11,6 +11,9 @@ services:
     restart: unless-stopped
     ports:
       - "10580:80"
+    mem_limit: 512m
+    cpus: 0.5
+    memswap_limit: 768m
     deploy:
       resources:
         limits:
@@ -19,14 +22,6 @@ services:
         reservations:
           cpus: "0.25"
           memory: 256M
-      update_config:
-        parallelism: 1
-        delay: 10s
-        failure_action: rollback
-      restart_policy:
-        condition: on-failure
-        delay: 5s
-        max_attempts: 3
     healthcheck:
       test: ["CMD", "wget", "-qO-", "http://localhost:80/"]
       interval: 30s
