@@ -1,0 +1,26 @@
+name: portfolio
+
+services:
+  portfolio-webapp:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    container_name: portfolio-webapp
+    restart: unless-stopped
+    ports:
+      - "10580:80"
+    networks:
+      - shared-network
+      - dokploy-network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.portfolio-webapp.rule=Host(`litwa.dev`) || Host(`www.litwa.dev`)"
+      - "traefik.http.routers.portfolio-webapp.entrypoints=websecure"
+      - "traefik.http.routers.portfolio-webapp.tls.certresolver=letsencrypt"
+      - "traefik.http.services.portfolio-webapp.loadbalancer.server.port=80"
+
+networks:
+  shared-network:
+    external: true
+  dokploy-network:
+    external: true

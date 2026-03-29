@@ -509,3 +509,37 @@
         grid-template-columns: 1fr;
     }
 }
+
+.ecosystem-section {
+    position: relative;
+}
+
+.ecosystem-card {
+    padding: 24px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ecosystem-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(170, 100, 255, 0.15);
+}
+
+.ecosystem-card .value-title {
+    color: #fff;
+}
+
+.ecosystem-card .value-desc {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.88rem;
+    line-height: 1.5;
+}
+
+.ecosystem-card .value-icon {
+    color: var(--accent-primary, #aa64ff);
+}

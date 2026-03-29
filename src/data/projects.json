@@ -16,6 +16,54 @@
     ]
   },
   {
+    "title": "HouseifyNow",
+    "description": "Smart home management SaaS with property tracking, maintenance scheduling, and financial oversight for homeowners.",
+    "imgUrl": "rentifynow/dashboard.png",
+    "type": ".Net|Angular",
+    "url": "https://www.houseifynow.com",
+    "metrics": "Homeowner-focused platform with integrated financial and maintenance tools",
+    "featured": false,
+    "technologies": ["Angular", "TypeScript", ".NET 10", "PostgreSQL", "Tailwind CSS", "Tauri", "Docker"],
+    "highlights": [
+      "Homeowner dashboard with property portfolio overview",
+      "Maintenance scheduling and contractor management",
+      "Financial tracking with expense categorization",
+      "Cross-platform support via Tauri (Web, Desktop, Mobile)"
+    ]
+  },
+  {
+    "title": "GoalifyNow",
+    "description": "Goal tracking and habit management SaaS helping users set, track, and achieve personal and professional goals.",
+    "imgUrl": "rentifynow/dashboard.png",
+    "type": ".Net|Angular",
+    "url": "https://www.goalifynow.com",
+    "metrics": "Productivity platform with habit tracking and goal analytics",
+    "featured": false,
+    "technologies": ["Angular 21", "TypeScript", ".NET 10", "PrimeNG", "PostgreSQL", "Tauri", "Docker"],
+    "highlights": [
+      "Goal creation with milestones and progress tracking",
+      "Habit streaks and analytics dashboard",
+      "Cross-platform native apps via Tauri",
+      "Shared infrastructure with DoifyNow ecosystem"
+    ]
+  },
+  {
+    "title": "DoifyNow",
+    "description": "The mother organization and shared infrastructure hub powering the entire SaaS product ecosystem including RentifyNow, HouseifyNow, and GoalifyNow.",
+    "imgUrl": "rentifynow/dashboard.png",
+    "type": ".Net|Angular",
+    "url": "https://www.doifynow.com",
+    "metrics": "Infrastructure hub managing shared databases, monitoring, and deployment",
+    "featured": false,
+    "technologies": ["Angular", "TypeScript", "PostgreSQL", "Redis", "RabbitMQ", "Grafana", "Docker", "Dokploy"],
+    "highlights": [
+      "Centralized infrastructure: PostgreSQL, Redis, RabbitMQ, monitoring",
+      "Grafana + Prometheus + Loki observability stack",
+      "Shared .NET libraries consumed by all product microservices",
+      "VPS deployment orchestration via Dokploy"
+    ]
+  },
+  {
     "title": "League Plus",
     "description": "Desktop application for League of Legends players providing real-time match analytics, performance tracking, and statistical insights to improve gameplay.",
     "imgUrl": "league_plus/merged.png",

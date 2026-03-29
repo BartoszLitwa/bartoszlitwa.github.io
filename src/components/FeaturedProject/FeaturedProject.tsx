@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { ArrowRightCircle, CheckCircle, CodeSlash, CreditCard, Cloud, Display } from 'react-bootstrap-icons';
+import { ArrowRightCircle, CheckCircle, CodeSlash, CreditCard, Cloud, Display, HouseDoor, Bullseye, Gear } from 'react-bootstrap-icons';
 import './FeaturedProject.css';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 
@@ -10,7 +10,7 @@ const FeaturedProject = () => {
     const { ref: contentRef, isVisible: contentVisible } = useScrollAnimation({ threshold: 0.2 });
 
     const technologies = [
-        ".NET Core 8", "Azure Cloud", "Tauri", "Angular", "TypeScript", "Microservices", "Stripe API", "SQL Server"
+        ".NET 10", "Azure Cloud", "Tauri", "Angular", "TypeScript", "Microservices", "Stripe API", "PostgreSQL"
     ];
 
     const highlights = [
@@ -20,6 +20,30 @@ const FeaturedProject = () => {
         "Multi-tenant data isolation and role-based access control",
         "Real-time notifications and dashboard updates",
         "Automated CI/CD pipelines ensuring zero-downtime deployments"
+    ];
+
+    const ecosystemProducts = [
+        {
+            icon: HouseDoor,
+            name: "HouseifyNow",
+            desc: "Smart home management for homeowners — property tracking, maintenance, and finances.",
+            url: "https://www.houseifynow.com",
+            tech: ["Angular", ".NET 10", "Tauri", "PostgreSQL"]
+        },
+        {
+            icon: Gear,
+            name: "DoifyNow",
+            desc: "The mother organization — shared infrastructure hub powering the entire product ecosystem.",
+            url: "https://www.doifynow.com",
+            tech: ["Angular", "PostgreSQL", "Redis", "Grafana"]
+        },
+        {
+            icon: Bullseye,
+            name: "GoalifyNow",
+            desc: "Goal tracking and habit management — set, track, and achieve personal and professional goals.",
+            url: "https://www.goalifynow.com",
+            tech: ["Angular 21", ".NET 10", "PrimeNG", "Tauri"]
+        }
     ];
 
     const businessValue = [
@@ -201,6 +225,35 @@ const FeaturedProject = () => {
                             <span>Let's Talk Leadership</span>
                             <ArrowRightCircle size={20} className="ms-2" />
                         </a>
+                    </div>
+
+                    <div className="ecosystem-section mt-5">
+                        <h3 className="features-title text-center mb-4">The SaaS Ecosystem</h3>
+                        <p className="text-center text-white-50 mb-5" style={{ maxWidth: '700px', margin: '0 auto 2rem' }}>
+                            RentifyNow is the flagship product of a broader ecosystem of SaaS applications, all sharing
+                            infrastructure, libraries, and deployment pipelines under the DoifyNow organization.
+                        </p>
+                        <Row className="g-4 justify-content-center">
+                            {ecosystemProducts.map((product, index) => (
+                                <Col md={4} key={index}>
+                                    <a
+                                        href={product.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="ecosystem-card glass-panel d-block text-decoration-none"
+                                    >
+                                        <product.icon className="value-icon mb-3" size={28} />
+                                        <h4 className="value-title">{product.name}</h4>
+                                        <p className="value-desc">{product.desc}</p>
+                                        <div className="tech-stack mt-3">
+                                            {product.tech.map((t, i) => (
+                                                <span key={i} className="tech-badge" style={{ fontSize: '0.7rem' }}>{t}</span>
+                                            ))}
+                                        </div>
+                                    </a>
+                                </Col>
+                            ))}
+                        </Row>
                     </div>
                 </div>
             </Container>
