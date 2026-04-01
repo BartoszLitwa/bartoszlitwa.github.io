@@ -1,10 +1,19 @@
-import React, { Suspense, lazy } from 'react';
+import React, { Suspense, lazy, useEffect } from 'react';
 import { LanguageProvider } from './components/LanguageProvider/LanguageProvider';
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
 import NavBar from './components/NavBar/NavBar';
+import { createSectionObserver } from './utils/umami';
 import './App.css';
 
-// Lazy load components for better code splitting
+const TRACKED_SECTIONS = [
+  { id: 'home', name: 'Banner' },
+  { id: 'featured-project', name: 'FeaturedProject' },
+  { id: 'experience', name: 'Experience' },
+  { id: 'skills', name: 'Skills' },
+  { id: 'projects', name: 'Projects' },
+  { id: 'certifications', name: 'Certifications' },
+];
+
 const SimpleBanner = lazy(() => import('./components/Banner/SimpleBanner'));
 const FeaturedProject = lazy(() => import('./components/FeaturedProject/FeaturedProject'));
 const Skills = lazy(() => import('./components/skills/Skills'));
@@ -27,6 +36,16 @@ const LoadingFallback: React.FC = () => (
 );
 
 function App() {
+  useEffect(() => {
+    const observer = createSectionObserver(TRACKED_SECTIONS);
+    if (!observer) return;
+    TRACKED_SECTIONS.forEach(({ id }) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <ErrorBoundary>
       <LanguageProvider>
