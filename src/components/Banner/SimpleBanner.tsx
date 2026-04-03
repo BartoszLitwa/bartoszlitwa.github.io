@@ -7,7 +7,7 @@ const SimpleBanner = () => {
     const hireMeUrl = "https://www.linkedin.com/in/bartoszlitwa/";
     const [index, setIndex] = useState(0)
     const [isDeleting, setIsDeleting] = useState(false)
-    const toRotate = useMemo(() => ['Senior .NET Developer', 'Angular Expert', 'Founder of RentifyNow', 'Azure Cloud Architect'], [])
+    const toRotate = useMemo(() => ['CEO & Founder of DoifyNow', 'Senior .NET Architect', 'Angular Expert', 'Azure Cloud Architect'], [])
     const [text, setText] = useState('')
     const [delta, setDelta] = useState(200)
     const period = 2000;
@@ -60,7 +60,7 @@ const SimpleBanner = () => {
                     <Col lg={7} md={12} className="text-start hero-col">
                         <div className="hero-content text-left">
                             <div className="hero-badge animate-fade-up">
-                                <span className="badge-icon">Available for Senior Roles & Projects</span>
+                                <span className="badge-icon">CEO & Founder — DoifyNow Ecosystem</span>
                             </div>
                             <h1 className="hero-name animate-fade-up" style={{ animationDelay: '0.1s' }}>
                                 Hi, I'm <br className="d-block d-md-none" /><span className="text-accent-gradient">Bartosz Litwa</span>
@@ -72,19 +72,18 @@ const SimpleBanner = () => {
                                 <span className="cursor" aria-hidden="true">|</span>
                             </h2>
                             <p className="hero-description text-left animate-fade-up" style={{ animationDelay: '0.3s' }}>
-                                I architect and build <strong>enterprise-grade scalable applications</strong>.
-                                Currently building <strong>RentifyNow</strong> — a comprehensive SaaS for property management.
-                                With expertise in <strong className="highlight-text">.NET Core, Angular, and Azure</strong>, I transform complex business
-                                problems into intuitive, high-performance software solutions. Let's build something exceptional.
+                                CEO & Founder of <strong><a href="https://doifynow.com" target="_blank" rel="noopener noreferrer" className="highlight-link">DoifyNow</a></strong> — building a suite of SaaS products including the flagship
+                                <strong> <a href="https://rentifynow.com" target="_blank" rel="noopener noreferrer" className="highlight-link">RentifyNow</a></strong>, <strong><a href="https://houseifynow.com" target="_blank" rel="noopener noreferrer" className="highlight-link">HouseifyNow</a></strong>, and <strong><a href="https://goalifynow.com" target="_blank" rel="noopener noreferrer" className="highlight-link">GoalifyNow</a></strong>.
+                                With expertise in <strong className="highlight-text">.NET, Angular, and Azure</strong>, I architect enterprise-grade, scalable software solutions.
                             </p>
 
                             <div className="hero-actions text-left animate-fade-up flex-wrap" style={{ animationDelay: '0.4s', justifyContent: 'flex-start' }}>
                                 <button className="btn-modern btn-primary glow-btn" onClick={handleFeaturedClick} type="button">
                                     <RocketTakeoff size={20} className="me-2" />
-                                    <span>Explore RentifyNow</span>
+                                    <span>Explore DoifyNow Ecosystem</span>
                                 </button>
                                 <button className="btn-modern btn-secondary" onClick={handleHireClick} type="button">
-                                    <span>Hire Me</span> <ArrowRight size={20} className="ms-2" />
+                                    <span>Let's Connect</span> <ArrowRight size={20} className="ms-2" />
                                 </button>
                             </div>
 

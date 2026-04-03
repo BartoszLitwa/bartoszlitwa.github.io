@@ -1,6 +1,5 @@
-/* Modern Minimalist Footer Styles */
 .footer {
-    padding: 1.8rem 0 1.2rem;
+    padding: 3rem 0 1.5rem;
     background: var(--bg-secondary);
     border-top: 1px solid var(--border-color);
     position: relative;
@@ -23,37 +22,78 @@
     padding: 0 2rem;
 }
 
-.footer img {
-    width: auto;
+.footer-top-row {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.footer-brand-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-brand-col img {
     height: 36px;
-    transition: transform 0.3s ease;
+    width: auto;
 }
 
-.footer img:hover {
-    transform: none;
-}
-
-.footer p {
-    font-weight: 400;
-    font-size: 0.9rem;
+.footer-tagline {
+    font-size: 0.85rem;
     color: var(--text-muted);
-    letter-spacing: 0.5px;
-    margin-top: 1rem;
-    text-align: center;
+    margin-top: 0.5rem;
+    font-weight: 500;
 }
 
-.footer-main-row {
-    margin-bottom: 0.25rem;
+.footer-section-title {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    font-weight: 600;
 }
 
-.footer .row {
-    align-items: center;
+.footer-ecosystem-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-ecosystem-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.footer-eco-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.footer-eco-link:hover {
+    color: var(--accent-glow);
+}
+
+.footer-eco-link.text-accent-green {
+    color: var(--accent-secondary);
+}
+
+.footer-eco-link.text-accent-green:hover {
+    color: #34d399;
+}
+
+.footer-connect-col {
+    display: flex;
+    flex-direction: column;
 }
 
 .footer .social-icon {
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: 0.7rem;
     margin-bottom: 0.6rem;
 }
@@ -108,7 +148,6 @@
 .footer .navbar-text {
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 0.65rem;
 }
 
@@ -127,6 +166,7 @@
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(91, 48, 247, 0.3);
     text-decoration: none;
+    width: fit-content;
 }
 
 .footer .footer-cta:hover {
@@ -135,46 +175,73 @@
     color: white;
 }
 
-.footer .footer-cta:focus {
-    outline: 2px solid var(--accent-primary);
-    outline-offset: 2px;
+.footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
 }
 
-.footer .d-none {
-    display: none !important;
+.footer-bottom p {
+    font-weight: 400;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin: 0;
 }
 
-/* Responsive Design */
+.footer-bottom-links {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer-bottom-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 0.85rem;
+}
+
+.footer-bottom-links a:hover {
+    color: var(--accent-glow);
+}
+
+.footer-sep {
+    color: var(--text-muted);
+    opacity: 0.4;
+}
+
 @media (max-width: 768px) {
     .footer {
-        padding: 1.35rem 0 1rem;
+        padding: 2rem 0 1rem;
     }
-    
+
+    .footer-top-row {
+        text-align: center;
+    }
+
+    .footer-brand-col,
+    .footer-ecosystem-col,
+    .footer-connect-col {
+        align-items: center;
+        margin-bottom: 1.5rem;
+    }
+
     .footer .social-icon {
-        flex-wrap: wrap;
-        gap: 0.75rem;
+        justify-content: center;
     }
-    
-    .footer .social-icon a {
-        width: 36px;
-        height: 36px;
-    }
-    
-    .footer p {
-        font-size: 0.85rem;
-        margin-top: 0.8rem;
+
+    .footer-bottom {
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
     }
 }
 
-/* Light Theme Adjustments */
 [data-theme="light"] .footer {
     background: var(--bg-secondary);
     border-top-color: var(--border-color);
-}
-
-[data-theme="light"] .footer::before {
-    background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
-    opacity: 0.2;
 }
 
 [data-theme="light"] .footer .social-icon a {

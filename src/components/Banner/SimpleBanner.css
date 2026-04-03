@@ -159,6 +159,17 @@
   font-weight: 600;
 }
 
+.highlight-link {
+  color: var(--accent-glow);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.highlight-link:hover {
+  color: var(--accent-secondary);
+  text-decoration: underline;
+}
+
 /* Actions */
 .hero-actions {
   display: flex;

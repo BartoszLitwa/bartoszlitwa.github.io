@@ -64,15 +64,15 @@ const FeaturedProject = () => {
                             className={`featured-header scroll-animate ${headerVisible ? 'animate-in' : ''}`}
                         >
                             <div className="featured-badge-wrapper text-center">
-                                <span className="featured-badge">Flagship SaaS Showcase</span>
-                                <span className="featured-badge secondary">Founder & Architect</span>
+                                <span className="featured-badge">Flagship SaaS Product</span>
+                                <span className="featured-badge secondary">CEO & Founder — DoifyNow</span>
                             </div>
                             <h2 className="featured-title text-center" id="featured-project-heading">RentifyNow</h2>
                             <p className="featured-subtitle text-center">A Comprehensive Property Management Ecosystem</p>
                             <p className="featured-tagline text-center">
-                                Not just a side project. RentifyNow is a fully scalable, production-grade SaaS
+                                The flagship product of the DoifyNow ecosystem. RentifyNow is a production-grade, multi-tenant SaaS
                                 designed for modern real estate professionals. I engineered the entire ecosystem from
-                                the ground up using a multi-tenant microservices architecture.
+                                the ground up as CEO & Founder, leading architecture, development, and deployment.
                             </p>
 
                             <div className="featured-status-wrapper text-center mt-4">
