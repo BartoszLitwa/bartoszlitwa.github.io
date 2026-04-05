@@ -28,6 +28,18 @@ services:
       timeout: 5s
       retries: 3
       start_period: 10s
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=dokploy-network
+      - traefik.http.routers.portfolio-webapp-web.rule=Host(`litwa.dev`)
+      - traefik.http.routers.portfolio-webapp-web.entrypoints=web
+      - traefik.http.services.portfolio-webapp-web.loadbalancer.server.port=80
+      - traefik.http.routers.portfolio-webapp-web.service=portfolio-webapp-web
+      - traefik.http.routers.portfolio-webapp-websecure.rule=Host(`litwa.dev`)
+      - traefik.http.routers.portfolio-webapp-websecure.entrypoints=websecure
+      - traefik.http.services.portfolio-webapp-websecure.loadbalancer.server.port=80
+      - traefik.http.routers.portfolio-webapp-websecure.service=portfolio-webapp-websecure
+      - traefik.http.routers.portfolio-webapp-websecure.tls.certresolver=letsencrypt
     networks:
       - shared-network
       - dokploy-network
