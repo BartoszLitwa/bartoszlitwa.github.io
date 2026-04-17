@@ -1,10 +1,10 @@
 {
   "short_name": "B. Litwa",
-  "name": "Bartosz Litwa - .NET Developer 3 @ KPMG",
+  "name": "Bartosz Litwa - Senior Full-Stack Developer & SaaS Founder",
   "description": "Professional portfolio showcasing expertise in .NET, Angular, Azure DevOps, and enterprise application development",
   "icons": [
     {
-      "src": "../src/assets/img/logo.png",
+      "src": "/favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "types": "image/x-icon"
     }

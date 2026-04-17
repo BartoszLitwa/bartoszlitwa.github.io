@@ -11,6 +11,7 @@ From `package.json`:
 - `deploy`: `gh-pages -d build`
 
 This means `npm run deploy` will:
+
 1. Build the app
 2. Publish the `build/` output to the `gh-pages` branch
 
@@ -20,6 +21,7 @@ Run these commands from the repository root:
 
 ```bash
 npm install
+npm run test
 npm run build
 npm run deploy
 ```
@@ -71,4 +73,3 @@ git remote -v
 
 - A clean deploy does **not** require deleting old deployments manually.
 - If you change domain settings in GitHub Pages, verify DNS still points to GitHub Pages for `litwa.dev`.
-

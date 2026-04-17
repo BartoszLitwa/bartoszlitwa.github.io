@@ -3,56 +3,10 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-  
-  <!-- Homepage -->
   <url>
     <loc>https://litwa.dev/</loc>
-    <lastmod>2026-01-16</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-04-16</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
-  
-  <!-- Featured Project - RentifyNow -->
-  <url>
-    <loc>https://litwa.dev/#featured-project</loc>
-    <lastmod>2026-01-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-  </url>
-  
-  <!-- Skills Section -->
-  <url>
-    <loc>https://litwa.dev/#skills</loc>
-    <lastmod>2026-01-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <!-- Experience Section -->
-  <url>
-    <loc>https://litwa.dev/#experience</loc>
-    <lastmod>2026-01-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  
-  <!-- Projects Section -->
-  <url>
-    <loc>https://litwa.dev/#projects</loc>
-    <lastmod>2026-01-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <!-- Certifications Section -->
-  <url>
-    <loc>https://litwa.dev/#certifications</loc>
-    <lastmod>2026-01-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
 </urlset>
-
-
-

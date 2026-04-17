@@ -41,6 +41,10 @@
         {
           "name": "RxJS",
           "icon": "https://rxjs.dev/generated/images/marketing/home/Rx_Logo-512-512.png"
+        },
+        {
+          "name": "Tailwind CSS",
+          "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/tailwindcss/tailwindcss-original.svg"
         }
       ]
     },
@@ -63,6 +67,10 @@
         {
           "name": "Kubernetes",
           "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/kubernetes/kubernetes-plain.svg"
+        },
+        {
+          "name": "Grafana",
+          "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/grafana/grafana-original.svg"
         }
       ]
     },
@@ -129,6 +137,10 @@
         {
           "name": "Swagger",
           "icon": "https://static1.smartbear.co/swagger/media/assets/images/swagger_logo.svg"
+        },
+        {
+          "name": "Tauri",
+          "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/tauri/tauri-original.svg"
         }
       ]
     }

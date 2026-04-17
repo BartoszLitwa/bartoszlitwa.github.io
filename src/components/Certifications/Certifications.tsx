@@ -11,30 +11,36 @@ const Certifications: React.FC = () => {
   const { t } = useLanguage();
   // Type assertion to ensure data matches our Certification interface
   const certifications: Certification[] = certificationsData as Certification[];
-  
+
   const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation({ threshold: 0.3 });
-  const { ref: certsRef, visibleItems } = useStaggeredScrollAnimation(certifications.length, { threshold: 0.1 });
+  const { ref: certsRef, visibleItems } = useStaggeredScrollAnimation(certifications.length, {
+    threshold: 0.1
+  });
 
   // Group certifications by status
-  const completedCerts = certifications.filter(cert => cert.status === 'completed');
-  const inProgressCerts = certifications.filter(cert => cert.status === 'in-progress');
+  const completedCerts = certifications.filter((cert) => cert.status === 'completed');
+  const inProgressCerts = certifications.filter((cert) => cert.status === 'in-progress');
 
   return (
-    <section className="certifications" id="certifications" aria-labelledby="certifications-heading">
+    <section
+      className="certifications"
+      id="certifications"
+      aria-labelledby="certifications-heading"
+    >
       <Container>
         <Row>
           <Col>
-            <div 
+            <div
               ref={headerRef as React.RefObject<HTMLDivElement>}
               className={`certifications-header scroll-animate ${headerVisible ? 'animate-in' : ''}`}
             >
-              <h2 className="section-title" id="certifications-heading">{t('certifications.title')}</h2>
-              <p className="section-description">
-                {t('certifications.description')}
-              </p>
+              <h2 className="section-title" id="certifications-heading">
+                {t('certifications.title')}
+              </h2>
+              <p className="section-description">{t('certifications.description')}</p>
             </div>
 
-            <div 
+            <div
               ref={certsRef as React.RefObject<HTMLDivElement>}
               className="certifications-content"
             >
@@ -48,7 +54,7 @@ const Certifications: React.FC = () => {
                   <Row className="g-3">
                     {completedCerts.map((cert, index) => (
                       <Col key={cert.id} lg={6} xl={6}>
-                        <div 
+                        <div
                           className={`certification-item scroll-animate ${visibleItems[index] ? 'animate-in' : ''}`}
                           style={{ transitionDelay: `${index * 0.1}s` }}
                         >
@@ -70,7 +76,7 @@ const Certifications: React.FC = () => {
                   <Row className="g-3">
                     {inProgressCerts.map((cert, index) => (
                       <Col key={cert.id} lg={6} xl={6}>
-                        <div 
+                        <div
                           className={`certification-item scroll-animate ${visibleItems[completedCerts.length + index] ? 'animate-in' : ''}`}
                           style={{ transitionDelay: `${(completedCerts.length + index) * 0.1}s` }}
                         >
@@ -89,4 +95,4 @@ const Certifications: React.FC = () => {
   );
 };
 
-export default Certifications; 
+export default Certifications;

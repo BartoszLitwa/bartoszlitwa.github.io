@@ -25,31 +25,35 @@ class ErrorBoundary extends Component<Props, State> {
 
   public render() {
     if (this.state.hasError) {
-      return this.props.fallback || (
-        <div style={{ 
-          padding: '2rem', 
-          textAlign: 'center', 
-          color: '#fff',
-          backgroundColor: '#1a1a1a',
-          borderRadius: '8px',
-          margin: '1rem'
-        }}>
-          <h2>🚫 Something went wrong</h2>
-          <p>We're sorry, but something unexpected happened.</p>
-          <button 
-            onClick={() => this.setState({ hasError: false })}
+      return (
+        this.props.fallback || (
+          <div
             style={{
-              padding: '0.5rem 1rem',
-              backgroundColor: '#007bff',
-              color: 'white',
-              border: 'none',
-              borderRadius: '4px',
-              cursor: 'pointer'
+              padding: '2rem',
+              textAlign: 'center',
+              color: '#fff',
+              backgroundColor: '#1a1a1a',
+              borderRadius: '8px',
+              margin: '1rem'
             }}
           >
-            Try again
-          </button>
-        </div>
+            <h2>🚫 Something went wrong</h2>
+            <p>We're sorry, but something unexpected happened.</p>
+            <button
+              onClick={() => this.setState({ hasError: false })}
+              style={{
+                padding: '0.5rem 1rem',
+                backgroundColor: '#007bff',
+                color: 'white',
+                border: 'none',
+                borderRadius: '4px',
+                cursor: 'pointer'
+              }}
+            >
+              Try again
+            </button>
+          </div>
+        )
       );
     }
 
@@ -57,4 +61,4 @@ class ErrorBoundary extends Component<Props, State> {
   }
 }
 
-export default ErrorBoundary; 
+export default ErrorBoundary;

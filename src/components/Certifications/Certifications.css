@@ -13,7 +13,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: 
+  background:
     radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
     radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
   pointer-events: none;
@@ -261,8 +261,12 @@
 }
 
 @keyframes shimmer {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
 }
 
 .expected-date,
@@ -366,36 +370,36 @@
   .certifications {
     padding: 3.2rem 0;
   }
-  
+
   .certifications-header {
     margin-bottom: 2rem;
   }
-  
+
   .group-title {
     font-size: 1.25rem;
     margin-bottom: 1.5rem;
   }
-  
+
   .certification-card {
     padding: 0.95rem;
   }
-  
+
   .certification-header {
     flex-direction: column;
     align-items: center;
     text-align: center;
     gap: 1rem;
   }
-  
+
   .badge-image {
     width: 56px;
     height: 56px;
   }
-  
+
   .certification-status {
     align-items: center;
   }
-  
+
   .certification-name {
     font-size: 1.1rem;
   }
@@ -405,18 +409,18 @@
   .certifications {
     padding: 3rem 0;
   }
-  
+
   .certification-group {
     margin-bottom: 2rem;
   }
-  
+
   .group-title {
     font-size: 1.1rem;
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
   }
-  
+
   .status-icon {
     width: 1.5rem;
     height: 1.5rem;
@@ -434,7 +438,7 @@
     transition: none !important;
     animation: none !important;
   }
-  
+
   .progress-fill::after {
     display: none;
   }
@@ -446,12 +450,12 @@
     border-width: 2px;
     border-color: var(--text-primary);
   }
-  
+
   .skill-tag {
     border-width: 2px;
   }
-  
+
   .credential-btn {
     border-width: 3px;
   }
-} 
+}

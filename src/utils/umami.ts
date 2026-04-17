@@ -2,7 +2,7 @@ declare global {
   interface Window {
     umami?: {
       track: ((event: string, data?: Record<string, unknown>) => void) &
-             ((callback: (props: Record<string, unknown>) => Record<string, unknown>) => void);
+        ((callback: (props: Record<string, unknown>) => Record<string, unknown>) => void);
     };
   }
 }

@@ -298,11 +298,11 @@
   .project {
     padding: 4rem 0;
   }
-  
+
   .projects-header {
     margin-bottom: 3rem;
   }
-  
+
   .nav-pills {
     flex-wrap: nowrap;
     overflow-x: auto;
@@ -323,21 +323,21 @@
     white-space: nowrap;
     flex-shrink: 0;
   }
-  
+
   .project-card {
     aspect-ratio: 4 / 5;
     min-height: 290px;
   }
-  
+
   .project-card-content {
     padding: 1rem;
     background: linear-gradient(transparent 10%, rgba(0, 0, 0, 0.72) 100%);
   }
-  
+
   .project-card-title {
     font-size: 1.1rem;
   }
-  
+
   .project-card-description {
     font-size: 0.82rem;
     line-height: 1.45;
@@ -355,7 +355,7 @@
     transform: scale(1.02);
     filter: blur(0.6px) brightness(0.78);
   }
-  
+
   .background-image-right {
     width: 50%;
     opacity: 0.05;
@@ -366,16 +366,16 @@
   .project-card {
     min-height: 280px;
   }
-  
+
   .project-card-content {
     padding: 0.9rem;
   }
-  
+
   .project-card-title {
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
   }
-  
+
   .tech-badge {
     font-size: 0.7rem;
     padding: 0.25rem 0.55rem;
@@ -399,7 +399,7 @@
     transition: none !important;
     animation: none !important;
   }
-  
+
   .project-card:hover .project-card-description,
   .project-card:hover .project-card-tech,
   .project-card:hover .project-metrics {
@@ -414,11 +414,11 @@
     border-width: 2px;
     border-color: var(--text-primary);
   }
-  
+
   .nav-pills .nav-link {
     border: 1px solid var(--text-primary);
   }
-  
+
   .tech-badge {
     border-width: 2px;
   }
@@ -441,6 +441,10 @@
 }
 
 @keyframes pulse {
-  from { opacity: 0.6; }
-  to { opacity: 1; }
+  from {
+    opacity: 0.6;
+  }
+  to {
+    opacity: 1;
+  }
 }

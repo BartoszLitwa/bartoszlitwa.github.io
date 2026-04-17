@@ -5,12 +5,7 @@
     "companyLogo": "companyLogos/kpmg.png",
     "city": "Warsaw, Poland",
     "education": "Bachelor of Science in Computer Science - Warsaw University",
-    "promotionPath": [
-      "Junior 2",
-      "Mid 1",
-      "Mid 2",
-      "Mid 3"
-    ],
+    "promotionPath": ["Junior 2", "Mid 1", "Mid 2", "Mid 3"],
     "promotionMonth": "October",
     "description": "Leading full-stack development and Azure cloud optimization for enterprise-scale applications. Recently promoted to .NET 3 position. Graduated with BSc in Computer Science.",
     "achievements": [
@@ -46,7 +41,7 @@
   {
     "title": "Technical Entrepreneur & Developer",
     "company": "Crytech Bartosz Litwa",
-    "companyLogo": "img/logo.png",
+    "companyLogo": "img/logo.webp",
     "city": "Warsaw, Poland",
     "description": "Founded and operated tech startup specializing in custom hardware/software solutions for sim racing industry.",
     "achievements": [
@@ -76,4 +71,4 @@
     "startDate": "2021-02",
     "endDate": "2021-05"
   }
-] 
+]

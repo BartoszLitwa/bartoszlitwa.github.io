@@ -8,12 +8,44 @@
       "certifications": "Certifications",
       "contact": "Contact",
       "letsConnect": "Hire Me",
-      "skipToMain": "Skip to main content"
+      "skipToMain": "Skip to main content",
+      "aria": {
+        "mainNav": "Main navigation",
+        "homeBrand": "Bartosz Litwa home page",
+        "logoAlt": "Bartosz Litwa logo",
+        "toggle": "Toggle navigation menu",
+        "social": "Social media links",
+        "linkedin": "LinkedIn profile",
+        "github": "GitHub profile",
+        "githubAlt": "GitHub",
+        "rentify": "RentifyNow website",
+        "rentifyAlt": "RentifyNow",
+        "hire": "Hire Bartosz Litwa via LinkedIn"
+      }
     },
     "hero": {
       "name": "Bartosz Litwa",
-      "roles": ["Senior .NET Developer @ KPMG", "Full-Stack Engineer", "SaaS Founder - RentifyNow", "Azure Cloud Architect"],
-      "description": "I build enterprise-grade SaaS products that scale. Currently developing RentifyNow — a property management platform. As a Senior Developer at KPMG, I've architected 15+ microservices using .NET Core, Angular & Azure.",
+      "badge": "CEO & Founder - DoifyNow Ecosystem",
+      "greeting": "Hi, I'm",
+      "currentRoleAria": "Current role",
+      "roles": [
+        "CEO & Founder of DoifyNow",
+        "Senior .NET Architect",
+        "Angular Expert",
+        "Azure Cloud Architect"
+      ],
+      "description": "CEO & Founder of DoifyNow - building a suite of SaaS products including RentifyNow, HouseifyNow, GoalifyNow, and DeployifyNow. With expertise in .NET, Angular, and Azure, I architect enterprise-grade software solutions.",
+      "specializedIn": "Specialized In:",
+      "tech": {
+        "dotnet": ".NET 10 / C#",
+        "angular": "Angular",
+        "azureDevops": "Azure DevOps"
+      },
+      "badges": {
+        "microservices": "Microservices",
+        "saasArchitecture": "SaaS Architecture",
+        "fullStack": "Full Stack"
+      },
       "stats": {
         "experience": "Years Building Software",
         "services": "Live SaaS Product",
@@ -21,37 +53,93 @@
       },
       "cta": {
         "connect": "See RentifyNow",
-        "viewExperience": "Hire Me"
+        "viewExperience": "Let's Connect",
+        "exploreEcosystem": "Explore DoifyNow Ecosystem",
+        "downloadCv": "Download CV"
       }
     },
     "featured": {
-      "badge": "My SaaS Product",
+      "badge": "Flagship SaaS Product",
+      "secondaryBadge": "CEO & Founder - DoifyNow",
       "title": "RentifyNow",
-      "subtitle": "Property Management Platform Built for Scale",
-      "description": "From concept to production — I designed, architected, and built this entire platform solo, demonstrating my ability to deliver complex SaaS products end-to-end.",
-      "status": "Live at",
+      "subtitle": "A Comprehensive Property Management Ecosystem",
+      "description": "The flagship product of the DoifyNow ecosystem. RentifyNow is a production-grade, multi-tenant SaaS designed for modern real estate professionals. I engineered the ecosystem from the ground up as CEO & Founder.",
+      "status": "Live Production Infrastructure",
+      "statusLive": "Live Production Infrastructure",
       "technicalStack": "Production Tech Stack",
       "keyFeatures": "Key Technical Achievements",
+      "technologies": [
+        ".NET 10",
+        "Azure Cloud",
+        "Tauri",
+        "Angular",
+        "TypeScript",
+        "Microservices",
+        "Stripe API",
+        "PostgreSQL"
+      ],
+      "highlights": [
+        "Distributed microservices architecture hosted on Azure Cloud",
+        "Cross-platform support: Web application alongside Desktop and Mobile (via Tauri)",
+        "Advanced payment and subscription processing using Stripe",
+        "Multi-tenant data isolation and role-based access control",
+        "Real-time notifications and dashboard updates",
+        "Automated CI/CD pipelines ensuring zero-downtime deployments"
+      ],
+      "businessValue": {
+        "cloud": { "title": "Cloud-Native", "description": "Azure-hosted Microservices" },
+        "crossPlatform": {
+          "title": "Cross-Platform",
+          "description": "Web, Desktop & Mobile (Tauri)"
+        },
+        "billing": { "title": "Automated Billing", "description": "Complex Stripe Integrations" },
+        "saas": { "title": "Scalable SaaS", "description": "High availability architecture" }
+      },
       "buttons": {
         "visit": "Visit Live Platform",
         "moreProjects": "Discuss Your Project"
       },
+      "ctaTitle": "Need an Enterprise-Grade Application?",
+      "ctaDescription": "I am ready to bring this level of architectural expertise to your organization.",
+      "ctaButton": "Let's Talk Leadership",
+      "ecosystemTitle": "The SaaS Ecosystem",
+      "ecosystemDescription": "RentifyNow is the flagship product of a broader ecosystem of SaaS applications that share infrastructure, libraries, and deployment pipelines under DoifyNow.",
+      "ownershipBadge": "Full Stack Architecture",
+      "longDescription": "This platform represents my ability to deliver end-to-end commercial solutions using an Azure-hosted microservices backend and a versatile frontend ecosystem (Web, Desktop, and Mobile via Tauri). I implemented real-time functionality and robust financial workflows with Stripe integration.",
+      "mockup": {
+        "primary": "Web & Native App",
+        "secondary": "Powered by Tauri"
+      },
+      "ecosystem": {
+        "houseifyDesc": "Smart home management for homeowners - property tracking, maintenance, and finances.",
+        "doifyDesc": "The mother organization - shared infrastructure hub powering the entire product ecosystem.",
+        "goalifyDesc": "Goal tracking and habit management - set, track, and achieve personal and professional goals.",
+        "deployifyDesc": "Self-hosted deployment platform - VPS provisioning, CI/CD orchestration, and infrastructure management."
+      },
       "metrics": {
-        "multiTenant": "Solo",
-        "realTime": "6+ Months",
-        "azure": "Production",
-        "enterprise": "Azure",
-        "architecture": "Developer",
-        "updates": "Development",
-        "cloud": "Ready",
-        "security": "Cloud Native"
+        "multiTenant": "Real-World",
+        "realTime": "Tauri + Web",
+        "azure": "Microservices",
+        "enterprise": "Stripe API",
+        "architecture": "Financial Engine",
+        "updates": "Omnichannel UI",
+        "cloud": "Azure Backend",
+        "security": "SaaS Product"
       }
     },
     "skills": {
       "title": "Technical Skills",
       "description": "A comprehensive overview of my professional tech stack and expertise in building enterprise-grade applications.",
       "technologies": "Technologies",
-      "programs": "Programs & Tools"
+      "programs": "Programs & Tools",
+      "categories": {
+        "backend": "Backend Development",
+        "frontend": "Frontend Development",
+        "cloud": "Cloud & Infrastructure",
+        "devops": "CI/CD & DevOps",
+        "database": "Databases",
+        "tools": "Development Tools"
+      }
     },
     "experience": {
       "title": "Experience",
@@ -60,13 +148,18 @@
     "projects": {
       "title": "Projects",
       "description": "Explore my portfolio of applications and solutions that demonstrate my expertise in full-stack development, cloud architecture, and modern web technologies.",
+      "aria": {
+        "viewProject": "View project"
+      },
       "filters": {
         "all": "All",
         "dotnet": ".Net",
+        "angular": "Angular",
         "react": "React",
         "flutter": "Flutter",
         "cpp": "C++",
-        "java": "Java"
+        "java": "Java",
+        "ariaLabel": "Filter projects by technology"
       },
       "impact": "Impact:"
     },
@@ -107,10 +200,37 @@
         "send": "Send Message",
         "sending": "Sending...",
         "success": "Message sent! I'll respond within 24 hours.",
-        "error": "Failed to send message. Please try again."
+        "error": "Failed to send message. Please try again.",
+        "configError": "Email service is temporarily unavailable. Please contact me via LinkedIn or email."
       },
       "info": {
         "availability": "Engagement Models",
+        "openToWork": "Open to Work",
+        "servicesTitle": "What I Can Help You With",
+        "methods": {
+          "email": "Email",
+          "linkedin": "LinkedIn",
+          "github": "GitHub",
+          "rentify": "RentifyNow"
+        },
+        "services": {
+          "fullstack": {
+            "name": "Full-Stack Development",
+            "description": ".NET, React, Angular"
+          },
+          "saas": {
+            "name": "SaaS Product Development",
+            "description": "From concept to launch"
+          },
+          "cloud": {
+            "name": "Cloud Architecture",
+            "description": "Azure infrastructure & DevOps"
+          },
+          "consulting": {
+            "name": "Technical Consulting",
+            "description": "Architecture reviews & optimization"
+          }
+        },
         "availableFor": "Available for:",
         "opportunities": [
           "Full-time: Senior developer roles",
@@ -123,8 +243,22 @@
       }
     },
     "footer": {
-      "copyright": "Copyright 2024. All rights Reserved",
-      "connect": "Let's Connect"
+      "connect": "Let's Connect",
+      "rights": "Bartosz Litwa. All rights reserved.",
+      "tagline": "CEO & Founder of DoifyNow",
+      "ecosystemTitle": "Ecosystem",
+      "connectTitle": "Connect",
+      "aria": {
+        "logoAlt": "Bartosz Litwa logo",
+        "ecosystem": "DoifyNow ecosystem links",
+        "social": "Social media links",
+        "linkedin": "LinkedIn profile",
+        "github": "GitHub profile",
+        "githubAlt": "GitHub",
+        "rentify": "RentifyNow website",
+        "rentifyAlt": "RentifyNow",
+        "connectCta": "Connect with Bartosz Litwa via LinkedIn"
+      }
     }
   },
   "pl": {
@@ -136,12 +270,44 @@
       "certifications": "Certyfikaty",
       "contact": "Kontakt",
       "letsConnect": "Zatrudnij Mnie",
-      "skipToMain": "Przejdź do głównej treści"
+      "skipToMain": "Przejdź do głównej treści",
+      "aria": {
+        "mainNav": "Nawigacja główna",
+        "homeBrand": "Strona główna Bartosza Litwy",
+        "logoAlt": "Logo Bartosz Litwa",
+        "toggle": "Przełącz menu nawigacji",
+        "social": "Linki do mediów społecznościowych",
+        "linkedin": "Profil LinkedIn",
+        "github": "Profil GitHub",
+        "githubAlt": "GitHub",
+        "rentify": "Strona RentifyNow",
+        "rentifyAlt": "RentifyNow",
+        "hire": "Zatrudnij Bartosza Litwę przez LinkedIn"
+      }
     },
     "hero": {
       "name": "Bartosz Litwa",
-      "roles": ["Senior .NET Developer @ KPMG", "Full-Stack Engineer", "Założyciel SaaS - RentifyNow", "Architekt Azure Cloud"],
-      "description": "Buduję skalowalne produkty SaaS klasy enterprise. Aktualnie rozwijam RentifyNow — platformę do zarządzania nieruchomościami. Jako Senior Developer w KPMG, zaprojektowałem 15+ mikroserwisów używając .NET Core, Angular i Azure.",
+      "badge": "CEO i Założyciel - ekosystem DoifyNow",
+      "greeting": "Cześć, jestem",
+      "currentRoleAria": "Aktualna rola",
+      "roles": [
+        "CEO i Założyciel DoifyNow",
+        "Senior .NET Architekt",
+        "Ekspert Angular",
+        "Architekt Azure Cloud"
+      ],
+      "description": "CEO i Założyciel DoifyNow - tworzę ekosystem produktów SaaS, w tym RentifyNow, HouseifyNow, GoalifyNow i DeployifyNow. Specjalizuję się w .NET, Angular oraz Azure i projektuję skalowalne rozwiązania klasy enterprise.",
+      "specializedIn": "Specjalizacja:",
+      "tech": {
+        "dotnet": ".NET 10 / C#",
+        "angular": "Angular",
+        "azureDevops": "Azure DevOps"
+      },
+      "badges": {
+        "microservices": "Mikroserwisy",
+        "saasArchitecture": "Architektura SaaS",
+        "fullStack": "Full Stack"
+      },
       "stats": {
         "experience": "Lat Tworzenia Oprogramowania",
         "services": "Produkt SaaS Live",
@@ -149,37 +315,96 @@
       },
       "cta": {
         "connect": "Zobacz RentifyNow",
-        "viewExperience": "Zatrudnij Mnie"
+        "viewExperience": "Skontaktuj się",
+        "exploreEcosystem": "Poznaj ekosystem DoifyNow",
+        "downloadCv": "Pobierz CV"
       }
     },
     "featured": {
-      "badge": "Mój Produkt SaaS",
+      "badge": "Flagowy produkt SaaS",
+      "secondaryBadge": "CEO i Założyciel - DoifyNow",
       "title": "RentifyNow",
-      "subtitle": "Platforma Zarządzania Nieruchomościami Gotowa na Skalę",
-      "description": "Od koncepcji do produkcji — zaprojektowałem, zarchitektowałem i zbudowałem całą platformę samodzielnie, demonstrując moją zdolność do dostarczania złożonych produktów SaaS od początku do końca.",
-      "status": "Live na",
+      "subtitle": "Kompleksowy ekosystem do zarządzania nieruchomościami",
+      "description": "Flagowy produkt ekosystemu DoifyNow. RentifyNow to produkcyjny, wielodzierżawowy SaaS dla nowoczesnych specjalistów nieruchomości. Zbudowałem ten ekosystem od podstaw jako CEO i Założyciel.",
+      "status": "Infrastruktura produkcyjna live",
+      "statusLive": "Infrastruktura produkcyjna live",
       "technicalStack": "Produkcyjny Stack Techniczny",
       "keyFeatures": "Kluczowe Osiągnięcia Techniczne",
+      "technologies": [
+        ".NET 10",
+        "Azure Cloud",
+        "Tauri",
+        "Angular",
+        "TypeScript",
+        "Microservices",
+        "Stripe API",
+        "PostgreSQL"
+      ],
+      "highlights": [
+        "Rozproszona architektura mikroserwisów hostowana w Azure Cloud",
+        "Wsparcie wieloplatformowe: aplikacja webowa, desktop i mobile (Tauri)",
+        "Zaawansowana obsługa płatności i subskrypcji ze Stripe",
+        "Izolacja danych multi-tenant i kontrola dostępu oparta o role",
+        "Powiadomienia i aktualizacje dashboardu w czasie rzeczywistym",
+        "Zautomatyzowane pipeline'y CI/CD zapewniające wdrożenia bez przestojów"
+      ],
+      "businessValue": {
+        "cloud": { "title": "Cloud-Native", "description": "Mikroserwisy hostowane na Azure" },
+        "crossPlatform": {
+          "title": "Wieloplatformowość",
+          "description": "Web, Desktop i Mobile (Tauri)"
+        },
+        "billing": {
+          "title": "Automatyczne rozliczenia",
+          "description": "Zaawansowane integracje Stripe"
+        },
+        "saas": { "title": "Skalowalny SaaS", "description": "Architektura wysokiej dostępności" }
+      },
       "buttons": {
         "visit": "Odwiedź Platformę",
-        "moreProjects": "Omów Swój Projekt"
+        "moreProjects": "Omów swój projekt"
+      },
+      "ctaTitle": "Potrzebujesz aplikacji klasy enterprise?",
+      "ctaDescription": "Mogę wnieść ten poziom wiedzy architektonicznej do Twojej organizacji.",
+      "ctaButton": "Porozmawiajmy o strategii",
+      "ecosystemTitle": "Ekosystem SaaS",
+      "ecosystemDescription": "RentifyNow jest flagowym produktem szerszego ekosystemu aplikacji SaaS, które współdzielą infrastrukturę, biblioteki i pipeline'y wdrożeniowe pod marką DoifyNow.",
+      "ownershipBadge": "Architektura Full Stack",
+      "longDescription": "Ta platforma pokazuje moją zdolność dostarczania kompletnych rozwiązań biznesowych w oparciu o mikroserwisy hostowane na Azure i wieloplatformowy frontend (Web, Desktop i Mobile przez Tauri). Wdrożyłem funkcje real-time i procesy finansowe ze Stripe.",
+      "mockup": {
+        "primary": "Aplikacja web i natywna",
+        "secondary": "Napędzana przez Tauri"
+      },
+      "ecosystem": {
+        "houseifyDesc": "Zarządzanie domem dla właścicieli - nieruchomości, utrzymanie i finanse.",
+        "doifyDesc": "Organizacja nadrzędna - współdzielona infrastruktura całego ekosystemu produktów.",
+        "goalifyDesc": "Śledzenie celów i nawyków - planuj, monitoruj i realizuj cele osobiste i zawodowe.",
+        "deployifyDesc": "Platforma self-hosted do wdrożeń - provisioning VPS, orkiestracja CI/CD i zarządzanie infrastrukturą."
       },
       "metrics": {
-        "multiTenant": "Solo",
-        "realTime": "6+ Miesięcy",
-        "azure": "Produkcja",
-        "enterprise": "Azure",
-        "architecture": "Developer",
-        "updates": "Rozwoju",
-        "cloud": "Gotowe",
-        "security": "Cloud Native"
+        "multiTenant": "Realny produkt",
+        "realTime": "Tauri + Web",
+        "azure": "Mikroserwisy",
+        "enterprise": "Stripe API",
+        "architecture": "Silnik finansowy",
+        "updates": "Omnichannel UI",
+        "cloud": "Backend Azure",
+        "security": "Produkt SaaS"
       }
     },
     "skills": {
       "title": "Umiejętności Techniczne",
       "description": "Kompleksowy przegląd mojego profesjonalnego stosu technologicznego i doświadczenia w tworzeniu aplikacji klasy enterprise.",
       "technologies": "Technologie",
-      "programs": "Programy i Narzędzia"
+      "programs": "Programy i Narzędzia",
+      "categories": {
+        "backend": "Backend Development",
+        "frontend": "Frontend Development",
+        "cloud": "Chmura i infrastruktura",
+        "devops": "CI/CD i DevOps",
+        "database": "Bazy danych",
+        "tools": "Narzędzia developerskie"
+      }
     },
     "experience": {
       "title": "Doświadczenie",
@@ -188,13 +413,18 @@
     "projects": {
       "title": "Projekty",
       "description": "Poznaj moje portfolio aplikacji i rozwiązań, które demonstrują moją ekspertyzę w full-stack development, architekturze chmury i nowoczesnych technologiach webowych.",
+      "aria": {
+        "viewProject": "Zobacz projekt"
+      },
       "filters": {
         "all": "Wszystkie",
         "dotnet": ".Net",
+        "angular": "Angular",
         "react": "React",
         "flutter": "Flutter",
         "cpp": "C++",
-        "java": "Java"
+        "java": "Java",
+        "ariaLabel": "Filtruj projekty według technologii"
       },
       "impact": "Wpływ:"
     },
@@ -235,10 +465,37 @@
         "send": "Wyślij Wiadomość",
         "sending": "Wysyłanie...",
         "success": "Wiadomość wysłana! Odpowiem w ciągu 24 godzin.",
-        "error": "Nie udało się wysłać wiadomości. Spróbuj ponownie."
+        "error": "Nie udało się wysłać wiadomości. Spróbuj ponownie.",
+        "configError": "Usługa email jest chwilowo niedostępna. Skontaktuj się przez LinkedIn lub email."
       },
       "info": {
         "availability": "Modele Współpracy",
+        "openToWork": "Dostępny do współpracy",
+        "servicesTitle": "W czym mogę pomóc",
+        "methods": {
+          "email": "Email",
+          "linkedin": "LinkedIn",
+          "github": "GitHub",
+          "rentify": "RentifyNow"
+        },
+        "services": {
+          "fullstack": {
+            "name": "Full-Stack Development",
+            "description": ".NET, React, Angular"
+          },
+          "saas": {
+            "name": "Rozwój produktów SaaS",
+            "description": "Od koncepcji do wdrożenia"
+          },
+          "cloud": {
+            "name": "Architektura chmurowa",
+            "description": "Infrastruktura Azure i DevOps"
+          },
+          "consulting": {
+            "name": "Konsulting techniczny",
+            "description": "Przeglądy architektury i optymalizacja"
+          }
+        },
         "availableFor": "Dostępny na:",
         "opportunities": [
           "Pełny etat: Role senior developera",
@@ -251,8 +508,22 @@
       }
     },
     "footer": {
-      "copyright": "Copyright 2024. Wszelkie prawa zastrzeżone",
-      "connect": "Skontaktuj się"
+      "connect": "Skontaktuj się",
+      "rights": "Bartosz Litwa. Wszelkie prawa zastrzeżone.",
+      "tagline": "CEO i Założyciel DoifyNow",
+      "ecosystemTitle": "Ekosystem",
+      "connectTitle": "Kontakt",
+      "aria": {
+        "logoAlt": "Logo Bartosz Litwa",
+        "ecosystem": "Linki ekosystemu DoifyNow",
+        "social": "Linki do mediów społecznościowych",
+        "linkedin": "Profil LinkedIn",
+        "github": "Profil GitHub",
+        "githubAlt": "GitHub",
+        "rentify": "Strona RentifyNow",
+        "rentifyAlt": "RentifyNow",
+        "connectCta": "Skontaktuj się z Bartoszem Litwą przez LinkedIn"
+      }
     }
   }
-} 
+}

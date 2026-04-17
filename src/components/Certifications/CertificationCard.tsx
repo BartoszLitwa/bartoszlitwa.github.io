@@ -14,18 +14,22 @@ const CertificationCard: React.FC<CertificationCardProps> = ({ certification }) 
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', { 
-      year: 'numeric', 
-      month: 'short' 
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short'
     });
   };
 
   const getLevelColor = (level: string) => {
     switch (level) {
-      case 'Fundamentals': return '#4ade80';
-      case 'Associate': return '#3b82f6';
-      case 'Expert': return '#8b5cf6';
-      default: return '#6b7280';
+      case 'Fundamentals':
+        return '#4ade80';
+      case 'Associate':
+        return '#3b82f6';
+      case 'Expert':
+        return '#8b5cf6';
+      default:
+        return '#6b7280';
     }
   };
 
@@ -33,8 +37,8 @@ const CertificationCard: React.FC<CertificationCardProps> = ({ certification }) 
     <div className="certification-card">
       <div className="certification-header">
         <div className="certification-badge">
-          <img 
-            src={certification.badgeUrl} 
+          <img
+            src={certification.badgeUrl}
             alt={`${certification.name} badge`}
             className="badge-image"
             loading="lazy"
@@ -43,20 +47,19 @@ const CertificationCard: React.FC<CertificationCardProps> = ({ certification }) 
             <span className="certification-code">{certification.code}</span>
           </div>
         </div>
-        
+
         <div className="certification-status">
-          <span 
+          <span
             className={`status-badge ${certification.status}`}
-            style={{ 
-              backgroundColor: certification.status === 'completed' ? '#10b981' : '#f59e0b' 
+            style={{
+              backgroundColor: certification.status === 'completed' ? '#10b981' : '#f59e0b'
             }}
           >
-            {certification.status === 'completed' 
+            {certification.status === 'completed'
               ? t('certifications.status.completed')
-              : t('certifications.status.inProgress')
-            }
+              : t('certifications.status.inProgress')}
           </span>
-          <span 
+          <span
             className="level-badge"
             style={{ backgroundColor: getLevelColor(certification.level) }}
           >
@@ -77,10 +80,7 @@ const CertificationCard: React.FC<CertificationCardProps> = ({ certification }) 
               <span className="progress-value">{certification.progress}%</span>
             </div>
             <div className="progress-bar">
-              <div 
-                className="progress-fill"
-                style={{ width: `${certification.progress}%` }}
-              />
+              <div className="progress-fill" style={{ width: `${certification.progress}%` }} />
             </div>
             {certification.expectedDate && (
               <p className="expected-date">
@@ -103,16 +103,14 @@ const CertificationCard: React.FC<CertificationCardProps> = ({ certification }) 
             </span>
           ))}
           {certification.skills.length > 3 && (
-            <span className="skill-tag more">
-              +{certification.skills.length - 3} more
-            </span>
+            <span className="skill-tag more">+{certification.skills.length - 3} more</span>
           )}
         </div>
       </div>
 
       <div className="certification-footer">
         {certification.credentialUrl && certification.credentialUrl !== '#' && (
-          <button 
+          <button
             className="credential-btn"
             onClick={handleCredentialClick}
             aria-label={`View ${certification.name} credential`}
@@ -125,4 +123,4 @@ const CertificationCard: React.FC<CertificationCardProps> = ({ certification }) 
   );
 };
 
-export default CertificationCard; 
+export default CertificationCard;

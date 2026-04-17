@@ -29,7 +29,7 @@ export const useScrollAnimation = (options: UseScrollAnimationOptions = {}) => {
       },
       {
         threshold,
-        rootMargin,
+        rootMargin
       }
     );
 
@@ -43,7 +43,10 @@ export const useScrollAnimation = (options: UseScrollAnimationOptions = {}) => {
   return { ref, isVisible };
 };
 
-export const useStaggeredScrollAnimation = (itemCount: number, options: UseScrollAnimationOptions = {}) => {
+export const useStaggeredScrollAnimation = (
+  itemCount: number,
+  options: UseScrollAnimationOptions = {}
+) => {
   const [visibleItems, setVisibleItems] = useState<boolean[]>(new Array(itemCount).fill(false));
   const ref = useRef<HTMLElement>(null);
 
@@ -52,21 +55,24 @@ export const useStaggeredScrollAnimation = (itemCount: number, options: UseScrol
   useEffect(() => {
     const element = ref.current;
     if (!element) return;
+    setVisibleItems(new Array(itemCount).fill(false));
+    const timeoutIds: number[] = [];
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           // Stagger the animations
           for (let i = 0; i < itemCount; i++) {
-            setTimeout(() => {
-              setVisibleItems(prev => {
+            const timeoutId = window.setTimeout(() => {
+              setVisibleItems((prev) => {
                 const newVisible = [...prev];
                 newVisible[i] = true;
                 return newVisible;
               });
             }, i * 100); // 100ms delay between each item
+            timeoutIds.push(timeoutId);
           }
-          
+
           if (triggerOnce) {
             observer.unobserve(element);
           }
@@ -76,16 +82,17 @@ export const useStaggeredScrollAnimation = (itemCount: number, options: UseScrol
       },
       {
         threshold,
-        rootMargin,
+        rootMargin
       }
     );
 
     observer.observe(element);
 
     return () => {
+      timeoutIds.forEach((timeoutId) => window.clearTimeout(timeoutId));
       observer.unobserve(element);
     };
   }, [itemCount, threshold, rootMargin, triggerOnce]);
 
   return { ref, visibleItems };
-}; 
+};

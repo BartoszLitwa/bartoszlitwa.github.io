@@ -2,12 +2,21 @@
   {
     "title": "RentifyNow",
     "description": "Full-stack SaaS platform for property rental management with multi-tenant architecture, real-time updates, and enterprise-grade security.",
-    "imgUrl": "rentifynow/dashboard.png",
+    "imgUrl": "rentifynow/dashboard.webp",
     "type": ".Net|Angular|Azure",
     "url": "https://www.rentifynow.com",
     "metrics": "Multi-tenant SaaS platform serving property management companies",
     "featured": true,
-    "technologies": ["Angular", "TypeScript", ".NET Core", "Azure", "SQL Server", "SignalR", "Redis", "Docker"],
+    "technologies": [
+      "Angular",
+      "TypeScript",
+      ".NET Core",
+      "Azure",
+      "SQL Server",
+      "SignalR",
+      "Redis",
+      "Docker"
+    ],
     "highlights": [
       "Multi-tenant SaaS architecture with isolated data per organization",
       "Real-time notifications and updates using SignalR",
@@ -18,12 +27,20 @@
   {
     "title": "HouseifyNow",
     "description": "Smart home management SaaS with property tracking, maintenance scheduling, and financial oversight for homeowners.",
-    "imgUrl": "rentifynow/dashboard.png",
+    "imgUrl": "rentifynow/dashboard.webp",
     "type": ".Net|Angular",
     "url": "https://www.houseifynow.com",
     "metrics": "Homeowner-focused platform with integrated financial and maintenance tools",
     "featured": false,
-    "technologies": ["Angular", "TypeScript", ".NET 10", "PostgreSQL", "Tailwind CSS", "Tauri", "Docker"],
+    "technologies": [
+      "Angular",
+      "TypeScript",
+      ".NET 10",
+      "PostgreSQL",
+      "Tailwind CSS",
+      "Tauri",
+      "Docker"
+    ],
     "highlights": [
       "Homeowner dashboard with property portfolio overview",
       "Maintenance scheduling and contractor management",
@@ -34,12 +51,20 @@
   {
     "title": "GoalifyNow",
     "description": "Goal tracking and habit management SaaS helping users set, track, and achieve personal and professional goals.",
-    "imgUrl": "rentifynow/dashboard.png",
+    "imgUrl": "rentifynow/dashboard.webp",
     "type": ".Net|Angular",
     "url": "https://www.goalifynow.com",
     "metrics": "Productivity platform with habit tracking and goal analytics",
     "featured": false,
-    "technologies": ["Angular 21", "TypeScript", ".NET 10", "PrimeNG", "PostgreSQL", "Tauri", "Docker"],
+    "technologies": [
+      "Angular 21",
+      "TypeScript",
+      ".NET 10",
+      "PrimeNG",
+      "PostgreSQL",
+      "Tauri",
+      "Docker"
+    ],
     "highlights": [
       "Goal creation with milestones and progress tracking",
       "Habit streaks and analytics dashboard",
@@ -50,12 +75,21 @@
   {
     "title": "DoifyNow",
     "description": "The mother organization and shared infrastructure hub powering the entire SaaS product ecosystem including RentifyNow, HouseifyNow, and GoalifyNow.",
-    "imgUrl": "rentifynow/dashboard.png",
+    "imgUrl": "rentifynow/dashboard.webp",
     "type": ".Net|Angular",
     "url": "https://www.doifynow.com",
     "metrics": "Infrastructure hub managing shared databases, monitoring, and deployment",
     "featured": false,
-    "technologies": ["Angular", "TypeScript", "PostgreSQL", "Redis", "RabbitMQ", "Grafana", "Docker", "Dokploy"],
+    "technologies": [
+      "Angular",
+      "TypeScript",
+      "PostgreSQL",
+      "Redis",
+      "RabbitMQ",
+      "Grafana",
+      "Docker",
+      "Dokploy"
+    ],
     "highlights": [
       "Centralized infrastructure: PostgreSQL, Redis, RabbitMQ, monitoring",
       "Grafana + Prometheus + Loki observability stack",
@@ -64,9 +98,25 @@
     ]
   },
   {
+    "title": "DeployifyNow",
+    "description": "Self-hosted deployment platform with VPS provisioning, CI/CD orchestration, real-time build logs via SignalR, and full infrastructure management through Dokploy.",
+    "imgUrl": "rentifynow/dashboard.webp",
+    "type": ".Net",
+    "url": "https://www.deployifynow.com",
+    "metrics": "Infrastructure automation platform managing VPS deployments and CI/CD pipelines",
+    "featured": false,
+    "technologies": [".NET 10", "SignalR", "Docker", "Dokploy", "PostgreSQL", "GitHub Apps"],
+    "highlights": [
+      "Real-time build logs and deployment status via SignalR",
+      "GitHub App integration for repo management and webhooks",
+      "VPS agent architecture with remote command execution",
+      "Database provisioning with automated backups"
+    ]
+  },
+  {
     "title": "League Plus",
     "description": "Desktop application for League of Legends players providing real-time match analytics, performance tracking, and statistical insights to improve gameplay.",
-    "imgUrl": "league_plus/merged.png",
+    "imgUrl": "league_plus/merged.webp",
     "type": ".Net|C++",
     "url": "https://github.com/BartoszLitwa",
     "metrics": "Enhanced player performance tracking with 50+ statistics analyzed per match",
@@ -80,7 +130,7 @@
   {
     "title": "Distributed Database",
     "description": "Scalable distributed database system implementing consensus algorithms for data consistency across multiple nodes with fault tolerance.",
-    "imgUrl": "distributed_database/distributed_database.png",
+    "imgUrl": "distributed_database/distributed_database.webp",
     "type": ".Net|Java",
     "url": "https://github.com/BartoszLitwa",
     "metrics": "Achieved 99.9% data consistency across distributed nodes",
@@ -94,7 +144,7 @@
   {
     "title": "Image Steganography",
     "description": "Security tool for hiding encrypted messages within images using LSB steganography techniques with AES-256 encryption.",
-    "imgUrl": "image_steganography/thumbnail.jpeg",
+    "imgUrl": "image_steganography/thumbnail.webp",
     "type": ".Net",
     "url": "https://github.com/BartoszLitwa",
     "metrics": "Secure message encoding with undetectable payload embedding",
@@ -108,7 +158,7 @@
   {
     "title": "Portfolio Website",
     "description": "Modern, responsive portfolio showcasing full-stack development expertise with React, TypeScript, and Three.js for 3D elements.",
-    "imgUrl": "portfolio/introduction.png",
+    "imgUrl": "portfolio/introduction.webp",
     "type": "React",
     "url": "https://litwa.dev",
     "metrics": "Optimized for performance with 95+ Lighthouse score",
@@ -122,7 +172,7 @@
   {
     "title": "Discord Bot",
     "description": "Feature-rich Discord bot with moderation tools, music playback, custom commands, and server analytics for community management.",
-    "imgUrl": "discord bot/logo.png",
+    "imgUrl": "discord bot/logo.webp",
     "type": ".Net",
     "url": "https://github.com/BartoszLitwa",
     "metrics": "Serving 500+ users across multiple Discord servers",
@@ -136,7 +186,7 @@
   {
     "title": "Task Manager Pro",
     "description": "Full-featured task management application with drag-and-drop kanban boards, team collaboration, and productivity analytics.",
-    "imgUrl": "todolist/tasklists.png",
+    "imgUrl": "todolist/tasklists.webp",
     "type": "React|.Net",
     "url": "https://github.com/BartoszLitwa",
     "metrics": "Intuitive task organization with drag-and-drop interface",

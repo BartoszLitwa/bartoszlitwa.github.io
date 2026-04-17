@@ -19,7 +19,10 @@
   cursor: pointer;
   font-size: 0.82rem;
   font-weight: 500;
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
   min-height: 34px;
 }
 
@@ -90,7 +93,7 @@
   animation: dropdownFadeIn 0.2s ease-out;
 }
 
-[data-theme="light"] .language-dropdown-menu {
+[data-theme='light'] .language-dropdown-menu {
   background: rgba(248, 249, 250, 0.95);
   border-color: rgba(0, 0, 0, 0.15);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
@@ -173,26 +176,26 @@
   .navbar-controls {
     gap: 0.45rem;
   }
-  
+
   .control-btn {
     padding: 0.38rem 0.55rem;
     font-size: 0.78rem;
     min-height: 32px;
   }
-  
+
   .theme-toggle-btn {
     min-width: 32px;
     padding: 0.38rem;
   }
-  
+
   .language-toggle-btn {
     min-width: 64px;
   }
-  
+
   .language-code {
     font-size: 0.75rem;
   }
-  
+
   .language-dropdown-menu {
     min-width: 120px;
     right: -10px;
@@ -203,12 +206,12 @@
   .language-code {
     display: none;
   }
-  
+
   .language-toggle-btn {
     min-width: 50px;
     padding: 0.4rem 0.5rem;
   }
-  
+
   .dropdown-arrow {
     margin-left: 0.1rem;
   }
@@ -232,17 +235,17 @@
     border-width: 2px;
     border-color: var(--text-primary);
   }
-  
+
   .language-dropdown-menu {
     border-width: 2px;
   }
-  
+
   .language-option {
     border: 1px solid transparent;
   }
-  
+
   .language-option:hover,
   .language-option.active {
     border-color: var(--text-primary);
   }
-} 
+}

@@ -35,7 +35,7 @@
 
   /* Header for print */
   .simple-banner::before {
-    content: "BARTOSZ LITWA - FULL-STACK DEVELOPER\AEmail: bartosz.litwa@proton.me | LinkedIn: linkedin.com/in/bartoszlitwa | GitHub: github.com/BartoszLitwa";
+    content: 'BARTOSZ LITWA - FULL-STACK DEVELOPER\AEmail: bartosz.litwa@proton.me | LinkedIn: linkedin.com/in/bartoszlitwa | GitHub: github.com/BartoszLitwa';
     display: block;
     text-align: center;
     font-weight: bold;
@@ -52,7 +52,8 @@
   }
 
   /* Section headers */
-  h1, h2 {
+  h1,
+  h2 {
     font-size: 16pt;
     font-weight: bold;
     margin: 15pt 0 10pt 0;
@@ -60,7 +61,8 @@
     padding-bottom: 5pt;
   }
 
-  h3, h4 {
+  h3,
+  h4 {
     font-size: 14pt;
     font-weight: bold;
     margin: 10pt 0 5pt 0;
@@ -120,8 +122,8 @@
   }
 
   /* Links */
-  a[href^="http"]:after {
-    content: " (" attr(href) ")";
+  a[href^='http']:after {
+    content: ' (' attr(href) ')';
     font-size: 10pt;
   }
 
@@ -130,4 +132,4 @@
     animation: none !important;
     transition: none !important;
   }
-} 
+}

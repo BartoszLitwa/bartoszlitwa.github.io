@@ -16,7 +16,7 @@ const NavBarControls: React.FC = () => {
     { code: 'pl' as Language, label: 'Polski' }
   ];
 
-  const currentLanguage = languages.find(lang => lang.code === language) || languages[0];
+  const currentLanguage = languages.find((lang) => lang.code === language) || languages[0];
 
   const handleLanguageSelect = (newLanguage: Language) => {
     setLanguage(newLanguage);
@@ -58,14 +58,14 @@ const NavBarControls: React.FC = () => {
         const options = document.querySelectorAll('.language-option');
         const currentFocus = document.activeElement;
         const currentIndex = Array.from(options).indexOf(currentFocus as Element);
-        
+
         let nextIndex = 0;
         if (event.key === 'ArrowDown') {
           nextIndex = currentIndex < options.length - 1 ? currentIndex + 1 : 0;
         } else {
           nextIndex = currentIndex > 0 ? currentIndex - 1 : options.length - 1;
         }
-        
+
         (options[nextIndex] as HTMLElement)?.focus();
       }
     };
@@ -98,7 +98,7 @@ const NavBarControls: React.FC = () => {
           aria-label={`Select language, currently ${currentLanguage.label}`}
           aria-expanded={isLanguageDropdownOpen}
           aria-haspopup="listbox"
-          aria-owns={isLanguageDropdownOpen ? "language-dropdown-menu" : undefined}
+          aria-owns={isLanguageDropdownOpen ? 'language-dropdown-menu' : undefined}
         >
           <span className="control-icon" aria-hidden="true">
             <Translate size={14} />
@@ -110,13 +110,13 @@ const NavBarControls: React.FC = () => {
         </button>
 
         {isLanguageDropdownOpen && (
-          <div 
-            className="language-dropdown-menu" 
+          <div
+            className="language-dropdown-menu"
             role="listbox"
             aria-label="Language selection options"
             id="language-dropdown-menu"
           >
-            {languages.map((lang, index) => (
+            {languages.map((lang) => (
               <button
                 key={lang.code}
                 className={`language-option ${language === lang.code ? 'active' : ''}`}
@@ -135,7 +135,9 @@ const NavBarControls: React.FC = () => {
                 <span className="option-code">{lang.code.toUpperCase()}</span>
                 <span className="option-label">{lang.label}</span>
                 {language === lang.code && (
-                  <span className="option-check" aria-label="Selected">✓</span>
+                  <span className="option-check" aria-label="Selected">
+                    ✓
+                  </span>
                 )}
               </button>
             ))}
@@ -146,4 +148,4 @@ const NavBarControls: React.FC = () => {
   );
 };
 
-export default NavBarControls; 
+export default NavBarControls;

@@ -6,16 +6,18 @@ Live site: `https://litwa.dev`
 
 ## Stack
 
-- React 18 + TypeScript
+- React 19 + TypeScript
+- Vite 6 build tooling
 - React Bootstrap + custom CSS
 - JSON-driven content (`src/data/*.json`)
 - GitHub Pages deployment via `gh-pages`
+- Vitest + React Testing Library
 
 ## Local development
 
 ```bash
 npm install
-npm start
+npm run dev
 ```
 
 App runs at `http://localhost:3000`.
@@ -24,6 +26,14 @@ App runs at `http://localhost:3000`.
 
 ```bash
 npm run build
+```
+
+## Quality checks
+
+```bash
+npm run typecheck
+npm run test
+npm run test:coverage
 ```
 
 ## Deploy
@@ -47,3 +57,7 @@ Most portfolio content is managed in:
 - `src/data/skills.json`
 - `src/data/certifications.json`
 - `src/data/translations.json`
+
+## Release process
+
+- Run `RELEASE_CHECKLIST.md` before `npm run deploy`.

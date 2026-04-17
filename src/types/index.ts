@@ -1,29 +1,31 @@
+import type { LocalizedField } from '../utils/localization';
+
 // Project related types
 export interface Project {
-  title: string;
-  description: string;
+  title: LocalizedField<string>;
+  description: LocalizedField<string>;
   imgUrl: string;
   type: string;
   url: string;
-  metrics?: string;
+  metrics?: LocalizedField<string>;
   featured?: boolean;
-  technologies?: string[];
-  highlights?: string[];
+  technologies?: LocalizedField<string[]>;
+  highlights?: LocalizedField<string[]>;
 }
 
 // Experience related types
 export interface Experience {
-  title: string;
-  company: string;
+  title: LocalizedField<string>;
+  company: LocalizedField<string>;
   companyLogo: string;
-  city: string;
-  description: string;
-  achievements: string[];
+  city: LocalizedField<string>;
+  description: LocalizedField<string>;
+  achievements: LocalizedField<string[]>;
   startDate: string;
   endDate: string;
-  education?: string;
-  promotionPath?: string[];
-  promotionMonth?: string;
+  education?: LocalizedField<string>;
+  promotionPath?: LocalizedField<string[]>;
+  promotionMonth?: LocalizedField<string>;
 }
 
 // Skills related types
@@ -63,11 +65,22 @@ export interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
   t: (key: string) => string;
+  get: <T = unknown>(key: string, fallback?: T) => T;
 }
 
-export interface Translations {
-  [key: string]: any;
+export interface TranslationObject {
+  [key: string]: TranslationValue;
 }
+
+export type TranslationValue =
+  | string
+  | number
+  | boolean
+  | null
+  | TranslationObject
+  | TranslationValue[];
+
+export type Translations = Record<string, TranslationObject>;
 
 // Contact form types
 export interface ContactFormDetails {
@@ -102,4 +115,4 @@ export interface ExperienceCardProps {
 
 export interface CertificationCardProps {
   certification: Certification;
-} 
+}

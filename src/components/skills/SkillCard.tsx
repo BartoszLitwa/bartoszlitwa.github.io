@@ -1,5 +1,6 @@
 import React from 'react';
 import { SkillCategory } from '../../types';
+import { useLanguage } from '../../hooks/useLanguage';
 import './Skills.css';
 
 interface SkillCardProps {
@@ -7,14 +8,25 @@ interface SkillCardProps {
 }
 
 const SkillCard: React.FC<SkillCardProps> = ({ category }) => {
+  const { t } = useLanguage();
+  const translationKey = `skills.categories.${category.id}`;
+  const translated = t(translationKey);
+  const categoryName = translated === translationKey ? category.name : translated;
+
   return (
     <article className="skill-card" aria-labelledby={`skill-category-${category.id}`}>
-      <h3 className="skill-card-title" id={`skill-category-${category.id}`}>{category.name}</h3>
-      <div className="skill-card-content" role="list" aria-label={`Skills in ${category.name}`}>
+      <h3 className="skill-card-title" id={`skill-category-${category.id}`}>
+        {categoryName}
+      </h3>
+      <div
+        className="skill-card-content"
+        role="list"
+        aria-label={`${t('skills.title')}: ${categoryName}`}
+      >
         {category.skills.map((skill) => (
           <div key={skill.name} className="skill-badge" role="listitem">
-            <img 
-              src={skill.icon} 
+            <img
+              src={skill.icon}
               alt={`${skill.name} icon`}
               className="skill-icon"
               loading="lazy"
@@ -28,5 +40,3 @@ const SkillCard: React.FC<SkillCardProps> = ({ category }) => {
 };
 
 export default SkillCard;
-
-

@@ -1,6 +1,6 @@
-import React, { useState, useEffect, ReactNode } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import { LanguageContext, getNestedValue } from '../../hooks/useLanguage';
-import { Language, Translations } from '../../types';
+import type { Language, Translations } from '../../types';
 import translationsData from '../../data/translations.json';
 
 interface LanguageProviderProps {
@@ -9,44 +9,48 @@ interface LanguageProviderProps {
 
 const translations: Translations = translationsData;
 
-export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) => {
-  const [language, setLanguage] = useState<Language>('en');
+const getInitialLanguage = (): Language => {
+  const savedLanguage = localStorage.getItem('preferred-language');
+  if (savedLanguage === 'en' || savedLanguage === 'pl') {
+    return savedLanguage;
+  }
+  return navigator.language.toLowerCase().startsWith('pl') ? 'pl' : 'en';
+};
 
-  useEffect(() => {
-    // Check for saved language preference
-    const savedLanguage = localStorage.getItem('preferred-language') as Language;
-    if (savedLanguage && (savedLanguage === 'en' || savedLanguage === 'pl')) {
-      setLanguage(savedLanguage);
-    } else {
-      // Detect browser language
-      const browserLanguage = navigator.language.toLowerCase();
-      if (browserLanguage.startsWith('pl')) {
-        setLanguage('pl');
-      }
-    }
-  }, []);
+export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) => {
+  const [language, setLanguage] = useState<Language>(getInitialLanguage);
 
   useEffect(() => {
     // Save language preference
     localStorage.setItem('preferred-language', language);
-    
+
     // Update document language
     document.documentElement.lang = language;
   }, [language]);
 
   const t = (key: string): string => {
+    const value = get<string>(key, key);
+    if (typeof value !== 'string') {
+      console.warn(`Translation key "${key}" resolved to non-string value`);
+      return key;
+    }
+    return value;
+  };
+
+  const get = <T = unknown,>(key: string, fallback?: T): T => {
     const currentTranslations = translations[language];
     if (!currentTranslations) {
       console.warn(`Language "${language}" not found in translations`);
-      return key;
+      return fallback ?? (key as unknown as T);
     }
-    
+
     const value = getNestedValue(currentTranslations, key);
     if (value === key) {
       console.warn(`Translation key "${key}" not found for language "${language}"`);
+      return fallback ?? (key as unknown as T);
     }
-    
-    return value;
+
+    return value as T;
   };
 
   const handleSetLanguage = (lang: Language) => {
@@ -57,11 +61,8 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
     language,
     setLanguage: handleSetLanguage,
     t,
+    get
   };
 
-  return (
-    <LanguageContext.Provider value={contextValue}>
-      {children}
-    </LanguageContext.Provider>
-  );
-}; 
+  return <LanguageContext.Provider value={contextValue}>{children}</LanguageContext.Provider>;
+};

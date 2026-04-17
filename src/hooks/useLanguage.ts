@@ -11,8 +11,11 @@ export const useLanguage = (): LanguageContextType => {
   return context;
 };
 
-export const getNestedValue = (obj: any, path: string): string => {
+export const getNestedValue = (obj: unknown, path: string): unknown => {
   return path.split('.').reduce((current, key) => {
-    return current && current[key] !== undefined ? current[key] : path;
-  }, obj);
-}; 
+    if (current && typeof current === 'object' && key in current) {
+      return (current as Record<string, unknown>)[key];
+    }
+    return path;
+  }, obj as unknown);
+};
