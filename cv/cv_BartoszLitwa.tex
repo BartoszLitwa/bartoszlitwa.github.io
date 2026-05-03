@@ -1,0 +1,172 @@
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper,margin=1.25cm]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{lmodern}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+\titleformat{\section}{\large\bfseries}{}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{8pt}{5pt}
+
+\setlist[itemize]{
+  leftmargin=1.2em,
+  itemsep=2pt,
+  topsep=2pt,
+  parsep=0pt,
+  partopsep=0pt
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \textbf{#1} \hfill #2 \\
+  \textit{#3} \hfill #4 \\
+}
+
+\begin{document}
+
+\begin{center}
+  {\LARGE\textbf{Bartosz Litwa}} \\
+  \vspace{3pt}
+  Software Engineer \textbar{} Full Stack .NET Developer + DevOps \\
+  \vspace{3pt}
+  Warsaw, Poland \textbar{} +48 530 534 774 \textbar{}
+  \href{mailto:bartosz.maciej.litwa@gmail.com}{bartosz.maciej.litwa@gmail.com} \\
+  \href{https://litwa.dev}{litwa.dev} \textbar{}
+  \href{https://github.com/BartoszLitwa}{github.com/BartoszLitwa}
+  \textbar{}
+  \href{https://www.linkedin.com/in/bartoszlitwa/}{linkedin.com/in/bartoszlitwa}
+\end{center}
+
+\vspace{-8pt}
+
+\section*{Summary}
+
+Full-stack .NET developer with 4+ years of experience building
+microservices-based and multitenant applications using .NET, Angular,
+Azure, and Azure DevOps. Strong focus on cloud architecture, CI/CD,
+data migration, cost optimization, automated testing, and developer
+experience.
+
+\vspace{-4pt}
+
+\section*{Experience}
+
+\resumeSubheading
+  {KPMG Poland}
+  {Nov 2022 -- Present}
+  {Junior .NET Developer II -> .NET Developer III -> Senior Test Automation}
+  {Warsaw, Poland}
+  \vspace{-10pt}
+
+\begin{itemize}
+  \item Built and maintained applications using .NET, Angular, Azure, and
+        Azure DevOps, including YAML pipelines and CI/CD processes.
+  \item Contributed to the migration of a microservice from Azure Cosmos DB
+        to Azure SQL with Entity Framework Core, including data migrations
+        and cleanup.
+  \item Introduced Cosmos DB container bundling in a multitenant
+        application, reducing cost by 90\% and improving RU management.
+  \item Set up supporting Azure Data Factory infrastructure, integrating
+        Azure Functions, Managed Identities, Key Vault, RBAC, Cosmos DB,
+        Azure SQL, and Azure Blob Storage.
+  \item Supported runtime tenant sharding across Azure SQL, Cosmos DB, and
+        Blob Storage for multiple microservices in a multitenant platform.
+  \item Built import, export, and migration flows for dynamic
+        configurations powering data-driven forms, with in-memory
+        optimizations for better performance.
+  \item Maintained Selenium automation tests in C\# and supported migration
+        to Playwright with TypeScript to improve stability and test
+        coverage.
+  \item Implemented .NET Aspire with Podman to orchestrate the local
+        development environment and improve developer experience.
+\end{itemize}
+
+\vspace{4pt}
+
+\resumeSubheading
+  {Coded Projects}
+  {Apr 2022 -- Jul 2022}
+  {Junior Full Stack Developer}
+  {Warsaw, Poland}
+  \vspace{-10pt}
+
+\begin{itemize}
+  \item Developed full-stack features using React, TypeScript, Chart.js,
+        C\#, ASP.NET Core, SQL, Entity Framework, and stored procedures in
+        a microservices-based environment.
+  \item Contributed to code reviews, debugging, testing, and UI
+        improvements across frontend and backend applications.
+\end{itemize}
+
+\vspace{4pt}
+
+\resumeSubheading
+  {Polish Rope Pulling Association}
+  {Feb 2021 -- May 2021}
+  {Junior Software Engineer}
+  {Warsaw, Poland}
+\vspace{-10pt}
+
+\begin{itemize}
+  \item Built a C\# integration tool to sort and merge local files for
+        migration to a web service.
+  \item Automated repetitive workflows with Excel VBA, reducing manual
+        errors and making data migration more than 3x faster.
+\end{itemize}
+
+\section*{Certifications}
+
+\begin{itemize}
+  \item Microsoft Certified: Azure Developer Associate, Azure AI Fundamentals, Azure Data Fundamentals, Azure Fundamentals
+\end{itemize}
+
+\vspace{-4pt}
+
+\section*{Project}
+
+\resumeSubheading
+  {RentifyNow}
+  {Ongoing}
+  {Founder / Developer}
+  {Personal SaaS Project}
+
+\begin{itemize}
+  \item Building RentifyNow (\href{https://rentifynow.com}{rentifynow.com}),
+        a self-hosted platform for solo landlords to manage properties,
+        tenants, and communication using .NET and Angular.
+  \item Own the VPS infrastructure end-to-end, including deployment,
+        environment configuration, hosting, and ongoing operations.
+\end{itemize}
+
+\vspace{-4pt}
+
+\section*{Education}
+
+\resumeSubheading
+  {Polish-Japanese Academy of Information Technology}
+  {Oct 2021 -- Jul 2025}
+  {B.Eng. in Computer Science}
+  {Warsaw, Poland}
+
+\vspace{-4pt}
+
+\section*{Skills}
+
+\textbf{Languages:} C\#, TypeScript, JavaScript, SQL, HTML, CSS \\
+\textbf{Frameworks:} .NET, ASP.NET Core, Angular, React, Entity Framework
+Core \\
+\textbf{Cloud \& DevOps:} Azure, Azure DevOps, YAML Pipelines, CI/CD,
+Azure Functions, Azure App Service, Azure Storage, Azure Cosmos DB,
+Azure SQL, Azure Data Factory, Key Vault, Managed Identities, RBAC,
+Docker, Podman, .NET Aspire \\
+\textbf{Testing \& Tools:} Playwright, Selenium, Git, Postman, SQL Server
+Management Studio \\
+\textbf{Languages Spoken:} Polish (Native), English (C1), Spanish (Basic)
+
+\end{document}
