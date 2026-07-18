@@ -30,10 +30,9 @@
       "currentRoleAria": "Current role",
       "role": "Full Stack .NET Engineer · Azure & DevOps",
       "roles": [
-        "CEO & Founder of DoifyNow",
-        "Senior .NET Architect",
-        "Angular Expert",
-        "Azure Cloud Architect"
+        "Full Stack .NET Engineer",
+        "Azure & DevOps Engineer",
+        "RentifyNow Product Developer"
       ],
       "description": "I build cloud-native, multi-tenant products with .NET, Angular, Azure, and pragmatic DevOps. Alongside enterprise work at KPMG, I design and operate RentifyNow from product idea through production.",
       "proofTitle": "Selected outcomes",
@@ -71,10 +70,10 @@
     },
     "featured": {
       "badge": "Flagship SaaS Product",
-      "secondaryBadge": "CEO & Founder - DoifyNow",
+      "secondaryBadge": "Independent SaaS Product",
       "title": "RentifyNow",
       "subtitle": "A Comprehensive Property Management Ecosystem",
-      "description": "The flagship product of the DoifyNow ecosystem. RentifyNow is a production-grade, multi-tenant SaaS designed for modern real estate professionals. I engineered the ecosystem from the ground up as CEO & Founder.",
+      "description": "RentifyNow is a multi-tenant SaaS for independent landlords. I build and operate it end to end, from product workflows and application architecture to deployment and monitoring.",
       "status": "Live Production Infrastructure",
       "statusLive": "Live Production Infrastructure",
       "technicalStack": "Production Tech Stack",
@@ -140,7 +139,7 @@
     },
     "skills": {
       "title": "Technical Skills",
-      "description": "A comprehensive overview of my professional tech stack and expertise in building enterprise-grade applications.",
+      "description": "The technologies I use to build, test, deploy, and operate production applications.",
       "technologies": "Technologies",
       "programs": "Programs & Tools",
       "categories": {
@@ -256,7 +255,7 @@
     "footer": {
       "connect": "Let's Connect",
       "rights": "Bartosz Litwa. All rights reserved.",
-      "tagline": "CEO & Founder of DoifyNow",
+      "tagline": "Full Stack .NET Engineer · Azure & DevOps",
       "ecosystemTitle": "Ecosystem",
       "connectTitle": "Connect",
       "aria": {
@@ -303,10 +302,9 @@
       "currentRoleAria": "Aktualna rola",
       "role": "Full Stack .NET Engineer · Azure i DevOps",
       "roles": [
-        "CEO i Założyciel DoifyNow",
-        "Senior .NET Architekt",
-        "Ekspert Angular",
-        "Architekt Azure Cloud"
+        "Full Stack .NET Engineer",
+        "Inżynier Azure i DevOps",
+        "Twórca produktu RentifyNow"
       ],
       "description": "Tworzę chmurowe, wielodostępne produkty w .NET, Angularze i Azure, wykorzystując praktyczne podejście do DevOps. Równolegle z pracą dla KPMG projektuję i rozwijam RentifyNow — od pomysłu po produkcję.",
       "proofTitle": "Wybrane rezultaty",
@@ -344,10 +342,10 @@
     },
     "featured": {
       "badge": "Flagowy produkt SaaS",
-      "secondaryBadge": "CEO i Założyciel - DoifyNow",
+      "secondaryBadge": "Niezależny produkt SaaS",
       "title": "RentifyNow",
       "subtitle": "Kompleksowy ekosystem do zarządzania nieruchomościami",
-      "description": "Flagowy produkt ekosystemu DoifyNow. RentifyNow to produkcyjny, wielodzierżawowy SaaS dla nowoczesnych specjalistów nieruchomości. Zbudowałem ten ekosystem od podstaw jako CEO i Założyciel.",
+      "description": "RentifyNow to wielodostępny SaaS dla niezależnych właścicieli mieszkań. Tworzę i utrzymuję go kompleksowo — od procesów produktowych i architektury aplikacji po wdrożenie i monitoring.",
       "status": "Infrastruktura produkcyjna live",
       "statusLive": "Infrastruktura produkcyjna live",
       "technicalStack": "Produkcyjny Stack Techniczny",
@@ -532,7 +530,7 @@
     "footer": {
       "connect": "Skontaktuj się",
       "rights": "Bartosz Litwa. Wszelkie prawa zastrzeżone.",
-      "tagline": "CEO i Założyciel DoifyNow",
+      "tagline": "Full Stack .NET Engineer · Azure i DevOps",
       "ecosystemTitle": "Ekosystem",
       "connectTitle": "Kontakt",
       "aria": {
