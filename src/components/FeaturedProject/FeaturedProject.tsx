@@ -123,7 +123,7 @@ const FeaturedProject = () => {
               <div className="featured-status-wrapper text-center mt-4">
                 <div className="featured-status glass-panel">
                   <span className="status-indicator live"></span>
-                  <span className="status-text text-white">{t('featured.statusLive')}</span>
+                  <span className="status-text">{t('featured.statusLive')}</span>
                 </div>
               </div>
             </div>
@@ -261,7 +261,7 @@ const FeaturedProject = () => {
           <div className="cta-banner glass-card mt-5">
             <div className="cta-content">
               <h3>{t('featured.ctaTitle')}</h3>
-              <p className="mt-2 text-white-50">{t('featured.ctaDescription')}</p>
+              <p className="mt-2 text-secondary">{t('featured.ctaDescription')}</p>
             </div>
             <a
               href={hireMeUrl}
@@ -277,7 +277,7 @@ const FeaturedProject = () => {
           <div className="ecosystem-section mt-5">
             <h3 className="features-title text-center mb-4">{t('featured.ecosystemTitle')}</h3>
             <p
-              className="text-center text-white-50 mb-5"
+              className="text-center text-secondary mb-5"
               style={{ maxWidth: '700px', margin: '0 auto 2rem' }}
             >
               {t('featured.ecosystemDescription')}

@@ -355,13 +355,13 @@
 }
 
 .tech-badge {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--surface-subtle);
   padding: 6px 16px;
   border-radius: 100px;
   font-size: 0.9rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--glass-border);
   transition: all 0.3s ease;
-  color: white;
+  color: var(--text-primary);
 }
 
 .tech-badge:hover {
@@ -533,11 +533,11 @@
 }
 
 .ecosystem-card .value-title {
-  color: #fff;
+  color: var(--text-primary);
 }
 
 .ecosystem-card .value-desc {
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--text-secondary);
   font-size: 0.88rem;
   line-height: 1.5;
 }

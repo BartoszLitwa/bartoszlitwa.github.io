@@ -12,8 +12,8 @@
   justify-content: center;
   gap: 0.5rem;
   padding: 0.42rem 0.62rem;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--glass-border);
+  background: var(--surface-subtle);
   color: var(--text-secondary);
   border-radius: 10px;
   cursor: pointer;
@@ -28,8 +28,8 @@
 
 .control-btn:hover {
   color: var(--text-primary);
-  border-color: rgba(255, 255, 255, 0.26);
-  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--border-hover);
+  background: var(--surface-hover);
 }
 
 .control-btn:focus {
@@ -140,7 +140,7 @@
 }
 
 .language-option:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--surface-hover);
   color: var(--text-primary);
 }
 
@@ -157,7 +157,7 @@
   padding: 0.2rem 0.4rem;
   border-radius: 6px;
   color: var(--text-primary);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid var(--glass-border);
 }
 
 .option-label {

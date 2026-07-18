@@ -114,44 +114,45 @@
   },
   {
     "title": "League Plus",
-    "description": "Desktop application for League of Legends players providing real-time match analytics, performance tracking, and statistical insights to improve gameplay.",
+    "description": "Flutter mobile application for browsing League of Legends player profiles, matches, and game statistics.",
     "imgUrl": "league_plus/merged.webp",
-    "type": ".Net|C++",
-    "url": "https://github.com/BartoszLitwa",
-    "metrics": "Enhanced player performance tracking with 50+ statistics analyzed per match",
-    "technologies": [".NET", "C#", "WPF", "REST API", "JSON"],
+    "type": "Flutter",
+    "url": "https://github.com/BartoszLitwa/league_plus",
+    "metrics": "Mobile-first interface backed by League of Legends data",
+    "technologies": ["Flutter", "Dart", "REST API", "JSON"],
     "highlights": [
-      "Real-time game data integration via Riot Games API",
-      "Custom analytics dashboard with performance metrics",
-      "Match history analysis and trend visualization"
+      "Player profile and match views",
+      "Responsive Flutter interface",
+      "Structured game statistics"
     ]
   },
   {
     "title": "Distributed Database",
-    "description": "Scalable distributed database system implementing consensus algorithms for data consistency across multiple nodes with fault tolerance.",
+    "description": "Java distributed key-value database in which nodes communicate over TCP and forward requests across the network.",
     "imgUrl": "distributed_database/distributed_database.webp",
     "type": ".Net|Java",
-    "url": "https://github.com/BartoszLitwa",
-    "metrics": "Achieved 99.9% data consistency across distributed nodes",
-    "technologies": ["Java", "C#", "TCP/IP", "Raft Consensus", "Docker"],
+    "url": "https://github.com/BartoszLitwa/distributed-database-java",
+    "metrics": "Concurrent client and node communication over TCP",
+    "technologies": ["Java", "TCP/IP", "Multithreading", "Distributed Systems"],
     "highlights": [
-      "Implemented Raft consensus algorithm for leader election",
-      "Fault-tolerant replication across multiple nodes",
-      "Custom query language and execution engine"
+      "TCP client and server communication between nodes",
+      "Dynamic node discovery and request forwarding",
+      "Separate threads for concurrent clients"
     ]
   },
   {
     "title": "Image Steganography",
-    "description": "Security tool for hiding encrypted messages within images using LSB steganography techniques with AES-256 encryption.",
+    "description": "C++ coursework project exploring image steganography and hidden-data encoding techniques.",
     "imgUrl": "image_steganography/thumbnail.webp",
     "type": ".Net",
-    "url": "https://github.com/BartoszLitwa",
-    "metrics": "Secure message encoding with undetectable payload embedding",
-    "technologies": ["C#", ".NET", "AES-256", "Image Processing"],
+    "type": "C++",
+    "url": "https://github.com/BartoszLitwa/image-steganography",
+    "metrics": "Hands-on exploration of image data encoding",
+    "technologies": ["C++", "Image Processing", "Steganography"],
     "highlights": [
-      "LSB (Least Significant Bit) encoding for invisible data hiding",
-      "AES-256 encryption for payload security",
-      "Support for multiple image formats (PNG, BMP, JPEG)"
+      "Binary image-data manipulation",
+      "Message embedding and extraction",
+      "Coursework implementation in C++"
     ]
   },
   {
@@ -159,7 +160,7 @@
     "description": "Responsive, bilingual portfolio built with React 19, TypeScript, Vite, and accessible component patterns.",
     "imgUrl": "portfolio/introduction.webp",
     "type": "React",
-    "url": "https://litwa.dev",
+    "url": "https://github.com/BartoszLitwa/bartoszlitwa.github.io",
     "metrics": "Code-split sections, structured SEO data, and automated quality checks",
     "technologies": ["React 19", "TypeScript", "Vite", "CSS3", "GitHub Pages"],
     "highlights": [
@@ -170,30 +171,30 @@
   },
   {
     "title": "Discord Bot",
-    "description": "Feature-rich Discord bot with moderation tools, music playback, custom commands, and server analytics for community management.",
+    "description": "Discord music bot built from scratch with C# and Discord.Net.",
     "imgUrl": "discord bot/logo.webp",
     "type": ".Net",
-    "url": "https://github.com/BartoszLitwa",
-    "metrics": "Serving 500+ users across multiple Discord servers",
-    "technologies": ["C#", ".NET", "Discord.NET", "SQLite", "REST API"],
+    "url": "https://github.com/BartoszLitwa/DiscordNetBot",
+    "metrics": "Custom Discord.Net music-bot implementation",
+    "technologies": ["C#", ".NET", "Discord.Net"],
     "highlights": [
-      "Advanced moderation and auto-mod capabilities",
-      "Custom command framework with permissions system",
-      "Server analytics and user engagement tracking"
+      "Discord command handling",
+      "Music playback workflows",
+      "Built directly on Discord.Net"
     ]
   },
   {
-    "title": "Task Manager Pro",
-    "description": "Full-featured task management application with drag-and-drop kanban boards, team collaboration, and productivity analytics.",
+    "title": "ToDoList",
+    "description": "Task-list web application with a React frontend and a C# API using Entity Framework.",
     "imgUrl": "todolist/tasklists.webp",
     "type": "React|.Net",
-    "url": "https://github.com/BartoszLitwa",
-    "metrics": "Intuitive task organization with drag-and-drop interface",
-    "technologies": ["React", "TypeScript", ".NET Core", "SQL Server", "SignalR"],
+    "url": "https://github.com/BartoszLitwa/ToDoList",
+    "metrics": "Full-stack authentication and task-management flows",
+    "technologies": ["React", "C#", ".NET", "Entity Framework", "JWT", "Swagger"],
     "highlights": [
-      "Real-time collaboration with SignalR",
-      "Kanban board with drag-and-drop functionality",
-      "Task prioritization and deadline tracking"
+      "JWT authentication with refresh tokens",
+      "Entity Framework data access",
+      "Task lists and individual task views"
     ]
   }
 ]

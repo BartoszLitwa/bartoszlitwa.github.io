@@ -33,6 +33,9 @@
   --glass-border: rgba(255, 255, 255, 0.08);
   --glass-shine: rgba(255, 255, 255, 0.03);
   --glass-blur: blur(12px);
+  --surface-subtle: rgba(255, 255, 255, 0.035);
+  --surface-hover: rgba(255, 255, 255, 0.08);
+  --on-accent: #ffffff;
 
   /* Border Colors */
   --border-color: rgba(255, 255, 255, 0.08);
@@ -85,9 +88,13 @@
   /* Light theme overrides if needed - keeping minimal for now as focus is Dark Mode */
   --bg-primary: #ffffff;
   --bg-secondary: #f8f9fa;
+  --bg-tertiary: #eef1f5;
   --bg-card: rgba(255, 255, 255, 0.8);
   --glass-bg: rgba(255, 255, 255, 0.8);
   --glass-border: rgba(0, 0, 0, 0.05);
+  --glass-shine: rgba(15, 23, 42, 0.03);
+  --surface-subtle: rgba(15, 23, 42, 0.04);
+  --surface-hover: rgba(15, 23, 42, 0.08);
   --border-color: rgba(0, 0, 0, 0.08);
   --border-hover: rgba(0, 0, 0, 0.15);
   --text-primary: #1a1a1a;
