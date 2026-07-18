@@ -1,27 +1,26 @@
 [
   {
     "title": "RentifyNow",
-    "description": "Full-stack SaaS platform for property rental management with multi-tenant architecture, real-time updates, and enterprise-grade security.",
+    "description": "SaaS platform for solo landlords to manage properties, tenants, finances, documents, and messages, with a built-in AI assistant.",
     "imgUrl": "rentifynow/dashboard.webp",
     "type": ".Net|Angular|Azure",
-    "url": "https://www.rentifynow.com",
-    "metrics": "Multi-tenant SaaS platform serving property management companies",
+    "url": "https://rentifynow.com",
+    "metrics": "Built and operated end to end, from product design to VPS infrastructure",
     "featured": true,
     "technologies": [
       "Angular",
       "TypeScript",
       ".NET Core",
-      "Azure",
-      "SQL Server",
+      "PostgreSQL",
       "SignalR",
       "Redis",
       "Docker"
     ],
     "highlights": [
-      "Multi-tenant SaaS architecture with isolated data per organization",
-      "Real-time notifications and updates using SignalR",
-      "Advanced search and filtering with optimized database queries",
-      "Automated billing and payment processing integration"
+      "Multi-tenant SaaS architecture for independent landlords",
+      "Property, tenant, finance, document, and messaging workflows",
+      "Built-in AI assistant",
+      "Owned deployment, monitoring, and production operations"
     ]
   },
   {
@@ -29,7 +28,7 @@
     "description": "Smart home management SaaS with property tracking, maintenance scheduling, and financial oversight for homeowners.",
     "imgUrl": "rentifynow/dashboard.webp",
     "type": ".Net|Angular",
-    "url": "https://www.houseifynow.com",
+    "url": "https://houseifynow.com",
     "metrics": "Homeowner-focused platform with integrated financial and maintenance tools",
     "featured": false,
     "technologies": [
@@ -53,7 +52,7 @@
     "description": "Goal tracking and habit management SaaS helping users set, track, and achieve personal and professional goals.",
     "imgUrl": "rentifynow/dashboard.webp",
     "type": ".Net|Angular",
-    "url": "https://www.goalifynow.com",
+    "url": "https://goalifynow.com",
     "metrics": "Productivity platform with habit tracking and goal analytics",
     "featured": false,
     "technologies": [
@@ -77,7 +76,7 @@
     "description": "The mother organization and shared infrastructure hub powering the entire SaaS product ecosystem including RentifyNow, HouseifyNow, and GoalifyNow.",
     "imgUrl": "rentifynow/dashboard.webp",
     "type": ".Net|Angular",
-    "url": "https://www.doifynow.com",
+    "url": "https://doifynow.com",
     "metrics": "Infrastructure hub managing shared databases, monitoring, and deployment",
     "featured": false,
     "technologies": [
@@ -102,7 +101,7 @@
     "description": "Self-hosted deployment platform with VPS provisioning, CI/CD orchestration, real-time build logs via SignalR, and full infrastructure management through Dokploy.",
     "imgUrl": "rentifynow/dashboard.webp",
     "type": ".Net",
-    "url": "https://www.deployifynow.com",
+    "url": "https://deployifynow.com",
     "metrics": "Infrastructure automation platform managing VPS deployments and CI/CD pipelines",
     "featured": false,
     "technologies": [".NET 10", "SignalR", "Docker", "Dokploy", "PostgreSQL", "GitHub Apps"],
@@ -157,12 +156,12 @@
   },
   {
     "title": "Portfolio Website",
-    "description": "Modern, responsive portfolio showcasing full-stack development expertise with React, TypeScript, and Three.js for 3D elements.",
+    "description": "Responsive, bilingual portfolio built with React 19, TypeScript, Vite, and accessible component patterns.",
     "imgUrl": "portfolio/introduction.webp",
     "type": "React",
     "url": "https://litwa.dev",
-    "metrics": "Optimized for performance with 95+ Lighthouse score",
-    "technologies": ["React", "TypeScript", "Three.js", "CSS3", "GitHub Pages"],
+    "metrics": "Code-split sections, structured SEO data, and automated quality checks",
+    "technologies": ["React 19", "TypeScript", "Vite", "CSS3", "GitHub Pages"],
     "highlights": [
       "Responsive design with mobile-first approach",
       "Multi-language support (EN/PL)",

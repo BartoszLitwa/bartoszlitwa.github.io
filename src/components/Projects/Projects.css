@@ -126,6 +126,8 @@
   aspect-ratio: 16 / 10;
   min-height: 300px;
   box-shadow: 0 8px 25px var(--shadow-color);
+  color: inherit;
+  text-decoration: none;
 }
 
 .project-card::before {
@@ -141,13 +143,15 @@
   z-index: 1;
 }
 
-.project-card:hover {
+.project-card:hover,
+.project-card:focus-visible {
   transform: translateY(-10px);
   box-shadow: 0 20px 60px var(--shadow-hover);
   border-color: var(--accent-primary);
 }
 
-.project-card:hover::before {
+.project-card:hover::before,
+.project-card:focus-visible::before {
   opacity: 1;
 }
 
@@ -171,7 +175,8 @@
   filter: blur(2px) brightness(0.7);
 }
 
-.project-card:hover .project-card-image {
+.project-card:hover .project-card-image,
+.project-card:focus-visible .project-card-image {
   transform: scale(1);
   filter: blur(0px) brightness(1);
 }
@@ -189,7 +194,8 @@
   transition: all 0.4s ease;
 }
 
-.project-card:hover .project-card-content {
+.project-card:hover .project-card-content,
+.project-card:focus-visible .project-card-content {
   background: linear-gradient(transparent 20%, rgba(0, 0, 0, 0.6) 100%);
 }
 
@@ -214,7 +220,8 @@
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-.project-card:hover .project-card-description {
+.project-card:hover .project-card-description,
+.project-card:focus-visible .project-card-description {
   opacity: 1;
   transform: translateY(0);
 }
@@ -230,7 +237,8 @@
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.05s;
 }
 
-.project-card:hover .project-metrics {
+.project-card:hover .project-metrics,
+.project-card:focus-visible .project-metrics {
   opacity: 1;
   transform: translateY(0);
 }
@@ -258,7 +266,8 @@
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s;
 }
 
-.project-card:hover .project-card-tech {
+.project-card:hover .project-card-tech,
+.project-card:focus-visible .project-card-tech {
   opacity: 1;
   transform: translateY(0);
 }

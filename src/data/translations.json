@@ -25,16 +25,26 @@
     },
     "hero": {
       "name": "Bartosz Litwa",
-      "badge": "CEO & Founder - DoifyNow Ecosystem",
+      "badge": "Software Engineer · Warsaw, Poland",
       "greeting": "Hi, I'm",
       "currentRoleAria": "Current role",
+      "role": "Full Stack .NET Engineer · Azure & DevOps",
       "roles": [
         "CEO & Founder of DoifyNow",
         "Senior .NET Architect",
         "Angular Expert",
         "Azure Cloud Architect"
       ],
-      "description": "CEO & Founder of DoifyNow - building a suite of SaaS products including RentifyNow, HouseifyNow, GoalifyNow, and DeployifyNow. With expertise in .NET, Angular, and Azure, I architect enterprise-grade software solutions.",
+      "description": "I build cloud-native, multi-tenant products with .NET, Angular, Azure, and pragmatic DevOps. Alongside enterprise work at KPMG, I design and operate RentifyNow from product idea through production.",
+      "proofTitle": "Selected outcomes",
+      "proofHeading": "Engineering with measurable impact",
+      "proofFlowAria": "Product delivery from product thinking through architecture to production",
+      "outcomes": [
+        "4+ years delivering production software",
+        "90% Azure Cosmos DB cost reduction",
+        "4 Microsoft Azure certifications"
+      ],
+      "scrollCue": "See selected work",
       "specializedIn": "Specialized In:",
       "tech": {
         "dotnet": ".NET 10 / C#",
@@ -55,6 +65,7 @@
         "connect": "See RentifyNow",
         "viewExperience": "Let's Connect",
         "exploreEcosystem": "Explore DoifyNow Ecosystem",
+        "viewWork": "View selected work",
         "downloadCv": "Download CV"
       }
     },
@@ -287,16 +298,26 @@
     },
     "hero": {
       "name": "Bartosz Litwa",
-      "badge": "CEO i Założyciel - ekosystem DoifyNow",
+      "badge": "Software Engineer · Warszawa",
       "greeting": "Cześć, jestem",
       "currentRoleAria": "Aktualna rola",
+      "role": "Full Stack .NET Engineer · Azure i DevOps",
       "roles": [
         "CEO i Założyciel DoifyNow",
         "Senior .NET Architekt",
         "Ekspert Angular",
         "Architekt Azure Cloud"
       ],
-      "description": "CEO i Założyciel DoifyNow - tworzę ekosystem produktów SaaS, w tym RentifyNow, HouseifyNow, GoalifyNow i DeployifyNow. Specjalizuję się w .NET, Angular oraz Azure i projektuję skalowalne rozwiązania klasy enterprise.",
+      "description": "Tworzę chmurowe, wielodostępne produkty w .NET, Angularze i Azure, wykorzystując praktyczne podejście do DevOps. Równolegle z pracą dla KPMG projektuję i rozwijam RentifyNow — od pomysłu po produkcję.",
+      "proofTitle": "Wybrane rezultaty",
+      "proofHeading": "Inżynieria z mierzalnym wpływem",
+      "proofFlowAria": "Realizacja produktu od koncepcji przez architekturę po produkcję",
+      "outcomes": [
+        "Ponad 4 lata tworzenia oprogramowania produkcyjnego",
+        "90% redukcji kosztów Azure Cosmos DB",
+        "4 certyfikaty Microsoft Azure"
+      ],
+      "scrollCue": "Zobacz wybrane projekty",
       "specializedIn": "Specjalizacja:",
       "tech": {
         "dotnet": ".NET 10 / C#",
@@ -317,6 +338,7 @@
         "connect": "Zobacz RentifyNow",
         "viewExperience": "Skontaktuj się",
         "exploreEcosystem": "Poznaj ekosystem DoifyNow",
+        "viewWork": "Zobacz wybrane projekty",
         "downloadCv": "Pobierz CV"
       }
     },

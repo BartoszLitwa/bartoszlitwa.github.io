@@ -10,26 +10,12 @@ const ProjectCard = React.memo(({ card }: ProjectCardProps) => {
   const description = resolveLocalizedField(card.description, language);
   const metrics = card.metrics ? resolveLocalizedField(card.metrics, language) : undefined;
 
-  const handleClick = () => {
-    if (card.url) {
-      window.open(card.url, '_blank', 'noopener,noreferrer');
-    }
-  };
-
-  const handleKeyDown = (event: React.KeyboardEvent) => {
-    if (event.key === 'Enter' || event.key === ' ') {
-      event.preventDefault();
-      handleClick();
-    }
-  };
-
   return (
-    <div
+    <a
       className="project-card"
-      onClick={handleClick}
-      onKeyDown={handleKeyDown}
-      tabIndex={0}
-      role="button"
+      href={card.url}
+      target="_blank"
+      rel="noopener noreferrer"
       aria-label={`${t('projects.aria.viewProject')} ${title}`}
     >
       <div
@@ -59,7 +45,7 @@ const ProjectCard = React.memo(({ card }: ProjectCardProps) => {
           ))}
         </div>
       </div>
-    </div>
+    </a>
   );
 });
 

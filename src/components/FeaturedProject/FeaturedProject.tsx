@@ -47,28 +47,28 @@ const FeaturedProject = () => {
       icon: HouseDoor,
       name: 'HouseifyNow',
       desc: t('featured.ecosystem.houseifyDesc'),
-      url: 'https://www.houseifynow.com',
+      url: 'https://houseifynow.com',
       tech: ['Angular', '.NET 10', 'Tauri', 'PostgreSQL']
     },
     {
       icon: Gear,
       name: 'DoifyNow',
       desc: t('featured.ecosystem.doifyDesc'),
-      url: 'https://www.doifynow.com',
+      url: 'https://doifynow.com',
       tech: ['Angular', 'PostgreSQL', 'Redis', 'Grafana']
     },
     {
       icon: Bullseye,
       name: 'GoalifyNow',
       desc: t('featured.ecosystem.goalifyDesc'),
-      url: 'https://www.goalifynow.com',
+      url: 'https://goalifynow.com',
       tech: ['Angular 21', '.NET 10', 'PrimeNG', 'Tauri']
     },
     {
       icon: Rocket,
       name: 'DeployifyNow',
       desc: t('featured.ecosystem.deployifyDesc'),
-      url: 'https://www.deployifynow.com',
+      url: 'https://deployifynow.com',
       tech: ['.NET 10', 'SignalR', 'Docker', 'Dokploy']
     }
   ];

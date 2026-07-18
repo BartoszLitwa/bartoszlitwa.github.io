@@ -30,6 +30,26 @@ const NavBar = () => {
   }, []);
 
   useEffect(() => {
+    const sectionIds = ['home', 'experience', 'skills', 'projects', 'certifications'];
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible) setActiveLink(`#${visible.target.id}`);
+      },
+      { rootMargin: '-20% 0px -65% 0px', threshold: [0, 0.25, 0.5] }
+    );
+
+    sectionIds.forEach((id) => {
+      const section = document.getElementById(id);
+      if (section) observer.observe(section);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     const onResize = () => {
       if (window.innerWidth >= 992) {
         setToggled(false);
@@ -73,12 +93,11 @@ const NavBar = () => {
           </Navbar.Toggle>
 
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto navbar-nav-links" role="menubar">
+            <Nav className="me-auto navbar-nav-links">
               <Nav.Link
                 href="#home"
                 className={`navbar-link ${activeLink === '#home' ? 'active' : ''}`}
                 onClick={() => onUpdateActiveLink('#home')}
-                role="menuitem"
                 aria-current={activeLink === '#home' ? 'page' : undefined}
               >
                 {t('navigation.home')}
@@ -87,7 +106,6 @@ const NavBar = () => {
                 href="#experience"
                 className={`navbar-link ${activeLink === '#experience' ? 'active' : ''}`}
                 onClick={() => onUpdateActiveLink('#experience')}
-                role="menuitem"
                 aria-current={activeLink === '#experience' ? 'page' : undefined}
               >
                 {t('navigation.experience')}
@@ -96,7 +114,6 @@ const NavBar = () => {
                 href="#skills"
                 className={`navbar-link ${activeLink === '#skills' ? 'active' : ''}`}
                 onClick={() => onUpdateActiveLink('#skills')}
-                role="menuitem"
                 aria-current={activeLink === '#skills' ? 'page' : undefined}
               >
                 {t('navigation.skills')}
@@ -105,7 +122,6 @@ const NavBar = () => {
                 href="#projects"
                 className={`navbar-link ${activeLink === '#projects' ? 'active' : ''}`}
                 onClick={() => onUpdateActiveLink('#projects')}
-                role="menuitem"
                 aria-current={activeLink === '#projects' ? 'page' : undefined}
               >
                 {t('navigation.projects')}
@@ -114,7 +130,6 @@ const NavBar = () => {
                 href="#certifications"
                 className={`navbar-link ${activeLink === '#certifications' ? 'active' : ''}`}
                 onClick={() => onUpdateActiveLink('#certifications')}
-                role="menuitem"
                 aria-current={activeLink === '#certifications' ? 'page' : undefined}
               >
                 {t('navigation.certifications')}
@@ -149,7 +164,7 @@ const NavBar = () => {
                   />
                 </a>
                 <a
-                  href="https://www.rentifynow.com"
+                  href="https://rentifynow.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={t('navigation.aria.rentify')}

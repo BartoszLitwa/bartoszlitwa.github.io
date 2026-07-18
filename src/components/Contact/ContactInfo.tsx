@@ -30,7 +30,7 @@ const ContactInfo: React.FC = () => {
       icon: '🚀',
       label: t('contact.info.methods.rentify'),
       value: 'rentifynow.com',
-      href: 'https://www.rentifynow.com',
+      href: 'https://rentifynow.com',
       primary: false
     }
   ];

@@ -21,6 +21,6 @@ describe('App', () => {
     const polishOption = screen.getByRole('option', { name: /Polski/i });
     await user.click(polishOption);
 
-    expect(await screen.findByRole('menuitem', { name: /Umiejętności/i })).toBeInTheDocument();
+    expect(await screen.findByRole('link', { name: /Umiejętności/i })).toBeInTheDocument();
   });
 });

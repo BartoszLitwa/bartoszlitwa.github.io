@@ -1,59 +1,17 @@
-import React, { useEffect, useState, useCallback, useMemo } from 'react';
+import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-import { ArrowRight, CodeSlash, RocketTakeoff, Layers, Download } from 'react-bootstrap-icons';
+import { ArrowDown, ArrowRight, CheckCircle, CodeSlash, RocketTakeoff, Layers, Download } from 'react-bootstrap-icons';
 import { useLanguage } from '../../hooks/useLanguage';
 import './SimpleBanner.css';
 
 const SimpleBanner = () => {
   const { t, get } = useLanguage();
   const hireMeUrl = 'https://www.linkedin.com/in/bartoszlitwa/';
-  const [index, setIndex] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
-  const toRotate = useMemo(
-    () =>
-      get<string[]>('hero.roles', [
-        'CEO & Founder of DoifyNow',
-        'Senior .NET Architect',
-        'Angular Expert',
-        'Azure Cloud Architect'
-      ]),
-    [get]
-  );
-  const [text, setText] = useState('');
-  const [delta, setDelta] = useState(200);
-  const period = 2000;
-
-  const tick = useCallback(() => {
-    const fullText = toRotate[index];
-    const updatedText = isDeleting
-      ? fullText.substring(0, text.length - 1)
-      : fullText.substring(0, text.length + 1);
-
-    setText(updatedText);
-
-    if (isDeleting) {
-      setDelta((prevDelta) => prevDelta / 2);
-    }
-
-    if (!isDeleting && updatedText === fullText) {
-      setIsDeleting(true);
-      setDelta(period);
-    } else if (isDeleting && updatedText === '') {
-      setIsDeleting(false);
-      setIndex((prevIndex) => (prevIndex + 1) % toRotate.length);
-      setDelta(200);
-    }
-  }, [index, isDeleting, text, toRotate, period]);
-
-  useEffect(() => {
-    const ticker = setInterval(() => {
-      tick();
-    }, delta);
-
-    return () => {
-      clearInterval(ticker);
-    };
-  }, [tick, delta]);
+  const outcomes = get<string[]>('hero.outcomes', [
+    '4+ years delivering production software',
+    '90% Azure Cosmos DB cost reduction',
+    '4 Microsoft Azure certifications'
+  ]);
 
   const handleHireClick = () => {
     window.open(hireMeUrl, '_blank', 'noopener,noreferrer');
@@ -85,12 +43,7 @@ const SimpleBanner = () => {
                 className="hero-title text-left animate-fade-up"
                 style={{ animationDelay: '0.2s', justifyContent: 'flex-start' }}
               >
-                <span aria-live="polite" aria-label={`${t('hero.currentRoleAria')}: ${text}`}>
-                  {text}
-                </span>
-                <span className="cursor" aria-hidden="true">
-                  |
-                </span>
+                {t('hero.role')}
               </h2>
               <p
                 className="hero-description text-left animate-fade-up"
@@ -109,7 +62,7 @@ const SimpleBanner = () => {
                   type="button"
                 >
                   <RocketTakeoff size={20} className="me-2" />
-                  <span>{t('hero.cta.exploreEcosystem')}</span>
+                  <span>{t('hero.cta.viewWork')}</span>
                 </button>
                 <button
                   className="btn-modern btn-secondary"
@@ -144,6 +97,10 @@ const SimpleBanner = () => {
                   </span>
                 </div>
               </div>
+              <a className="hero-scroll-cue" href="#featured-project">
+                <ArrowDown size={16} aria-hidden="true" />
+                {t('hero.scrollCue')}
+              </a>
             </div>
           </Col>
 
@@ -153,30 +110,21 @@ const SimpleBanner = () => {
             className="d-none d-lg-flex hero-visual-col position-relative justify-content-center"
           >
             <div className="hero-visual animate-fade-up" style={{ animationDelay: '0.3s' }}>
-              <div className="glass-morphism-card hero-abstract-card">
-                <div className="card-header-dots">
-                  <div className="dot red"></div>
-                  <div className="dot yellow"></div>
-                  <div className="dot green"></div>
+              <div className="delivery-card glass-panel">
+                <div className="delivery-card-kicker">{t('hero.proofTitle')}</div>
+                <h3>{t('hero.proofHeading')}</h3>
+                <div className="delivery-outcomes">
+                  {outcomes.map((outcome) => (
+                    <div className="delivery-outcome" key={outcome}>
+                      <CheckCircle size={18} aria-hidden="true" />
+                      <span>{outcome}</span>
+                    </div>
+                  ))}
                 </div>
-                <div className="abstract-code">
-                  <div className="code-line w-75"></div>
-                  <div className="code-line w-50 indent-1"></div>
-                  <div className="code-line w-100 indent-2"></div>
-                  <div className="code-line w-50 indent-2 accent-line"></div>
-                  <div className="code-line w-75 indent-1"></div>
-                  <div className="code-line w-25"></div>
-                </div>
-                <div className="floating-badge badge-1 glass-panel">
-                  <RocketTakeoff size={18} className="me-2 text-accent" />{' '}
-                  {t('hero.badges.microservices')}
-                </div>
-                <div className="floating-badge badge-2 glass-panel">
-                  <Layers size={18} className="me-2 text-success" />{' '}
-                  {t('hero.badges.saasArchitecture')}
-                </div>
-                <div className="floating-badge badge-3 glass-panel">
-                  <CodeSlash size={18} className="me-2 text-info" /> {t('hero.badges.fullStack')}
+                <div className="delivery-flow" aria-label={t('hero.proofFlowAria')}>
+                  <span>Product</span><ArrowRight aria-hidden="true" />
+                  <span>Architecture</span><ArrowRight aria-hidden="true" />
+                  <span>Production</span>
                 </div>
               </div>
             </div>

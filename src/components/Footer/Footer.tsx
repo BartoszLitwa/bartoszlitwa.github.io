@@ -71,7 +71,7 @@ const Footer = () => {
                   />
                 </a>
                 <a
-                  href="https://www.rentifynow.com"
+                  href="https://rentifynow.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={t('footer.aria.rentify')}

@@ -228,6 +228,14 @@
   margin: 0 0.1rem;
 }
 
+.experienceCard-summary {
+  max-width: 72ch;
+  margin: 1rem 0;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
 /* Achievement List */
 .achievement-bx {
   background: var(--bg-primary);

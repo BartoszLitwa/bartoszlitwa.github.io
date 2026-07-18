@@ -11,6 +11,7 @@ const ExperienceCard = ({ experience }: ExperienceCardProps) => {
   const company = resolveLocalizedField(experience.company, language);
   const city = resolveLocalizedField(experience.city, language);
   const achievements = resolveLocalizedField(experience.achievements, language);
+  const description = resolveLocalizedField(experience.description, language);
   const promotionPath = experience.promotionPath
     ? resolveLocalizedField(experience.promotionPath, language)
     : undefined;
@@ -54,7 +55,7 @@ const ExperienceCard = ({ experience }: ExperienceCardProps) => {
       </header>
       {promotionPath && promotionPath.length > 0 && (
         <div className="promotion-path" role="status" aria-label="Promotion progression">
-          <span className="promotion-label">{promotionMonth || 'Annual'} promotions</span>
+          <span className="promotion-label">{promotionMonth || 'Career progression'}</span>
           <div className="promotion-pills">
             {promotionPath.map((level, index) => (
               <React.Fragment key={`${level}-${index}`}>
@@ -74,6 +75,7 @@ const ExperienceCard = ({ experience }: ExperienceCardProps) => {
           {education}
         </p>
       )}
+      <p className="experienceCard-summary">{description}</p>
       <ListGroup variant="flush" as="ul" aria-label={`Achievements at ${company}`}>
         {achievements.map((ach: string, index: number) => (
           <ListGroup.Item

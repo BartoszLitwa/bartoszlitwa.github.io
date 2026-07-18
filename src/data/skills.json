@@ -19,6 +19,10 @@
         {
           "name": "Entity Framework",
           "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/dotnetcore/dotnetcore-original.svg"
+        },
+        {
+          "name": ".NET Aspire",
+          "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/dot-net/dot-net-original.svg"
         }
       ]
     },
@@ -65,12 +69,12 @@
           "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg"
         },
         {
-          "name": "Kubernetes",
-          "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/kubernetes/kubernetes-plain.svg"
-        },
-        {
           "name": "Grafana",
           "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/grafana/grafana-original.svg"
+        },
+        {
+          "name": "Podman",
+          "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/podman/podman-original.svg"
         }
       ]
     },
@@ -93,6 +97,10 @@
         {
           "name": "YAML",
           "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/yaml/yaml-original.svg"
+        },
+        {
+          "name": "Playwright",
+          "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/playwright/playwright-original.svg"
         }
       ]
     },
@@ -107,10 +115,6 @@
         {
           "name": "PostgreSQL",
           "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg"
-        },
-        {
-          "name": "MongoDB",
-          "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg"
         },
         {
           "name": "Redis",
