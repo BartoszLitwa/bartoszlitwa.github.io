@@ -144,7 +144,6 @@
     "title": "Image Steganography",
     "description": "C++ coursework project exploring image steganography and hidden-data encoding techniques.",
     "imgUrl": "image_steganography/thumbnail.webp",
-    "type": ".Net",
     "type": "C++",
     "url": "https://github.com/BartoszLitwa/image-steganography",
     "metrics": "Hands-on exploration of image data encoding",

@@ -11,7 +11,7 @@ const Skills = () => {
   const categories: SkillCategory[] = skillsData.categories;
 
   return (
-    <section className="skill" id="skills" aria-labelledby="skills-heading">
+    <section className="skill" aria-labelledby="skills-heading">
       <Container>
         <Row>
           <Col>

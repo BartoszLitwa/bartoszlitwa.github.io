@@ -4,7 +4,7 @@ import { CertificationCardProps } from '../../types';
 import './Certifications.css';
 
 const CertificationCard: React.FC<CertificationCardProps> = ({ certification }) => {
-  const { t } = useLanguage();
+  const { language, t } = useLanguage();
 
   const handleCredentialClick = () => {
     if (certification.credentialUrl && certification.credentialUrl !== '#') {
@@ -14,7 +14,7 @@ const CertificationCard: React.FC<CertificationCardProps> = ({ certification }) 
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', {
+    return date.toLocaleDateString(language === 'pl' ? 'pl-PL' : 'en-US', {
       year: 'numeric',
       month: 'short'
     });

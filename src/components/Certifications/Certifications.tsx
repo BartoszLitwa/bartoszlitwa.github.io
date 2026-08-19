@@ -22,11 +22,7 @@ const Certifications: React.FC = () => {
   const inProgressCerts = certifications.filter((cert) => cert.status === 'in-progress');
 
   return (
-    <section
-      className="certifications"
-      id="certifications"
-      aria-labelledby="certifications-heading"
-    >
+    <section className="certifications" aria-labelledby="certifications-heading">
       <Container>
         <Row>
           <Col>

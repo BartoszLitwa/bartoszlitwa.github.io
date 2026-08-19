@@ -10,7 +10,14 @@ services:
     container_name: portfolio-webapp
     restart: unless-stopped
     ports:
-      - '10580:80'
+      - '127.0.0.1:10580:80'
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    tmpfs:
+      - /var/cache/nginx
+      - /var/run
+      - /tmp
     mem_limit: 512m
     cpus: 0.5
     memswap_limit: 768m
@@ -28,13 +35,21 @@ services:
       timeout: 5s
       retries: 3
       start_period: 10s
+    logging:
+      driver: json-file
+      options:
+        max-file: '3'
+        max-size: 10m
     labels:
       - traefik.enable=true
       - traefik.docker.network=dokploy-network
       - traefik.http.routers.portfolio-webapp-web.rule=Host(`litwa.dev`) || Host(`www.litwa.dev`)
       - traefik.http.routers.portfolio-webapp-web.entrypoints=web
+      - traefik.http.routers.portfolio-webapp-web.middlewares=portfolio-webapp-redirect-https
       - traefik.http.services.portfolio-webapp-web.loadbalancer.server.port=80
       - traefik.http.routers.portfolio-webapp-web.service=portfolio-webapp-web
+      - traefik.http.middlewares.portfolio-webapp-redirect-https.redirectscheme.scheme=https
+      - traefik.http.middlewares.portfolio-webapp-redirect-https.redirectscheme.permanent=true
       - traefik.http.routers.portfolio-webapp-websecure.rule=Host(`litwa.dev`) || Host(`www.litwa.dev`)
       - traefik.http.routers.portfolio-webapp-websecure.entrypoints=websecure
       - traefik.http.services.portfolio-webapp-websecure.loadbalancer.server.port=80

@@ -6,3 +6,19 @@ build
 test-results
 coverage
 .DS_Store
+graphify-out
+cv
+*.md
+.cursor
+src/**/*.test.ts
+src/**/*.test.tsx
+src/assets/C# csgo cheat
+src/assets/informatyka_sieci
+src/assets/mineandcry
+src/assets/snake
+src/assets/ultraware.xyz
+src/assets/distributed_database/distributed_database.png
+src/assets/league_plus/merged.png
+src/assets/portfolio/introduction.png
+src/assets/rentifynow/dashboard.png
+src/assets/todolist/tasklists.png
