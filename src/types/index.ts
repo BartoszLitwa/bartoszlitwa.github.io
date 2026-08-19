@@ -73,12 +73,7 @@ export interface TranslationObject {
 }
 
 export type TranslationValue =
-  | string
-  | number
-  | boolean
-  | null
-  | TranslationObject
-  | TranslationValue[];
+  string | number | boolean | null | TranslationObject | TranslationValue[];
 
 export type Translations = Record<string, TranslationObject>;
 
