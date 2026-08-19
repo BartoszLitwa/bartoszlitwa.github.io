@@ -30,6 +30,16 @@ const NavBar = () => {
   }, []);
 
   useEffect(() => {
+    if (!window.location.hash) return;
+
+    const frameId = window.requestAnimationFrame(() => {
+      document.getElementById(window.location.hash.slice(1))?.scrollIntoView();
+    });
+
+    return () => window.cancelAnimationFrame(frameId);
+  }, []);
+
+  useEffect(() => {
     const sectionIds = ['home', 'experience', 'skills', 'projects', 'certifications'];
     const observer = new IntersectionObserver(
       (entries) => {
@@ -63,6 +73,10 @@ const NavBar = () => {
   const onUpdateActiveLink = (value: string) => {
     setActiveLink(value);
     setToggled(false); // Close mobile menu when link is clicked
+    document.getElementById(value.slice(1))?.scrollIntoView({
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+      block: 'start'
+    });
   };
 
   return (

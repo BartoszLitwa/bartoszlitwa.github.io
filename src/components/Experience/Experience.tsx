@@ -19,7 +19,7 @@ const Experience = () => {
   );
 
   return (
-    <section className="experience" id="experience" aria-labelledby="experience-heading">
+    <section className="experience" aria-labelledby="experience-heading">
       <Container>
         <Row>
           <Col>

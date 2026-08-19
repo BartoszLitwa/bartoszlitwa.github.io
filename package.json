@@ -4,13 +4,16 @@
   "homepage": "https://litwa.dev",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": ">=22 <25",
+    "npm": ">=10"
+  },
   "dependencies": {
-    "@emailjs/browser": "^4.4.1",
     "bootstrap": "^5.3.8",
-    "react": "^19.2.7",
+    "react": "^19.2.8",
     "react-bootstrap": "^2.10.10",
     "react-bootstrap-icons": "^1.11.6",
-    "react-dom": "^19.2.7"
+    "react-dom": "^19.2.8"
   },
   "scripts": {
     "dev": "vite",
@@ -19,10 +22,12 @@
     "test": "NODE_ENV=test vitest run",
     "test:watch": "NODE_ENV=test vitest",
     "test:coverage": "NODE_ENV=test vitest run --coverage",
+    "audit": "npm audit --include=dev --audit-level=high",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier \"**/*.{ts,tsx,js,jsx,mjs,json,css,md,html,yml,yaml}\" --write",
     "format:check": "prettier \"**/*.{ts,tsx,js,jsx,mjs,json,css,md,html,yml,yaml}\" --check",
+    "check": "npm run format:check && npm run lint && npm run typecheck && npm run test:coverage && npm run build && npm run audit",
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
@@ -33,9 +38,10 @@
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^14.6.1",
-    "@types/react": "^19.2.17",
+    "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^4.5.2",
+    "@vitest/coverage-v8": "^4.1.10",
     "eslint": "^9.39.4",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-jsx-a11y": "^6.10.2",

@@ -5,6 +5,9 @@ import '@testing-library/jest-dom/vitest';
 afterEach(() => {
   cleanup();
   localStorage.clear();
+  document.body.className = '';
+  document.documentElement.removeAttribute('data-theme');
+  window.history.replaceState({}, '', '/');
 });
 
 Object.defineProperty(window.navigator, 'language', {
@@ -47,3 +50,4 @@ class IntersectionObserverMock implements IntersectionObserver {
 
 vi.stubGlobal('IntersectionObserver', IntersectionObserverMock);
 vi.stubGlobal('open', vi.fn());
+Element.prototype.scrollIntoView = vi.fn();

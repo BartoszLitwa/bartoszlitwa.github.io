@@ -1,56 +1,120 @@
 # Bartosz Litwa Portfolio
 
-Personal portfolio website built with React + TypeScript and deployed to GitHub Pages.
+Public portfolio at [litwa.dev](https://litwa.dev), implemented as a static React single-page
+application. The repository supports GitHub Pages and a Docker/Nginx deployment behind Traefik.
 
-Live site: `https://litwa.dev`
+## Architecture
 
-## Stack
+The executable system in this repository is frontend-only:
 
-- React 19 + TypeScript
-- Vite 6 build tooling
-- React Bootstrap + custom CSS
-- JSON-driven content (`src/data/*.json`)
-- GitHub Pages deployment via `gh-pages`
-- Vitest + React Testing Library
+```text
+Browser
+  -> GitHub Pages, or Traefik -> Nginx container
+      -> static Vite build
+          -> React 19 + TypeScript
+              -> JSON content in src/data
+              -> bundled images and fonts
+              -> localStorage: language and theme preferences
+              -> Umami: anonymous product analytics
+              -> remote icon/badge image hosts
+```
 
-## Local development
+There is no first-party backend, API, authentication/authorization service, database, migration
+system, or native mobile app here. Technology names in portfolio content describe other projects.
+
+Main runtime components:
+
+- `src/App.tsx`: composition, code splitting, and analytics section observation
+- `src/components`: navigation, hero, experience, skills, projects, certifications, and footer
+- `src/data`: portfolio and EN/PL translation data
+- `src/hooks`: language, theme, and intersection-based animation state
+- `src/utils`: asset lookup, localization, and Umami helpers
+- `vite.config.ts`: build, test, coverage, and output configuration
+- `nginx.conf`: SPA routing and cache policy
+- `nginx-security-headers.conf`: Docker response-header baseline and CSP
+- `compose`: Dokploy/Traefik service configuration
+
+## Requirements and local setup
+
+- Node.js 22 through 24
+- npm 10 or newer
+- Docker with Compose v2 only for container validation/deployment
+
+Install exactly what is recorded in the lockfile and start Vite:
 
 ```bash
-npm install
+npm ci
 npm run dev
 ```
 
-App runs at `http://localhost:3000`.
+Vite prefers `http://localhost:3000` and selects the next available port if 3000 is occupied.
 
-## Build
+## Configuration and secrets
 
-```bash
-npm run build
-```
+No secret or environment variable is required. Umami's website ID is public telemetry configuration
+in `index.html`. Every future variable prefixed with `VITE_` would be embedded into browser
+JavaScript and public; never put a private API key, token, password, or server credential in a Vite
+environment variable or in Compose build arguments.
 
-## Quality checks
+## Quality and security gates
 
-```bash
-npm run typecheck
-npm run test
-npm run test:coverage
-```
-
-## Deploy
-
-Use the deployment guide:
-
-- `DEPLOYMENT.md`
-
-Quick command:
+Run the complete local gate before every release:
 
 ```bash
-npm run deploy
+npm run check
 ```
 
-## Content updates
+It enforces formatting, ESLint, strict TypeScript, Vitest coverage thresholds, a production build,
+and an audit that explicitly includes development/build dependencies. Individual commands remain
+available as `npm run format:check`, `npm run lint`, `npm run typecheck`, `npm run test:coverage`,
+`npm run build`, and `npm run audit`.
 
-Most portfolio content is managed in:
+GitHub Actions runs the same gate and additionally builds the production container. Dependabot
+checks npm, Docker base images, and GitHub Actions weekly.
+
+## Deployment and operations
+
+See [DEPLOYMENT.md](DEPLOYMENT.md) for GitHub Pages and Docker/Traefik procedures, health checks,
+rollback steps, headers, logging, and operational checks. Use [RELEASE_CHECKLIST.md](RELEASE_CHECKLIST.md)
+for each release.
+
+The Docker path provides:
+
+- immutable, digest-pinned Node and Nginx base images
+- permanent HTTP-to-HTTPS redirect at Traefik
+- HSTS, CSP, clickjacking, MIME-sniffing, referrer, and browser-permission headers
+- immutable caching for fingerprinted assets, including WebP, and no-cache HTML
+- read-only container filesystem, localhost-only host-port binding, resource limits, health checks,
+  and log rotation
+
+GitHub Pages does not allow this repository to set arbitrary HTTP response headers. If Pages remains
+a production target, configure equivalent headers at its CDN/front door and verify them after DNS or
+hosting changes.
+
+## Security and privacy
+
+- The site is public and has no accounts, roles, sessions, or private application records.
+- React escapes rendered JSON content; no raw HTML injection API is used.
+- External links opened in a new tab use `noopener noreferrer`.
+- Third-party analytics and image hosts remain availability, privacy, and supply-chain dependencies.
+- Client errors currently fall back to a root error boundary and console logging; there is no remote
+  error collection or uptime alert in this repository.
+- Report vulnerabilities according to [SECURITY.md](SECURITY.md).
+
+## Known issues and recommended follow-up
+
+The full prioritized register, evidence, fixes, and accepted constraints are in
+[ANALYSIS.md](ANALYSIS.md). The main remaining work is:
+
+1. choose and document one authoritative production deployment path;
+2. add independent uptime and client-error monitoring with redaction/retention rules;
+3. self-host or explicitly govern remote icons/badges and define a privacy notice for analytics;
+4. consolidate the duplicate Compose files and clean unused source assets;
+5. expand behavior and accessibility coverage beyond the current regression floor.
+
+## Updating content
+
+Most content changes belong in:
 
 - `src/data/projects.json`
 - `src/data/experience.json`
@@ -58,6 +122,5 @@ Most portfolio content is managed in:
 - `src/data/certifications.json`
 - `src/data/translations.json`
 
-## Release process
-
-- Run `RELEASE_CHECKLIST.md` before `npm run deploy`.
+Keep EN and PL translation structures aligned. The test suite validates translation paths, unique
+content identifiers, project links, and required collections.

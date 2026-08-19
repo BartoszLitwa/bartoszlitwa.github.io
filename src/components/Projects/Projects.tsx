@@ -66,7 +66,7 @@ const Projects = () => {
   );
 
   return (
-    <section className="project" id="projects" aria-labelledby="projects-heading">
+    <section className="project" aria-labelledby="projects-heading">
       <Container>
         <Row>
           <Col>

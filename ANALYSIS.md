@@ -1,217 +1,157 @@
-# Portfolio (litwa.dev) — Deep Analysis & Agent Execution Plan
+# Application Architecture and Security Audit
 
-**Generated:** 2026-04-16 | **Focus:** SEO, performance, content, modernization
-**Stack:** React 18 (CRA) + React Bootstrap + Three.js/React Three Fiber
-**Deploy:** Docker/Nginx on Dokploy + GitHub Pages
+- **Audit period:** 2026-08-16 to 2026-08-17
+- **Repository:** `bartoszlitwa.github.io`
+- **Scope:** all tracked application source, content data, tests, build tooling, dependency lockfile,
+  container configuration, deployment documentation, public assets, and browser integrations.
 
----
+## Executive summary
 
-## 1. Current State Summary
+This repository contains one public, static React single-page application. It does not contain a
+backend service, first-party API, authentication/authorization subsystem, database, migrations, or
+native mobile application. Technology references in portfolio JSON describe other projects and are
+not executable parts of this repository.
 
-Personal portfolio site. **Excellent SEO already** (structured data, OG tags, meta tags, keywords). CRA is deprecated but functional. Has 3D elements (Three.js), contact form (EmailJS), certifications, experience, projects showcase. Dual deployment: Docker on Dokploy (litwa.dev) + GitHub Pages.
+No critical issue was found. The three high findings were remediated: four vulnerable build
+dependencies were upgraded, the Docker/Traefik path was hardened, and lazy-section navigation was
+made stable. The complete quality gate now passes with zero npm advisories, seven tests, enforced
+coverage floors, a production build, valid Compose files, and a tested read-only Nginx container.
 
----
+Residual risk is concentrated outside the static bundle: external monitoring is absent,
+GitHub Pages cannot receive the repository's Nginx headers without an additional edge/CDN, remote
+analytics/images remain third-party dependencies, two Compose files duplicate one service, and
+several build-tool major upgrades require a planned migration.
 
-## 2. SEO — Already Strong
+## Current architecture and data flow
 
-### 2.1 DONE (Comprehensive)
-
-- Title: "Bartosz Litwa - Senior Full-Stack Developer & SaaS Founder | Available for Hire"
-- Meta description: detailed, keyword-rich, hire-focused
-- Meta keywords: extensive freelance/developer/SaaS keywords
-- Author, robots (index, follow, max-image-preview, max-snippet, max-video-preview)
-- Canonical: [https://litwa.dev](https://litwa.dev)
-- OpenGraph: full set (title, description, image, url, type, locale, site_name)
-- Twitter Card: full set with @bartoszlitwa handle
-- LinkedIn article:author meta
-- JSON-LD: Person schema with name, jobTitle, description, sameAs, address, skills, worksFor, alumniOf, knowsAbout
-- Umami analytics
-
-### 2.2 Minor Improvements
-
-| Issue                      | Action                                                                            |
-| -------------------------- | --------------------------------------------------------------------------------- |
-| **OG image may not exist** | `%PUBLIC_URL%/portfolio-preview.jpg` referenced — verify file exists in `public/` |
-| **No sitemap.xml**         | Create for better crawling                                                        |
-| **No robots.txt**          | Create (simple: allow all)                                                        |
-
-### 2.3 Agent Instructions
-
-```
-Step 1: Verify public/portfolio-preview.jpg exists
-  - If not: create OG-sized (1200x630) preview image
-
-Step 2: Create public/robots.txt
-  User-agent: *
-  Allow: /
-  Sitemap: https://litwa.dev/sitemap.xml
-
-Step 3: Create public/sitemap.xml
-  Single URL: https://litwa.dev/ (SPA, no other routes)
+```text
+Browser
+  -> GitHub Pages, or Traefik -> Nginx container
+      -> Vite-generated static HTML/CSS/JavaScript/assets
+          -> React 19 application
+              -> local JSON content and bundled images/fonts
+              -> localStorage (validated theme and language preferences only)
+              -> Umami analytics (analytics.doifynow.com)
+              -> remote image hosts (skill icons and certification badges)
 ```
 
----
+There is no confidential application state. Any future `VITE_*` value would be compiled into public
+JavaScript and must never be treated as a secret. The unused EmailJS/contact implementation and its
+production dependency were removed rather than exposing an unprotected browser mail endpoint.
 
-## 3. Performance — Needs Attention
+## Findings register
 
-### 3.1 Issues
+### Critical
 
-| Issue                        | Impact                                | Action                             |
-| ---------------------------- | ------------------------------------- | ---------------------------------- |
-| **CRA deprecated**           | Build tooling outdated, slower builds | Migrate to Vite                    |
-| **Three.js on initial load** | ~300KB+ added to bundle               | Lazy load 3D section               |
-| **React 18 (not 19)**        | Missing React 19 features             | Upgrade                            |
-| **three 0.148 (old)**        | Latest is 0.170+                      | Upgrade                            |
-| **react-on-screen**          | Potentially unmaintained              | Replace with Intersection Observer |
-| **Node 22 in Dockerfile**    | Works but Node 24+ available          | Update                             |
-| **No code splitting**        | Single bundle                         | Add React.lazy() for sections      |
+No critical findings.
 
-### 3.2 Agent Instructions — Modernization
+### High
 
-```
-Step 1: Migrate CRA → Vite (BIG but necessary)
-  - npx create-vite@latest migration plan
-  - Move src/ structure
-  - Update imports (CRA env vars → Vite env)
-  - Update tsconfig
-  - Remove react-scripts dependency
-  - Update Dockerfile build commands
+| ID   | Finding and impact                                                                                                                                                                                                                     | Final disposition                                                                                                                                                                                                                                                                          |
+| ---- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| H-01 | `brace-expansion`, `js-yaml`, `nanoid`, and `postcss` had high-severity denial-of-service/file-disclosure advisories in development/build paths. They were not shipped in the static runtime, but could affect developer or CI inputs. | **Resolved.** Transitive dependencies and lockfile were updated. `npm audit --include=dev --audit-level=high` reports zero advisories locally and in a clean Docker build.                                                                                                                 |
+| H-02 | HTTP was served without a forced HTTPS redirect; the host port listened on every interface; Nginx lacked an explicit security-header policy.                                                                                           | **Resolved for Docker/Traefik.** Added permanent HTTPS redirect, localhost-only diagnostic port, CSP/HSTS and browser hardening headers, no-new-privileges, read-only filesystem with explicit temporary mounts, and bounded logs. GitHub Pages still needs equivalent edge configuration. |
+| H-03 | Lazy section IDs did not exist until intersection activation, so in-page links/direct hashes could fail and NavBar could not observe its targets.                                                                                      | **Resolved.** Stable wrapper targets exist at initial render, child IDs no longer duplicate them, click/deep-link scrolling is explicit, reduced-motion is honored, and regression tests cover target availability.                                                                        |
 
-Step 2: Lazy load Three.js
-  - Wrap 3D component in React.lazy()
-  - Add Suspense with loading fallback
-  - Only load when section scrolls into view
+### Medium
 
-Step 3: Replace react-on-screen
-  - Use native IntersectionObserver API
-  - Or use useScrollAnimation hook (already exists in hooks/)
+| ID   | Finding and impact                                                                                                                 | Final disposition                                                                                                                                                                                                 |
+| ---- | ---------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| M-01 | Coverage was a documented but broken gate because the V8 provider was missing; only two tests existed.                             | **Resolved.** Added the matching provider, four regression/data tests (seven total), and minimum 60% statements, 40% branches, 55% functions, and 60% lines. Final coverage is 64.33% / 47.45% / 61.61% / 66.90%. |
+| M-02 | No CI enforced formatting, lint, types, tests, build, or audit.                                                                    | **Resolved.** GitHub Actions now uses read-only permissions and pinned action revisions to run `npm ci`, the full gate, and a container build. Dependabot covers npm, Docker, and Actions.                        |
+| M-03 | Nginx did not cache WebP assets immutably and did not explicitly prevent stale HTML.                                               | **Resolved.** Fingerprinted assets, including WebP, receive one-year immutable caching; `index.html` receives no-cache/no-store; missing static assets return 404.                                                |
+| M-04 | Umami and remote icons/badges are external content dependencies; no CSP or fallback existed.                                       | **Partially resolved.** Docker Nginx now has an origin-restricted CSP and referrer policy. Remote content replacement/outage, lack of analytics SRI, and GitHub Pages header parity remain.                       |
+| M-05 | Error handling was limited to a root boundary/console; no independent availability, client-error aggregation, or runbook existed.  | **Partially resolved.** Added health/header/log/rollback operational guidance. Independent uptime alerting and privacy-aware client error collection remain external work.                                        |
+| M-06 | Dead EmailJS source/dependency was unreachable, unconfigured, and described as releasable despite needing provider abuse controls. | **Resolved.** Removed the unused source, environment template, types, and production dependency. Existing email/LinkedIn links remain.                                                                            |
+| M-07 | Mutable Docker tags and a 31 MB context reduced reproducibility and increased build exposure/cache churn.                          | **Resolved.** Node/Nginx multi-architecture digests are pinned and Dependabot-managed. `.dockerignore` reduces the measured context to about 290 KB while the build still succeeds.                               |
+| M-08 | Compose service definitions are duplicated; logs were unbounded and `container_name` limits replicas.                              | **Partially resolved.** Log rotation is bounded and both files validate. Duplication and fixed container naming remain; replica scaling is not currently required for the static site.                            |
+| M-09 | Major upgrades are available for the Vite, TypeScript, ESLint, jsdom, and React-plugin toolchain.                                  | **Open, planned.** Safe patch/minor updates were applied. Major upgrades were not mixed into the security repair because they require compatibility and browser/test migration work.                              |
+| M-10 | The first CSP draft upgraded the container's relative HTTP assets to HTTPS, breaking documented direct-port access without TLS.    | **Resolved during validation.** Removed the unnecessary upgrade directive; external sources remain HTTPS-only, production same-origin assets inherit HTTPS, and the built SPA now mounts over direct HTTP.        |
 
-Step 4: Upgrade dependencies
-  - React 18 → 19
-  - Three.js 0.148 → latest
-  - React Three Fiber 8.x → 9.x (if React 19 compatible)
-  - bootstrap + react-bootstrap latest
+### Low
 
-Step 5: Update Dockerfile
-  - Node 22 → Node 24 (or latest LTS)
-```
+| ID   | Finding and impact                                                                              | Final disposition                                                                                                                                                                                                                  |
+| ---- | ----------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| L-01 | `projects.json` had a duplicate `type` key that standard parsers silently overwrote.            | **Resolved.** Removed the duplicate and added data/translation invariant tests.                                                                                                                                                    |
+| L-02 | Formatting included generated Graphify output and failed on maintained files.                   | **Resolved.** Generated output is excluded and the repository formatting gate passes.                                                                                                                                              |
+| L-03 | Theme state accepted arbitrary stored strings and replaced every `body` class.                  | **Resolved.** Stored values are validated, storage failures degrade safely, and only owned theme classes are changed; regression tested.                                                                                           |
+| L-04 | Certification dates and several accessibility labels were hard-coded in English in Polish mode. | **Partially resolved.** Certification dates now use `pl-PL`/`en-US`; remaining hard-coded assistive labels should move into translations.                                                                                          |
+| L-05 | LaTeX compiler intermediates were committed and unused large source/public assets remain.       | **Partially resolved.** Reproducible compiler intermediates were deleted/ignored while `.tex` and PDFs were preserved. Unreferenced GLB/images need an owner decision before deletion because direct public URLs may be consumers. |
+| L-06 | Documentation described a former CRA/React 18/Three.js system.                                  | **Resolved.** README, audit, deployment, release, and security documents now describe the current Vite/React 19 static architecture and operations.                                                                                |
 
----
+## Fixes applied
 
-## 4. Content — What Exists
+- Updated vulnerable transitive packages, React patch versions, and the lockfile; removed EmailJS.
+- Added explicit Node/npm engine policy and a single `npm run check` release gate.
+- Restored coverage, enforced thresholds, and added navigation/theme/content-data regression tests.
+- Fixed stable hash targets, initial deep-link handling, active-section observation, main-content focus,
+  the misleading hero experience CTA, localized certification dates, and theme class ownership.
+- Added CI and weekly dependency/image/action update automation.
+- Pinned Docker base digests, minimized build context, and tested clean `npm ci` plus production build.
+- Added Traefik HTTPS redirect, localhost host binding, no-new-privileges, read-only filesystem,
+  temporary writable mounts, resource controls, health check, and log retention.
+- Added Nginx CSP, HSTS, clickjacking, MIME, referrer, permissions, COOP, cache, and server-token
+  controls; verified both headers and CSP-compatible application startup against a running
+  container.
+- Removed duplicate JSON data and generated LaTeX intermediates; excluded generated graph output from
+  formatting.
+- Replaced stale documentation and added setup, architecture, secrets, security, release, operations,
+  monitoring, and rollback guidance.
 
-### 4.1 Components
+## Verification evidence after fixes
 
-- **SimpleBanner** — Hero/banner section
-- **Skills** — Skill cards
-- **Experience** — Experience cards (KPMG, etc.)
-- **FeaturedProject** — RentifyNow + ecosystem showcase (HouseifyNow, GoalifyNow, DoifyNow)
-- **Projects** — Project gallery
-- **Certifications** — Certification cards
-- **Contact** — Contact form (EmailJS) + contact info
-- **NavBar** — Navigation + controls
-- **Footer** — Footer
-- **LanguageProvider** — i18n
-- **ErrorBoundary** — Error handling
+- `npm run check`: pass
+  - Prettier: pass
+  - ESLint: pass
+  - TypeScript: pass
+  - Vitest: 2 files / 7 tests pass
+  - Coverage: 64.33% statements, 47.45% branches, 61.61% functions, 66.90% lines
+  - Vite production build: pass; about 88.60 KB gzip main JS and 35.81 KB gzip main CSS
+  - npm audit including development/build packages: 0 advisories
+- Clean Docker build: pass; `npm ci` reports 0 advisories
+- Docker build context: about 290 KB (previously 31 MB)
+- Nginx configuration test: pass
+- Both Compose configurations: pass
+- Read-only container runtime with no-new-privileges: pass
+- Runtime HTTP checks:
+  - HTML: 200 and `no-cache, no-store, must-revalidate`
+  - fingerprinted JS: 200 and one-year `public, immutable`
+  - SPA route: 200
+  - missing static JS: 404
+  - CSP, HSTS, COOP, permissions, referrer, MIME, and frame headers present
+- Browser DOM check: stable lazy targets exist with no duplicate IDs or horizontal overflow at the
+  tested desktop viewport; the production bundle mounts under the Nginx CSP with all tested images
+  loaded
+- EN/PL translation structures: equal (193 scalar paths each)
+- Current/history pattern scan: no committed environment file, private key, or recognized token
+  pattern; tracked dependency licenses are declared
 
-### 4.2 Content Improvements
+## Security model and accepted constraints
 
-| Item                     | Action                                                                    |
-| ------------------------ | ------------------------------------------------------------------------- |
-| **DeployifyNow missing** | FeaturedProject shows ecosystem but may not include DeployifyNow — add it |
-| **Experience section**   | Verify up-to-date — add any new roles/projects                            |
-| **Certifications**       | Verify current — add any new certs                                        |
-| **Skills**               | Verify matches current tech stack                                         |
-| **Contact form**         | Verify EmailJS still works                                                |
+- The site is public and has no accounts, roles, sessions, access tokens, private records, backend,
+  first-party API, or database. Authentication, authorization, migration, query, and database-access
+  controls are therefore not applicable.
+- React escapes rendered content and the app does not use `dangerouslySetInnerHTML`, `eval`, or
+  runtime-generated executable markup.
+- A static host cannot implement secret-backed APIs, durable audit logs, or server-side abuse/rate
+  controls. Those belong at Traefik/CDN/provider level or in a separately reviewed backend.
+- GitHub Pages does not provide repository-controlled arbitrary response headers. Nginx controls
+  apply only to the container path unless an edge/CDN adds equivalent policy for Pages.
+- Portfolio claims and linked external products/mobile apps were not security-tested because their
+  source, infrastructure, accounts, databases, and runtime systems are outside this repository.
+- Docker image OS vulnerability scanning was not available in the environment; digest updates and an
+  external registry scanner should remain release requirements.
 
-### 4.3 Agent Instructions — Content
+## Remaining security and maintenance priorities
 
-```
-Step 1: Read src/components/FeaturedProject/FeaturedProject.tsx
-  - Verify DeployifyNow is listed in ecosystem
-  - If not: add card for DeployifyNow
-
-Step 2: Read src/components/Experience/Experience.tsx
-  - Verify dates and descriptions current
-  - Add any new experience
-
-Step 3: Read src/components/Certifications/Certifications.tsx
-  - Add any new certifications
-
-Step 4: Read src/components/skills/Skills.tsx
-  - Verify tech stack list matches current (Angular 20, .NET 10, Tailwind, etc.)
-
-Step 5: Verify contact form
-  - Check EmailJS service ID is valid
-  - Test form submission if possible
-```
-
----
-
-## 5. Missing Features
-
-| Feature                       | Priority | Action                                                             |
-| ----------------------------- | -------- | ------------------------------------------------------------------ |
-| **Blog section**              | LOW      | Consider adding for SEO — articles about SaaS building, tech stack |
-| **Dark mode**                 | LOW      | `useTheme` hook exists — verify dark mode toggle works             |
-| **Resume/CV download**        | MEDIUM   | Add downloadable PDF resume                                        |
-| **GitHub contribution graph** | LOW      | Embed or link to GitHub profile                                    |
-
----
-
-## 6. i18n — Exists via LanguageProvider
-
-### 6.1 Current State
-
-- `LanguageProvider` component exists
-- `useLanguage` hook exists
-- Unclear which languages are supported
-
-### 6.2 Agent Instructions
-
-```
-Step 1: Read src/components/LanguageProvider/LanguageProvider.tsx
-Step 2: Check what languages are supported
-Step 3: Verify language toggle is in NavBar
-Step 4: Verify all text is translated (not just English)
-```
-
----
-
-## 7. Deployment — Solid
-
-- Docker: multi-stage build (Node → Nginx)
-- Compose with resource limits (512M memory, 0.5 CPU)
-- Health check configured
-- Traefik routing for litwa.dev + [www.litwa.dev](http://www.litwa.dev)
-- GitHub Pages as backup
-
----
-
-## 8. Prioritized Agent Execution Order
-
-```
-Phase 1 — Quick SEO Wins (Impact: MEDIUM, Effort: LOW)
-  1.1 Verify portfolio-preview.jpg exists
-  1.2 Create robots.txt
-  1.3 Create sitemap.xml
-
-Phase 2 — Content Updates (Impact: HIGH, Effort: LOW)
-  2.1 Add DeployifyNow to ecosystem showcase
-  2.2 Update experience section
-  2.3 Update skills list
-  2.4 Update certifications
-  2.5 Verify contact form works
-
-Phase 3 — Performance Modernization (Impact: HIGH, Effort: HIGH)
-  3.1 Migrate CRA → Vite
-  3.2 Lazy load Three.js
-  3.3 Replace react-on-screen
-  3.4 Upgrade React + Three.js + dependencies
-  3.5 Add code splitting
-
-Phase 4 — Features
-  4.1 Add resume/CV download
-  4.2 Verify dark mode toggle
-  4.3 Verify language toggle
-```
+1. Select one authoritative production path and configure/verify header parity if GitHub Pages stays.
+2. Add independent HTTPS uptime/TLS/DNS checks and privacy-aware client error reporting with alerts.
+3. Self-host or explicitly govern remote icons/badges; define analytics privacy/retention policy and
+   an SRI/self-hosting strategy for the Umami script.
+4. Consolidate Compose files and remove `container_name` if horizontal replicas become necessary.
+5. Plan toolchain major upgrades in isolated pull requests with browser/accessibility regression
+   testing.
+6. Translate the remaining hard-coded assistive labels and add real browser tests across desktop,
+   mobile, keyboard, reduced-motion, and analytics/network-failure scenarios.
+7. Inventory unreferenced public/source assets before removal, and add registry/SBOM/container CVE
+   scanning to CI or the deployment platform.

@@ -2,28 +2,30 @@ import { useState, useEffect } from 'react';
 
 export type Theme = 'light' | 'dark';
 
-export const useTheme = () => {
-  const [theme, setTheme] = useState<Theme>(() => {
-    // Check localStorage first, then system preference
-    const savedTheme = localStorage.getItem('portfolio-theme') as Theme;
-    if (savedTheme) return savedTheme;
+const getInitialTheme = (): Theme => {
+  try {
+    const savedTheme = localStorage.getItem('portfolio-theme');
+    if (savedTheme === 'light' || savedTheme === 'dark') return savedTheme;
+  } catch {
+    // Storage can be unavailable in privacy-restricted browser contexts.
+  }
 
-    // Check system preference
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-      return 'light';
-    }
-    return 'dark';
-  });
+  return window.matchMedia?.('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+};
+
+export const useTheme = () => {
+  const [theme, setTheme] = useState<Theme>(getInitialTheme);
 
   useEffect(() => {
-    // Save to localStorage
-    localStorage.setItem('portfolio-theme', theme);
+    try {
+      localStorage.setItem('portfolio-theme', theme);
+    } catch {
+      // The visual theme still works when persistence is unavailable.
+    }
 
-    // Apply theme to document
     document.documentElement.setAttribute('data-theme', theme);
-
-    // Update body class for compatibility
-    document.body.className = theme === 'light' ? 'light-theme' : 'dark-theme';
+    document.body.classList.remove('light-theme', 'dark-theme');
+    document.body.classList.add(`${theme}-theme`);
   }, [theme]);
 
   const toggleTheme = () => {

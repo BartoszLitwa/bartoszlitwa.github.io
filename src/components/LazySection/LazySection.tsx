@@ -40,7 +40,7 @@ const LazySection = ({
   const style: CSSProperties = isActivated ? {} : { minHeight };
 
   return (
-    <div ref={anchorRef} data-lazy-section={sectionId} style={style}>
+    <div id={sectionId} ref={anchorRef} data-lazy-section={sectionId} style={style}>
       {isActivated ? children : fallback}
     </div>
   );

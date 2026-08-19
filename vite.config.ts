@@ -18,7 +18,13 @@ export default defineConfig({
       provider: 'v8',
       reporter: ['text', 'html', 'lcov'],
       reportsDirectory: './coverage',
-      exclude: ['build/**', 'node_modules/**', 'src/main.tsx']
+      exclude: ['build/**', 'node_modules/**', 'src/main.tsx'],
+      thresholds: {
+        statements: 60,
+        branches: 40,
+        functions: 55,
+        lines: 60
+      }
     }
   }
 });

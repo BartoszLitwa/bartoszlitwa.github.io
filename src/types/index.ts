@@ -82,28 +82,6 @@ export type TranslationValue =
 
 export type Translations = Record<string, TranslationObject>;
 
-// Contact form types
-export interface ContactFormDetails {
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone: string;
-  subject: string;
-  message: string;
-  [key: string]: string; // Allow EmailJS to access properties dynamically
-}
-
-export interface ContactStatus {
-  message: string;
-  success: boolean;
-}
-
-// 3D Model types
-export interface ModelProps {
-  url?: string;
-  children?: React.ReactNode;
-}
-
 // Component props types
 export interface ProjectCardProps {
   card: Project;

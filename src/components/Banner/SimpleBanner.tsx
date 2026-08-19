@@ -1,21 +1,24 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-import { ArrowDown, ArrowRight, CheckCircle, CodeSlash, RocketTakeoff, Layers, Download } from 'react-bootstrap-icons';
+import {
+  ArrowDown,
+  ArrowRight,
+  CheckCircle,
+  CodeSlash,
+  RocketTakeoff,
+  Layers,
+  Download
+} from 'react-bootstrap-icons';
 import { useLanguage } from '../../hooks/useLanguage';
 import './SimpleBanner.css';
 
 const SimpleBanner = () => {
   const { t, get } = useLanguage();
-  const hireMeUrl = 'https://www.linkedin.com/in/bartoszlitwa/';
   const outcomes = get<string[]>('hero.outcomes', [
     '4+ years delivering production software',
     '90% Azure Cosmos DB cost reduction',
     '4 Microsoft Azure certifications'
   ]);
-
-  const handleHireClick = () => {
-    window.open(hireMeUrl, '_blank', 'noopener,noreferrer');
-  };
 
   const handleFeaturedClick = () => {
     const featuredSection = document.getElementById('featured-project');
@@ -64,14 +67,10 @@ const SimpleBanner = () => {
                   <RocketTakeoff size={20} className="me-2" />
                   <span>{t('hero.cta.viewWork')}</span>
                 </button>
-                <button
-                  className="btn-modern btn-secondary"
-                  onClick={handleHireClick}
-                  type="button"
-                >
+                <a className="btn-modern btn-secondary" href="#experience">
                   <span>{t('hero.cta.viewExperience')}</span>{' '}
                   <ArrowRight size={20} className="ms-2" />
-                </button>
+                </a>
                 <a
                   className="btn-modern btn-outline-glass"
                   href="/Bartosz_Litwa_CV.pdf"
@@ -122,8 +121,10 @@ const SimpleBanner = () => {
                   ))}
                 </div>
                 <div className="delivery-flow" aria-label={t('hero.proofFlowAria')}>
-                  <span>Product</span><ArrowRight aria-hidden="true" />
-                  <span>Architecture</span><ArrowRight aria-hidden="true" />
+                  <span>Product</span>
+                  <ArrowRight aria-hidden="true" />
+                  <span>Architecture</span>
+                  <ArrowRight aria-hidden="true" />
                   <span>Production</span>
                 </div>
               </div>
