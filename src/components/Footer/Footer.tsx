@@ -5,19 +5,16 @@ import { useLanguage } from '../../hooks/useLanguage';
 import './Footer.css';
 import '../NavBar/NavBar.css';
 import logo from '../../assets/img/logo.webp';
-import rentifyNowLogo from '../../assets/rentifynow/RentifyNowLogo.jpeg';
 import githubLogo from '../../assets/img/github.png';
 
 const Footer = () => {
   const { t } = useLanguage();
   const hireMeUrl = 'https://www.linkedin.com/in/bartoszlitwa/';
 
-  const ecosystemLinks = [
-    { name: 'DoifyNow', url: 'https://doifynow.com', className: '' },
-    { name: 'RentifyNow', url: 'https://rentifynow.com', className: 'text-accent-green' },
-    { name: 'HouseifyNow', url: 'https://houseifynow.com', className: '' },
-    { name: 'GoalifyNow', url: 'https://goalifynow.com', className: '' },
-    { name: 'DeployifyNow', url: 'https://deployifynow.com', className: '' }
+  const sectionLinks = [
+    { name: t('footer.company'), url: '#ecosystem' },
+    { name: t('footer.work'), url: '#work' },
+    { name: t('footer.experience'), url: '#experience' }
   ];
 
   return (
@@ -31,14 +28,8 @@ const Footer = () => {
           <Col md={4} className="footer-ecosystem-col">
             <h4 className="footer-section-title">{t('footer.ecosystemTitle')}</h4>
             <nav className="footer-ecosystem-links" aria-label={t('footer.aria.ecosystem')}>
-              {ecosystemLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`footer-eco-link ${link.className}`}
-                >
+              {sectionLinks.map((link) => (
+                <a key={link.name} href={link.url} className="footer-eco-link">
                   {link.name}
                 </a>
               ))}
@@ -70,21 +61,6 @@ const Footer = () => {
                     loading="lazy"
                   />
                 </a>
-                <a
-                  href="https://rentifynow.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={t('footer.aria.rentify')}
-                  className="rentifynow-link"
-                >
-                  <img
-                    src={rentifyNowLogo}
-                    height={24}
-                    width={24}
-                    alt={t('footer.aria.rentifyAlt')}
-                    loading="lazy"
-                  />
-                </a>
               </div>
               <a
                 href={hireMeUrl}
@@ -105,9 +81,7 @@ const Footer = () => {
                 &copy; {new Date().getFullYear()} {t('footer.rights')}
               </p>
               <p className="footer-bottom-links">
-                <a href="https://doifynow.com" target="_blank" rel="noopener noreferrer">
-                  DoifyNow
-                </a>
+                <a href="#ecosystem">DoifyNow</a>
                 <span className="footer-sep">·</span>
                 <a href="mailto:bartosz.litwa@proton.me">bartosz.litwa@proton.me</a>
               </p>

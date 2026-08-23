@@ -1,7 +1,9 @@
 # Bartosz Litwa Portfolio
 
-Public portfolio at [litwa.dev](https://litwa.dev), implemented as a static React single-page
-application. The repository supports GitHub Pages and a Docker/Nginx deployment behind Traefik.
+Public portfolio at [litwa.dev](https://litwa.dev), presenting Bartosz Litwa's Paperclip-powered
+AI-native company, the DoifyNow product family, selected technical work, and professional engineering
+experience. It is implemented as a static React single-page application and supports GitHub Pages or
+a Docker/Nginx deployment behind Traefik.
 
 ## Architecture
 
@@ -12,7 +14,7 @@ Browser
   -> GitHub Pages, or Traefik -> Nginx container
       -> static Vite build
           -> React 19 + TypeScript
-              -> JSON content in src/data
+              -> JSON product, project, career, and EN/PL content in src/data
               -> bundled images and fonts
               -> localStorage: language and theme preferences
               -> Umami: anonymous product analytics
@@ -25,8 +27,9 @@ system, or native mobile app here. Technology names in portfolio content describ
 Main runtime components:
 
 - `src/App.tsx`: composition, code splitting, and analytics section observation
-- `src/components`: navigation, hero, experience, skills, projects, certifications, and footer
-- `src/data`: portfolio and EN/PL translation data
+- `src/components`: navigation, hero, company ecosystem, selected work, experience, skills,
+  certifications, and footer
+- `src/data`: product-family, portfolio, career, and EN/PL translation data
 - `src/hooks`: language, theme, and intersection-based animation state
 - `src/utils`: asset lookup, localization, and Umami helpers
 - `vite.config.ts`: build, test, coverage, and output configuration
@@ -38,6 +41,7 @@ Main runtime components:
 
 - Node.js 22 through 24
 - npm 10 or newer
+- Chromium installed for Playwright browser journeys (`npx playwright install chromium`)
 - Docker with Compose v2 only for container validation/deployment
 
 Install exactly what is recorded in the lockfile and start Vite:
@@ -65,9 +69,10 @@ npm run check
 ```
 
 It enforces formatting, ESLint, strict TypeScript, Vitest coverage thresholds, a production build,
-and an audit that explicitly includes development/build dependencies. Individual commands remain
-available as `npm run format:check`, `npm run lint`, `npm run typecheck`, `npm run test:coverage`,
-`npm run build`, and `npm run audit`.
+Playwright journeys against the production preview, and an audit that explicitly includes
+development/build dependencies. Individual commands remain available as `npm run format:check`,
+`npm run lint`, `npm run typecheck`, `npm run test:coverage`, `npm run build`, `npm run test:e2e`, and
+`npm run audit`.
 
 GitHub Actions runs the same gate and additionally builds the production container. Dependabot
 checks npm, Docker base images, and GitHub Actions weekly.
@@ -110,17 +115,21 @@ The full prioritized register, evidence, fixes, and accepted constraints are in
 2. add independent uptime and client-error monitoring with redaction/retention rules;
 3. self-host or explicitly govern remote icons/badges and define a privacy notice for analytics;
 4. consolidate the duplicate Compose files and clean unused source assets;
-5. expand behavior and accessibility coverage beyond the current regression floor.
+5. maintain behavior and accessibility coverage as the content model and page hierarchy evolve.
 
 ## Updating content
 
 Most content changes belong in:
 
+- `src/data/products.json`
 - `src/data/projects.json`
 - `src/data/experience.json`
 - `src/data/skills.json`
 - `src/data/certifications.json`
 - `src/data/translations.json`
 
-Keep EN and PL translation structures aligned. The test suite validates translation paths, unique
-content identifiers, project links, and required collections.
+`products.json` is the authoritative product-family source. Product URLs are optional: omit a URL
+until its current public destination is verified, and use an honest development stage instead of a
+broken external call to action. Keep EN and PL content structures aligned. The test suite validates
+translation paths, product stages and optional links, unique content identifiers, project links, and
+required collections.

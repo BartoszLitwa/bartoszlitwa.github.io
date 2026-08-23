@@ -22,7 +22,7 @@ const Skills = () => {
               <div
                 className="skills-grid-modern"
                 role="list"
-                aria-label="Technical skills categories"
+                aria-label={t('skills.aria.categories')}
               >
                 {categories.map((category) => (
                   <SkillCard key={category.id} category={category} />

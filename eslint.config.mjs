@@ -19,7 +19,15 @@ const tsStylisticConfigs = tseslint.configs.stylistic.map((config) => ({
 
 export default defineConfig([
   {
-    ignores: ['build/**', 'coverage/**', 'node_modules/**', 'public/**', 'eslint.config.mjs']
+    ignores: [
+      'build/**',
+      'coverage/**',
+      'node_modules/**',
+      'playwright-report/**',
+      'public/**',
+      'test-results/**',
+      'eslint.config.mjs'
+    ]
   },
   js.configs.recommended,
   ...tsRecommendedConfigs,

@@ -5,6 +5,8 @@
 - Working tree contains only reviewed release changes.
 - Run `npm ci` from the committed lockfile.
 - Run `npm run check` successfully.
+- Confirm the Playwright desktop/mobile journeys ran as part of the gate and did not reuse a stale
+  preview server.
 - Confirm the audit includes development/build dependencies and reports no high/critical advisory.
 - Confirm coverage remains above the enforced thresholds.
 - Confirm GitHub Actions passes for the exact revision being released.
@@ -20,17 +22,19 @@
 ## 3. Browser smoke checks
 
 - No runtime console errors on initial load or scrolling.
-- Direct deep links such as `/#experience`, `/#skills`, and `/#projects` land on stable targets.
+- Direct deep links such as `/#ecosystem`, `/#work`, and `/#experience` land on stable targets.
 - Nav active state follows scrolling; mobile menu opens, navigates, and closes.
 - EN/PL updates visible copy and document language.
 - Light/dark theme toggles and persists without removing unrelated body classes.
 - CV downloads from `/Bartosz_Litwa_CV.pdf`.
-- Project, certification, social, and ecosystem links use the intended HTTPS destination.
+- Project, certification, social, and ecosystem links use a currently verified HTTPS destination.
+- Products without a confirmed public URL render an honest development state without a broken link.
 - Remote icons/badges and Umami failures degrade safely.
 
 ## 4. SEO, caching, and security headers
 
-- `robots.txt`, `sitemap.xml`, canonical, Open Graph image, and JSON-LD match production content.
+- `robots.txt`, `sitemap.xml`, manifest, canonical, Open Graph image, and JSON-LD match the current
+  company/product narrative without asserting unverified pricing, availability, or maturity.
 - HTTP permanently redirects to HTTPS.
 - HTTPS returns HSTS, CSP, clickjacking, MIME-sniffing, referrer, and permissions headers.
 - `index.html` is not cached; fingerprinted JS/CSS/WebP assets are immutable.

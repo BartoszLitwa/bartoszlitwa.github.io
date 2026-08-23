@@ -123,6 +123,15 @@
   flex-shrink: 0;
 }
 
+.experienceCard-logo-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
 .experienceCard-bx:hover .experienceCard-logo {
   border-color: var(--accent-primary);
   box-shadow: 0 4px 12px rgba(109, 40, 217, 0.2);

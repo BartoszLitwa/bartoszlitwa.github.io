@@ -72,7 +72,7 @@
   border-radius: 20px;
   font-size: 0.85rem;
   font-weight: 500;
-  color: #10b981;
+  color: var(--accent-secondary);
   letter-spacing: 0.02em;
 }
 
@@ -80,9 +80,9 @@
   content: '';
   width: 8px;
   height: 8px;
-  background: #10b981;
+  background: var(--accent-secondary);
   border-radius: 50%;
-  box-shadow: 0 0 10px #10b981;
+  box-shadow: 0 0 10px var(--accent-secondary);
   animation: pulse-dot 2s infinite;
 }
 
@@ -113,6 +113,12 @@
   background: linear-gradient(135deg, var(--accent-glow) 0%, #d8b4fe 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-theme='light'] .text-accent-gradient {
+  background: linear-gradient(135deg, #5b21b6 0%, #047857 100%);
+  -webkit-background-clip: text;
   background-clip: text;
 }
 

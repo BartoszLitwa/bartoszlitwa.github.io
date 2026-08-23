@@ -1,0 +1,156 @@
+[
+  {
+    "id": "doifynow",
+    "name": "DoifyNow",
+    "stage": "building",
+    "role": {
+      "en": "Parent company and shared platform for the Now product family.",
+      "pl": "Firma macierzysta i wspólna platforma rodziny produktów Now."
+    },
+    "description": {
+      "en": "A Paperclip-powered AI-native company building a coherent family of focused products while keeping each product's domain and responsibilities explicit.",
+      "pl": "Firma AI-native wspierana przez Paperclip, która buduje spójną rodzinę wyspecjalizowanych produktów i jasno rozdziela ich domeny oraz odpowiedzialności."
+    },
+    "tags": {
+      "en": ["AI-native company", "Product ecosystem", "Shared platform"],
+      "pl": ["Firma AI-native", "Ekosystem produktów", "Wspólna platforma"]
+    }
+  },
+  {
+    "id": "rentifynow",
+    "name": "RentifyNow",
+    "stage": "building",
+    "role": {
+      "en": "Rental and property-management workflows.",
+      "pl": "Procesy najmu i zarządzania nieruchomościami."
+    },
+    "description": {
+      "en": "A focused product for organizing rental administration and recurring property-management work.",
+      "pl": "Wyspecjalizowany produkt porządkujący administrację najmem i powtarzalne zadania związane z zarządzaniem nieruchomościami."
+    },
+    "tags": {
+      "en": ["Rentals", "Property operations", "Workflow management"],
+      "pl": ["Najem", "Operacje nieruchomości", "Zarządzanie procesami"]
+    }
+  },
+  {
+    "id": "houseifynow",
+    "name": "HouseifyNow",
+    "stage": "building",
+    "role": {
+      "en": "Homeowner operations, maintenance, and financial oversight.",
+      "pl": "Obsługa domu, utrzymanie i nadzór finansowy dla właścicieli."
+    },
+    "description": {
+      "en": "A focused workspace for maintenance, property tasks, and financial oversight across day-to-day home ownership.",
+      "pl": "Wyspecjalizowana przestrzeń do utrzymania domu, zadań dotyczących nieruchomości i nadzoru finansowego w codziennym zarządzaniu własnym domem."
+    },
+    "tags": {
+      "en": ["Home operations", "Maintenance", "Financial oversight"],
+      "pl": ["Obsługa domu", "Utrzymanie", "Nadzór finansowy"]
+    }
+  },
+  {
+    "id": "goalifynow",
+    "name": "GoalifyNow",
+    "stage": "building",
+    "role": {
+      "en": "Goals, habits, fitness, and personal progress.",
+      "pl": "Cele, nawyki, aktywność i osobisty rozwój."
+    },
+    "description": {
+      "en": "A personal-progress product connecting goals and habits with fitness context and visible progress.",
+      "pl": "Produkt wspierający rozwój osobisty, który łączy cele i nawyki z kontekstem aktywności oraz widocznymi postępami."
+    },
+    "tags": {
+      "en": ["Goals", "Habits", "Personal progress"],
+      "pl": ["Cele", "Nawyki", "Osobisty rozwój"]
+    }
+  },
+  {
+    "id": "deployifynow",
+    "name": "DeployifyNow",
+    "stage": "building",
+    "role": {
+      "en": "Deployment and infrastructure automation.",
+      "pl": "Automatyzacja wdrożeń i infrastruktury."
+    },
+    "description": {
+      "en": "A focused product for repeatable deployment and infrastructure workflows across the product portfolio.",
+      "pl": "Wyspecjalizowany produkt do powtarzalnych procesów wdrożeniowych i infrastrukturalnych w całym portfolio produktów."
+    },
+    "tags": {
+      "en": ["Deployments", "Infrastructure", "Automation"],
+      "pl": ["Wdrożenia", "Infrastruktura", "Automatyzacja"]
+    },
+    "url": "https://deployifynow.com"
+  },
+  {
+    "id": "postifynow",
+    "name": "PostifyNow",
+    "stage": "active-build",
+    "role": {
+      "en": "Governed multi-channel content planning, approval, and delivery.",
+      "pl": "Kontrolowane planowanie, akceptacja i dostarczanie treści w wielu kanałach."
+    },
+    "description": {
+      "en": "A governed publishing workspace for planning once, reviewing channel-specific content, and tracking each destination independently.",
+      "pl": "Kontrolowana przestrzeń publikacyjna do wspólnego planowania, przeglądu treści dla poszczególnych kanałów i niezależnego śledzenia każdego miejsca docelowego."
+    },
+    "tags": {
+      "en": ["Content operations", "Approvals", "Audit trails"],
+      "pl": ["Operacje treści", "Akceptacje", "Ścieżka audytu"]
+    }
+  },
+  {
+    "id": "leadifynow",
+    "name": "LeadifyNow",
+    "stage": "discovery",
+    "role": {
+      "en": "Inbound capture, consent and attribution, qualification, booking, and audited handoffs.",
+      "pl": "Pozyskiwanie zapytań, zgody i atrybucja, kwalifikacja, rezerwacje oraz audytowane przekazania."
+    },
+    "description": {
+      "en": "Designed first for property operators, it keeps source, consent, qualification, booking, and human-approved handoffs connected and auditable.",
+      "pl": "Projektowany najpierw dla operatorów nieruchomości, łączy źródło, zgody, kwalifikację, rezerwacje i zatwierdzane przez człowieka przekazania w jeden audytowalny proces."
+    },
+    "tags": {
+      "en": ["Inbound operations", "Consent and attribution", "Audited handoffs"],
+      "pl": ["Obsługa zapytań", "Zgody i atrybucja", "Audytowane przekazania"]
+    }
+  },
+  {
+    "id": "insightifynow",
+    "name": "InsightifyNow",
+    "stage": "discovery",
+    "role": {
+      "en": "Internal-first governed metrics, attribution, lineage, and decision support.",
+      "pl": "Wewnętrzne, kontrolowane metryki, atrybucja, pochodzenie danych i wsparcie decyzji."
+    },
+    "description": {
+      "en": "Designed to turn explicitly shared product evidence into versioned metrics, visible lineage, caveats, and evidence-linked reports.",
+      "pl": "Projektowany tak, aby przekształcać jawnie udostępnione dowody produktowe w wersjonowane metryki, widoczne pochodzenie danych, zastrzeżenia i raporty powiązane z dowodami."
+    },
+    "tags": {
+      "en": ["Governed metrics", "Lineage", "Decision support"],
+      "pl": ["Kontrolowane metryki", "Pochodzenie danych", "Wsparcie decyzji"]
+    }
+  },
+  {
+    "id": "supportifynow",
+    "name": "SupportifyNow",
+    "stage": "discovery",
+    "role": {
+      "en": "Product-aware customer operations with human-controlled actions.",
+      "pl": "Operacje obsługi klienta świadome produktu, z działaniami kontrolowanymi przez człowieka."
+    },
+    "description": {
+      "en": "Designed around isolated workspaces, evidence-linked drafts, human approval, immutable delivery attempts, and audited handoffs.",
+      "pl": "Projektowany wokół odizolowanych przestrzeni roboczych, szkiców powiązanych z dowodami, akceptacji przez człowieka, niezmiennych prób dostarczenia i audytowanych przekazań."
+    },
+    "tags": {
+      "en": ["Customer operations", "Human control", "Auditability"],
+      "pl": ["Obsługa klienta", "Kontrola człowieka", "Audytowalność"]
+    }
+  }
+]

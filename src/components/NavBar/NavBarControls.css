@@ -33,7 +33,7 @@
 }
 
 .control-btn:focus {
-  outline: 2px solid var(--accent-primary);
+  outline: 3px solid var(--focus-ring);
   outline-offset: 2px;
 }
 
@@ -146,7 +146,7 @@
 
 .language-option.active {
   background: rgba(109, 40, 217, 0.16);
-  color: var(--accent-primary);
+  color: var(--accent-glow);
 }
 
 .option-code {
@@ -166,7 +166,7 @@
 }
 
 .option-check {
-  color: var(--accent-primary);
+  color: var(--accent-glow);
   font-weight: bold;
   font-size: 0.9rem;
 }

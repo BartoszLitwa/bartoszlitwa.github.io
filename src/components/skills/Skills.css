@@ -146,6 +146,19 @@
   filter: brightness(0.9);
 }
 
+.skill-icon-fallback {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  background: var(--surface-hover);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
 .skill-badge:hover .skill-icon {
   filter: brightness(1.1);
   transform: scale(1.1);

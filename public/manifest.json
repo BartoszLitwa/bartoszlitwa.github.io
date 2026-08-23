@@ -1,7 +1,7 @@
 {
-  "short_name": "B. Litwa",
-  "name": "Bartosz Litwa - Full Stack .NET Engineer",
-  "description": "Professional portfolio showcasing expertise in .NET, Angular, Azure DevOps, and enterprise application development",
+  "short_name": "Bartosz Litwa",
+  "name": "Bartosz Litwa - AI-Native Company and Product Portfolio",
+  "description": "The DoifyNow product family, selected technical work, and Bartosz Litwa's full-stack .NET, Azure, and DevOps experience",
   "icons": [
     {
       "src": "/favicon.ico",
@@ -11,8 +11,8 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#007bff",
-  "background_color": "#121212",
+  "theme_color": "#050507",
+  "background_color": "#050507",
   "categories": ["business", "productivity", "portfolio"],
   "lang": "en-US",
   "dir": "ltr",

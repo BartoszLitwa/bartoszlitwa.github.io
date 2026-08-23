@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ListGroup } from 'react-bootstrap';
 import './Experience.css';
 import { ExperienceCardProps } from '../../types';
@@ -6,7 +6,7 @@ import { useLanguage } from '../../hooks/useLanguage';
 import { resolveLocalizedField } from '../../utils/localization';
 
 const ExperienceCard = ({ experience }: ExperienceCardProps) => {
-  const { language } = useLanguage();
+  const { language, t } = useLanguage();
   const title = resolveLocalizedField(experience.title, language);
   const company = resolveLocalizedField(experience.company, language);
   const city = resolveLocalizedField(experience.city, language);
@@ -21,6 +21,8 @@ const ExperienceCard = ({ experience }: ExperienceCardProps) => {
   const education = experience.education
     ? resolveLocalizedField(experience.education, language)
     : undefined;
+  const [failedLogoUrl, setFailedLogoUrl] = useState<string | null>(null);
+  const logoAvailable = Boolean(experience.companyLogo) && failedLogoUrl !== experience.companyLogo;
 
   return (
     <article
@@ -29,12 +31,23 @@ const ExperienceCard = ({ experience }: ExperienceCardProps) => {
     >
       <header className="experienceCard-header">
         <div className="experienceCard-company">
-          <img
-            src={experience.companyLogo}
-            alt={`${company} logo`}
-            className="experienceCard-logo"
-            loading="lazy"
-          />
+          {logoAvailable ? (
+            <img
+              src={experience.companyLogo}
+              alt={`${company} ${t('experience.aria.logoAlt')}`}
+              className="experienceCard-logo"
+              loading="lazy"
+              onError={() => setFailedLogoUrl(experience.companyLogo)}
+            />
+          ) : (
+            <div
+              className="experienceCard-logo experienceCard-logo-fallback"
+              role="img"
+              aria-label={`${t('experience.aria.logoFallback')}: ${company}`}
+            >
+              {company.slice(0, 1)}
+            </div>
+          )}
           <div>
             <h3 id={`exp-title-${company.replace(/\s+/g, '-').toLowerCase()}`}>{title}</h3>
             <h4>
@@ -44,7 +57,7 @@ const ExperienceCard = ({ experience }: ExperienceCardProps) => {
         </div>
         <div
           className="experienceCard-period"
-          aria-label={`Role timeline from ${experience.startDate} to ${experience.endDate}`}
+          aria-label={`${t('experience.aria.roleTimeline')} ${experience.startDate} ${t('experience.aria.to')} ${experience.endDate}`}
         >
           <span className="experienceCard-date">{experience.startDate}</span>
           <span className="period-separator" aria-hidden="true">
@@ -54,8 +67,10 @@ const ExperienceCard = ({ experience }: ExperienceCardProps) => {
         </div>
       </header>
       {promotionPath && promotionPath.length > 0 && (
-        <div className="promotion-path" role="status" aria-label="Promotion progression">
-          <span className="promotion-label">{promotionMonth || 'Career progression'}</span>
+        <div className="promotion-path" role="status" aria-label={t('experience.aria.promotion')}>
+          <span className="promotion-label">
+            {promotionMonth || t('experience.careerProgression')}
+          </span>
           <div className="promotion-pills">
             {promotionPath.map((level, index) => (
               <React.Fragment key={`${level}-${index}`}>
@@ -71,12 +86,16 @@ const ExperienceCard = ({ experience }: ExperienceCardProps) => {
         </div>
       )}
       {education && (
-        <p className="education-badge" role="note" aria-label="Education">
+        <p className="education-badge" role="note" aria-label={t('experience.aria.education')}>
           {education}
         </p>
       )}
       <p className="experienceCard-summary">{description}</p>
-      <ListGroup variant="flush" as="ul" aria-label={`Achievements at ${company}`}>
+      <ListGroup
+        variant="flush"
+        as="ul"
+        aria-label={`${t('experience.aria.achievements')} ${company}`}
+      >
         {achievements.map((ach: string, index: number) => (
           <ListGroup.Item
             key={`expIt-${index}-${ach.slice(0, 15)}`}

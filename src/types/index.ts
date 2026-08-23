@@ -8,9 +8,26 @@ export interface Project {
   type: string;
   url: string;
   metrics?: LocalizedField<string>;
-  featured?: boolean;
   technologies?: LocalizedField<string[]>;
   highlights?: LocalizedField<string[]>;
+}
+
+export const ProductStage = {
+  Building: 'building',
+  ActiveBuild: 'active-build',
+  Discovery: 'discovery'
+} as const;
+
+export type ProductStage = (typeof ProductStage)[keyof typeof ProductStage];
+
+export interface Product {
+  id: string;
+  name: string;
+  role: LocalizedField<string>;
+  description: LocalizedField<string>;
+  stage: ProductStage;
+  tags: LocalizedField<string[]>;
+  url?: string;
 }
 
 // Experience related types

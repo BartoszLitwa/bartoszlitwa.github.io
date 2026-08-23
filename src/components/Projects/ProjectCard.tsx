@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { CodeSlash } from 'react-bootstrap-icons';
 import './Projects.css';
 import { ProjectCardProps } from '../../types';
 import { useLanguage } from '../../hooks/useLanguage';
@@ -9,6 +10,8 @@ const ProjectCard = React.memo(({ card }: ProjectCardProps) => {
   const title = resolveLocalizedField(card.title, language);
   const description = resolveLocalizedField(card.description, language);
   const metrics = card.metrics ? resolveLocalizedField(card.metrics, language) : undefined;
+  const [failedImageUrl, setFailedImageUrl] = useState<string | null>(null);
+  const imageAvailable = Boolean(card.imgUrl) && failedImageUrl !== card.imgUrl;
 
   return (
     <a
@@ -18,12 +21,26 @@ const ProjectCard = React.memo(({ card }: ProjectCardProps) => {
       rel="noopener noreferrer"
       aria-label={`${t('projects.aria.viewProject')} ${title}`}
     >
-      <div
-        className="project-card-image"
-        style={{ backgroundImage: `url(${card.imgUrl})` }}
-        role="img"
-        aria-label={`${title} project screenshot`}
-      />
+      <div className="project-card-media">
+        {imageAvailable ? (
+          <img
+            className="project-card-image"
+            src={card.imgUrl}
+            alt={`${title} ${t('projects.aria.imageAlt')}`}
+            loading="lazy"
+            onError={() => setFailedImageUrl(card.imgUrl)}
+          />
+        ) : (
+          <div
+            className="project-card-image-fallback"
+            role="img"
+            aria-label={`${t('projects.aria.imageFallback')}: ${title}`}
+          >
+            <CodeSlash size={42} aria-hidden="true" />
+            <span>{title}</span>
+          </div>
+        )}
+      </div>
 
       <div className="project-card-content">
         <h4 className="project-card-title">{title}</h4>

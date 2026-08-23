@@ -43,17 +43,18 @@
 
   /* Text Colors */
   --text-primary: #ffffff;
-  --text-secondary: #a0a0b0;
-  --text-muted: #606070;
+  --text-secondary: #b4b4c4;
+  --text-muted: #8b8ba3;
 
-  /* Brand Accents - Vibrant Violet & Electric Green (RentifyNow hints) */
+  /* Personal brand accents - vibrant violet and electric green */
   --accent-primary: #6d28d9;
   /* Deep Violet */
   --accent-glow: #8b5cf6;
   /* Bright Violet */
-  --accent-secondary: #10b981;
+  --accent-secondary: #34d399;
   /* Emerald Green */
   --accent-hover: #5b21b6;
+  --focus-ring: #a78bfa;
 
   /* Functional Colors */
   --success-color: #10b981;
@@ -99,6 +100,10 @@
   --border-hover: rgba(0, 0, 0, 0.15);
   --text-primary: #1a1a1a;
   --text-secondary: #4a4a4a;
+  --text-muted: #5f6472;
+  --accent-glow: #6d28d9;
+  --accent-secondary: #047857;
+  --focus-ring: #5b21b6;
   --shadow-color: rgba(0, 0, 0, 0.1);
   --shadow-hover: rgba(109, 40, 217, 0.15);
 }
@@ -576,7 +581,7 @@ section {
 }
 
 .text-accent {
-  color: var(--accent-primary);
+  color: var(--accent-glow);
 }
 
 /* Spacing Utilities */
@@ -801,8 +806,10 @@ section {
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
+    animation-delay: 0s !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
     scroll-behavior: auto !important;
   }
 

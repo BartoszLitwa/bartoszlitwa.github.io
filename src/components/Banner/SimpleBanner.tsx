@@ -20,10 +20,12 @@ const SimpleBanner = () => {
     '4 Microsoft Azure certifications'
   ]);
 
-  const handleFeaturedClick = () => {
-    const featuredSection = document.getElementById('featured-project');
-    if (featuredSection) {
-      featuredSection.scrollIntoView({ behavior: 'smooth' });
+  const handleCompanyClick = () => {
+    const ecosystemSection = document.getElementById('ecosystem');
+    if (ecosystemSection) {
+      ecosystemSection.scrollIntoView({
+        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+      });
     }
   };
 
@@ -61,15 +63,14 @@ const SimpleBanner = () => {
               >
                 <button
                   className="btn-modern btn-primary glow-btn"
-                  onClick={handleFeaturedClick}
+                  onClick={handleCompanyClick}
                   type="button"
                 >
                   <RocketTakeoff size={20} className="me-2" />
-                  <span>{t('hero.cta.viewWork')}</span>
+                  <span>{t('hero.cta.viewCompany')}</span>
                 </button>
-                <a className="btn-modern btn-secondary" href="#experience">
-                  <span>{t('hero.cta.viewExperience')}</span>{' '}
-                  <ArrowRight size={20} className="ms-2" />
+                <a className="btn-modern btn-secondary" href="#work">
+                  <span>{t('hero.cta.viewWork')}</span> <ArrowRight size={20} className="ms-2" />
                 </a>
                 <a
                   className="btn-modern btn-outline-glass"
@@ -96,7 +97,7 @@ const SimpleBanner = () => {
                   </span>
                 </div>
               </div>
-              <a className="hero-scroll-cue" href="#featured-project">
+              <a className="hero-scroll-cue" href="#ecosystem">
                 <ArrowDown size={16} aria-hidden="true" />
                 {t('hero.scrollCue')}
               </a>
@@ -121,11 +122,11 @@ const SimpleBanner = () => {
                   ))}
                 </div>
                 <div className="delivery-flow" aria-label={t('hero.proofFlowAria')}>
-                  <span>Product</span>
+                  <span>{t('hero.proofFlow.product')}</span>
                   <ArrowRight aria-hidden="true" />
-                  <span>Architecture</span>
+                  <span>{t('hero.proofFlow.architecture')}</span>
                   <ArrowRight aria-hidden="true" />
-                  <span>Production</span>
+                  <span>{t('hero.proofFlow.production')}</span>
                 </div>
               </div>
             </div>

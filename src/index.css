@@ -56,8 +56,8 @@ p {
 
 /* Modern Focus Styles */
 *:focus {
-  outline: 2px solid var(--accent-primary);
-  outline-offset: 2px;
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
 }
 
 /* Code Styles */
@@ -99,8 +99,10 @@ code {
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
+    animation-delay: 0s !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
     scroll-behavior: auto !important;
   }
 }
