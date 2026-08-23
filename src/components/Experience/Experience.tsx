@@ -25,7 +25,7 @@ const Experience = () => {
           <Col>
             <div className="experience-bx">
               <h2 id="experience-heading">{t('experience.title')}</h2>
-              <div className="experience-timeline" aria-label="Professional timeline">
+              <div className="experience-timeline" aria-label={t('experience.timeline')}>
                 {experiences.map((exp, index) => (
                   <ExperienceCard key={`exp-${index}-${exp.title}`} experience={exp} />
                 ))}

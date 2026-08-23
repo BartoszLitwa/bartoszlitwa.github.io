@@ -2,13 +2,18 @@
   "en": {
     "navigation": {
       "home": "Home",
-      "skills": "Skills",
+      "company": "Company",
+      "work": "Work",
       "experience": "Experience",
-      "projects": "Projects",
-      "certifications": "Certifications",
-      "contact": "Contact",
-      "letsConnect": "Hire Me",
+      "capabilities": "Capabilities",
+      "letsConnect": "Connect",
       "skipToMain": "Skip to main content",
+      "controls": {
+        "themeDark": "Switch to dark theme",
+        "themeLight": "Switch to light theme",
+        "selectLanguage": "Select language, currently",
+        "languageOptions": "Language selection options"
+      },
       "aria": {
         "mainNav": "Main navigation",
         "homeBrand": "Bartosz Litwa home page",
@@ -18,123 +23,65 @@
         "linkedin": "LinkedIn profile",
         "github": "GitHub profile",
         "githubAlt": "GitHub",
-        "rentify": "RentifyNow website",
-        "rentifyAlt": "RentifyNow",
-        "hire": "Hire Bartosz Litwa via LinkedIn"
+        "hire": "Connect with Bartosz Litwa via LinkedIn"
       }
     },
     "hero": {
       "name": "Bartosz Litwa",
-      "badge": "Software Engineer · Warsaw, Poland",
+      "badge": "Founder-engineer · Warsaw, Poland",
       "greeting": "Hi, I'm",
       "currentRoleAria": "Current role",
-      "role": "Full Stack .NET Engineer · Azure & DevOps",
-      "roles": [
-        "Full Stack .NET Engineer",
-        "Azure & DevOps Engineer",
-        "RentifyNow Product Developer"
-      ],
-      "description": "I build cloud-native, multi-tenant products with .NET, Angular, Azure, and pragmatic DevOps. Alongside enterprise work at KPMG, I design and operate RentifyNow from product idea through production.",
-      "proofTitle": "Selected outcomes",
-      "proofHeading": "Engineering with measurable impact",
+      "role": "Building a Paperclip-powered AI-native company",
+      "description": "I am building DoifyNow as a coherent family of focused products across property, personal progress, delivery, growth, insight, and support. Enterprise .NET, Azure, and DevOps experience provides the engineering foundation behind the company.",
+      "proofTitle": "Engineering evidence",
+      "proofHeading": "Professional depth behind the products",
       "proofFlowAria": "Product delivery from product thinking through architecture to production",
+      "proofFlow": {
+        "product": "Product",
+        "architecture": "Architecture",
+        "production": "Production"
+      },
       "outcomes": [
         "4+ years delivering production software",
         "90% Azure Cosmos DB cost reduction",
         "4 Microsoft Azure certifications"
       ],
-      "scrollCue": "See selected work",
-      "specializedIn": "Specialized In:",
+      "scrollCue": "Explore the company",
+      "specializedIn": "Engineering foundation:",
       "tech": {
         "dotnet": ".NET 10 / C#",
         "angular": "Angular",
         "azureDevops": "Azure DevOps"
       },
-      "badges": {
-        "microservices": "Microservices",
-        "saasArchitecture": "SaaS Architecture",
-        "fullStack": "Full Stack"
-      },
-      "stats": {
-        "experience": "Years Building Software",
-        "services": "Live SaaS Product",
-        "costSavings": "Revenue Generated"
-      },
       "cta": {
-        "connect": "See RentifyNow",
-        "viewExperience": "Let's Connect",
-        "exploreEcosystem": "Explore DoifyNow Ecosystem",
-        "viewWork": "View selected work",
+        "viewCompany": "Explore the company",
+        "viewWork": "Selected technical work",
         "downloadCv": "Download CV"
       }
     },
-    "featured": {
-      "badge": "Flagship SaaS Product",
-      "secondaryBadge": "Independent SaaS Product",
-      "title": "RentifyNow",
-      "subtitle": "A Comprehensive Property Management Ecosystem",
-      "description": "RentifyNow is a multi-tenant SaaS for independent landlords. I build and operate it end to end, from product workflows and application architecture to deployment and monitoring.",
-      "status": "Live Production Infrastructure",
-      "statusLive": "Live Production Infrastructure",
-      "technicalStack": "Production Tech Stack",
-      "keyFeatures": "Key Technical Achievements",
-      "technologies": [
-        ".NET 10",
-        "Azure Cloud",
-        "Tauri",
-        "Angular",
-        "TypeScript",
-        "Microservices",
-        "Stripe API",
-        "PostgreSQL"
-      ],
-      "highlights": [
-        "Distributed microservices architecture hosted on Azure Cloud",
-        "Cross-platform support: Web application alongside Desktop and Mobile (via Tauri)",
-        "Advanced payment and subscription processing using Stripe",
-        "Multi-tenant data isolation and role-based access control",
-        "Real-time notifications and dashboard updates",
-        "Automated CI/CD pipelines ensuring zero-downtime deployments"
-      ],
-      "businessValue": {
-        "cloud": { "title": "Cloud-Native", "description": "Azure-hosted Microservices" },
-        "crossPlatform": {
-          "title": "Cross-Platform",
-          "description": "Web, Desktop & Mobile (Tauri)"
-        },
-        "billing": { "title": "Automated Billing", "description": "Complex Stripe Integrations" },
-        "saas": { "title": "Scalable SaaS", "description": "High availability architecture" }
+    "ecosystem": {
+      "kicker": "Paperclip-powered · AI-native company",
+      "title": "An AI-native company, built as a product system",
+      "description": "DoifyNow is the parent company and shared platform for a focused family of products. Each product owns a clear problem space; the company story connects them without pretending they are all at the same stage.",
+      "companyLabel": "Parent company and shared platform",
+      "productsLabel": "The Now product family",
+      "productsDescription": "Focused products, honest stages, and no invented launch claims. Public links appear only when a current product page is verified.",
+      "verifiedLink": "Visit verified product page",
+      "developmentNote": "In development · no public product page linked",
+      "stages": {
+        "building": "Building",
+        "active-build": "Active build",
+        "discovery": "Discovery + active construction"
       },
-      "buttons": {
-        "visit": "Visit Live Platform",
-        "moreProjects": "Discuss Your Project"
+      "system": {
+        "core": "Company layer",
+        "caption": "One company context, focused product boundaries"
       },
-      "ctaTitle": "Need an Enterprise-Grade Application?",
-      "ctaDescription": "I am ready to bring this level of architectural expertise to your organization.",
-      "ctaButton": "Let's Talk Leadership",
-      "ecosystemTitle": "The SaaS Ecosystem",
-      "ecosystemDescription": "RentifyNow is the flagship product of a broader ecosystem of SaaS applications that share infrastructure, libraries, and deployment pipelines under DoifyNow.",
-      "ownershipBadge": "Full Stack Architecture",
-      "longDescription": "This platform represents my ability to deliver end-to-end commercial solutions using an Azure-hosted microservices backend and a versatile frontend ecosystem (Web, Desktop, and Mobile via Tauri). I implemented real-time functionality and robust financial workflows with Stripe integration.",
-      "mockup": {
-        "primary": "Web & Native App",
-        "secondary": "Powered by Tauri"
-      },
-      "ecosystem": {
-        "houseifyDesc": "Smart home management for homeowners - property tracking, maintenance, and finances.",
-        "doifyDesc": "The mother organization - shared infrastructure hub powering the entire product ecosystem.",
-        "goalifyDesc": "Goal tracking and habit management - set, track, and achieve personal and professional goals.",
-        "deployifyDesc": "Self-hosted deployment platform - VPS provisioning, CI/CD orchestration, and infrastructure management."
-      },
-      "metrics": {
-        "multiTenant": "Real-World",
-        "realTime": "Tauri + Web",
-        "azure": "Microservices",
-        "enterprise": "Stripe API",
-        "architecture": "Financial Engine",
-        "updates": "Omnichannel UI",
-        "cloud": "Azure Backend",
-        "security": "SaaS Product"
+      "aria": {
+        "companyThemes": "DoifyNow company themes",
+        "operatingModel": "DoifyNow company and product operating model",
+        "productFamily": "DoifyNow product family",
+        "productThemes": "Product themes"
       }
     },
     "skills": {
@@ -149,29 +96,37 @@
         "devops": "CI/CD & DevOps",
         "database": "Databases",
         "tools": "Development Tools"
+      },
+      "aria": {
+        "categories": "Technical skills categories",
+        "iconAlt": "technology icon",
+        "iconFallback": "Technology icon unavailable"
       }
     },
     "experience": {
       "title": "Experience",
-      "description": "A track record of delivering impactful solutions at enterprise scale."
+      "description": "A track record of delivering impactful solutions at enterprise scale.",
+      "timeline": "Professional timeline",
+      "careerProgression": "Career progression",
+      "aria": {
+        "logoAlt": "company logo",
+        "logoFallback": "Company logo unavailable",
+        "roleTimeline": "Role timeline from",
+        "to": "to",
+        "promotion": "Promotion progression",
+        "education": "Education",
+        "achievements": "Achievements at"
+      }
     },
     "projects": {
-      "title": "Projects",
-      "description": "Explore my portfolio of applications and solutions that demonstrate my expertise in full-stack development, cloud architecture, and modern web technologies.",
+      "title": "Selected technical work",
+      "description": "Earlier engineering projects remain part of the record: practical evidence across full-stack applications, distributed systems, mobile work, and product delivery.",
       "aria": {
-        "viewProject": "View project"
+        "viewProject": "View project",
+        "imageAlt": "project preview",
+        "imageFallback": "No project preview available"
       },
-      "filters": {
-        "all": "All",
-        "dotnet": ".Net",
-        "angular": "Angular",
-        "react": "React",
-        "flutter": "Flutter",
-        "cpp": "C++",
-        "java": "Java",
-        "ariaLabel": "Filter projects by technology"
-      },
-      "impact": "Impact:"
+      "impact": "Evidence:"
     },
     "certifications": {
       "title": "Certifications",
@@ -194,7 +149,13 @@
         "devops": "DevOps"
       },
       "viewCredential": "View Credential",
-      "progress": "Progress"
+      "progress": "Progress",
+      "moreSkills": "more",
+      "aria": {
+        "badgeAlt": "certification badge",
+        "badgeFallback": "Certification badge unavailable",
+        "viewCredential": "View credential for"
+      }
     },
     "contact": {
       "title": "Contact",
@@ -255,18 +216,19 @@
     "footer": {
       "connect": "Let's Connect",
       "rights": "Bartosz Litwa. All rights reserved.",
-      "tagline": "Full Stack .NET Engineer · Azure & DevOps",
-      "ecosystemTitle": "Ecosystem",
+      "tagline": "Building a Paperclip-powered AI-native company.",
+      "ecosystemTitle": "Explore",
       "connectTitle": "Connect",
+      "company": "Company",
+      "work": "Selected work",
+      "experience": "Experience",
       "aria": {
         "logoAlt": "Bartosz Litwa logo",
-        "ecosystem": "DoifyNow ecosystem links",
+        "ecosystem": "Portfolio section links",
         "social": "Social media links",
         "linkedin": "LinkedIn profile",
         "github": "GitHub profile",
         "githubAlt": "GitHub",
-        "rentify": "RentifyNow website",
-        "rentifyAlt": "RentifyNow",
         "connectCta": "Connect with Bartosz Litwa via LinkedIn"
       }
     }
@@ -274,13 +236,18 @@
   "pl": {
     "navigation": {
       "home": "Strona główna",
-      "skills": "Umiejętności",
+      "company": "Firma",
+      "work": "Projekty",
       "experience": "Doświadczenie",
-      "projects": "Projekty",
-      "certifications": "Certyfikaty",
-      "contact": "Kontakt",
-      "letsConnect": "Zatrudnij Mnie",
+      "capabilities": "Kompetencje",
+      "letsConnect": "Kontakt",
       "skipToMain": "Przejdź do głównej treści",
+      "controls": {
+        "themeDark": "Przełącz na ciemny motyw",
+        "themeLight": "Przełącz na jasny motyw",
+        "selectLanguage": "Wybierz język, obecnie",
+        "languageOptions": "Opcje wyboru języka"
+      },
       "aria": {
         "mainNav": "Nawigacja główna",
         "homeBrand": "Strona główna Bartosza Litwy",
@@ -290,126 +257,65 @@
         "linkedin": "Profil LinkedIn",
         "github": "Profil GitHub",
         "githubAlt": "GitHub",
-        "rentify": "Strona RentifyNow",
-        "rentifyAlt": "RentifyNow",
-        "hire": "Zatrudnij Bartosza Litwę przez LinkedIn"
+        "hire": "Skontaktuj się z Bartoszem Litwą przez LinkedIn"
       }
     },
     "hero": {
       "name": "Bartosz Litwa",
-      "badge": "Software Engineer · Warszawa",
+      "badge": "Founder-engineer · Warszawa",
       "greeting": "Cześć, jestem",
       "currentRoleAria": "Aktualna rola",
-      "role": "Full Stack .NET Engineer · Azure i DevOps",
-      "roles": [
-        "Full Stack .NET Engineer",
-        "Inżynier Azure i DevOps",
-        "Twórca produktu RentifyNow"
-      ],
-      "description": "Tworzę chmurowe, wielodostępne produkty w .NET, Angularze i Azure, wykorzystując praktyczne podejście do DevOps. Równolegle z pracą dla KPMG projektuję i rozwijam RentifyNow — od pomysłu po produkcję.",
-      "proofTitle": "Wybrane rezultaty",
-      "proofHeading": "Inżynieria z mierzalnym wpływem",
+      "role": "Buduję firmę AI-native wspieraną przez Paperclip",
+      "description": "Buduję DoifyNow jako spójną rodzinę wyspecjalizowanych produktów dla nieruchomości, rozwoju osobistego, wdrożeń, wzrostu, analityki i obsługi. Doświadczenie enterprise w .NET, Azure i DevOps stanowi inżynierski fundament firmy.",
+      "proofTitle": "Dowody inżynierskie",
+      "proofHeading": "Doświadczenie zawodowe za produktami",
       "proofFlowAria": "Realizacja produktu od koncepcji przez architekturę po produkcję",
+      "proofFlow": {
+        "product": "Produkt",
+        "architecture": "Architektura",
+        "production": "Produkcja"
+      },
       "outcomes": [
         "Ponad 4 lata tworzenia oprogramowania produkcyjnego",
         "90% redukcji kosztów Azure Cosmos DB",
         "4 certyfikaty Microsoft Azure"
       ],
-      "scrollCue": "Zobacz wybrane projekty",
-      "specializedIn": "Specjalizacja:",
+      "scrollCue": "Poznaj firmę",
+      "specializedIn": "Fundament inżynierski:",
       "tech": {
         "dotnet": ".NET 10 / C#",
         "angular": "Angular",
         "azureDevops": "Azure DevOps"
       },
-      "badges": {
-        "microservices": "Mikroserwisy",
-        "saasArchitecture": "Architektura SaaS",
-        "fullStack": "Full Stack"
-      },
-      "stats": {
-        "experience": "Lat Tworzenia Oprogramowania",
-        "services": "Produkt SaaS Live",
-        "costSavings": "Wygenerowany Przychód"
-      },
       "cta": {
-        "connect": "Zobacz RentifyNow",
-        "viewExperience": "Skontaktuj się",
-        "exploreEcosystem": "Poznaj ekosystem DoifyNow",
-        "viewWork": "Zobacz wybrane projekty",
+        "viewCompany": "Poznaj firmę",
+        "viewWork": "Wybrane projekty techniczne",
         "downloadCv": "Pobierz CV"
       }
     },
-    "featured": {
-      "badge": "Flagowy produkt SaaS",
-      "secondaryBadge": "Niezależny produkt SaaS",
-      "title": "RentifyNow",
-      "subtitle": "Kompleksowy ekosystem do zarządzania nieruchomościami",
-      "description": "RentifyNow to wielodostępny SaaS dla niezależnych właścicieli mieszkań. Tworzę i utrzymuję go kompleksowo — od procesów produktowych i architektury aplikacji po wdrożenie i monitoring.",
-      "status": "Infrastruktura produkcyjna live",
-      "statusLive": "Infrastruktura produkcyjna live",
-      "technicalStack": "Produkcyjny Stack Techniczny",
-      "keyFeatures": "Kluczowe Osiągnięcia Techniczne",
-      "technologies": [
-        ".NET 10",
-        "Azure Cloud",
-        "Tauri",
-        "Angular",
-        "TypeScript",
-        "Microservices",
-        "Stripe API",
-        "PostgreSQL"
-      ],
-      "highlights": [
-        "Rozproszona architektura mikroserwisów hostowana w Azure Cloud",
-        "Wsparcie wieloplatformowe: aplikacja webowa, desktop i mobile (Tauri)",
-        "Zaawansowana obsługa płatności i subskrypcji ze Stripe",
-        "Izolacja danych multi-tenant i kontrola dostępu oparta o role",
-        "Powiadomienia i aktualizacje dashboardu w czasie rzeczywistym",
-        "Zautomatyzowane pipeline'y CI/CD zapewniające wdrożenia bez przestojów"
-      ],
-      "businessValue": {
-        "cloud": { "title": "Cloud-Native", "description": "Mikroserwisy hostowane na Azure" },
-        "crossPlatform": {
-          "title": "Wieloplatformowość",
-          "description": "Web, Desktop i Mobile (Tauri)"
-        },
-        "billing": {
-          "title": "Automatyczne rozliczenia",
-          "description": "Zaawansowane integracje Stripe"
-        },
-        "saas": { "title": "Skalowalny SaaS", "description": "Architektura wysokiej dostępności" }
+    "ecosystem": {
+      "kicker": "Paperclip-powered · firma AI-native",
+      "title": "Firma AI-native zbudowana jako system produktów",
+      "description": "DoifyNow jest firmą macierzystą i wspólną platformą dla rodziny wyspecjalizowanych produktów. Każdy produkt ma jasno określony obszar, a historia firmy łączy je bez udawania, że wszystkie są na tym samym etapie.",
+      "companyLabel": "Firma macierzysta i wspólna platforma",
+      "productsLabel": "Rodzina produktów Now",
+      "productsDescription": "Wyspecjalizowane produkty, uczciwe etapy i bez wymyślonych deklaracji o premierze. Publiczne linki pojawiają się tylko wtedy, gdy bieżąca strona produktu została zweryfikowana.",
+      "verifiedLink": "Odwiedź zweryfikowaną stronę produktu",
+      "developmentNote": "W trakcie rozwoju · bez linku do strony publicznej",
+      "stages": {
+        "building": "W budowie",
+        "active-build": "Aktywnie rozwijany",
+        "discovery": "Discovery i aktywna budowa"
       },
-      "buttons": {
-        "visit": "Odwiedź Platformę",
-        "moreProjects": "Omów swój projekt"
+      "system": {
+        "core": "Warstwa firmy",
+        "caption": "Jeden kontekst firmy, wyraźne granice produktów"
       },
-      "ctaTitle": "Potrzebujesz aplikacji klasy enterprise?",
-      "ctaDescription": "Mogę wnieść ten poziom wiedzy architektonicznej do Twojej organizacji.",
-      "ctaButton": "Porozmawiajmy o strategii",
-      "ecosystemTitle": "Ekosystem SaaS",
-      "ecosystemDescription": "RentifyNow jest flagowym produktem szerszego ekosystemu aplikacji SaaS, które współdzielą infrastrukturę, biblioteki i pipeline'y wdrożeniowe pod marką DoifyNow.",
-      "ownershipBadge": "Architektura Full Stack",
-      "longDescription": "Ta platforma pokazuje moją zdolność dostarczania kompletnych rozwiązań biznesowych w oparciu o mikroserwisy hostowane na Azure i wieloplatformowy frontend (Web, Desktop i Mobile przez Tauri). Wdrożyłem funkcje real-time i procesy finansowe ze Stripe.",
-      "mockup": {
-        "primary": "Aplikacja web i natywna",
-        "secondary": "Napędzana przez Tauri"
-      },
-      "ecosystem": {
-        "houseifyDesc": "Zarządzanie domem dla właścicieli - nieruchomości, utrzymanie i finanse.",
-        "doifyDesc": "Organizacja nadrzędna - współdzielona infrastruktura całego ekosystemu produktów.",
-        "goalifyDesc": "Śledzenie celów i nawyków - planuj, monitoruj i realizuj cele osobiste i zawodowe.",
-        "deployifyDesc": "Platforma self-hosted do wdrożeń - provisioning VPS, orkiestracja CI/CD i zarządzanie infrastrukturą."
-      },
-      "metrics": {
-        "multiTenant": "Realny produkt",
-        "realTime": "Tauri + Web",
-        "azure": "Mikroserwisy",
-        "enterprise": "Stripe API",
-        "architecture": "Silnik finansowy",
-        "updates": "Omnichannel UI",
-        "cloud": "Backend Azure",
-        "security": "Produkt SaaS"
+      "aria": {
+        "companyThemes": "Obszary firmy DoifyNow",
+        "operatingModel": "Model działania firmy i produktów DoifyNow",
+        "productFamily": "Rodzina produktów DoifyNow",
+        "productThemes": "Obszary produktu"
       }
     },
     "skills": {
@@ -424,29 +330,37 @@
         "devops": "CI/CD i DevOps",
         "database": "Bazy danych",
         "tools": "Narzędzia developerskie"
+      },
+      "aria": {
+        "categories": "Kategorie umiejętności technicznych",
+        "iconAlt": "ikona technologii",
+        "iconFallback": "Ikona technologii niedostępna"
       }
     },
     "experience": {
       "title": "Doświadczenie",
-      "description": "Historia dostarczania skutecznych rozwiązań na skalę korporacyjną."
+      "description": "Historia dostarczania skutecznych rozwiązań na skalę korporacyjną.",
+      "timeline": "Oś doświadczenia zawodowego",
+      "careerProgression": "Rozwój kariery",
+      "aria": {
+        "logoAlt": "logo firmy",
+        "logoFallback": "Logo firmy niedostępne",
+        "roleTimeline": "Okres pełnienia roli od",
+        "to": "do",
+        "promotion": "Przebieg awansu",
+        "education": "Wykształcenie",
+        "achievements": "Osiągnięcia w"
+      }
     },
     "projects": {
-      "title": "Projekty",
-      "description": "Poznaj moje portfolio aplikacji i rozwiązań, które demonstrują moją ekspertyzę w full-stack development, architekturze chmury i nowoczesnych technologiach webowych.",
+      "title": "Wybrane projekty techniczne",
+      "description": "Wcześniejsze projekty inżynierskie pozostają częścią dorobku: praktyczne dowody pracy nad aplikacjami full-stack, systemami rozproszonymi, mobile i dostarczaniem produktów.",
       "aria": {
-        "viewProject": "Zobacz projekt"
+        "viewProject": "Zobacz projekt",
+        "imageAlt": "podgląd projektu",
+        "imageFallback": "Brak podglądu projektu"
       },
-      "filters": {
-        "all": "Wszystkie",
-        "dotnet": ".Net",
-        "angular": "Angular",
-        "react": "React",
-        "flutter": "Flutter",
-        "cpp": "C++",
-        "java": "Java",
-        "ariaLabel": "Filtruj projekty według technologii"
-      },
-      "impact": "Wpływ:"
+      "impact": "Dowód:"
     },
     "certifications": {
       "title": "Certyfikaty",
@@ -469,7 +383,13 @@
         "devops": "DevOps"
       },
       "viewCredential": "Zobacz Certyfikat",
-      "progress": "Postęp"
+      "progress": "Postęp",
+      "moreSkills": "więcej",
+      "aria": {
+        "badgeAlt": "odznaka certyfikatu",
+        "badgeFallback": "Odznaka certyfikatu niedostępna",
+        "viewCredential": "Zobacz certyfikat"
+      }
     },
     "contact": {
       "title": "Kontakt",
@@ -530,18 +450,19 @@
     "footer": {
       "connect": "Skontaktuj się",
       "rights": "Bartosz Litwa. Wszelkie prawa zastrzeżone.",
-      "tagline": "Full Stack .NET Engineer · Azure i DevOps",
-      "ecosystemTitle": "Ekosystem",
+      "tagline": "Buduję firmę AI-native wspieraną przez Paperclip.",
+      "ecosystemTitle": "Odkrywaj",
       "connectTitle": "Kontakt",
+      "company": "Firma",
+      "work": "Wybrane projekty",
+      "experience": "Doświadczenie",
       "aria": {
         "logoAlt": "Logo Bartosz Litwa",
-        "ecosystem": "Linki ekosystemu DoifyNow",
+        "ecosystem": "Linki do sekcji portfolio",
         "social": "Linki do mediów społecznościowych",
         "linkedin": "Profil LinkedIn",
         "github": "Profil GitHub",
         "githubAlt": "GitHub",
-        "rentify": "Strona RentifyNow",
-        "rentifyAlt": "RentifyNow",
         "connectCta": "Skontaktuj się z Bartoszem Litwą przez LinkedIn"
       }
     }

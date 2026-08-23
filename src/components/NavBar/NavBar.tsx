@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Linkedin } from 'react-bootstrap-icons';
 import { useLanguage } from '../../hooks/useLanguage';
@@ -6,7 +6,6 @@ import NavBarControls from './NavBarControls';
 import './NavBar.css';
 import '../../App.css';
 import logo from '../../assets/img/logo.webp';
-import rentifyNowLogo from '../../assets/rentifynow/RentifyNowLogo.jpeg';
 import githubLogo from '../../assets/img/github.png';
 
 const NavBar = () => {
@@ -15,6 +14,15 @@ const NavBar = () => {
   const [activeLink, setActiveLink] = useState('#home');
   const [scrolled, setScrolled] = useState(false);
   const [toggled, setToggled] = useState(false);
+  const toggleRef = useRef<HTMLButtonElement>(null);
+
+  const navItems = [
+    { href: '#home', label: t('navigation.home') },
+    { href: '#ecosystem', label: t('navigation.company') },
+    { href: '#work', label: t('navigation.work') },
+    { href: '#experience', label: t('navigation.experience') },
+    { href: '#skills', label: t('navigation.capabilities') }
+  ];
 
   useEffect(() => {
     const onScroll = () => {
@@ -40,24 +48,67 @@ const NavBar = () => {
   }, []);
 
   useEffect(() => {
-    const sectionIds = ['home', 'experience', 'skills', 'projects', 'certifications'];
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible) setActiveLink(`#${visible.target.id}`);
-      },
-      { rootMargin: '-20% 0px -65% 0px', threshold: [0, 0.25, 0.5] }
-    );
+    const sectionIds = ['home', 'ecosystem', 'work', 'experience', 'skills'];
+    let frameId: number | undefined;
 
-    sectionIds.forEach((id) => {
-      const section = document.getElementById(id);
-      if (section) observer.observe(section);
-    });
+    const updateActiveSection = () => {
+      frameId = undefined;
+      const activationLine = window.innerHeight * 0.3;
+      const sections = sectionIds
+        .map((id) => document.getElementById(id))
+        .filter((section): section is HTMLElement => Boolean(section));
+      let activeSection = sections[0];
 
-    return () => observer.disconnect();
+      for (const section of sections) {
+        if (section.getBoundingClientRect().top > activationLine) break;
+        activeSection = section;
+      }
+
+      if (activeSection) setActiveLink(`#${activeSection.id}`);
+    };
+
+    const scheduleActiveSectionUpdate = () => {
+      if (frameId !== undefined) return;
+      frameId = window.requestAnimationFrame(updateActiveSection);
+    };
+
+    updateActiveSection();
+    window.addEventListener('scroll', scheduleActiveSectionUpdate, { passive: true });
+    window.addEventListener('resize', scheduleActiveSectionUpdate);
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter((section): section is HTMLElement => Boolean(section));
+    const resizeObserver =
+      typeof ResizeObserver === 'undefined'
+        ? null
+        : new ResizeObserver(scheduleActiveSectionUpdate);
+    sections.forEach((section) => resizeObserver?.observe(section));
+
+    const main = document.getElementById('main-content');
+    const mutationObserver = main ? new MutationObserver(scheduleActiveSectionUpdate) : null;
+    if (main) mutationObserver?.observe(main, { childList: true, subtree: true });
+
+    return () => {
+      window.removeEventListener('scroll', scheduleActiveSectionUpdate);
+      window.removeEventListener('resize', scheduleActiveSectionUpdate);
+      resizeObserver?.disconnect();
+      mutationObserver?.disconnect();
+      if (frameId !== undefined) window.cancelAnimationFrame(frameId);
+    };
   }, []);
+
+  useEffect(() => {
+    if (!toggled) return;
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== 'Escape') return;
+      setToggled(false);
+      window.requestAnimationFrame(() => toggleRef.current?.focus());
+    };
+
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [toggled]);
 
   useEffect(() => {
     const onResize = () => {
@@ -79,9 +130,19 @@ const NavBar = () => {
     });
   };
 
+  const onSkipToMain = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    const main = document.getElementById('main-content');
+    if (!main) return;
+
+    window.history.pushState({}, '', '#main-content');
+    main.focus();
+    main.scrollIntoView({ behavior: 'auto', block: 'start' });
+  };
+
   return (
     <>
-      <a href="#main-content" className="skip-link">
+      <a href="#main-content" className="skip-link" onClick={onSkipToMain}>
         {t('navigation.skipToMain')}
       </a>
       <Navbar
@@ -99,55 +160,27 @@ const NavBar = () => {
           </Navbar.Brand>
 
           <Navbar.Toggle
+            ref={toggleRef}
             aria-controls="basic-navbar-nav"
             aria-expanded={toggled}
-            aria-label={t('navigation.aria.toggle')}
+            label={t('navigation.aria.toggle')}
           >
             <span className="navbar-toggler-icon"></span>
           </Navbar.Toggle>
 
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto navbar-nav-links">
-              <Nav.Link
-                href="#home"
-                className={`navbar-link ${activeLink === '#home' ? 'active' : ''}`}
-                onClick={() => onUpdateActiveLink('#home')}
-                aria-current={activeLink === '#home' ? 'page' : undefined}
-              >
-                {t('navigation.home')}
-              </Nav.Link>
-              <Nav.Link
-                href="#experience"
-                className={`navbar-link ${activeLink === '#experience' ? 'active' : ''}`}
-                onClick={() => onUpdateActiveLink('#experience')}
-                aria-current={activeLink === '#experience' ? 'page' : undefined}
-              >
-                {t('navigation.experience')}
-              </Nav.Link>
-              <Nav.Link
-                href="#skills"
-                className={`navbar-link ${activeLink === '#skills' ? 'active' : ''}`}
-                onClick={() => onUpdateActiveLink('#skills')}
-                aria-current={activeLink === '#skills' ? 'page' : undefined}
-              >
-                {t('navigation.skills')}
-              </Nav.Link>
-              <Nav.Link
-                href="#projects"
-                className={`navbar-link ${activeLink === '#projects' ? 'active' : ''}`}
-                onClick={() => onUpdateActiveLink('#projects')}
-                aria-current={activeLink === '#projects' ? 'page' : undefined}
-              >
-                {t('navigation.projects')}
-              </Nav.Link>
-              <Nav.Link
-                href="#certifications"
-                className={`navbar-link ${activeLink === '#certifications' ? 'active' : ''}`}
-                onClick={() => onUpdateActiveLink('#certifications')}
-                aria-current={activeLink === '#certifications' ? 'page' : undefined}
-              >
-                {t('navigation.certifications')}
-              </Nav.Link>
+              {navItems.map((item) => (
+                <Nav.Link
+                  key={item.href}
+                  href={item.href}
+                  className={`navbar-link ${activeLink === item.href ? 'active' : ''}`}
+                  onClick={() => onUpdateActiveLink(item.href)}
+                  aria-current={activeLink === item.href ? 'page' : undefined}
+                >
+                  {item.label}
+                </Nav.Link>
+              ))}
             </Nav>
 
             <span className="navbar-text">
@@ -172,21 +205,6 @@ const NavBar = () => {
                   <img
                     src={githubLogo}
                     alt={t('navigation.aria.githubAlt')}
-                    width="24"
-                    height="24"
-                    loading="lazy"
-                  />
-                </a>
-                <a
-                  href="https://rentifynow.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={t('navigation.aria.rentify')}
-                  className="rentifynow-link"
-                >
-                  <img
-                    src={rentifyNowLogo}
-                    alt={t('navigation.aria.rentifyAlt')}
                     width="24"
                     height="24"
                     loading="lazy"

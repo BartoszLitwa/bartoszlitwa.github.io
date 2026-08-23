@@ -1,11 +1,35 @@
-import React from 'react';
-import { SkillCategory } from '../../types';
+import React, { useState } from 'react';
+import { SkillCategory, SkillItem } from '../../types';
 import { useLanguage } from '../../hooks/useLanguage';
 import './Skills.css';
 
 interface SkillCardProps {
   category: SkillCategory;
 }
+
+const SkillIcon = ({ skill }: { skill: SkillItem }) => {
+  const { t } = useLanguage();
+  const [failedIconUrl, setFailedIconUrl] = useState<string | null>(null);
+  const isAvailable = Boolean(skill.icon) && failedIconUrl !== skill.icon;
+
+  return isAvailable ? (
+    <img
+      src={skill.icon}
+      alt={`${skill.name} ${t('skills.aria.iconAlt')}`}
+      className="skill-icon"
+      loading="lazy"
+      onError={() => setFailedIconUrl(skill.icon)}
+    />
+  ) : (
+    <span
+      className="skill-icon skill-icon-fallback"
+      role="img"
+      aria-label={`${t('skills.aria.iconFallback')}: ${skill.name}`}
+    >
+      {skill.name.slice(0, 1)}
+    </span>
+  );
+};
 
 const SkillCard: React.FC<SkillCardProps> = ({ category }) => {
   const { t } = useLanguage();
@@ -25,12 +49,7 @@ const SkillCard: React.FC<SkillCardProps> = ({ category }) => {
       >
         {category.skills.map((skill) => (
           <div key={skill.name} className="skill-badge" role="listitem">
-            <img
-              src={skill.icon}
-              alt={`${skill.name} icon`}
-              className="skill-icon"
-              loading="lazy"
-            />
+            <SkillIcon skill={skill} />
             <span className="skill-name">{skill.name}</span>
           </div>
         ))}

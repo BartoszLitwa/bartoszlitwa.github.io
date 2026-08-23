@@ -78,14 +78,6 @@
   color: var(--accent-glow);
 }
 
-.footer-eco-link.text-accent-green {
-  color: var(--accent-secondary);
-}
-
-.footer-eco-link.text-accent-green:hover {
-  color: #34d399;
-}
-
 .footer-connect-col {
   display: flex;
   flex-direction: column;
@@ -127,22 +119,6 @@
 
 .footer .social-icon a:hover img {
   filter: brightness(1) invert(0);
-}
-
-.footer .social-icon .rentifynow-link {
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.footer .social-icon .rentifynow-link img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: none;
-}
-
-.footer .social-icon .rentifynow-link:hover img {
-  filter: none;
 }
 
 .footer .navbar-text {

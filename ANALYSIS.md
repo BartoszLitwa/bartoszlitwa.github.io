@@ -22,6 +22,23 @@ GitHub Pages cannot receive the repository's Nginx headers without an additional
 analytics/images remain third-party dependencies, two Compose files duplicate one service, and
 several build-tool major upgrades require a planned migration.
 
+## Portfolio modernization note (2026-08-23)
+
+The findings and measurements below preserve the 2026-08-16 to 2026-08-17 audit baseline. A later
+content and presentation update makes the primary narrative Bartosz building a Paperclip-powered
+AI-native company, with DoifyNow as the parent ecosystem surface and shared platform for a connected
+product family. Professional .NET, Angular, Azure, and DevOps experience remains supporting evidence.
+
+Product-family records are separated from legacy engineering projects. They use explicit maturity
+labels and optional external URLs, so discovery or in-development work is not presented as publicly
+available. The family covers RentifyNow, HouseifyNow, GoalifyNow, DeployifyNow, PostifyNow,
+LeadifyNow, InsightifyNow, and SupportifyNow. Metadata describes those concepts conservatively and
+does not infer customers, traction, pricing, availability, performance, or product maturity.
+
+The release gate now includes Playwright journeys against the production preview, covering the new
+`/#ecosystem` and `/#work` information architecture alongside responsive, keyboard, localization,
+reduced-motion, and fallback behavior.
+
 ## Current architecture and data flow
 
 ```text
@@ -98,7 +115,7 @@ No critical findings.
 - Replaced stale documentation and added setup, architecture, secrets, security, release, operations,
   monitoring, and rollback guidance.
 
-## Verification evidence after fixes
+## Verification evidence after audit fixes (2026-08-17 baseline)
 
 - `npm run check`: pass
   - Prettier: pass
@@ -151,7 +168,7 @@ No critical findings.
 4. Consolidate Compose files and remove `container_name` if horizontal replicas become necessary.
 5. Plan toolchain major upgrades in isolated pull requests with browser/accessibility regression
    testing.
-6. Translate the remaining hard-coded assistive labels and add real browser tests across desktop,
-   mobile, keyboard, reduced-motion, and analytics/network-failure scenarios.
+6. Keep translated assistive labels and real browser journeys current across desktop, mobile,
+   keyboard, reduced-motion, and fallback scenarios; add analytics/network-failure coverage.
 7. Inventory unreferenced public/source assets before removal, and add registry/SBOM/container CVE
    scanning to CI or the deployment platform.

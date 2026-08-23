@@ -2,11 +2,7 @@ const experienceAssetModules = {
   ...(import.meta.glob('../assets/companyLogos/*.{png,jpg,jpeg}', {
     eager: true,
     import: 'default'
-  }) as Record<string, string>),
-  ...(import.meta.glob('../assets/img/logo.webp', { eager: true, import: 'default' }) as Record<
-    string,
-    string
-  >)
+  }) as Record<string, string>)
 };
 
 const projectAssetModules = import.meta.glob(
@@ -22,13 +18,10 @@ const projectAssetModules = import.meta.glob(
   { eager: true, import: 'default' }
 ) as Record<string, string>;
 
-const experienceFallback = experienceAssetModules['../assets/img/logo.webp'] ?? '';
-const projectFallback = projectAssetModules['../assets/rentifynow/dashboard.webp'] ?? '';
-
 const normalizeAssetPath = (relativePath: string): string => `../assets/${relativePath}`;
 
 export const resolveExperienceImage = (relativePath: string): string =>
-  experienceAssetModules[normalizeAssetPath(relativePath)] ?? experienceFallback;
+  experienceAssetModules[normalizeAssetPath(relativePath)] ?? '';
 
 export const resolveProjectImage = (relativePath: string): string =>
-  projectAssetModules[normalizeAssetPath(relativePath)] ?? projectFallback;
+  projectAssetModules[normalizeAssetPath(relativePath)] ?? '';

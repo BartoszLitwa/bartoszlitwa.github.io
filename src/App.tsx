@@ -3,20 +3,20 @@ import { LanguageProvider } from './components/LanguageProvider/LanguageProvider
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
 import NavBar from './components/NavBar/NavBar';
 import LazySection from './components/LazySection/LazySection';
+import CompanyEcosystem from './components/Ecosystem/CompanyEcosystem';
 import { createSectionObserver } from './utils/umami';
 import './App.css';
 
 const TRACKED_SECTIONS = [
   { id: 'home', name: 'Banner' },
-  { id: 'featured-project', name: 'FeaturedProject' },
+  { id: 'ecosystem', name: 'CompanyEcosystem' },
+  { id: 'work', name: 'Projects' },
   { id: 'experience', name: 'Experience' },
   { id: 'skills', name: 'Skills' },
-  { id: 'projects', name: 'Projects' },
   { id: 'certifications', name: 'Certifications' }
 ];
 
 const SimpleBanner = lazy(() => import('./components/Banner/SimpleBanner'));
-const FeaturedProject = lazy(() => import('./components/FeaturedProject/FeaturedProject'));
 const Skills = lazy(() => import('./components/skills/Skills'));
 const Experience = lazy(() => import('./components/Experience/Experience'));
 const Projects = lazy(() => import('./components/Projects/Projects'));
@@ -72,9 +72,12 @@ function App() {
             <Suspense fallback={<LoadingFallback />}>
               <SimpleBanner />
             </Suspense>
-            <Suspense fallback={<LoadingFallback />}>
-              <FeaturedProject />
-            </Suspense>
+            <CompanyEcosystem />
+            <LazySection sectionId="work" fallback={<LoadingFallback />} minHeight={520}>
+              <Suspense fallback={<LoadingFallback />}>
+                <Projects />
+              </Suspense>
+            </LazySection>
             <LazySection sectionId="experience" fallback={<LoadingFallback />} minHeight={520}>
               <Suspense fallback={<LoadingFallback />}>
                 <Experience />
@@ -83,11 +86,6 @@ function App() {
             <LazySection sectionId="skills" fallback={<LoadingFallback />} minHeight={520}>
               <Suspense fallback={<LoadingFallback />}>
                 <Skills />
-              </Suspense>
-            </LazySection>
-            <LazySection sectionId="projects" fallback={<LoadingFallback />} minHeight={520}>
-              <Suspense fallback={<LoadingFallback />}>
-                <Projects />
               </Suspense>
             </LazySection>
             <LazySection sectionId="certifications" fallback={<LoadingFallback />} minHeight={420}>

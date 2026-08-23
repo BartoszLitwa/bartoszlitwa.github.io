@@ -1,16 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLanguage } from '../../hooks/useLanguage';
 import { CertificationCardProps } from '../../types';
 import './Certifications.css';
 
 const CertificationCard: React.FC<CertificationCardProps> = ({ certification }) => {
   const { language, t } = useLanguage();
-
-  const handleCredentialClick = () => {
-    if (certification.credentialUrl && certification.credentialUrl !== '#') {
-      window.open(certification.credentialUrl, '_blank', 'noopener,noreferrer');
-    }
-  };
+  const [failedBadgeUrl, setFailedBadgeUrl] = useState<string | null>(null);
+  const badgeAvailable =
+    Boolean(certification.badgeUrl) && failedBadgeUrl !== certification.badgeUrl;
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
@@ -23,11 +20,11 @@ const CertificationCard: React.FC<CertificationCardProps> = ({ certification }) 
   const getLevelColor = (level: string) => {
     switch (level) {
       case 'Fundamentals':
-        return '#4ade80';
+        return '#166534';
       case 'Associate':
-        return '#3b82f6';
+        return '#1d4ed8';
       case 'Expert':
-        return '#8b5cf6';
+        return '#6d28d9';
       default:
         return '#6b7280';
     }
@@ -37,12 +34,23 @@ const CertificationCard: React.FC<CertificationCardProps> = ({ certification }) 
     <div className="certification-card">
       <div className="certification-header">
         <div className="certification-badge">
-          <img
-            src={certification.badgeUrl}
-            alt={`${certification.name} badge`}
-            className="badge-image"
-            loading="lazy"
-          />
+          {badgeAvailable ? (
+            <img
+              src={certification.badgeUrl}
+              alt={`${certification.name} ${t('certifications.aria.badgeAlt')}`}
+              className="badge-image"
+              loading="lazy"
+              onError={() => setFailedBadgeUrl(certification.badgeUrl)}
+            />
+          ) : (
+            <div
+              className="badge-image badge-image-fallback"
+              role="img"
+              aria-label={`${t('certifications.aria.badgeFallback')}: ${certification.name}`}
+            >
+              {certification.code}
+            </div>
+          )}
           <div className="badge-overlay">
             <span className="certification-code">{certification.code}</span>
           </div>
@@ -52,7 +60,7 @@ const CertificationCard: React.FC<CertificationCardProps> = ({ certification }) 
           <span
             className={`status-badge ${certification.status}`}
             style={{
-              backgroundColor: certification.status === 'completed' ? '#10b981' : '#f59e0b'
+              backgroundColor: certification.status === 'completed' ? '#047857' : '#92400e'
             }}
           >
             {certification.status === 'completed'
@@ -103,20 +111,24 @@ const CertificationCard: React.FC<CertificationCardProps> = ({ certification }) 
             </span>
           ))}
           {certification.skills.length > 3 && (
-            <span className="skill-tag more">+{certification.skills.length - 3} more</span>
+            <span className="skill-tag more">
+              +{certification.skills.length - 3} {t('certifications.moreSkills')}
+            </span>
           )}
         </div>
       </div>
 
       <div className="certification-footer">
         {certification.credentialUrl && certification.credentialUrl !== '#' && (
-          <button
+          <a
+            href={certification.credentialUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="credential-btn"
-            onClick={handleCredentialClick}
-            aria-label={`View ${certification.name} credential`}
+            aria-label={`${t('certifications.aria.viewCredential')} ${certification.name}`}
           >
             {t('certifications.viewCredential')}
-          </button>
+          </a>
         )}
       </div>
     </div>

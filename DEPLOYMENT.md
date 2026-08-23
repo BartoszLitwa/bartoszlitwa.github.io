@@ -14,7 +14,9 @@ npm run check
 ```
 
 Do not deploy from a lockfile or source tree that fails any gate. `npm run audit` includes
-development dependencies because build-time packages are part of the supply-chain boundary.
+development dependencies because build-time packages are part of the supply-chain boundary. The
+`npm run check` gate also runs the Playwright journeys against a production preview; install its
+Chromium runtime with `npx playwright install chromium` before the first local run.
 
 ## GitHub Pages
 
@@ -90,7 +92,9 @@ fingerprinted `.js`, `.css`, and `.webp` assets are long-lived/immutable while `
 cached.
 
 Also smoke test both desktop and mobile layouts, EN/PL, light/dark theme persistence, deep links such
-as `/#experience`, CV download, external links, remote badges/icons, and Umami without console errors.
+as `/#ecosystem`, `/#work`, and `/#experience`, CV download, verified external links, unlinked
+development-state product cards, remote badges/icons, and Umami without console errors. The automated
+journeys are a regression gate, not a replacement for this release smoke test.
 
 The Docker health check is not independent monitoring. Configure an external HTTPS uptime check and
 alert route outside this repository. If client-error monitoring is added, redact form/contact data

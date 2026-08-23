@@ -27,7 +27,8 @@
     "lint:fix": "eslint . --fix",
     "format": "prettier \"**/*.{ts,tsx,js,jsx,mjs,json,css,md,html,yml,yaml}\" --write",
     "format:check": "prettier \"**/*.{ts,tsx,js,jsx,mjs,json,css,md,html,yml,yaml}\" --check",
-    "check": "npm run format:check && npm run lint && npm run typecheck && npm run test:coverage && npm run build && npm run audit",
+    "test:e2e": "playwright test",
+    "check": "npm run format:check && npm run lint && npm run typecheck && npm run test:coverage && npm run build && npm run test:e2e && npm run audit",
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"

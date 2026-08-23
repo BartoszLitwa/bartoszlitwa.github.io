@@ -5,33 +5,35 @@ import { useLanguage } from '../../hooks/useLanguage';
 import { Language } from '../../types';
 import './NavBarControls.css';
 
+const languages: { code: Language; label: string }[] = [
+  { code: 'en', label: 'English' },
+  { code: 'pl', label: 'Polski' }
+];
+
 const NavBarControls: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
-  const { language, setLanguage } = useLanguage();
+  const { language, setLanguage, t } = useLanguage();
   const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
-
-  const languages = [
-    { code: 'en' as Language, label: 'English' },
-    { code: 'pl' as Language, label: 'Polski' }
-  ];
+  const languageToggleRef = useRef<HTMLButtonElement>(null);
+  const optionRefs = useRef<Partial<Record<Language, HTMLButtonElement | null>>>({});
 
   const currentLanguage = languages.find((lang) => lang.code === language) || languages[0];
 
   const handleLanguageSelect = (newLanguage: Language) => {
     setLanguage(newLanguage);
     setIsLanguageDropdownOpen(false);
+    window.requestAnimationFrame(() => languageToggleRef.current?.focus());
   };
 
   const toggleLanguageDropdown = () => {
-    setIsLanguageDropdownOpen(!isLanguageDropdownOpen);
-    // Focus first option when opening dropdown
-    if (!isLanguageDropdownOpen) {
-      setTimeout(() => {
-        const firstOption = document.querySelector('.language-option') as HTMLElement;
-        firstOption?.focus();
-      }, 100);
-    }
+    setIsLanguageDropdownOpen((isOpen) => {
+      const nextOpen = !isOpen;
+      if (nextOpen) {
+        window.requestAnimationFrame(() => optionRefs.current[language]?.focus());
+      }
+      return nextOpen;
+    });
   };
 
   // Close dropdown when clicking outside
@@ -51,13 +53,16 @@ const NavBarControls: React.FC = () => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         setIsLanguageDropdownOpen(false);
+        window.requestAnimationFrame(() => languageToggleRef.current?.focus());
       }
       // Add arrow key navigation for accessibility
       if (isLanguageDropdownOpen && (event.key === 'ArrowDown' || event.key === 'ArrowUp')) {
         event.preventDefault();
-        const options = document.querySelectorAll('.language-option');
+        const options = languages
+          .map(({ code }) => optionRefs.current[code])
+          .filter((option): option is HTMLButtonElement => Boolean(option));
         const currentFocus = document.activeElement;
-        const currentIndex = Array.from(options).indexOf(currentFocus as Element);
+        const currentIndex = options.indexOf(currentFocus as HTMLButtonElement);
 
         let nextIndex = 0;
         if (event.key === 'ArrowDown') {
@@ -66,7 +71,7 @@ const NavBarControls: React.FC = () => {
           nextIndex = currentIndex > 0 ? currentIndex - 1 : options.length - 1;
         }
 
-        (options[nextIndex] as HTMLElement)?.focus();
+        options[nextIndex]?.focus();
       }
     };
 
@@ -82,8 +87,16 @@ const NavBarControls: React.FC = () => {
       <button
         className="control-btn theme-toggle-btn"
         onClick={toggleTheme}
-        aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} theme`}
-        title={`Switch to ${theme === 'light' ? 'dark' : 'light'} theme`}
+        aria-label={
+          theme === 'light'
+            ? t('navigation.controls.themeDark')
+            : t('navigation.controls.themeLight')
+        }
+        title={
+          theme === 'light'
+            ? t('navigation.controls.themeDark')
+            : t('navigation.controls.themeLight')
+        }
       >
         <span className="control-icon">
           {theme === 'light' ? <MoonStarsFill size={14} /> : <SunFill size={14} />}
@@ -93,9 +106,10 @@ const NavBarControls: React.FC = () => {
       {/* Language Dropdown */}
       <div className="language-dropdown" ref={dropdownRef}>
         <button
+          ref={languageToggleRef}
           className="control-btn language-toggle-btn"
           onClick={toggleLanguageDropdown}
-          aria-label={`Select language, currently ${currentLanguage.label}`}
+          aria-label={`${t('navigation.controls.selectLanguage')} ${currentLanguage.label}`}
           aria-expanded={isLanguageDropdownOpen}
           aria-haspopup="listbox"
           aria-owns={isLanguageDropdownOpen ? 'language-dropdown-menu' : undefined}
@@ -113,12 +127,15 @@ const NavBarControls: React.FC = () => {
           <div
             className="language-dropdown-menu"
             role="listbox"
-            aria-label="Language selection options"
+            aria-label={t('navigation.controls.languageOptions')}
             id="language-dropdown-menu"
           >
             {languages.map((lang) => (
               <button
                 key={lang.code}
+                ref={(element) => {
+                  optionRefs.current[lang.code] = element;
+                }}
                 className={`language-option ${language === lang.code ? 'active' : ''}`}
                 onClick={() => handleLanguageSelect(lang.code)}
                 onKeyDown={(e) => {
@@ -135,7 +152,7 @@ const NavBarControls: React.FC = () => {
                 <span className="option-code">{lang.code.toUpperCase()}</span>
                 <span className="option-label">{lang.label}</span>
                 {language === lang.code && (
-                  <span className="option-check" aria-label="Selected">
+                  <span className="option-check" aria-hidden="true">
                     ✓
                   </span>
                 )}
