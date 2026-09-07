@@ -42,6 +42,10 @@ nav.navbar.scrolled {
   transition: all 0.3s ease;
 }
 
+[data-theme='light'] .navbar-brand img {
+  filter: invert(1);
+}
+
 @media (max-width: 768px) {
   .navbar-brand img {
     height: 40px;

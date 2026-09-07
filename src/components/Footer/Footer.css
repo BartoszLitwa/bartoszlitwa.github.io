@@ -39,6 +39,10 @@
   width: auto;
 }
 
+[data-theme='light'] .footer-brand-col img {
+  filter: invert(1);
+}
+
 .footer-tagline {
   font-size: 0.85rem;
   color: var(--text-muted);
