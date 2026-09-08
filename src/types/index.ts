@@ -1,17 +1,5 @@
 import type { LocalizedField } from '../utils/localization';
 
-// Project related types
-export interface Project {
-  title: LocalizedField<string>;
-  description: LocalizedField<string>;
-  imgUrl: string;
-  type: string;
-  url: string;
-  metrics?: LocalizedField<string>;
-  technologies?: LocalizedField<string[]>;
-  highlights?: LocalizedField<string[]>;
-}
-
 export const ProductStage = {
   Building: 'building',
   ActiveBuild: 'active-build',
@@ -23,6 +11,7 @@ export type ProductStage = (typeof ProductStage)[keyof typeof ProductStage];
 export interface Product {
   id: string;
   name: string;
+  icon: string;
   role: LocalizedField<string>;
   description: LocalizedField<string>;
   stage: ProductStage;
@@ -43,18 +32,6 @@ export interface Experience {
   education?: LocalizedField<string>;
   promotionPath?: LocalizedField<string[]>;
   promotionMonth?: LocalizedField<string>;
-}
-
-// Skills related types
-export interface SkillItem {
-  name: string;
-  icon: string;
-}
-
-export interface SkillCategory {
-  id: string;
-  name: string;
-  skills: SkillItem[];
 }
 
 // Certification related types
@@ -95,10 +72,6 @@ export type TranslationValue =
 export type Translations = Record<string, TranslationObject>;
 
 // Component props types
-export interface ProjectCardProps {
-  card: Project;
-}
-
 export interface ExperienceCardProps {
   experience: Experience;
 }

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { ListGroup } from 'react-bootstrap';
 import './Experience.css';
 import { ExperienceCardProps } from '../../types';
 import { useLanguage } from '../../hooks/useLanguage';
@@ -85,28 +84,16 @@ const ExperienceCard = ({ experience }: ExperienceCardProps) => {
           </div>
         </div>
       )}
-      {education && (
-        <p className="education-badge" role="note" aria-label={t('experience.aria.education')}>
-          {education}
-        </p>
-      )}
+      {education && <p className="education-note">{education}</p>}
       <p className="experienceCard-summary">{description}</p>
-      <ListGroup
-        variant="flush"
-        as="ul"
+      <ul
+        className="achievement-list"
         aria-label={`${t('experience.aria.achievements')} ${company}`}
       >
         {achievements.map((ach: string, index: number) => (
-          <ListGroup.Item
-            key={`expIt-${index}-${ach.slice(0, 15)}`}
-            className="achievement-bx"
-            as="li"
-            role="listitem"
-          >
-            {ach}
-          </ListGroup.Item>
+          <li key={`expIt-${index}-${ach.slice(0, 15)}`}>{ach}</li>
         ))}
-      </ListGroup>
+      </ul>
     </article>
   );
 };

@@ -10,16 +10,12 @@ import './App.css';
 const TRACKED_SECTIONS = [
   { id: 'home', name: 'Banner' },
   { id: 'ecosystem', name: 'CompanyEcosystem' },
-  { id: 'work', name: 'Projects' },
   { id: 'experience', name: 'Experience' },
-  { id: 'skills', name: 'Skills' },
   { id: 'certifications', name: 'Certifications' }
 ];
 
 const SimpleBanner = lazy(() => import('./components/Banner/SimpleBanner'));
-const Skills = lazy(() => import('./components/skills/Skills'));
 const Experience = lazy(() => import('./components/Experience/Experience'));
-const Projects = lazy(() => import('./components/Projects/Projects'));
 const Certifications = lazy(() => import('./components/Certifications/Certifications'));
 const Footer = lazy(() => import('./components/Footer/Footer'));
 
@@ -73,22 +69,12 @@ function App() {
               <SimpleBanner />
             </Suspense>
             <CompanyEcosystem />
-            <LazySection sectionId="work" fallback={<LoadingFallback />} minHeight={520}>
-              <Suspense fallback={<LoadingFallback />}>
-                <Projects />
-              </Suspense>
-            </LazySection>
-            <LazySection sectionId="experience" fallback={<LoadingFallback />} minHeight={520}>
+            <LazySection sectionId="experience" fallback={<LoadingFallback />} minHeight={360}>
               <Suspense fallback={<LoadingFallback />}>
                 <Experience />
               </Suspense>
             </LazySection>
-            <LazySection sectionId="skills" fallback={<LoadingFallback />} minHeight={520}>
-              <Suspense fallback={<LoadingFallback />}>
-                <Skills />
-              </Suspense>
-            </LazySection>
-            <LazySection sectionId="certifications" fallback={<LoadingFallback />} minHeight={420}>
+            <LazySection sectionId="certifications" fallback={<LoadingFallback />} minHeight={260}>
               <Suspense fallback={<LoadingFallback />}>
                 <Certifications />
               </Suspense>

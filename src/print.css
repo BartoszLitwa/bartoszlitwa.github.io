@@ -35,7 +35,7 @@
 
   /* Header for print */
   .simple-banner::before {
-    content: 'BARTOSZ LITWA - FULL-STACK DEVELOPER\AEmail: bartosz.litwa@proton.me | LinkedIn: linkedin.com/in/bartoszlitwa | GitHub: github.com/BartoszLitwa';
+    content: 'BARTOSZ LITWA - AI-NATIVE COMPANY BUILDER\AEmail: bartosz.litwa@proton.me | LinkedIn: linkedin.com/in/bartoszlitwa | GitHub: github.com/BartoszLitwa';
     display: block;
     text-align: center;
     font-weight: bold;
@@ -79,45 +79,10 @@
     padding-left: 15pt;
   }
 
-  /* Skills section */
-  .skills-bx {
-    page-break-inside: avoid;
-  }
-
-  .circular-chart {
-    display: none;
-  }
-
-  /* Projects section */
-  .project-card {
-    margin-bottom: 15pt;
-    page-break-inside: avoid;
-    border: 1px solid black;
-    padding: 10pt;
-  }
-
-  .project-image {
-    display: none;
-  }
-
-  .project-title {
-    font-weight: bold;
-    font-size: 12pt;
-  }
-
-  .tech-badge {
-    background: none !important;
-    color: black !important;
-    border: 1px solid black;
-    padding: 2pt 5pt;
-    margin: 2pt;
-    display: inline-block;
-  }
-
   /* Page breaks */
   .experience,
-  .project,
-  .skills {
+  .ecosystem,
+  .certifications {
     page-break-before: auto;
   }
 

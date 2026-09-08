@@ -12,12 +12,7 @@ const PRODUCT_NAMES = [
   'SupportifyNow'
 ] as const;
 
-const UNLINKED_PRODUCT_NAMES = [
-  'PostifyNow',
-  'LeadifyNow',
-  'InsightifyNow',
-  'SupportifyNow'
-] as const;
+const UNLINKED_PRODUCT_NAMES = ['PostifyNow', 'InsightifyNow', 'SupportifyNow'] as const;
 
 const openPortfolio = async (page: Page) => {
   await page.goto('/', { waitUntil: 'domcontentloaded' });
@@ -53,9 +48,7 @@ const scrollThroughPage = async (page: Page) => {
 };
 
 test.describe('portfolio journeys', () => {
-  test('presents the Paperclip-powered company narrative and primary sections', async ({
-    page
-  }) => {
+  test('presents the AI-native company narrative and primary sections', async ({ page }) => {
     await openPortfolio(page);
 
     const navigation = page.getByRole('navigation', { name: /main navigation/i });
@@ -71,15 +64,14 @@ test.describe('portfolio journeys', () => {
         exact: true
       })
     ).toBeVisible();
-    await expect(page.locator('main')).toContainText(/Paperclip-powered/i);
+    await expect(page.locator('main')).toContainText(/AI-native company/i);
 
     await expect(companyLink).toHaveCount(1);
     await expect(companyLink).toHaveAttribute('aria-current', 'page');
-    await expect(navigation.locator('a.navbar-link[href="#work"]')).toHaveCount(1);
-
-    const work = page.locator('#work');
-    await work.scrollIntoViewIfNeeded();
-    await expect(work.getByRole('heading').first()).toBeVisible();
+    await expect(navigation.locator('a.navbar-link[href="#experience"]')).toHaveCount(1);
+    await expect(navigation.locator('a.navbar-link[href="#certifications"]')).toHaveCount(1);
+    await expect(navigation.locator('a.navbar-link[href="#work"]')).toHaveCount(0);
+    await expect(navigation.locator('a.navbar-link[href="#skills"]')).toHaveCount(0);
   });
 
   test('renders the nine-product ecosystem with honest link and stage states', async ({ page }) => {
@@ -87,10 +79,13 @@ test.describe('portfolio journeys', () => {
 
     const ecosystem = page.locator('#ecosystem');
     await ecosystem.scrollIntoViewIfNeeded();
-    const cards = ecosystem.locator('article[data-product-id]');
-    await expect(cards).toHaveCount(PRODUCT_NAMES.length);
+    const cards = ecosystem.locator('.product-grid > article[data-product-id]');
+    await expect(cards).toHaveCount(PRODUCT_NAMES.length - 1);
+    await expect(ecosystem.locator('.company-card[data-product-id="doifynow"]')).toContainText(
+      'DoifyNow'
+    );
 
-    for (const productName of PRODUCT_NAMES) {
+    for (const productName of PRODUCT_NAMES.filter((name) => name !== 'DoifyNow')) {
       const card = cards.filter({ hasText: productName });
       await expect(card, `${productName} should have one ecosystem card`).toHaveCount(1);
       await expect(card.locator('[data-stage]')).toHaveCount(1);
@@ -151,9 +146,9 @@ test.describe('portfolio journeys', () => {
 
     await toggle.press('Enter');
     await expect(toggle).toHaveAttribute('aria-expanded', 'true');
-    const workLink = page.getByRole('link', { name: 'Work', exact: true });
-    await workLink.press('Enter');
-    await expect(page).toHaveURL(/#work$/);
+    const experienceLink = page.getByRole('link', { name: 'Experience', exact: true });
+    await experienceLink.press('Enter');
+    await expect(page).toHaveURL(/#experience$/);
     await expect(toggle).toHaveAttribute('aria-expanded', 'false');
   });
 
@@ -380,34 +375,30 @@ test.describe('portfolio journeys', () => {
 
     await expect(page.getByRole('heading', { level: 1, name: /Bartosz Litwa/i })).toBeVisible();
     await expect(page.locator('#ecosystem')).toContainText('DoifyNow');
-    await expect(page.locator('#work')).toBeAttached();
+    await expect(page.locator('#experience')).toBeAttached();
+    await expect(page.locator('#certifications')).toBeAttached();
     await expect
-      .poll(() => page.locator('.skill-icon-fallback, .badge-image-fallback').count())
+      .poll(() => page.locator('.certification-badge-fallback').count())
       .toBeGreaterThan(0);
     expect(pageErrors).toEqual([]);
   });
 
-  test('keeps the project gallery inside the work section', async ({ page }) => {
+  test('puts RentifyNow and PostifyNow first and uses product icons', async ({ page }) => {
     await openPortfolio(page);
 
-    const work = page.locator('#work');
-    await work.scrollIntoViewIfNeeded();
-    await expect(work.getByRole('heading').first()).toBeVisible();
+    const ecosystem = page.locator('#ecosystem');
+    await ecosystem.scrollIntoViewIfNeeded();
+    const cards = ecosystem.locator('.product-grid > article[data-product-id]');
+    await expect(cards.nth(0)).toContainText('RentifyNow');
+    await expect(cards.nth(1)).toContainText('PostifyNow');
+    const systemIcons = ecosystem.locator('.company-system img');
+    const cardIcons = cards.locator('.product-card-header img');
+    await expect(systemIcons).toHaveCount(PRODUCT_NAMES.length);
+    await expect(cardIcons).toHaveCount(PRODUCT_NAMES.length - 1);
 
-    const gallery = work.locator('[data-project-gallery], .projects-grid').first();
-    await expect(gallery).toBeVisible();
-    await expect.poll(() => gallery.locator('article, a.project-card').count()).toBeGreaterThan(0);
-
-    const firstCard = gallery.locator('a.project-card').first();
-    const mediaLayout = await firstCard.evaluate((card) => {
-      const media = card.querySelector<HTMLElement>('.project-card-media');
-      return {
-        cardWidth: card.getBoundingClientRect().width,
-        display: window.getComputedStyle(card).display,
-        mediaWidth: media?.getBoundingClientRect().width ?? 0
-      };
-    });
-    expect(mediaLayout.display).toBe('block');
-    expect(mediaLayout.mediaWidth).toBeGreaterThan(mediaLayout.cardWidth * 0.95);
+    const iconSources = await systemIcons.evaluateAll((images) =>
+      images.map((image) => (image as HTMLImageElement).getAttribute('src'))
+    );
+    expect(iconSources.every((source) => source?.startsWith('/product-icons/'))).toBe(true);
   });
 });

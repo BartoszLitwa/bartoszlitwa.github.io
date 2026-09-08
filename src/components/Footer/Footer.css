@@ -52,8 +52,7 @@
 
 .footer-section-title {
   font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 0.08em;
   color: var(--text-muted);
   margin-bottom: 1rem;
   font-weight: 600;
@@ -135,7 +134,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: var(--gradient-primary);
+  background: var(--accent-primary);
   color: white;
   border: none;
   padding: 0.52rem 1.2rem;
@@ -144,14 +143,14 @@
   font-size: 0.84rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(91, 48, 247, 0.3);
+  box-shadow: none;
   text-decoration: none;
   width: fit-content;
 }
 
 .footer .footer-cta:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(91, 48, 247, 0.4);
+  transform: translateY(-1px);
+  background: var(--accent-secondary);
   color: white;
 }
 

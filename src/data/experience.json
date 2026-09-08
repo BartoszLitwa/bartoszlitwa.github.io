@@ -13,12 +13,10 @@
     "promotionMonth": "Career progression",
     "description": "Building and testing cloud-native enterprise applications with .NET, Angular, Azure, and Azure DevOps.",
     "achievements": [
-      "Built and maintained applications using .NET, Angular, Azure, and Azure DevOps, including CI/CD processes",
       "Led a microservice migration from Azure Cosmos DB to Azure SQL with Entity Framework Core, including data migrations and cleanup",
       "Introduced Cosmos DB container bundling in a multi-tenant application, reducing cost by 90% and improving RU management",
       "Built Azure Data Factory infrastructure using Azure Functions, Managed Identities, Key Vault, RBAC, Cosmos DB, Azure SQL, and Blob Storage",
-      "Maintained Selenium automation tests in C# and supported migration to Playwright with TypeScript",
-      "Implemented .NET Aspire with Podman to orchestrate the local development environment and improve developer experience"
+      "Modernized test automation from Selenium in C# toward Playwright with TypeScript"
     ],
     "startDate": "2022-11",
     "endDate": "Present"
@@ -30,8 +28,7 @@
     "city": "Warsaw, Poland",
     "description": "Delivered end-to-end web solutions with focus on data visualization and microservices architecture.",
     "achievements": [
-      "Developed full-stack features with React, TypeScript, Chart.js, C#, ASP.NET Core, SQL, Entity Framework, and stored procedures",
-      "Contributed to code reviews, debugging, testing, and UI improvements across frontend and backend applications"
+      "Delivered full-stack data visualization and microservice features with React, TypeScript, C#, ASP.NET Core, and SQL"
     ],
     "startDate": "2022-04",
     "endDate": "2022-07"

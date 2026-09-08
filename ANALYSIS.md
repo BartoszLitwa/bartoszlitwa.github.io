@@ -25,19 +25,19 @@ several build-tool major upgrades require a planned migration.
 ## Portfolio modernization note (2026-08-23)
 
 The findings and measurements below preserve the 2026-08-16 to 2026-08-17 audit baseline. A later
-content and presentation update makes the primary narrative Bartosz building a Paperclip-powered
-AI-native company, with DoifyNow as the parent ecosystem surface and shared platform for a connected
-product family. Professional .NET, Angular, Azure, and DevOps experience remains supporting evidence.
+content and presentation update makes the primary narrative Bartosz building an AI-native company,
+with DoifyNow as the parent ecosystem surface and shared platform for a connected product family.
+Professional experience remains concise supporting evidence.
 
-Product-family records are separated from legacy engineering projects. They use explicit maturity
-labels and optional external URLs, so discovery or in-development work is not presented as publicly
-available. The family covers RentifyNow, HouseifyNow, GoalifyNow, DeployifyNow, PostifyNow,
+Product-family records use explicit maturity labels and optional external URLs, so discovery or
+in-development work is not presented as publicly available. The family covers RentifyNow,
+HouseifyNow, GoalifyNow, DeployifyNow, PostifyNow,
 LeadifyNow, InsightifyNow, and SupportifyNow. Metadata describes those concepts conservatively and
 does not infer customers, traction, pricing, availability, performance, or product maturity.
 
-The release gate now includes Playwright journeys against the production preview, covering the new
-`/#ecosystem` and `/#work` information architecture alongside responsive, keyboard, localization,
-reduced-motion, and fallback behavior.
+The release gate includes Playwright journeys against the production preview, covering the
+`/#ecosystem`, `/#experience`, and `/#certifications` information architecture alongside responsive,
+keyboard, localization, reduced-motion, and fallback behavior.
 
 ## Current architecture and data flow
 
@@ -49,7 +49,7 @@ Browser
               -> local JSON content and bundled images/fonts
               -> localStorage (validated theme and language preferences only)
               -> Umami analytics (analytics.doifynow.com)
-              -> remote image hosts (skill icons and certification badges)
+              -> remote certification badge images
 ```
 
 There is no confidential application state. Any future `VITE_*` value would be compiled into public
