@@ -19,9 +19,8 @@ const NavBar = () => {
   const navItems = [
     { href: '#home', label: t('navigation.home') },
     { href: '#ecosystem', label: t('navigation.company') },
-    { href: '#work', label: t('navigation.work') },
     { href: '#experience', label: t('navigation.experience') },
-    { href: '#skills', label: t('navigation.capabilities') }
+    { href: '#certifications', label: t('certifications.title') }
   ];
 
   useEffect(() => {
@@ -48,7 +47,7 @@ const NavBar = () => {
   }, []);
 
   useEffect(() => {
-    const sectionIds = ['home', 'ecosystem', 'work', 'experience', 'skills'];
+    const sectionIds = ['home', 'ecosystem', 'experience', 'certifications'];
     let frameId: number | undefined;
 
     const updateActiveSection = () => {

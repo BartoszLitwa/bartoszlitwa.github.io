@@ -1,14 +1,6 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-import {
-  ArrowDown,
-  ArrowRight,
-  CheckCircle,
-  CodeSlash,
-  RocketTakeoff,
-  Layers,
-  Download
-} from 'react-bootstrap-icons';
+import { ArrowDown, CheckCircle, RocketTakeoff, Download } from 'react-bootstrap-icons';
 import { useLanguage } from '../../hooks/useLanguage';
 import './SimpleBanner.css';
 
@@ -30,11 +22,11 @@ const SimpleBanner = () => {
   };
 
   return (
-    <section className="simple-banner align-items-center" id="home" role="banner">
+    <section className="simple-banner align-items-center" id="home">
       <div className="banner-glow-orb orb-1"></div>
       <div className="banner-glow-orb orb-2"></div>
       <Container className="position-relative z-1 hero-container">
-        <Row className="align-items-center min-vh-100 hero-row">
+        <Row className="align-items-center hero-row">
           <Col lg={7} md={12} className="text-start hero-col">
             <div className="hero-content text-left">
               <div className="hero-badge animate-fade-up">
@@ -69,9 +61,6 @@ const SimpleBanner = () => {
                   <RocketTakeoff size={20} className="me-2" />
                   <span>{t('hero.cta.viewCompany')}</span>
                 </button>
-                <a className="btn-modern btn-secondary" href="#work">
-                  <span>{t('hero.cta.viewWork')}</span> <ArrowRight size={20} className="ms-2" />
-                </a>
                 <a
                   className="btn-modern btn-outline-glass"
                   href="/Bartosz_Litwa_CV.pdf"
@@ -83,20 +72,6 @@ const SimpleBanner = () => {
                 </a>
               </div>
 
-              <div className="hero-tech-stack animate-fade-up" style={{ animationDelay: '0.5s' }}>
-                <span className="tech-stack-label">{t('hero.specializedIn')}</span>
-                <div className="tech-stack-icons">
-                  <span className="tech-item">
-                    <CodeSlash size={16} /> {t('hero.tech.dotnet')}
-                  </span>
-                  <span className="tech-item">
-                    <Layers size={16} /> {t('hero.tech.angular')}
-                  </span>
-                  <span className="tech-item">
-                    <RocketTakeoff size={16} /> {t('hero.tech.azureDevops')}
-                  </span>
-                </div>
-              </div>
               <a className="hero-scroll-cue" href="#ecosystem">
                 <ArrowDown size={16} aria-hidden="true" />
                 {t('hero.scrollCue')}
@@ -123,9 +98,9 @@ const SimpleBanner = () => {
                 </div>
                 <div className="delivery-flow" aria-label={t('hero.proofFlowAria')}>
                   <span>{t('hero.proofFlow.product')}</span>
-                  <ArrowRight aria-hidden="true" />
+                  <span aria-hidden="true">/</span>
                   <span>{t('hero.proofFlow.architecture')}</span>
-                  <ArrowRight aria-hidden="true" />
+                  <span aria-hidden="true">/</span>
                   <span>{t('hero.proofFlow.production')}</span>
                 </div>
               </div>

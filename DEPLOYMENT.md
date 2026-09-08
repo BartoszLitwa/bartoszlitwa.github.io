@@ -92,7 +92,7 @@ fingerprinted `.js`, `.css`, and `.webp` assets are long-lived/immutable while `
 cached.
 
 Also smoke test both desktop and mobile layouts, EN/PL, light/dark theme persistence, deep links such
-as `/#ecosystem`, `/#work`, and `/#experience`, CV download, verified external links, unlinked
+as `/#ecosystem`, `/#experience`, and `/#certifications`, CV download, verified external links, unlinked
 development-state product cards, remote badges/icons, and Umami without console errors. The automated
 journeys are a regression gate, not a replacement for this release smoke test.
 

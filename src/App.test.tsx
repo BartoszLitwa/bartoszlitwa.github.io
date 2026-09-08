@@ -9,7 +9,7 @@ describe('App', () => {
 
     expect(screen.getByRole('navigation', { name: /main navigation/i })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'Company' })).toHaveAttribute('href', '#ecosystem');
-    expect(screen.getByRole('link', { name: 'Work' })).toHaveAttribute('href', '#work');
+    expect(screen.getByRole('link', { name: 'Experience' })).toHaveAttribute('href', '#experience');
     expect(screen.getAllByText('Loading...').length).toBeGreaterThan(0);
   });
 
@@ -60,7 +60,7 @@ describe('App', () => {
     const polishOption = screen.getByRole('option', { name: /Polski/i });
     await user.click(polishOption);
 
-    expect(await screen.findByRole('link', { name: /Kompetencje/i })).toBeInTheDocument();
+    expect(await screen.findByRole('link', { name: /Doświadczenie/i })).toBeInTheDocument();
   });
 
   it('keeps keyboard focus predictable for the skip link and language menu', async () => {
@@ -104,9 +104,8 @@ describe('App', () => {
     const sectionPositions: Record<string, number> = {
       home: 0,
       ecosystem: 1000,
-      work: 3000,
-      experience: 4500,
-      skills: 6000
+      experience: 3000,
+      certifications: 4500
     };
     const originalScrollY = Object.getOwnPropertyDescriptor(window, 'scrollY');
     Object.defineProperty(window, 'scrollY', {
@@ -153,7 +152,7 @@ describe('App', () => {
     const user = userEvent.setup();
     render(<App />);
 
-    for (const sectionId of ['work', 'experience', 'skills', 'certifications']) {
+    for (const sectionId of ['experience', 'certifications']) {
       expect(document.getElementById(sectionId)).toHaveAttribute('data-lazy-section', sectionId);
     }
 

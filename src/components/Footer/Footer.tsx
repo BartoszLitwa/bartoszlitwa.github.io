@@ -13,8 +13,8 @@ const Footer = () => {
 
   const sectionLinks = [
     { name: t('footer.company'), url: '#ecosystem' },
-    { name: t('footer.work'), url: '#work' },
-    { name: t('footer.experience'), url: '#experience' }
+    { name: t('footer.experience'), url: '#experience' },
+    { name: t('certifications.title'), url: '#certifications' }
   ];
 
   return (

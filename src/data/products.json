@@ -2,24 +2,27 @@
   {
     "id": "doifynow",
     "name": "DoifyNow",
+    "icon": "/product-icons/doifynow.png",
     "stage": "building",
     "role": {
       "en": "Parent company and shared platform for the Now product family.",
       "pl": "Firma macierzysta i wspólna platforma rodziny produktów Now."
     },
     "description": {
-      "en": "A Paperclip-powered AI-native company building a coherent family of focused products while keeping each product's domain and responsibilities explicit.",
-      "pl": "Firma AI-native wspierana przez Paperclip, która buduje spójną rodzinę wyspecjalizowanych produktów i jasno rozdziela ich domeny oraz odpowiedzialności."
+      "en": "An AI-native company building focused products on one shared company foundation while keeping each product's purpose explicit.",
+      "pl": "Firma AI-native budująca wyspecjalizowane produkty na wspólnym fundamencie, z jasno określonym celem każdego produktu."
     },
     "tags": {
       "en": ["AI-native company", "Product ecosystem", "Shared platform"],
       "pl": ["Firma AI-native", "Ekosystem produktów", "Wspólna platforma"]
-    }
+    },
+    "url": "https://doifynow.com"
   },
   {
     "id": "rentifynow",
     "name": "RentifyNow",
-    "stage": "building",
+    "icon": "/product-icons/rentifynow.png",
+    "stage": "active-build",
     "role": {
       "en": "Rental and property-management workflows.",
       "pl": "Procesy najmu i zarządzania nieruchomościami."
@@ -31,11 +34,13 @@
     "tags": {
       "en": ["Rentals", "Property operations", "Workflow management"],
       "pl": ["Najem", "Operacje nieruchomości", "Zarządzanie procesami"]
-    }
+    },
+    "url": "https://rentifynow.com"
   },
   {
     "id": "houseifynow",
     "name": "HouseifyNow",
+    "icon": "/product-icons/houseifynow.png",
     "stage": "building",
     "role": {
       "en": "Homeowner operations, maintenance, and financial oversight.",
@@ -48,11 +53,13 @@
     "tags": {
       "en": ["Home operations", "Maintenance", "Financial oversight"],
       "pl": ["Obsługa domu", "Utrzymanie", "Nadzór finansowy"]
-    }
+    },
+    "url": "https://houseifynow.com"
   },
   {
     "id": "goalifynow",
     "name": "GoalifyNow",
+    "icon": "/product-icons/goalifynow.png",
     "stage": "building",
     "role": {
       "en": "Goals, habits, fitness, and personal progress.",
@@ -65,11 +72,13 @@
     "tags": {
       "en": ["Goals", "Habits", "Personal progress"],
       "pl": ["Cele", "Nawyki", "Osobisty rozwój"]
-    }
+    },
+    "url": "https://goalifynow.com"
   },
   {
     "id": "deployifynow",
     "name": "DeployifyNow",
+    "icon": "/product-icons/deployifynow.svg",
     "stage": "building",
     "role": {
       "en": "Deployment and infrastructure automation.",
@@ -88,6 +97,7 @@
   {
     "id": "postifynow",
     "name": "PostifyNow",
+    "icon": "/product-icons/postifynow.png",
     "stage": "active-build",
     "role": {
       "en": "Governed multi-channel content planning, approval, and delivery.",
@@ -105,6 +115,7 @@
   {
     "id": "leadifynow",
     "name": "LeadifyNow",
+    "icon": "/product-icons/leadifynow.svg",
     "stage": "discovery",
     "role": {
       "en": "Inbound capture, consent and attribution, qualification, booking, and audited handoffs.",
@@ -117,11 +128,13 @@
     "tags": {
       "en": ["Inbound operations", "Consent and attribution", "Audited handoffs"],
       "pl": ["Obsługa zapytań", "Zgody i atrybucja", "Audytowane przekazania"]
-    }
+    },
+    "url": "https://leadifynow.com"
   },
   {
     "id": "insightifynow",
     "name": "InsightifyNow",
+    "icon": "/product-icons/insightifynow.png",
     "stage": "discovery",
     "role": {
       "en": "Internal-first governed metrics, attribution, lineage, and decision support.",
@@ -139,6 +152,7 @@
   {
     "id": "supportifynow",
     "name": "SupportifyNow",
+    "icon": "/product-icons/supportifynow.png",
     "stage": "discovery",
     "role": {
       "en": "Product-aware customer operations with human-controlled actions.",

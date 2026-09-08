@@ -1,8 +1,7 @@
 # Bartosz Litwa Portfolio
 
-Public portfolio at [litwa.dev](https://litwa.dev), presenting Bartosz Litwa's Paperclip-powered
-AI-native company, the DoifyNow product family, selected technical work, and professional engineering
-experience. It is implemented as a static React single-page application and supports GitHub Pages or
+Public portfolio at [litwa.dev](https://litwa.dev), presenting Bartosz Litwa's AI-native company,
+the DoifyNow product family, and professional experience. It is implemented as a static React single-page application and supports GitHub Pages or
 a Docker/Nginx deployment behind Traefik.
 
 ## Architecture
@@ -27,8 +26,7 @@ system, or native mobile app here. Technology names in portfolio content describ
 Main runtime components:
 
 - `src/App.tsx`: composition, code splitting, and analytics section observation
-- `src/components`: navigation, hero, company ecosystem, selected work, experience, skills,
-  certifications, and footer
+- `src/components`: navigation, hero, company ecosystem, experience, certifications, and footer
 - `src/data`: product-family, portfolio, career, and EN/PL translation data
 - `src/hooks`: language, theme, and intersection-based animation state
 - `src/utils`: asset lookup, localization, and Umami helpers
@@ -122,10 +120,9 @@ The full prioritized register, evidence, fixes, and accepted constraints are in
 Most content changes belong in:
 
 - `src/data/products.json`
-- `src/data/projects.json`
 - `src/data/experience.json`
-- `src/data/skills.json`
 - `src/data/certifications.json`
+- `src/data/products.json`
 - `src/data/translations.json`
 
 `products.json` is the authoritative product-family source. Product URLs are optional: omit a URL

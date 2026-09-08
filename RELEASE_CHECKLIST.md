@@ -22,7 +22,7 @@
 ## 3. Browser smoke checks
 
 - No runtime console errors on initial load or scrolling.
-- Direct deep links such as `/#ecosystem`, `/#work`, and `/#experience` land on stable targets.
+- Direct deep links such as `/#ecosystem`, `/#experience`, and `/#certifications` land on stable targets.
 - Nav active state follows scrolling; mobile menu opens, navigates, and closes.
 - EN/PL updates visible copy and document language.
 - Light/dark theme toggles and persists without removing unrelated body classes.

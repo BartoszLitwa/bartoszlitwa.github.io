@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUpRight, CheckCircle, Diagram3, Stars } from 'react-bootstrap-icons';
+import { ArrowUpRight } from 'react-bootstrap-icons';
 import { Container } from 'react-bootstrap';
 import productsData from '../../data/products.json';
 import { useLanguage } from '../../hooks/useLanguage';
@@ -8,120 +8,148 @@ import { resolveLocalizedField } from '../../utils/localization';
 import './CompanyEcosystem.css';
 
 const products = productsData as Product[];
+const featuredIds = new Set(['rentifynow', 'postifynow']);
 
 const CompanyEcosystem = () => {
   const { language, t } = useLanguage();
-  const [company, ...productFamily] = products;
-
+  const company = products[0];
+  const productFamily = products
+    .slice(1)
+    .sort((a, b) => Number(featuredIds.has(b.id)) - Number(featuredIds.has(a.id)));
   const stageLabel = (stage: ProductStage) => t(`ecosystem.stages.${stage}`);
 
   return (
     <section className="ecosystem" id="ecosystem" aria-labelledby="ecosystem-heading">
-      <div className="ecosystem-glow ecosystem-glow-primary" aria-hidden="true" />
-      <div className="ecosystem-glow ecosystem-glow-secondary" aria-hidden="true" />
       <Container>
         <header className="ecosystem-header">
-          <div className="ecosystem-kicker">
-            <Stars aria-hidden="true" />
-            <span>{t('ecosystem.kicker')}</span>
-          </div>
+          <p className="ecosystem-kicker">{t('ecosystem.kicker')}</p>
           <h2 id="ecosystem-heading">{t('ecosystem.title')}</h2>
           <p>{t('ecosystem.description')}</p>
         </header>
 
-        <article
-          className="company-card glass-panel"
-          data-product-id={company.id}
-          data-stage={company.stage}
-          aria-labelledby={`${company.id}-title`}
-        >
+        <article className="company-card" data-product-id={company.id}>
           <div className="company-card-copy">
-            <div className="company-card-meta">
-              <span className="company-label">{t('ecosystem.companyLabel')}</span>
-              <span className="stage-pill" data-stage={company.stage}>
-                <span className="stage-dot" aria-hidden="true" />
-                {stageLabel(company.stage)}
-              </span>
+            <div className="company-heading-row">
+              <img src={company.icon} alt="" width="72" height="72" />
+              <div>
+                <p className="company-label">{t('ecosystem.companyLabel')}</p>
+                <h3 id={`${company.id}-title`}>{company.name}</h3>
+              </div>
             </div>
-            <h3 id={`${company.id}-title`}>{company.name}</h3>
             <p className="company-role">{resolveLocalizedField(company.role, language)}</p>
             <p className="company-description">
               {resolveLocalizedField(company.description, language)}
             </p>
-            <div className="company-tags" aria-label={t('ecosystem.aria.companyThemes')}>
-              {resolveLocalizedField(company.tags, language).map((tag) => (
-                <span key={tag}>{tag}</span>
-              ))}
-            </div>
+            {company.url && (
+              <a
+                className="company-link"
+                href={company.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {t('ecosystem.visitCompany')}
+                <ArrowUpRight aria-hidden="true" />
+              </a>
+            )}
           </div>
 
           <div className="company-system" aria-label={t('ecosystem.aria.operatingModel')}>
-            <div className="company-system-core">
-              <Diagram3 size={28} aria-hidden="true" />
-              <strong>DoifyNow</strong>
-              <span>{t('ecosystem.system.core')}</span>
-            </div>
-            <div className="company-system-orbit" aria-hidden="true">
-              {productFamily.map((product, index) => (
-                <span key={product.id} style={{ '--orbit-index': index } as React.CSSProperties} />
-              ))}
-            </div>
-            <div className="company-system-caption">
-              <CheckCircle aria-hidden="true" />
-              <span>{t('ecosystem.system.caption')}</span>
+            <div className="system-connector" aria-hidden="true" />
+            <a
+              className="company-system-core"
+              href={company.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${company.name}: ${t('ecosystem.visitCompany')}`}
+            >
+              <img src={company.icon} alt="" width="64" height="64" />
+              <strong>{company.name}</strong>
+            </a>
+            <div className="company-system-products">
+              {productFamily.map((product, index) => {
+                const content = (
+                  <>
+                    <img src={product.icon} alt="" width="42" height="42" />
+                    <span>{product.name}</span>
+                  </>
+                );
+                return product.url ? (
+                  <a
+                    key={product.id}
+                    href={product.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="system-product"
+                    style={{ '--product-index': index } as React.CSSProperties}
+                    aria-label={`${t('ecosystem.visitProduct')} ${product.name}`}
+                  >
+                    {content}
+                  </a>
+                ) : (
+                  <div
+                    key={product.id}
+                    className="system-product"
+                    style={{ '--product-index': index } as React.CSSProperties}
+                  >
+                    {content}
+                  </div>
+                );
+              })}
             </div>
           </div>
         </article>
 
         <div className="ecosystem-groups" aria-label={t('ecosystem.aria.productFamily')}>
           <div className="ecosystem-group-heading">
-            <span>{t('ecosystem.productsLabel')}</span>
+            <h3>{t('ecosystem.productsLabel')}</h3>
             <p>{t('ecosystem.productsDescription')}</p>
           </div>
 
           <div className="product-grid">
-            {productFamily.map((product, index) => {
+            {productFamily.map((product) => {
               const titleId = `${product.id}-title`;
-              const role = resolveLocalizedField(product.role, language);
-              const description = resolveLocalizedField(product.description, language);
               const tags = resolveLocalizedField(product.tags, language);
+              const isFeatured = featuredIds.has(product.id);
 
               return (
                 <article
                   key={product.id}
-                  className="product-card glass-panel"
+                  className={`product-card${isFeatured ? ' product-card-featured' : ''}`}
                   data-product-id={product.id}
                   data-stage={product.stage}
                   aria-labelledby={titleId}
                 >
-                  <div className="product-card-topline">
-                    <span className="product-index" aria-hidden="true">
-                      {String(index + 1).padStart(2, '0')}
-                    </span>
-                    <span className="stage-pill" data-stage={product.stage}>
-                      <span className="stage-dot" aria-hidden="true" />
-                      {stageLabel(product.stage)}
-                    </span>
-                  </div>
-                  <h3 id={titleId}>{product.name}</h3>
-                  <p className="product-role">{role}</p>
-                  <p className="product-description">{description}</p>
-                  <div className="product-tags" aria-label={t('ecosystem.aria.productThemes')}>
-                    {tags.map((tag) => (
-                      <span key={tag}>{tag}</span>
-                    ))}
-                  </div>
-                  <div className="product-card-footer">
+                  <header className="product-card-header">
+                    <img src={product.icon} alt="" width="52" height="52" loading="lazy" />
+                    <div>
+                      <h4 id={titleId}>{product.name}</h4>
+                      <span className="stage-label" data-stage={product.stage}>
+                        {stageLabel(product.stage)}
+                      </span>
+                    </div>
+                  </header>
+                  <p className="product-role">{resolveLocalizedField(product.role, language)}</p>
+                  <p className="product-description">
+                    {resolveLocalizedField(product.description, language)}
+                  </p>
+                  <div className="product-card-bottom">
+                    <ul className="product-tags" aria-label={t('ecosystem.aria.productThemes')}>
+                      {tags.map((tag) => (
+                        <li key={tag}>{tag}</li>
+                      ))}
+                    </ul>
                     {product.url ? (
-                      <a href={product.url} target="_blank" rel="noopener noreferrer">
-                        {t('ecosystem.verifiedLink')}
+                      <a
+                        href={product.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`${t('ecosystem.visitProduct')} ${product.name}`}
+                      >
+                        {t('ecosystem.visitProduct')}
                         <ArrowUpRight aria-hidden="true" />
                       </a>
                     ) : (
-                      <span className="development-note">
-                        <span aria-hidden="true" />
-                        {t('ecosystem.developmentNote')}
-                      </span>
+                      <span className="development-note">{t('ecosystem.developmentNote')}</span>
                     )}
                   </div>
                 </article>

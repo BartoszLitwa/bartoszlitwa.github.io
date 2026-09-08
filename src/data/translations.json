@@ -31,23 +31,23 @@
       "badge": "Founder-engineer · Warsaw, Poland",
       "greeting": "Hi, I'm",
       "currentRoleAria": "Current role",
-      "role": "Building a Paperclip-powered AI-native company",
-      "description": "I am building DoifyNow as a coherent family of focused products across property, personal progress, delivery, growth, insight, and support. Enterprise .NET, Azure, and DevOps experience provides the engineering foundation behind the company.",
-      "proofTitle": "Engineering evidence",
-      "proofHeading": "Professional depth behind the products",
-      "proofFlowAria": "Product delivery from product thinking through architecture to production",
+      "role": "Building an AI-native company",
+      "description": "I am building DoifyNow: a connected family of focused products. RentifyNow and PostifyNow lead the portfolio, with products spanning home operations, personal progress, delivery, growth, insight, and support.",
+      "proofTitle": "Company focus",
+      "proofHeading": "Focused products, shared direction",
+      "proofFlowAria": "DoifyNow product cycle from idea through building to operation",
       "proofFlow": {
-        "product": "Product",
-        "architecture": "Architecture",
-        "production": "Production"
+        "product": "Idea",
+        "architecture": "Build",
+        "production": "Operate"
       },
       "outcomes": [
-        "4+ years delivering production software",
-        "90% Azure Cosmos DB cost reduction",
-        "4 Microsoft Azure certifications"
+        "RentifyNow for rental operations",
+        "PostifyNow for content operations",
+        "One connected product family"
       ],
       "scrollCue": "Explore the company",
-      "specializedIn": "Engineering foundation:",
+      "specializedIn": "Company foundation:",
       "tech": {
         "dotnet": ".NET 10 / C#",
         "angular": "Angular",
@@ -55,19 +55,21 @@
       },
       "cta": {
         "viewCompany": "Explore the company",
-        "viewWork": "Selected technical work",
+        "viewWork": "View products",
         "downloadCv": "Download CV"
       }
     },
     "ecosystem": {
-      "kicker": "Paperclip-powered · AI-native company",
+      "kicker": "DoifyNow · AI-native company",
       "title": "An AI-native company, built as a product system",
-      "description": "DoifyNow is the parent company and shared platform for a focused family of products. Each product owns a clear problem space; the company story connects them without pretending they are all at the same stage.",
+      "description": "DoifyNow gives a focused family of products one shared direction. Each product solves a clear problem and keeps its own identity.",
       "companyLabel": "Parent company and shared platform",
       "productsLabel": "The Now product family",
-      "productsDescription": "Focused products, honest stages, and no invented launch claims. Public links appear only when a current product page is verified.",
-      "verifiedLink": "Visit verified product page",
-      "developmentNote": "In development · no public product page linked",
+      "productsDescription": "RentifyNow and PostifyNow lead the portfolio. The other products extend the same company system into adjacent workflows.",
+      "verifiedLink": "Visit product",
+      "visitCompany": "Visit DoifyNow",
+      "visitProduct": "Visit product",
+      "developmentNote": "Product page coming later",
       "stages": {
         "building": "Building",
         "active-build": "Active build",
@@ -84,28 +86,9 @@
         "productThemes": "Product themes"
       }
     },
-    "skills": {
-      "title": "Technical Skills",
-      "description": "The technologies I use to build, test, deploy, and operate production applications.",
-      "technologies": "Technologies",
-      "programs": "Programs & Tools",
-      "categories": {
-        "backend": "Backend Development",
-        "frontend": "Frontend Development",
-        "cloud": "Cloud & Infrastructure",
-        "devops": "CI/CD & DevOps",
-        "database": "Databases",
-        "tools": "Development Tools"
-      },
-      "aria": {
-        "categories": "Technical skills categories",
-        "iconAlt": "technology icon",
-        "iconFallback": "Technology icon unavailable"
-      }
-    },
     "experience": {
       "title": "Experience",
-      "description": "A track record of delivering impactful solutions at enterprise scale.",
+      "description": "Professional roles and measurable outcomes.",
       "timeline": "Professional timeline",
       "careerProgression": "Career progression",
       "aria": {
@@ -118,19 +101,9 @@
         "achievements": "Achievements at"
       }
     },
-    "projects": {
-      "title": "Selected technical work",
-      "description": "Earlier engineering projects remain part of the record: practical evidence across full-stack applications, distributed systems, mobile work, and product delivery.",
-      "aria": {
-        "viewProject": "View project",
-        "imageAlt": "project preview",
-        "imageFallback": "No project preview available"
-      },
-      "impact": "Evidence:"
-    },
     "certifications": {
       "title": "Certifications",
-      "description": "Professional certifications that validate my expertise in cloud technologies and software development.",
+      "description": "A compact record of completed Microsoft Azure certifications.",
       "status": {
         "completed": "Completed",
         "inProgress": "In Progress",
@@ -216,7 +189,7 @@
     "footer": {
       "connect": "Let's Connect",
       "rights": "Bartosz Litwa. All rights reserved.",
-      "tagline": "Building a Paperclip-powered AI-native company.",
+      "tagline": "Building DoifyNow as an AI-native company.",
       "ecosystemTitle": "Explore",
       "connectTitle": "Connect",
       "company": "Company",
@@ -265,23 +238,23 @@
       "badge": "Founder-engineer · Warszawa",
       "greeting": "Cześć, jestem",
       "currentRoleAria": "Aktualna rola",
-      "role": "Buduję firmę AI-native wspieraną przez Paperclip",
-      "description": "Buduję DoifyNow jako spójną rodzinę wyspecjalizowanych produktów dla nieruchomości, rozwoju osobistego, wdrożeń, wzrostu, analityki i obsługi. Doświadczenie enterprise w .NET, Azure i DevOps stanowi inżynierski fundament firmy.",
-      "proofTitle": "Dowody inżynierskie",
-      "proofHeading": "Doświadczenie zawodowe za produktami",
-      "proofFlowAria": "Realizacja produktu od koncepcji przez architekturę po produkcję",
+      "role": "Buduję firmę AI-native",
+      "description": "Buduję DoifyNow: połączoną rodzinę wyspecjalizowanych produktów. RentifyNow i PostifyNow prowadzą portfolio obejmujące dom, rozwój osobisty, wdrożenia, wzrost, analitykę i obsługę.",
+      "proofTitle": "Kierunek firmy",
+      "proofHeading": "Wyspecjalizowane produkty, wspólny kierunek",
+      "proofFlowAria": "Cykl produktu DoifyNow od pomysłu przez budowę po działanie",
       "proofFlow": {
-        "product": "Produkt",
-        "architecture": "Architektura",
-        "production": "Produkcja"
+        "product": "Pomysł",
+        "architecture": "Budowa",
+        "production": "Działanie"
       },
       "outcomes": [
-        "Ponad 4 lata tworzenia oprogramowania produkcyjnego",
-        "90% redukcji kosztów Azure Cosmos DB",
-        "4 certyfikaty Microsoft Azure"
+        "RentifyNow dla operacji najmu",
+        "PostifyNow dla operacji treści",
+        "Jedna połączona rodzina produktów"
       ],
       "scrollCue": "Poznaj firmę",
-      "specializedIn": "Fundament inżynierski:",
+      "specializedIn": "Fundament firmy:",
       "tech": {
         "dotnet": ".NET 10 / C#",
         "angular": "Angular",
@@ -289,19 +262,21 @@
       },
       "cta": {
         "viewCompany": "Poznaj firmę",
-        "viewWork": "Wybrane projekty techniczne",
+        "viewWork": "Zobacz produkty",
         "downloadCv": "Pobierz CV"
       }
     },
     "ecosystem": {
-      "kicker": "Paperclip-powered · firma AI-native",
+      "kicker": "DoifyNow · firma AI-native",
       "title": "Firma AI-native zbudowana jako system produktów",
-      "description": "DoifyNow jest firmą macierzystą i wspólną platformą dla rodziny wyspecjalizowanych produktów. Każdy produkt ma jasno określony obszar, a historia firmy łączy je bez udawania, że wszystkie są na tym samym etapie.",
+      "description": "DoifyNow nadaje wspólny kierunek rodzinie wyspecjalizowanych produktów. Każdy produkt rozwiązuje konkretny problem i zachowuje własną tożsamość.",
       "companyLabel": "Firma macierzysta i wspólna platforma",
       "productsLabel": "Rodzina produktów Now",
-      "productsDescription": "Wyspecjalizowane produkty, uczciwe etapy i bez wymyślonych deklaracji o premierze. Publiczne linki pojawiają się tylko wtedy, gdy bieżąca strona produktu została zweryfikowana.",
-      "verifiedLink": "Odwiedź zweryfikowaną stronę produktu",
-      "developmentNote": "W trakcie rozwoju · bez linku do strony publicznej",
+      "productsDescription": "RentifyNow i PostifyNow prowadzą portfolio. Pozostałe produkty rozszerzają ten sam system firmy o sąsiednie procesy.",
+      "verifiedLink": "Odwiedź produkt",
+      "visitCompany": "Odwiedź DoifyNow",
+      "visitProduct": "Odwiedź produkt",
+      "developmentNote": "Strona produktu pojawi się później",
       "stages": {
         "building": "W budowie",
         "active-build": "Aktywnie rozwijany",
@@ -318,28 +293,9 @@
         "productThemes": "Obszary produktu"
       }
     },
-    "skills": {
-      "title": "Umiejętności Techniczne",
-      "description": "Kompleksowy przegląd mojego profesjonalnego stosu technologicznego i doświadczenia w tworzeniu aplikacji klasy enterprise.",
-      "technologies": "Technologie",
-      "programs": "Programy i Narzędzia",
-      "categories": {
-        "backend": "Backend Development",
-        "frontend": "Frontend Development",
-        "cloud": "Chmura i infrastruktura",
-        "devops": "CI/CD i DevOps",
-        "database": "Bazy danych",
-        "tools": "Narzędzia developerskie"
-      },
-      "aria": {
-        "categories": "Kategorie umiejętności technicznych",
-        "iconAlt": "ikona technologii",
-        "iconFallback": "Ikona technologii niedostępna"
-      }
-    },
     "experience": {
       "title": "Doświadczenie",
-      "description": "Historia dostarczania skutecznych rozwiązań na skalę korporacyjną.",
+      "description": "Role zawodowe i mierzalne rezultaty.",
       "timeline": "Oś doświadczenia zawodowego",
       "careerProgression": "Rozwój kariery",
       "aria": {
@@ -352,19 +308,9 @@
         "achievements": "Osiągnięcia w"
       }
     },
-    "projects": {
-      "title": "Wybrane projekty techniczne",
-      "description": "Wcześniejsze projekty inżynierskie pozostają częścią dorobku: praktyczne dowody pracy nad aplikacjami full-stack, systemami rozproszonymi, mobile i dostarczaniem produktów.",
-      "aria": {
-        "viewProject": "Zobacz projekt",
-        "imageAlt": "podgląd projektu",
-        "imageFallback": "Brak podglądu projektu"
-      },
-      "impact": "Dowód:"
-    },
     "certifications": {
       "title": "Certyfikaty",
-      "description": "Profesjonalne certyfikaty potwierdzające moją ekspertyzę w technologiach chmurowych i rozwoju oprogramowania.",
+      "description": "Zwięzły wykaz ukończonych certyfikatów Microsoft Azure.",
       "status": {
         "completed": "Ukończone",
         "inProgress": "W trakcie",
@@ -450,7 +396,7 @@
     "footer": {
       "connect": "Skontaktuj się",
       "rights": "Bartosz Litwa. Wszelkie prawa zastrzeżone.",
-      "tagline": "Buduję firmę AI-native wspieraną przez Paperclip.",
+      "tagline": "Buduję DoifyNow jako firmę AI-native.",
       "ecosystemTitle": "Odkrywaj",
       "connectTitle": "Kontakt",
       "company": "Firma",
