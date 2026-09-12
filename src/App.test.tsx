@@ -10,7 +10,7 @@ describe('App', () => {
     expect(screen.getByRole('navigation', { name: /main navigation/i })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'Company' })).toHaveAttribute('href', '#ecosystem');
     expect(screen.getByRole('link', { name: 'Experience' })).toHaveAttribute('href', '#experience');
-    expect(screen.getAllByText('Loading...').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('Loading…').length).toBeGreaterThan(0);
   });
 
   it('presents the complete product family with honest link states', async () => {

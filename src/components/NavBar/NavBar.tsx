@@ -1,18 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
-import { Linkedin } from 'react-bootstrap-icons';
+import { Github, Linkedin } from 'react-bootstrap-icons';
 import { useLanguage } from '../../hooks/useLanguage';
 import NavBarControls from './NavBarControls';
 import './NavBar.css';
-import '../../App.css';
 import logo from '../../assets/img/logo.webp';
-import githubLogo from '../../assets/img/github.png';
 
 const NavBar = () => {
   const { t } = useLanguage();
   const hireMeUrl = 'https://www.linkedin.com/in/bartoszlitwa/';
   const [activeLink, setActiveLink] = useState('#home');
-  const [scrolled, setScrolled] = useState(false);
   const [toggled, setToggled] = useState(false);
   const toggleRef = useRef<HTMLButtonElement>(null);
 
@@ -24,23 +21,12 @@ const NavBar = () => {
   ];
 
   useEffect(() => {
-    const onScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
-  useEffect(() => {
     if (!window.location.hash) return;
 
     const frameId = window.requestAnimationFrame(() => {
-      document.getElementById(window.location.hash.slice(1))?.scrollIntoView();
+      document
+        .getElementById(window.location.hash.slice(1))
+        ?.scrollIntoView({ behavior: 'instant' });
     });
 
     return () => window.cancelAnimationFrame(frameId);
@@ -100,7 +86,7 @@ const NavBar = () => {
     if (!toggled) return;
 
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key !== 'Escape') return;
+      if (event.key !== 'Escape' || event.defaultPrevented) return;
       setToggled(false);
       window.requestAnimationFrame(() => toggleRef.current?.focus());
     };
@@ -111,7 +97,7 @@ const NavBar = () => {
 
   useEffect(() => {
     const onResize = () => {
-      if (window.innerWidth >= 992) {
+      if (window.innerWidth >= 1200) {
         setToggled(false);
       }
     };
@@ -122,7 +108,13 @@ const NavBar = () => {
 
   const onUpdateActiveLink = (value: string) => {
     setActiveLink(value);
-    setToggled(false); // Close mobile menu when link is clicked
+    setToggled(false);
+    window.requestAnimationFrame(() => {
+      const target = document.getElementById(value.slice(1));
+      if (!target) return;
+      target.tabIndex = -1;
+      target.focus({ preventScroll: true });
+    });
     document.getElementById(value.slice(1))?.scrollIntoView({
       behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
       block: 'start'
@@ -145,17 +137,26 @@ const NavBar = () => {
         {t('navigation.skipToMain')}
       </a>
       <Navbar
-        expand="lg"
+        expand="xl"
         expanded={toggled}
         collapseOnSelect
-        className={scrolled || toggled ? 'scrolled' : ''}
         onToggle={(nextExpanded) => setToggled(Boolean(nextExpanded))}
         role="navigation"
         aria-label={t('navigation.aria.mainNav')}
       >
         <Container>
-          <Navbar.Brand href="#home" aria-label={t('navigation.aria.homeBrand')}>
-            <img src={logo} alt={t('navigation.aria.logoAlt')} loading="eager" />
+          <Navbar.Brand
+            href="#home"
+            aria-label={t('navigation.aria.homeBrand')}
+            onClick={() => onUpdateActiveLink('#home')}
+          >
+            <img
+              src={logo}
+              alt={t('navigation.aria.logoAlt')}
+              loading="eager"
+              width="44"
+              height="44"
+            />
           </Navbar.Brand>
 
           <Navbar.Toggle
@@ -182,7 +183,7 @@ const NavBar = () => {
               ))}
             </Nav>
 
-            <span className="navbar-text">
+            <div className="navbar-text">
               <div className="navbar-controls-wrapper">
                 <NavBarControls />
               </div>
@@ -201,13 +202,7 @@ const NavBar = () => {
                   rel="noopener noreferrer"
                   aria-label={t('navigation.aria.github')}
                 >
-                  <img
-                    src={githubLogo}
-                    alt={t('navigation.aria.githubAlt')}
-                    width="24"
-                    height="24"
-                    loading="lazy"
-                  />
+                  <Github size={24} aria-hidden="true" />
                 </a>
               </div>
               <a
@@ -221,7 +216,7 @@ const NavBar = () => {
                   <span>{t('navigation.letsConnect')}</span>
                 </span>
               </a>
-            </span>
+            </div>
           </Navbar.Collapse>
         </Container>
       </Navbar>

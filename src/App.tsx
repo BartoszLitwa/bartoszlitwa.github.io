@@ -5,6 +5,7 @@ import NavBar from './components/NavBar/NavBar';
 import LazySection from './components/LazySection/LazySection';
 import CompanyEcosystem from './components/Ecosystem/CompanyEcosystem';
 import { createSectionObserver } from './utils/umami';
+import { useLanguage } from './hooks/useLanguage';
 import './App.css';
 
 const TRACKED_SECTIONS = [
@@ -19,19 +20,14 @@ const Experience = lazy(() => import('./components/Experience/Experience'));
 const Certifications = lazy(() => import('./components/Certifications/Certifications'));
 const Footer = lazy(() => import('./components/Footer/Footer'));
 
-const LoadingFallback: React.FC = () => (
-  <div
-    style={{
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      minHeight: '40vh',
-      color: 'var(--text-secondary)'
-    }}
-  >
-    <div>Loading...</div>
-  </div>
-);
+const LoadingFallback = () => {
+  const { t } = useLanguage();
+  return (
+    <div className="loading-state" role="status">
+      {t('common.loading')}
+    </div>
+  );
+};
 
 function App() {
   useEffect(() => {

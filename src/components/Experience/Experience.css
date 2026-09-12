@@ -4,7 +4,7 @@
 }
 
 .experience-bx {
-  max-width: 1040px;
+  max-width: 100%;
   margin: 0 auto;
   text-align: left;
 }
@@ -31,7 +31,9 @@
 }
 
 .experienceCard-header {
-  display: contents;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
 .experienceCard-company {
@@ -56,7 +58,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--text-primary);
+  color: #16181d;
   font-weight: 700;
 }
 
@@ -76,30 +78,26 @@
 }
 
 .experienceCard-period {
-  grid-column: 1;
   display: flex;
   gap: 0.4rem;
   align-items: center;
+  flex-wrap: wrap;
   align-self: start;
   margin-left: 3.8rem;
   color: var(--text-muted);
-  font-size: 0.78rem;
+  font-size: 0.875rem;
   font-variant-numeric: tabular-nums;
 }
 
-.promotion-path,
-.education-note,
-.experienceCard-summary,
-.achievement-list {
-  grid-column: 2;
+.experienceCard-details {
+  display: grid;
+  gap: 1rem;
+  min-width: 0;
 }
 
 .promotion-path {
-  grid-row: 1;
-  align-self: end;
-  margin: 0;
   color: var(--text-secondary);
-  font-size: 0.78rem;
+  font-size: 0.875rem;
 }
 
 .promotion-label {
@@ -126,25 +124,25 @@
 }
 
 .education-note {
-  margin: -0.8rem 0 0;
+  margin: 0;
   color: var(--text-muted);
-  font-size: 0.78rem;
+  font-size: 0.875rem;
 }
 
 .experienceCard-summary {
   margin: 0;
   color: var(--text-secondary);
-  font-size: 0.92rem;
+  font-size: 1rem;
   line-height: 1.55;
 }
 
 .achievement-list {
   display: grid;
   gap: 0.45rem;
-  margin: -0.65rem 0 0;
+  margin: 0;
   padding-left: 1.15rem;
   color: var(--text-secondary);
-  font-size: 0.86rem;
+  font-size: 0.9375rem;
   line-height: 1.5;
 }
 
@@ -172,15 +170,8 @@
     margin-left: 3.8rem;
   }
 
-  .promotion-path,
-  .education-note,
-  .experienceCard-summary,
-  .achievement-list {
-    margin-top: 0.9rem;
-  }
-
-  .promotion-path {
-    padding-left: 3.8rem;
+  .experienceCard-details {
+    margin-top: 1.25rem;
   }
 }
 

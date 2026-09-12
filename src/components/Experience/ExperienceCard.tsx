@@ -35,6 +35,8 @@ const ExperienceCard = ({ experience }: ExperienceCardProps) => {
               src={experience.companyLogo}
               alt={`${company} ${t('experience.aria.logoAlt')}`}
               className="experienceCard-logo"
+              width="46"
+              height="46"
               loading="lazy"
               onError={() => setFailedLogoUrl(experience.companyLogo)}
             />
@@ -65,35 +67,37 @@ const ExperienceCard = ({ experience }: ExperienceCardProps) => {
           <span className="experienceCard-date">{experience.endDate}</span>
         </div>
       </header>
-      {promotionPath && promotionPath.length > 0 && (
-        <div className="promotion-path" role="status" aria-label={t('experience.aria.promotion')}>
-          <span className="promotion-label">
-            {promotionMonth || t('experience.careerProgression')}
-          </span>
-          <div className="promotion-pills">
-            {promotionPath.map((level, index) => (
-              <React.Fragment key={`${level}-${index}`}>
-                {index > 0 && (
-                  <span className="promotion-arrow" aria-hidden="true">
-                    →
-                  </span>
-                )}
-                <span className="promotion-pill">{level}</span>
-              </React.Fragment>
-            ))}
+      <div className="experienceCard-details">
+        {promotionPath && promotionPath.length > 0 && (
+          <div className="promotion-path" aria-label={t('experience.aria.promotion')}>
+            <span className="promotion-label">
+              {promotionMonth || t('experience.careerProgression')}
+            </span>
+            <div className="promotion-pills">
+              {promotionPath.map((level, index) => (
+                <React.Fragment key={`${level}-${index}`}>
+                  {index > 0 && (
+                    <span className="promotion-arrow" aria-hidden="true">
+                      →
+                    </span>
+                  )}
+                  <span className="promotion-pill">{level}</span>
+                </React.Fragment>
+              ))}
+            </div>
           </div>
-        </div>
-      )}
-      {education && <p className="education-note">{education}</p>}
-      <p className="experienceCard-summary">{description}</p>
-      <ul
-        className="achievement-list"
-        aria-label={`${t('experience.aria.achievements')} ${company}`}
-      >
-        {achievements.map((ach: string, index: number) => (
-          <li key={`expIt-${index}-${ach.slice(0, 15)}`}>{ach}</li>
-        ))}
-      </ul>
+        )}
+        {education && <p className="education-note">{education}</p>}
+        <p className="experienceCard-summary">{description}</p>
+        <ul
+          className="achievement-list"
+          aria-label={`${t('experience.aria.achievements')} ${company}`}
+        >
+          {achievements.map((ach: string, index: number) => (
+            <li key={`expIt-${index}-${ach.slice(0, 15)}`}>{ach}</li>
+          ))}
+        </ul>
+      </div>
     </article>
   );
 };

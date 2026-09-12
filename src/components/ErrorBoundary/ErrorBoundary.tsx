@@ -27,32 +27,21 @@ class ErrorBoundary extends Component<Props, State> {
     if (this.state.hasError) {
       return (
         this.props.fallback || (
-          <div
-            style={{
-              padding: '2rem',
-              textAlign: 'center',
-              color: '#fff',
-              backgroundColor: '#1a1a1a',
-              borderRadius: '8px',
-              margin: '1rem'
-            }}
-          >
-            <h2>🚫 Something went wrong</h2>
-            <p>We're sorry, but something unexpected happened.</p>
-            <button
-              onClick={() => this.setState({ hasError: false })}
-              style={{
-                padding: '0.5rem 1rem',
-                backgroundColor: '#007bff',
-                color: 'white',
-                border: 'none',
-                borderRadius: '4px',
-                cursor: 'pointer'
-              }}
-            >
-              Try again
+          <main className="error-state" role="alert">
+            <h1>
+              {document.documentElement.lang === 'pl'
+                ? 'Nie udało się wczytać strony'
+                : 'This page could not load'}
+            </h1>
+            <p>
+              {document.documentElement.lang === 'pl'
+                ? 'Sprawdź połączenie i wczytaj stronę ponownie.'
+                : 'Check your connection and reload the page to try again.'}
+            </p>
+            <button className="btn-modern btn-primary" onClick={() => window.location.reload()}>
+              {document.documentElement.lang === 'pl' ? 'Wczytaj ponownie' : 'Reload page'}
             </button>
-          </div>
+          </main>
         )
       );
     }

@@ -402,3 +402,153 @@ test.describe('portfolio journeys', () => {
     expect(iconSources.every((source) => source?.startsWith('/product-icons/'))).toBe(true);
   });
 });
+
+test.describe('responsive review regressions', () => {
+  test('shows company context at every size and downloads the CV', async ({ page }) => {
+    await openPortfolio(page);
+    await expect(page.locator('.delivery-summary')).toBeVisible();
+    await expect(page.locator('.delivery-outcomes li')).toHaveCount(3);
+    const downloadPromise = page.waitForEvent('download');
+    await page.getByRole('link', { name: 'Download CV', exact: true }).click();
+    const download = await downloadPromise;
+    expect(download.suggestedFilename()).toBe('Bartosz_Litwa_CV.pdf');
+    expect(await download.failure()).toBeNull();
+    await page.getByRole('link', { name: 'Explore the company', exact: true }).click();
+    await expect(page).toHaveURL(/#ecosystem$/);
+    await expect(page.locator('#ecosystem-heading')).toBeInViewport();
+  });
+
+  test('closes only the innermost menu with Escape and dismisses it on Tab', async ({ page }) => {
+    await openPortfolio(page);
+    const languageToggle = page.getByRole('button', { name: /select language/i });
+    const menuToggle = page.getByRole('button', { name: /navigation menu/i });
+    await revealNavbarControl(page, languageToggle);
+    await languageToggle.click();
+    await expect(page.getByRole('option', { name: /English/i })).toBeFocused();
+    await page.keyboard.press('End');
+    await expect(page.getByRole('option', { name: /Polski/i })).toBeFocused();
+    await page.keyboard.press('Escape');
+    await expect(languageToggle).toBeFocused();
+    await expect(languageToggle).toHaveAttribute('aria-expanded', 'false');
+    if (await menuToggle.isVisible()) {
+      await expect(menuToggle).toHaveAttribute('aria-expanded', 'true');
+    }
+    await languageToggle.press('Enter');
+    await page.keyboard.press('End');
+    await page.keyboard.press('Tab');
+    await expect(languageToggle).toHaveAttribute('aria-expanded', 'false');
+  });
+
+  test('keeps short landscape navigation reachable with touch-sized controls', async ({ page }) => {
+    await page.setViewportSize({ width: 667, height: 375 });
+    await openPortfolio(page);
+    const menuToggle = page.getByRole('button', { name: /navigation menu/i });
+    await menuToggle.click();
+    const languageToggle = page.getByRole('button', { name: /select language/i });
+    await languageToggle.click();
+    const polishOption = page.getByRole('option', { name: /Polski/i });
+    await polishOption.scrollIntoViewIfNeeded();
+    await expect(polishOption).toBeInViewport();
+    await page.keyboard.press('Escape');
+    const contact = page.locator('nav.navbar .cta-link');
+    await contact.scrollIntoViewIfNeeded();
+    await expect(contact).toBeInViewport();
+    const sizes = await page.locator('nav.navbar button, nav.navbar a').evaluateAll((elements) =>
+      elements
+        .filter((element) => element.getClientRects().length > 0)
+        .map((element) => ({
+          name: element.getAttribute('aria-label') || element.textContent,
+          height: element.getBoundingClientRect().height
+        }))
+    );
+    for (const size of sizes) expect(size.height, size.name ?? '').toBeGreaterThanOrEqual(44);
+  });
+
+  test('preserves preferences after reload and reflows long Polish content at 320px', async ({
+    page
+  }) => {
+    await page.setViewportSize({ width: 320, height: 740 });
+    await page.emulateMedia({ reducedMotion: 'reduce', colorScheme: 'light' });
+    await openPortfolio(page);
+    const themeToggle = page.getByRole('button', { name: /switch to dark theme/i });
+    await revealNavbarControl(page, themeToggle);
+    await themeToggle.click();
+    await page.getByRole('button', { name: /select language/i }).click();
+    await page.getByRole('option', { name: /Polski/i }).click();
+    await page.reload({ waitUntil: 'domcontentloaded' });
+    await expect(page.locator('html')).toHaveAttribute('lang', 'pl');
+    await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+    for (const id of ['ecosystem', 'experience', 'certifications', 'footer']) {
+      await page.locator(`#${id}`).scrollIntoViewIfNeeded();
+      await expect(page.locator(`#${id} ${id === 'footer' ? 'footer' : 'h2'}`)).toBeVisible();
+    }
+    await page
+      .locator('.product-card h4')
+      .first()
+      .evaluate((element) => {
+        element.textContent = 'VeryLongProductNameWithoutSpaces'.repeat(4);
+      });
+    const overflow = await page.evaluate(() =>
+      Array.from(document.querySelectorAll('main *'))
+        .filter((element) => {
+          const rect = element.getBoundingClientRect();
+          return rect.width > 0 && (rect.right > innerWidth + 1 || rect.left < -1);
+        })
+        .map((element) => element.className)
+    );
+    expect(overflow).toEqual([]);
+  });
+
+  test('announces delayed loading and recovers a failed code download by reloading', async ({
+    page
+  }) => {
+    let releaseChunk!: () => void;
+    const chunkGate = new Promise<void>((resolve) => {
+      releaseChunk = resolve;
+    });
+    await page.route('**/SimpleBanner-*.js', async (route) => {
+      await chunkGate;
+      await route.abort('failed');
+    });
+    await page.goto('/', { waitUntil: 'domcontentloaded' });
+    await expect(page.getByRole('status').first()).toContainText('Loading…');
+    releaseChunk();
+    await expect(page.getByRole('heading', { name: 'This page could not load' })).toBeVisible();
+    await expect(page.getByRole('alert')).toContainText('Check your connection');
+    await page.unroute('**/SimpleBanner-*.js');
+    await page.getByRole('button', { name: 'Reload page' }).click();
+    await expect(page.getByRole('heading', { level: 1, name: /Bartosz Litwa/i })).toBeVisible();
+  });
+});
+
+test('retains readable company and certification fallbacks when images fail', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce', colorScheme: 'dark' });
+  await page.route('**/*', async (route) => {
+    if (route.request().resourceType() === 'image') await route.abort('failed');
+    else await route.continue();
+  });
+  await openPortfolio(page);
+  await page.locator('#experience').scrollIntoViewIfNeeded();
+  const companyFallback = page.locator('.experienceCard-logo-fallback').first();
+  await expect(companyFallback).toBeVisible();
+  await expect(companyFallback).not.toHaveText('');
+  await expect(companyFallback).toHaveCSS('color', 'rgb(22, 24, 29)');
+  await page.locator('#certifications').scrollIntoViewIfNeeded();
+  await expect(page.locator('.certification-badge-fallback')).toHaveCount(4);
+  await expect(page.locator('.certification-card h3')).toHaveCount(4);
+});
+
+test('restores section destinations on a normal-motion reload', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  for (const section of ['experience', 'certifications']) {
+    await page.goto(`/#${section}`, { waitUntil: 'domcontentloaded' });
+    await page.evaluate(() => document.fonts.ready);
+    await expect(page.locator(`#${section} h2`)).toBeInViewport();
+    await page.reload({ waitUntil: 'domcontentloaded' });
+    await page.evaluate(() => document.fonts.ready);
+    await expect(page.locator(`#${section} h2`)).toBeInViewport();
+    const bounds = await page.locator(`#${section} h2`).boundingBox();
+    const navbar = await page.locator('nav.navbar').boundingBox();
+    expect(bounds!.y).toBeGreaterThanOrEqual(navbar!.height);
+  }
+});

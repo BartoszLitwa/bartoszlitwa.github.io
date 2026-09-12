@@ -1,11 +1,9 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-import { Linkedin } from 'react-bootstrap-icons';
+import { Github, Linkedin } from 'react-bootstrap-icons';
 import { useLanguage } from '../../hooks/useLanguage';
 import './Footer.css';
-import '../NavBar/NavBar.css';
 import logo from '../../assets/img/logo.webp';
-import githubLogo from '../../assets/img/github.png';
 
 const Footer = () => {
   const { t } = useLanguage();
@@ -22,11 +20,11 @@ const Footer = () => {
       <Container>
         <Row className="footer-top-row">
           <Col md={4} className="footer-brand-col">
-            <img src={logo} alt={t('footer.aria.logoAlt')} loading="lazy" />
+            <img src={logo} alt={t('footer.aria.logoAlt')} loading="lazy" width="44" height="44" />
             <p className="footer-tagline">{t('footer.tagline')}</p>
           </Col>
           <Col md={4} className="footer-ecosystem-col">
-            <h4 className="footer-section-title">{t('footer.ecosystemTitle')}</h4>
+            <h2 className="footer-section-title">{t('footer.ecosystemTitle')}</h2>
             <nav className="footer-ecosystem-links" aria-label={t('footer.aria.ecosystem')}>
               {sectionLinks.map((link) => (
                 <a key={link.name} href={link.url} className="footer-eco-link">
@@ -36,7 +34,7 @@ const Footer = () => {
             </nav>
           </Col>
           <Col md={4} className="footer-connect-col">
-            <h4 className="footer-section-title">{t('footer.connectTitle')}</h4>
+            <h2 className="footer-section-title">{t('footer.connectTitle')}</h2>
             <div className="navbar-text">
               <div className="social-icon" role="group" aria-label={t('footer.aria.social')}>
                 <a
@@ -53,13 +51,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   aria-label={t('footer.aria.github')}
                 >
-                  <img
-                    height={24}
-                    width={24}
-                    src={githubLogo}
-                    alt={t('footer.aria.githubAlt')}
-                    loading="lazy"
-                  />
+                  <Github size={24} aria-hidden="true" />
                 </a>
               </div>
               <a
