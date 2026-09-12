@@ -4,7 +4,7 @@
 }
 
 .certifications .container {
-  max-width: 1040px;
+  max-width: 1180px;
 }
 
 .certifications-header {
@@ -44,7 +44,7 @@
   padding: 0.9rem;
   background: var(--bg-primary);
   border: 1px solid var(--border-color);
-  border-radius: 11px;
+  border-radius: 6px;
   text-align: left;
 }
 
@@ -73,7 +73,7 @@
 
 .certification-code {
   color: var(--accent-secondary);
-  font-size: 0.72rem;
+  font-size: 0.8125rem;
   font-weight: 700;
 }
 
@@ -87,7 +87,7 @@
 .certification-card p {
   margin: 0;
   color: var(--text-muted);
-  font-size: 0.76rem;
+  font-size: 0.875rem;
   font-variant-numeric: tabular-nums;
 }
 

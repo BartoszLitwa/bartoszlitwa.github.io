@@ -23,18 +23,14 @@ const NavBarControls: React.FC = () => {
   const handleLanguageSelect = (newLanguage: Language) => {
     setLanguage(newLanguage);
     setIsLanguageDropdownOpen(false);
-    window.requestAnimationFrame(() => languageToggleRef.current?.focus());
+    languageToggleRef.current?.focus();
   };
 
-  const toggleLanguageDropdown = () => {
-    setIsLanguageDropdownOpen((isOpen) => {
-      const nextOpen = !isOpen;
-      if (nextOpen) {
-        window.requestAnimationFrame(() => optionRefs.current[language]?.focus());
-      }
-      return nextOpen;
-    });
-  };
+  const toggleLanguageDropdown = () => setIsLanguageDropdownOpen((isOpen) => !isOpen);
+
+  useEffect(() => {
+    if (isLanguageDropdownOpen) optionRefs.current[language]?.focus();
+  }, [isLanguageDropdownOpen, language]);
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -48,38 +44,27 @@ const NavBarControls: React.FC = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  // Close dropdown on escape key and handle arrow navigation
-  useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        setIsLanguageDropdownOpen(false);
-        window.requestAnimationFrame(() => languageToggleRef.current?.focus());
-      }
-      // Add arrow key navigation for accessibility
-      if (isLanguageDropdownOpen && (event.key === 'ArrowDown' || event.key === 'ArrowUp')) {
-        event.preventDefault();
-        const options = languages
-          .map(({ code }) => optionRefs.current[code])
-          .filter((option): option is HTMLButtonElement => Boolean(option));
-        const currentFocus = document.activeElement;
-        const currentIndex = options.indexOf(currentFocus as HTMLButtonElement);
-
-        let nextIndex = 0;
-        if (event.key === 'ArrowDown') {
-          nextIndex = currentIndex < options.length - 1 ? currentIndex + 1 : 0;
-        } else {
-          nextIndex = currentIndex > 0 ? currentIndex - 1 : options.length - 1;
-        }
-
-        options[nextIndex]?.focus();
-      }
-    };
-
-    if (isLanguageDropdownOpen) {
-      document.addEventListener('keydown', handleKeyDown);
-      return () => document.removeEventListener('keydown', handleKeyDown);
+  const handleDropdownKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    if (!isLanguageDropdownOpen) return;
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      event.stopPropagation();
+      setIsLanguageDropdownOpen(false);
+      languageToggleRef.current?.focus();
+      return;
     }
-  }, [isLanguageDropdownOpen]);
+    if (!['ArrowDown', 'ArrowUp', 'Home', 'End'].includes(event.key)) return;
+    event.preventDefault();
+    const options = languages.map(({ code }) => optionRefs.current[code]);
+    const currentIndex = options.indexOf(document.activeElement as HTMLButtonElement);
+    const nextIndex =
+      event.key === 'Home'
+        ? 0
+        : event.key === 'End'
+          ? options.length - 1
+          : (currentIndex + (event.key === 'ArrowDown' ? 1 : -1) + options.length) % options.length;
+    options[nextIndex]?.focus();
+  };
 
   return (
     <div className="navbar-controls">
@@ -98,13 +83,19 @@ const NavBarControls: React.FC = () => {
             : t('navigation.controls.themeLight')
         }
       >
-        <span className="control-icon">
+        <span className="control-icon" aria-hidden="true">
           {theme === 'light' ? <MoonStarsFill size={14} /> : <SunFill size={14} />}
         </span>
       </button>
 
       {/* Language Dropdown */}
-      <div className="language-dropdown" ref={dropdownRef}>
+      <div
+        className="language-dropdown"
+        ref={dropdownRef}
+        onBlur={(event) => {
+          if (!event.currentTarget.contains(event.relatedTarget)) setIsLanguageDropdownOpen(false);
+        }}
+      >
         <button
           ref={languageToggleRef}
           className="control-btn language-toggle-btn"
@@ -112,7 +103,7 @@ const NavBarControls: React.FC = () => {
           aria-label={`${t('navigation.controls.selectLanguage')} ${currentLanguage.label}`}
           aria-expanded={isLanguageDropdownOpen}
           aria-haspopup="listbox"
-          aria-owns={isLanguageDropdownOpen ? 'language-dropdown-menu' : undefined}
+          aria-controls={isLanguageDropdownOpen ? 'language-dropdown-menu' : undefined}
         >
           <span className="control-icon" aria-hidden="true">
             <Translate size={14} />
@@ -127,6 +118,8 @@ const NavBarControls: React.FC = () => {
           <div
             className="language-dropdown-menu"
             role="listbox"
+            tabIndex={-1}
+            onKeyDown={handleDropdownKeyDown}
             aria-label={t('navigation.controls.languageOptions')}
             id="language-dropdown-menu"
           >
@@ -138,12 +131,6 @@ const NavBarControls: React.FC = () => {
                 }}
                 className={`language-option ${language === lang.code ? 'active' : ''}`}
                 onClick={() => handleLanguageSelect(lang.code)}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    handleLanguageSelect(lang.code);
-                  }
-                }}
                 role="option"
                 aria-selected={language === lang.code}
                 tabIndex={isLanguageDropdownOpen ? 0 : -1}

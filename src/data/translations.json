@@ -204,6 +204,9 @@
         "githubAlt": "GitHub",
         "connectCta": "Connect with Bartosz Litwa via LinkedIn"
       }
+    },
+    "common": {
+      "loading": "Loading…"
     }
   },
   "pl": {
@@ -411,6 +414,9 @@
         "githubAlt": "GitHub",
         "connectCta": "Skontaktuj się z Bartoszem Litwą przez LinkedIn"
       }
+    },
+    "common": {
+      "loading": "Wczytywanie…"
     }
   }
 }

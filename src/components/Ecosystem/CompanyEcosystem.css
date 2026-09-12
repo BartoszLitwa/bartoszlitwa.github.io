@@ -25,10 +25,10 @@
   max-width: 680px;
   margin-bottom: 1rem;
   color: var(--text-primary);
-  font-size: clamp(2.35rem, 5vw, 4.7rem);
+  font-size: clamp(2rem, 4vw, 3.25rem);
   font-weight: 700;
-  letter-spacing: -0.05em;
-  line-height: 1;
+  letter-spacing: -0.035em;
+  line-height: 1.12;
   text-wrap: balance;
 }
 
@@ -48,7 +48,7 @@
   padding: clamp(1.5rem, 3vw, 2.5rem);
   background: var(--bg-primary);
   border: 1px solid var(--border-color);
-  border-radius: 18px;
+  border-radius: 8px;
   text-align: left;
 }
 
@@ -71,9 +71,9 @@
 
 .company-card h3 {
   color: var(--text-primary);
-  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 700;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.035em;
 }
 
 .company-role {
@@ -95,6 +95,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
+  min-height: 44px;
   color: var(--link-color, var(--accent-glow));
   font-weight: 700;
   text-decoration-thickness: 1px;
@@ -108,7 +109,7 @@
 
 .company-system {
   position: relative;
-  min-height: 350px;
+  min-height: 400px;
 }
 
 .system-connector {
@@ -171,7 +172,7 @@
   top: calc(100% + 0.25rem);
   left: 50%;
   width: 100px;
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   text-align: center;
   transform: translateX(-50%);
 }
@@ -207,31 +208,37 @@ a.system-product:hover {
 
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.85rem;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 1.5rem;
 }
 
 .product-card {
   display: flex;
   min-width: 0;
   flex-direction: column;
-  padding: 1.15rem;
-  background: var(--bg-primary);
-  border: 1px solid var(--border-color);
-  border-radius: 14px;
+  grid-column: span 2;
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--border-hover);
   text-align: left;
 }
 
 .product-card-featured {
-  grid-column: span 2;
-  padding: 1.35rem;
-  border-color: var(--border-hover);
+  grid-column: span 3;
+  padding: 1.5rem;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-top: 3px solid var(--accent-primary);
+  border-radius: 6px;
 }
 
 .product-card-header {
   display: flex;
   align-items: center;
   gap: 0.8rem;
+}
+
+.product-card-header > div {
+  min-width: 0;
 }
 
 .product-card-header img {
@@ -248,7 +255,7 @@ a.system-product:hover {
 
 .stage-label {
   color: var(--text-muted);
-  font-size: 0.74rem;
+  font-size: 0.8125rem;
   font-weight: 600;
 }
 
@@ -259,7 +266,7 @@ a.system-product:hover {
 .product-role {
   margin: 1rem 0 0.55rem;
   color: var(--text-primary);
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 600;
   line-height: 1.45;
 }
@@ -267,7 +274,7 @@ a.system-product:hover {
 .product-description {
   margin: 0;
   color: var(--text-secondary);
-  font-size: 0.86rem;
+  font-size: 0.9375rem;
   line-height: 1.55;
 }
 
@@ -286,7 +293,7 @@ a.system-product:hover {
   margin: 0;
   padding: 0;
   color: var(--text-muted);
-  font-size: 0.72rem;
+  font-size: 0.8125rem;
   list-style: none;
 }
 
@@ -299,7 +306,7 @@ a.system-product:hover {
 .development-note {
   width: fit-content;
   color: var(--link-color, var(--accent-glow));
-  font-size: 0.78rem;
+  font-size: 0.875rem;
 }
 
 .development-note {
@@ -322,6 +329,11 @@ a.system-product:hover {
   .product-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .product-card,
+  .product-card-featured {
+    grid-column: auto;
+  }
 }
 
 @media (max-width: 767px) {
@@ -331,7 +343,7 @@ a.system-product:hover {
 
   .company-card {
     padding: 1.2rem;
-    border-radius: 14px;
+    border-radius: 8px;
   }
 
   .company-system {
@@ -392,10 +404,8 @@ a.system-product:hover {
     position: static;
     width: auto;
     min-width: 0;
-    overflow: hidden;
-    font-size: 0.72rem;
+    font-size: 0.8125rem;
     text-align: left;
-    text-overflow: ellipsis;
     transform: none;
   }
 
@@ -408,6 +418,7 @@ a.system-product:hover {
     grid-template-columns: 1fr;
   }
 
+  .product-card,
   .product-card-featured {
     grid-column: auto;
   }

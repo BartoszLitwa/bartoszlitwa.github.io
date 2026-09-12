@@ -1,0 +1,32 @@
+[
+  {
+    "file": "after-desktop-light.png",
+    "mediaType": "image/png",
+    "bytes": 102601,
+    "sha256": "4ffd2027d11f7a6b8eacf8735f0e2f236b6b6f8204737ba399439ecbe5801684"
+  },
+  {
+    "file": "after-mobile.png",
+    "mediaType": "image/png",
+    "bytes": 61755,
+    "sha256": "5eaee317c6965af6fa3d59a1711fb38267657797882c60943b54752cc127e5ce"
+  },
+  {
+    "file": "mobile-language-focus.png",
+    "mediaType": "image/png",
+    "bytes": 37450,
+    "sha256": "750bbe38c1dd79300dda22ed1849b8411de5450e111bb7a8335a8496ae1d5d70"
+  },
+  {
+    "file": "mobile-journey.webm",
+    "mediaType": "video/webm",
+    "bytes": 698989,
+    "sha256": "f966ff7cd27dba643526ed68e7bbad0878ee5d7e3e79bcedaacffde1139dd460"
+  },
+  {
+    "file": "error-recovery.webm",
+    "mediaType": "video/webm",
+    "bytes": 166776,
+    "sha256": "57a6b9ad237933d53740a51228c041f036a34a45b9bf85452f4195dc5cfa9e2b"
+  }
+]
