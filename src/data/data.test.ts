@@ -16,6 +16,18 @@ const expectedProductStages = {
   supportifynow: 'discovery'
 } as const;
 
+const expectedProductUrls = {
+  doifynow: 'https://doifynow.com',
+  rentifynow: 'https://rentifynow.com',
+  houseifynow: 'https://houseifynow.com',
+  goalifynow: 'https://goalifynow.com',
+  deployifynow: 'https://deployifynow.com',
+  postifynow: 'https://postifynow.app',
+  leadifynow: 'https://leadify.doifynow.com',
+  insightifynow: 'https://insight.doifynow.com',
+  supportifynow: 'https://support.doifynow.com'
+} as const;
+
 const scalarPaths = (value: unknown, prefix = ''): string[] => {
   if (Array.isArray(value)) {
     return value.flatMap((item, index) => scalarPaths(item, `${prefix}.${index}`));
@@ -43,26 +55,28 @@ describe('portfolio data', () => {
     expect(new Set(products.map((product) => product.name)).size).toBe(products.length);
   });
 
-  it('keeps product links optional, unique, secure, and evidence-based', () => {
+  it('keeps verified product links unique, secure, and evidence-based', () => {
     const linkedProducts = products.filter(
       (product): product is (typeof products)[number] & { url: string } => 'url' in product
     );
 
-    expect(linkedProducts.map((product) => product.id)).toEqual([
-      'doifynow',
-      'rentifynow',
-      'houseifynow',
-      'goalifynow',
-      'deployifynow',
-      'leadifynow'
-    ]);
+    expect(Object.fromEntries(linkedProducts.map((product) => [product.id, product.url]))).toEqual(
+      expectedProductUrls
+    );
     expect(new Set(linkedProducts.map((product) => product.url)).size).toBe(linkedProducts.length);
     expect(linkedProducts.every((product) => /^https:\/\//.test(product.url))).toBe(true);
-    expect(
-      products
-        .filter((product) => ['postifynow', 'insightifynow', 'supportifynow'].includes(product.id))
-        .every((product) => !('url' in product))
-    ).toBe(true);
+  });
+
+  it('describes hosted builds without implying launch or production readiness', () => {
+    expect(products.find((product) => product.id === 'postifynow')?.availability?.en).toContain(
+      'live provider publishing remains unverified'
+    );
+    expect(products.find((product) => product.id === 'insightifynow')?.availability?.en).toContain(
+      'operator-controlled'
+    );
+    expect(products.find((product) => product.id === 'supportifynow')?.availability?.en).toContain(
+      'customer-facing support channels remain unverified'
+    );
   });
 
   it('keeps product copy bilingual and presents DoifyNow as the parent company', () => {

@@ -21,15 +21,28 @@ const NavBar = () => {
   ];
 
   useEffect(() => {
-    if (!window.location.hash) return;
+    const hash = window.location.hash;
+    if (!hash) return;
 
-    const frameId = window.requestAnimationFrame(() => {
-      document
-        .getElementById(window.location.hash.slice(1))
-        ?.scrollIntoView({ behavior: 'instant' });
+    const target = document.getElementById(hash.slice(1));
+    if (!target) return;
+
+    const scrollToTarget = () => {
+      target.scrollIntoView({ behavior: 'instant' });
+    };
+
+    const frameId = window.requestAnimationFrame(scrollToTarget);
+    const mutationObserver = new MutationObserver(() => {
+      if (target.querySelector('[role="status"]')) return;
+      scrollToTarget();
+      mutationObserver.disconnect();
     });
+    mutationObserver.observe(target, { childList: true, subtree: true });
 
-    return () => window.cancelAnimationFrame(frameId);
+    return () => {
+      window.cancelAnimationFrame(frameId);
+      mutationObserver.disconnect();
+    };
   }, []);
 
   useEffect(() => {

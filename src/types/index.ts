@@ -17,6 +17,7 @@ export interface Product {
   stage: ProductStage;
   tags: LocalizedField<string[]>;
   url?: string;
+  availability?: LocalizedField<string>;
 }
 
 // Experience related types
