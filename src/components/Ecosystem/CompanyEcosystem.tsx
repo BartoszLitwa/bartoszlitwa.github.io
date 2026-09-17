@@ -132,6 +132,11 @@ const CompanyEcosystem = () => {
                   <p className="product-description">
                     {resolveLocalizedField(product.description, language)}
                   </p>
+                  {product.availability && (
+                    <p className="product-availability">
+                      {resolveLocalizedField(product.availability, language)}
+                    </p>
+                  )}
                   <div className="product-card-bottom">
                     <ul className="product-tags" aria-label={t('ecosystem.aria.productThemes')}>
                       {tags.map((tag) => (

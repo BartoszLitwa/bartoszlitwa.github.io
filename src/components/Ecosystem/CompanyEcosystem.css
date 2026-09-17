@@ -278,6 +278,15 @@ a.system-product:hover {
   line-height: 1.55;
 }
 
+.product-availability {
+  margin: 0.9rem 0 0;
+  padding-left: 0.75rem;
+  color: var(--text-muted);
+  border-left: 2px solid var(--accent-secondary);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
 .product-card-bottom {
   display: flex;
   flex-direction: column;

@@ -12,7 +12,12 @@ const PRODUCT_NAMES = [
   'SupportifyNow'
 ] as const;
 
-const UNLINKED_PRODUCT_NAMES = ['PostifyNow', 'InsightifyNow', 'SupportifyNow'] as const;
+const VERIFIED_HOSTED_PRODUCT_URLS = {
+  PostifyNow: 'https://postifynow.app',
+  LeadifyNow: 'https://leadify.doifynow.com',
+  InsightifyNow: 'https://insight.doifynow.com',
+  SupportifyNow: 'https://support.doifynow.com'
+} as const;
 
 const openPortfolio = async (page: Page) => {
   await page.goto('/', { waitUntil: 'domcontentloaded' });
@@ -92,12 +97,14 @@ test.describe('portfolio journeys', () => {
       await expect(card.locator('[data-stage]')).toContainText(/\S/);
     }
 
-    for (const productName of UNLINKED_PRODUCT_NAMES) {
+    for (const [productName, productUrl] of Object.entries(VERIFIED_HOSTED_PRODUCT_URLS)) {
       const card = cards.filter({ hasText: productName });
+      const productLink = card.locator(`a[href="${productUrl}"]`);
       await expect(
-        card.locator('a'),
-        `${productName} must not expose an unverified URL`
-      ).toHaveCount(0);
+        productLink,
+        `${productName} should expose its verified hosted origin`
+      ).toHaveCount(1);
+      await expect(card).not.toContainText('Product page coming later');
     }
 
     const deployifyCard = cards.filter({ hasText: 'DeployifyNow' });

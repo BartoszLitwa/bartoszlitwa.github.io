@@ -47,7 +47,28 @@ describe('App', () => {
       'href',
       'https://deployifynow.com'
     );
-    expect(within(postifyCard as HTMLElement).queryByRole('link')).not.toBeInTheDocument();
+    expect(within(postifyCard as HTMLElement).getByRole('link')).toHaveAttribute(
+      'href',
+      'https://postifynow.app'
+    );
+
+    const hostedProducts = {
+      postifynow: 'https://postifynow.app',
+      insightifynow: 'https://insight.doifynow.com',
+      supportifynow: 'https://support.doifynow.com'
+    } as const;
+    for (const [id, url] of Object.entries(hostedProducts)) {
+      const card = document.querySelector(`[data-product-id="${id}"]`);
+      expect(card).not.toBeNull();
+      expect(within(card as HTMLElement).getByRole('link')).toHaveAttribute('href', url);
+      expect(document.querySelector(`.company-system-products a[href="${url}"]`)).not.toBeNull();
+    }
+    expect(
+      within(postifyCard as HTMLElement).getByText(
+        'Hosted active build; live provider publishing remains unverified.'
+      )
+    ).toBeInTheDocument();
+    expect(screen.queryByText('Product page coming later')).not.toBeInTheDocument();
   });
 
   it('switches language from EN to PL', async () => {

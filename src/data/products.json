@@ -110,6 +110,11 @@
     "tags": {
       "en": ["Content operations", "Approvals", "Audit trails"],
       "pl": ["Operacje treści", "Akceptacje", "Ścieżka audytu"]
+    },
+    "url": "https://postifynow.app",
+    "availability": {
+      "en": "Hosted active build; live provider publishing remains unverified.",
+      "pl": "Hostowana aktywnie rozwijana wersja; działająca publikacja przez dostawców nie została zweryfikowana."
     }
   },
   {
@@ -129,7 +134,7 @@
       "en": ["Inbound operations", "Consent and attribution", "Audited handoffs"],
       "pl": ["Obsługa zapytań", "Zgody i atrybucja", "Audytowane przekazania"]
     },
-    "url": "https://leadifynow.com"
+    "url": "https://leadify.doifynow.com"
   },
   {
     "id": "insightifynow",
@@ -147,6 +152,11 @@
     "tags": {
       "en": ["Governed metrics", "Lineage", "Decision support"],
       "pl": ["Kontrolowane metryki", "Pochodzenie danych", "Wsparcie decyzji"]
+    },
+    "url": "https://insight.doifynow.com",
+    "availability": {
+      "en": "Hosted internal-first build; access remains operator-controlled.",
+      "pl": "Hostowana wersja najpierw wewnętrzna; dostęp pozostaje kontrolowany przez operatora."
     }
   },
   {
@@ -165,6 +175,11 @@
     "tags": {
       "en": ["Customer operations", "Human control", "Auditability"],
       "pl": ["Obsługa klienta", "Kontrola człowieka", "Audytowalność"]
+    },
+    "url": "https://support.doifynow.com",
+    "availability": {
+      "en": "Hosted operator build; customer-facing support channels remain unverified.",
+      "pl": "Hostowana wersja dla operatora; kanały obsługi klienta nie zostały zweryfikowane."
     }
   }
 ]
