@@ -32,6 +32,14 @@ labels `self-hosted`, `Linux`, `X64`, `t3-code-worker`, and `fleetsetup`.
 There is no verified macOS runner, so no Apple workflow was added or made part
 of the required gate.
 
+The runner-group policy was also verified and corrected during this audit. The
+group originally had `visibility: all` but
+`allows_public_repositories: false`, which left this public repository queued
+even though the labels matched. It now has `visibility: selected`,
+`allows_public_repositories: true`, and the exact 12 current organization
+repositories in its selected access list. Future repositories must be added
+explicitly before they can use this general pool.
+
 ## Fork safety
 
 The PR gate uses `pull_request_target` deliberately so the workflow definition
@@ -58,3 +66,16 @@ Docker. The container build is now post-merge/manual, preserving that coverage
 without repeating it in every required PR run.
 
 Evidence: [baseline successful run](https://github.com/doifynow/bartoszlitwa.github.io/actions/runs/35277988135), [baseline failed run](https://github.com/doifynow/bartoszlitwa.github.io/actions/runs/35317875357).
+
+## Verification status
+
+Local verification is complete, but a post-change GitHub timing sample is not
+yet available. The first representative run
+([validation run](https://github.com/doifynow/bartoszlitwa.github.io/actions/runs/35353073564))
+and the [general-label probe](https://github.com/doifynow/bartoszlitwa.github.io/actions/runs/35353073707)
+were never assigned a runner while the organization pool moved from busy to
+partly offline. The recorded job labels are exactly `self-hosted`, `Linux`, and
+`X64`; no hosted fallback was used. Do not treat a queued or cancelled run as
+evidence of a successful runner assignment or an after-metric. The remaining
+follow-up is to restore at least one online, idle runner and rerun the trusted
+gate.
