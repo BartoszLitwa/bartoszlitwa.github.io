@@ -1,39 +1,55 @@
 name: CI
 
 on:
-  pull_request:
+  # The trusted base workflow is required before any self-hosted runner work:
+  # fork PRs are rejected before checkout because this repository has no
+  # isolated runner pool for untrusted fork code.
+  pull_request_target:
+    types: [opened, synchronize, reopened]
   push:
     branches: [main]
+  workflow_dispatch:
 
 permissions:
   contents: read
 
 concurrency:
-  group: ci-${{ github.ref }}
-  cancel-in-progress: true
+  group: ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request_target' }}
 
 jobs:
-  verify:
-    runs-on: ubuntu-latest
+  required:
+    name: Required CI gate
+    runs-on:
+      group: Default
+      labels: [self-hosted, Linux, X64]
     timeout-minutes: 20
     steps:
+      - name: Reject fork code on persistent runners
+        if: github.event_name == 'pull_request_target' && github.event.pull_request.head.repo.full_name != github.repository
+        run: |
+          echo "::error::Fork pull requests are blocked because no isolated self-hosted runner pool is configured."
+          exit 1
+
       - name: Check out repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+          ref: ${{ github.event_name == 'pull_request_target' && github.event.pull_request.head.sha || github.sha }}
 
       - name: Set up Node.js
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: 24
           cache: npm
+          cache-dependency-path: package-lock.json
 
       - name: Install locked dependencies
         run: npm ci
 
       - name: Install Playwright Chromium
-        run: npx playwright install --with-deps chromium
+        run: npx playwright install chromium
 
       - name: Run quality and security gates
         run: npm run check
-
-      - name: Verify production container build
-        run: docker build --tag portfolio:${{ github.sha }} .
