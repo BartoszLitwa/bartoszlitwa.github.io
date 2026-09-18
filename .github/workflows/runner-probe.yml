@@ -1,0 +1,15 @@
+name: Runner probe
+
+on:
+  push:
+    branches: [codex/gha-runner-validation]
+
+permissions: {}
+
+jobs:
+  probe:
+    runs-on: [self-hosted, Linux, X64]
+    timeout-minutes: 5
+    steps:
+      - name: Confirm general pool routing
+        run: echo "General self-hosted runner probe"
