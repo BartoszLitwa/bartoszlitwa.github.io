@@ -1,0 +1,14 @@
+name: Minimal runner probe
+
+on:
+  push:
+    branches: [codex/gha-runner-validation]
+
+permissions: {}
+
+jobs:
+  probe:
+    runs-on: self-hosted
+    timeout-minutes: 5
+    steps:
+      - run: echo "Minimal self-hosted runner probe"
